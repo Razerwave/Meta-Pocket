@@ -22,7 +22,7 @@ const NewWalletWordScreen = ({ route, navigation }) => {
         {wordsArray.map((word, index) => (
           <TouchableHighlight key={index} onPress={() => handleClick(word)}>
             <View>
-              <Text>{word} : {chosenWords.findIndex(v => v === word)+1}</Text>
+              <Text>{word} : {chosenWords.indexOf(word)+1}</Text>
             </View>
           </TouchableHighlight>
         ))}

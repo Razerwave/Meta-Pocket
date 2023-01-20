@@ -8,9 +8,7 @@ const NewWalletWordScreen = ({ route, navigation }) => {
   const [chosenWords, setChosenWords] = useState([])
 
   const handleClick = (word) => {
-    chosenWords.includes(word) 
-    ? setChosenWords(arr => arr.filter(v => v !== word))
-    : setChosenWords(arr => ([...arr, word]))
+    setChosenWords(arr => arr.includes(word) ? arr.filter(v => v !== word) : [...arr, word])
   }
   
   const passed = chosenWords.join(' ') === words

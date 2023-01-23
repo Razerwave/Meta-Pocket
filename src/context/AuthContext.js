@@ -1,4 +1,4 @@
-import React, {createContext, useState, useContext} from 'react'
+import React, {createContext, useState, useContext, useEffect} from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export const AuthContext = createContext({
@@ -15,8 +15,17 @@ export const AuthProvier = ({children}) => {
         AsyncStorage.getItem('password').then(value => setPassword(value))
     )
 
+    useEffect(() => {
+        if (!password) AsyncStorage.getItem('password').then(value => setPassword(value))
+    }, [])
+
+    const onLogin = (v) => {
+        setPassword(v)
+        AsyncStorage.setItem('password', v)
+    }
+
     return (
-        <AuthContext.Provider value={{password,setPassword}}>
+        <AuthContext.Provider value={{ password, onLogin, onLogout }}>
             {children}
         </AuthContext.Provider>
     );

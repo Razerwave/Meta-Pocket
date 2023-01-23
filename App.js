@@ -12,7 +12,7 @@ const App = () => {
   return (
     <AuthProvier>
       <NavigationContainer>
-        {isLoggedIn ? <HomeScreen /> : <Main />}
+        {isLoggedIn ? <HomeScreen /> : <AuthNavigation />}
       </NavigationContainer>
     </AuthProvier>
   );

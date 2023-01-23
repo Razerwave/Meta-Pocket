@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import {View, Text, Button, Alert, StyleSheet} from 'react-native'
+import React from 'react'
+import {View, Text} from 'react-native'
 
 const DappScreen = () => {
   return (

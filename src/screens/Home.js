@@ -1,9 +1,7 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen, LoginScreen} from "./index";
+import {DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen} from "./index";
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -44,7 +42,6 @@ const Home = () => {
             return <IonIcon name={iconName} size={size} colour={colour} />
           }
         })}
-    
       >
             <Tab.Screen name='Wallet' component={WalletScreen} />
             <Tab.Screen name='Explore' component={ExploreScreen} />

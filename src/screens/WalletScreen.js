@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import {View, Text, Button, Alert, StyleSheet} from 'react-native'
+import React from 'react'
+import {View, Text} from 'react-native'
+import { Button } from '../components/index'
 
 const WalletScreen = () => {
   return (
     <View>
       <Text>WalletScreen</Text>
-      <Button title='bnttn' onPress={() => console.log("daraglaa")}/>
     </View>
   )
 }
 
-export default WalletScreen
+export default WalletScreen;

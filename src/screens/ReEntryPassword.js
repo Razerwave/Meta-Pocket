@@ -6,6 +6,8 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 
 const ReEntryPassword = () => {
     const route = useRoute();
+    const navigation = useNavigation();
+
     const [repassword, setRePassword] = useState('');
     const password = route.params.password
 
@@ -18,7 +20,8 @@ const ReEntryPassword = () => {
         if(repassword.length ===6){
             if(repassword === password) {
                 AsyncStorage.setItem('password', password);
-                Alert.alert('DATA SAVED');
+                navigation.navigate(ROUTES.HOME);
+                console.log('DATA SAVED');
             }
             else {
                 Alert.alert('Password does not match')

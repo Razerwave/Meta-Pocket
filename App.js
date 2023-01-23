@@ -4,7 +4,7 @@ import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/
 import { HomeScreen } from "./src/screens/index";
 import { AuthNavigation } from './src/navigations';
 import { LoginScreen , Main} from './src/screens/index';
-import { AuthProvier } from './src/context/AuthContext';
+import { AuthProvier, useAuth } from './src/context/AuthContext';
 // import styled from 'styled-components/native'
 
 const App = () => {

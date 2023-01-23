@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet } from 'react-native'
+import React from 'react';
+import { StyleSheet, AppState, Text, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen} from "./index";
 import IonIcon from 'react-native-vector-icons/Ionicons';
@@ -8,9 +8,9 @@ const Tab = createBottomTabNavigator();
 
 const Home = () => {
 
+  
   return (
-
-      <Tab.Navigator
+        <Tab.Navigator
       tabBarOptions={{
         showLabel: false,
         style: {

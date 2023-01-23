@@ -1,13 +1,18 @@
-import React from 'react'
-import {View, Text, Button} from 'react-native'
+import React from 'react';
+import {View, Text, AppState,  Button} from 'react-native'
 import styled from 'styled-components/native'
 import { ROUTES } from '../constants/index'
+import { useAuth } from '../context/AuthContext';
 
 const Login = ({ navigation }) => {
-  
+  const {user, setUser} = useAuth();
+  const name = user?.name
+
   return (
     <Wrapper>
-      <Button onPress={() => navigation.navigate(ROUTES.CREATE_PASSWORD)} title="Create Passcode" ></Button>
+      <Text>{name}</Text>
+      <Button onPress={() => navigation.navigate(ROUTES.CREATE_PASSWORD)} title="Create Passcode" />
+      <Button onPress={() => setUser({name: 'Hi jhon'})} title="Create" ></Button>
     </Wrapper>
   )
 }

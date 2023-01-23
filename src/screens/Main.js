@@ -1,6 +1,6 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {CreatePassword, LoginScreen, Terms, ReEntryPassword } from "./index";
+import {CreatePassword, LoginScreen, Terms, ReEntryPassword, HomeScreen } from "./index";
 import { ROUTES } from '../constants';
 
 const Tab = createNativeStackNavigator();
@@ -12,6 +12,7 @@ const Main = () => {
             <Tab.Screen name={ROUTES.CREATE_PASSWORD} component={CreatePassword} />
             <Tab.Screen name={ROUTES.TERMS_SCREEN} component={Terms} />
             <Tab.Screen name={ROUTES.RENTRYPASSWORD} component={ReEntryPassword} />
+            <Tab.Screen name={ROUTES.HOME} component={HomeScreen} />
     </Tab.Navigator>
   )
 }

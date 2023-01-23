@@ -16,14 +16,14 @@ const AuthNavigation = () => {
         <Stack.Navigator screenOptions={{
             headerTitle: (props) => {
                 const currentStep = stepsName[props.children] || 0
-                console.log(currentStep)
+                console.log(props.children, currentStep)
                 return (
                     <View style={styles.stepContainer}>
-                        <View style={[styles.step, { backgroundColor: 1 <= 1 ? 'lightgray' : 'gray' }]} />
-                        <View style={[styles.step, { backgroundColor: currentStep <= 2 ? 'lightgray' : 'gray' }]} />
-                        <View style={[styles.step, { backgroundColor: currentStep <= 3 ? 'lightgray' : 'gray' }]} />
-                        <View style={[styles.step, { backgroundColor: currentStep <= 4 ? 'lightgray' : 'gray' }]} />
-                        <View style={[styles.step, { backgroundColor: currentStep <= 5 ? 'lightgray' : 'gray' }]} />
+                        <View style={[styles.step, { backgroundColor: 1 <= currentStep ? 'gray' : 'lightgray' }]} />
+                        <View style={[styles.step, { backgroundColor: 2 <= currentStep ? 'gray' : 'lightgray' }]} />
+                        <View style={[styles.step, { backgroundColor: 3 <= currentStep ? 'gray' : 'lightgray' }]} />
+                        <View style={[styles.step, { backgroundColor: 4 <= currentStep ? 'gray' : 'lightgray' }]} />
+                        <View style={[styles.step, { backgroundColor: 5 <= currentStep ? 'gray' : 'lightgray' }]} />
                     </View>
                 )
             },

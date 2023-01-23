@@ -8,7 +8,7 @@ const stepsName = {
     [ROUTES.NEW_WALLET]: 1,
     [ROUTES.NEW_WALLET_WORDS]: 2,
     [ROUTES.RECOVER_WALLET]: 2,
-    // [ROUTES.LOGIN_SCREEN]: 3,
+    [ROUTES.LOGIN_SCREEN]: 3,
     [ROUTES.TERMS_SCREEN]: 3,
     [ROUTES.CREATE_PASSWORD]: 4,
     [ROUTES.RENTRYPASSWORD]: 5,
@@ -38,7 +38,7 @@ const AuthNavigation = () => {
             <Stack.Screen name={ROUTES.NEW_WALLET} component={NewWalletScreen} />
             <Stack.Screen name={ROUTES.NEW_WALLET_WORDS} component={NewWalletWordScreen} />
             <Stack.Screen name={ROUTES.RECOVER_WALLET} component={RecoverWalletScreen} />
-            {/* <Stack.Screen name={ROUTES.LOGIN_SCREEN} component={LoginScreen} /> */}
+            <Stack.Screen name={ROUTES.LOGIN_SCREEN} component={LoginScreen} />
             <Stack.Screen name={ROUTES.TERMS_SCREEN} component={Terms} />
             <Stack.Screen name={ROUTES.CREATE_PASSWORD} component={CreatePassword} />
             <Stack.Screen name={ROUTES.RENTRYPASSWORD} component={ReEntryPassword} />

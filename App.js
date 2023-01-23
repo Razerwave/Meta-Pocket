@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {useColorScheme } from 'react-native';
+import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { HomeScreen } from "./src/screens/index";
 import { AuthNavigation } from './src/navigations';
 import { LoginScreen , Main} from './src/screens/index';
@@ -8,10 +9,11 @@ import { AuthProvier } from './src/context/AuthContext';
 
 const App = () => {
   const isLoggedIn = false;
+  const scheme = useColorScheme();
 
   return (
     <AuthProvier>
-      <NavigationContainer>
+      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
         {isLoggedIn ? <HomeScreen /> : <AuthNavigation />}
       </NavigationContainer>
     </AuthProvier>

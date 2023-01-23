@@ -15,7 +15,7 @@ const NewWalletWordScreen = ({ route, navigation }) => {
   const passed = chosenWords.join(' ') === words
   return (
     <Screen bottom={
-      <Button title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.TERMS_SCREEN)} />
+      <Button title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.LOGIN_SCREEN)} />
     }>
       <Text>Have you backed up?</Text>
       <Text>Please click the first(1st) word first, then the last word(12th)</Text>

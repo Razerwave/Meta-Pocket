@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet } from 'react-native'
-import { ButtonPrimary, Screen } from '../../components'
+import { ButtonPrimary, Screen, StyledText } from '../../components'
 import { ROUTES } from '../../constants'
 import { useThemeChange } from '../../context/ThemeChangeContext'
 
@@ -14,7 +14,6 @@ const WelcomeScreen = ({ navigation }) => {
       <ButtonPrimary key="2" title='I already have a wallet' onPress={() => navigation.navigate(ROUTES.RECOVER_WALLET)} />,
       <ButtonPrimary key="3" title={`Theme Toggle: ${theme}`} onPress={() => toggleTheme()} />
     ]}>
-      <Text>WelcomeScreen</Text>
     </Screen>
   )
 }

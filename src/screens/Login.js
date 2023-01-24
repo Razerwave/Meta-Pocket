@@ -6,14 +6,11 @@ import { useAuth } from '../context/AuthContext';
 
 const Login = ({ navigation }) => {
   const {password, setPassword} = useAuth();
-  const {pwd, setPwd} = useState("");
-  console.log(pwd, " ppppppsppsp");
   console.log(password, " -------------");
 
   return (
     <Wrapper>
       <Text>{password}</Text>
-      <Text>{pwd}</Text>
       <Button onPress={() => navigation.navigate(ROUTES.CREATE_PASSWORD)} title="Create Passcode" />
       <Button title="Create" ></Button>
 

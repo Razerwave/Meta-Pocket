@@ -9,5 +9,6 @@ import WalletScreen from './WalletScreen'
 import CreatePassword from './CreatePassword'
 import Terms from './Terms'
 import ReEntryPassword from './ReEntryPassword'
+import PasswordLoginScreen from './PasswordLoginScreen'
 
-export {LoginScreen, ButtomTabs, HomeScreen, DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen, CreatePassword, Terms, ReEntryPassword}
+export {LoginScreen, ButtomTabs, HomeScreen, DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen, CreatePassword, Terms, ReEntryPassword, PasswordLoginScreen}

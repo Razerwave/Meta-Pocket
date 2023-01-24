@@ -1,5 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
 import { AppState, Text, View } from 'react-native'
+import useAuth from '../context/AuthContext';
 
 const WalletScreen = () => {
 

@@ -3,7 +3,7 @@ import { ROUTES } from '../constants';
 import { NewWalletScreen, NewWalletWordScreen, RecoverWalletScreen, WelcomeScreen } from '../screens/auth';
 
 import { View, Text, Button, Alert, StyleSheet } from 'react-native'
-import { CreatePassword, LoginScreen, ReEntryPassword, Terms, HomeScreen } from '../screens';
+import { CreatePassword, LoginScreen, ReEntryPassword, Terms, HomeScreen, PasswordLoginScreen } from '../screens';
 
 const stepsName = {
     [ROUTES.NEW_WALLET]: 1,
@@ -44,6 +44,7 @@ const AuthNavigation = () => {
             <Stack.Screen name={ROUTES.CREATE_PASSWORD} component={CreatePassword} />
             <Stack.Screen name={ROUTES.RENTRYPASSWORD} component={ReEntryPassword} />
             <Stack.Screen name={ROUTES.HOME} component={HomeScreen} />
+            <Stack.Screen name={ROUTES.PASSWORDLOGIN} component={PasswordLoginScreen} />
         </Stack.Navigator>
     )
 }

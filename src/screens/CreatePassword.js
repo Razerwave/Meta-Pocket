@@ -6,7 +6,6 @@ import { useAuth } from '../context/AuthContext';
 
 const CreatePassword = () => {
   const [password, setPassword] = useState('');
-  const {user, setUser} = useAuth();
 
   const navigation = useNavigation();
   const regex = /^[0-9\b]+$/;
@@ -23,7 +22,6 @@ const CreatePassword = () => {
     
   return (
     <View>
-      <Text>{user?.name}</Text>
         <TextInput placeholder='Enter password'
           value={password}
           secureTextEntry={true}

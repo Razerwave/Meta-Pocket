@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 import { ThemeProvider } from 'styled-components';
 import { DarkTheme, DefaultTheme } from '../constants';
+import useAsyncStorage from '../utils/storage';
 
 export const ThemeChangeContext = createContext({
     theme: "light",
@@ -12,7 +13,7 @@ export const useThemeChange = () => {
 }
 
 export const ThemeChangeProvier = ({ children }) => {
-    const [theme, setTheme] = useState("light")
+    const [theme, setTheme] = useAsyncStorage("theme", "light")
     const toggleTheme = () => {
         setTheme(v => v === 'dark' ? 'light' : 'dark')
     }

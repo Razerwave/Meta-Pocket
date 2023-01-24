@@ -1,26 +1,38 @@
+import styled from 'styled-components/native';
 import { View, Text, Button, Alert, StyleSheet } from 'react-native'
 
 const Screen = ({ children, bottom }) => {
     return (
-        <View style={styles.container}>
+        <StyledViewContainer>
             {children}
-            <View style={styles.bottom}>
+            <StyledViewBottom>
                 {bottom}
-            </View>
-        </View>
+            </StyledViewBottom>
+        </StyledViewContainer>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        // alignItems: 'center'
-    },
-    bottom: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        paddingBottom: 36
-    },
-})
+const StyledViewContainer = styled.View`
+    flex: 1;
+`
+
+
+const StyledViewBottom = styled.View`
+    flex: 1;
+    justify-content: flex-end;
+    background-color: ${props => props.theme.backgroundColor};
+`
+
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         // alignItems: 'center'
+//     },
+//     bottom: {
+//         flex: 1,
+//         justifyContent: 'flex-end',
+//         paddingBottom: 36
+//     },
+// })
 
 export default Screen

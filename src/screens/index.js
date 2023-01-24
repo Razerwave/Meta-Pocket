@@ -7,8 +7,7 @@ import InvestScreen from './InvestScreen'
 import SettingScreen from './SettingScreen'
 import WalletScreen from './WalletScreen'
 import CreatePassword from './CreatePassword'
-import Main from './Main'
 import Terms from './Terms'
 import ReEntryPassword from './ReEntryPassword'
 
-export {LoginScreen, ButtomTabs, HomeScreen, DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen, CreatePassword, Main, Terms, ReEntryPassword}
+export {LoginScreen, ButtomTabs, HomeScreen, DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen, CreatePassword, Terms, ReEntryPassword}

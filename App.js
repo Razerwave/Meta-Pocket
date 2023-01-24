@@ -1,21 +1,13 @@
 import React from 'react';
-import {useColorScheme } from 'react-native';
-import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
-import { HomeScreen } from "./src/screens/index";
-import { AuthNavigation } from './src/navigations';
-import { LoginScreen , Main} from './src/screens/index';
-import { AuthProvier, useAuth } from './src/context/AuthContext';
+import { AuthProvier } from './src/context/AuthContext';
+import { Main } from './src/navigations';
 // import styled from 'styled-components/native'
 
 const App = () => {
-  const isLoggedIn = false;
-  const scheme = useColorScheme();
 
   return (
     <AuthProvier>
-      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
-        {isLoggedIn ? <HomeScreen /> : <AuthNavigation />}
-      </NavigationContainer>
+     <Main/>
     </AuthProvier>
   );
 }

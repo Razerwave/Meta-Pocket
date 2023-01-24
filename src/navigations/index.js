@@ -1,3 +1,4 @@
 import AuthNavigation from "./AuthNavigation";
+import Main from "./Main"
 
-export { AuthNavigation }
+export { AuthNavigation, Main }

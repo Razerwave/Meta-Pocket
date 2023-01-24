@@ -1,14 +1,14 @@
 import React from 'react';
 import { AuthProvier } from './src/context/AuthContext';
+import ContextProvider from './src/context/ContextProvider';
 import { Main } from './src/navigations';
 // import styled from 'styled-components/native'
 
 const App = () => {
-
   return (
-    <AuthProvier>
-     <Main/>
-    </AuthProvier>
+    <ContextProvider>
+      <Main />
+    </ContextProvider>
   );
 }
 // const Wrapper = styled.View`

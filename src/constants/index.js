@@ -1,3 +1,4 @@
 import ROUTES from "./routes";
+import { DarkTheme, DefaultTheme } from "./themes";
 
-export { ROUTES }
+export { ROUTES, DarkTheme, DefaultTheme }

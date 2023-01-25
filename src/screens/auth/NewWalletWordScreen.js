@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
-import { Screen } from '../../components'
+import { CardBox, Screen } from '../../components'
 import { ROUTES } from '../../constants'
 
 const NewWalletWordScreen = ({ route, navigation }) => {
@@ -19,8 +19,9 @@ const NewWalletWordScreen = ({ route, navigation }) => {
     }>
       <Text>Have you backed up?</Text>
       <Text>Please click the first(1st) word first, then the last word(12th)</Text>
-      <Text>{words}</Text>
-      <Text>{chosenWords.join(' ')}</Text>
+      <CardBox>
+        <Text>{chosenWords.join(' ')}</Text>
+      </CardBox>
       <View style={styles.containerWords}>
         {wordsArray.map((word, index) => {
           const position = chosenWords.indexOf(word) + 1

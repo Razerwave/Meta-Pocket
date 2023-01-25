@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
-import {View, Text, AppState,TextInput , Alert, Button} from 'react-native'
+import React from 'react';
+import {Text, Button} from 'react-native'
 import styled from 'styled-components/native'
 import { ROUTES } from '../constants/index'
 import { useAuth } from '../context/AuthContext';
 
 const Login = ({ navigation }) => {
-  const {password, setPassword} = useAuth();
-  console.log(password, " -------------");
+  const {password} = useAuth();
 
   return (
     <Wrapper>
       <Text>{password}</Text>
       <Button onPress={() => navigation.navigate(ROUTES.CREATE_PASSWORD)} title="Create Passcode" />
-      <Button title="Create" ></Button>
-
-
-
-
     </Wrapper>
   )
 }

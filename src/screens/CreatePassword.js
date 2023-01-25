@@ -1,8 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react'
-import { Text, TextInput, View, TouchableOpacity, Alert, Button } from 'react-native'
+import { Text, TextInput, View, Alert } from 'react-native'
 import { ROUTES } from '../constants';
-import { useAuth } from '../context/AuthContext';
 
 const CreatePassword = () => {
   const [password, setPassword] = useState('');
@@ -31,7 +30,6 @@ const CreatePassword = () => {
           onChangeText={(data) => setPassword(data)}
           underlineColorAndroid='transparent'
         />
-    
         <Text>{password}</Text>
     </View>
   )

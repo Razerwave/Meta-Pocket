@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {useColorScheme, AppState } from 'react-native';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
-import { HomeScreen, LoginScreen, PasswordLoginScreen } from '../screens';
+import { HomeScreen, PasswordLoginScreen } from '../screens';
 import AuthNavigation from './AuthNavigation';
 import useAuth from '../context/AuthContext';
 
@@ -37,7 +37,7 @@ const Main = () => {
   }, []);
   return (
     <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
-       {isLoggedIn ? <AuthNavigation />: isLocked ? <PasswordLoginScreen/>: <HomeScreen/> }
+       {!isLoggedIn ? <AuthNavigation />: isLocked ? <PasswordLoginScreen/>: <HomeScreen/> }
   </NavigationContainer>
   )
 }

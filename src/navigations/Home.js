@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, AppState, Text, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen} from "./index";
+import {DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen} from "../screens/index";
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();

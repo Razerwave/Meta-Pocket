@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ROUTES } from '../constants';
 import { NewWalletScreen, NewWalletWordScreen, RecoverWalletScreen, WelcomeScreen } from '../screens/auth';
 
-import { View, Text, Button, Alert, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { CreatePassword, LoginScreen, ReEntryPassword, Terms, HomeScreen, PasswordLoginScreen } from '../screens';
 
 const stepsName = {

@@ -26,4 +26,3 @@ export const ThemeChangeProvier = ({ children }) => {
         </ThemeChangeContext.Provider>
     );
 }
-

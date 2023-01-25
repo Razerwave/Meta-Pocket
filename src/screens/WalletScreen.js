@@ -1,11 +1,12 @@
 import React, {useRef, useState, useEffect} from 'react';
-import { AppState, Text, View, TouchableOpacity} from 'react-native'
+import { AppState, Text, View,TouchableOpacity} from 'react-native'
 import useAuth from '../context/AuthContext';
 import { ROUTES } from '../constants/index'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 
 const WalletScreen = () => {
-  const {isLogout, setIsLogout, password, islogged,setIslogged} = useAuth();
+  const {isLogout, setIsLogout, password, isLoggedIn,setPassword} = useAuth();
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const navigation = useNavigation();
@@ -14,10 +15,11 @@ const WalletScreen = () => {
 
   function logoutHandler(e) {
     console.log("clicked");
-    setIslogged(false)
-    console.log(islogged, " islogged false");
+    AsyncStorage.removeItem('password')
+    setPassword(null)
+    console.log(isLoggedIn, " islogged false");
     console.log(password, " PASSWORD!!");
-    navigation.navigate(ROUTES.WELCOME);
+    // navigation.navigate(ROUTES.WELCOME);
 
   }
 

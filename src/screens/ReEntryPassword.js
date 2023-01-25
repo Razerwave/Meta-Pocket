@@ -8,7 +8,7 @@ import useAuth from '../context/AuthContext';
 const ReEntryPassword = () => {
     const route = useRoute();
     const navigation = useNavigation();
-    const {islogged,setIslogged} = useAuth();
+    const {isLoggedIn,setIsLoggedin, setPassword} = useAuth();
 
     const [repassword, setRePassword] = useState('');
     const password = route.params.password
@@ -19,11 +19,13 @@ const ReEntryPassword = () => {
         AsyncStorage.getItem('password').then(value => setUsel(value))
     }
       useEffect(() => {
-        if(repassword.length ===6){
+        if(repassword.length === 6){
             if(repassword === password) {
-                AsyncStorage.setItem('password', password);
-                setIslogged(true);
-                navigation.navigate(ROUTES.HOME);
+                // AsyncStorage.setItem('password', password);
+                console.log(password, "pass ok");
+                setPassword(password)
+                setIsLoggedin(true);
+                // navigation.navigate(ROUTES.HOME, { 'password': password });
                 console.log('DATA SAVED');
             }
             else {
@@ -44,7 +46,7 @@ const ReEntryPassword = () => {
         />
         <TouchableOpacity onPress={getValue}>
           <Text>
-              get show {repassword} {usel}
+              get show {password} {usel}
           </Text>
         </TouchableOpacity>
     </View>

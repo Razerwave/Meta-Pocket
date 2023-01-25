@@ -6,7 +6,7 @@ import AuthNavigation from './AuthNavigation';
 import useAuth from '../context/AuthContext';
 
 const Main = () => {
-  const {isLoggedIn, isLocked, setIsLocked }= useAuth();
+  const {isLoggedIn, isLocked, setIsLocked, password }= useAuth();
   const scheme = useColorScheme();
 
   const appState = useRef(AppState.currentState);
@@ -14,26 +14,29 @@ const Main = () => {
   console.log(appState.current)
   
   useEffect(() => {
-    const subscription = AppState.addEventListener('change', nextAppState => {
-      if (
-        appState.current.match(/inactive|background/) &&
-        nextAppState === 'active'
-      ) {
-        console.log('App has come to the foreground!');
-      }
-
-      appState.current = nextAppState;
-      setAppStateVisible(appState.current);
-      if(appState.current === 'background'){
-        setIsLocked(true);
-        console.log(isLocked, " JJJJJJJJJ");
-      }
-      console.log('AppState', appState.current);
-    });
+      console.log(isLoggedIn, " LOGGED state");
+      const subscription = AppState.addEventListener('change', nextAppState => {
+        if (
+          appState.current.match(/inactive|background/) &&
+          nextAppState === 'active'
+        ) {
+          console.log('App has come to the foreground!');
+        }
+  
+        appState.current = nextAppState;
+        setAppStateVisible(appState.current);
+        if(appState.current === 'background'){
+          setIsLocked(true);
+          console.log(isLocked, " JJJJJJJJJ");
+        }
+        console.log('AppState', appState.current);
+      });
+    
 
     return () => {
       subscription.remove();
-    };
+    }
+  
   }, []);
   return (
     <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>

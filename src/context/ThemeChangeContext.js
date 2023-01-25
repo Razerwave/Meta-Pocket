@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 import { ThemeProvider } from 'styled-components';
 import { DarkTheme, DefaultTheme } from '../constants';
-import useAsyncStorage from '../utils/storage';
+import useAsyncStorage from '../hooks/useAsyncStorage';
 
 export const ThemeChangeContext = createContext({
     theme: "light",

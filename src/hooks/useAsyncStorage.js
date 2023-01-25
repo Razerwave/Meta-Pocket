@@ -9,7 +9,12 @@ const useAsyncStorage = (key, initialValue) => {
         const getStored = async (key, initialValue) => {
             try {
                 const item = await AsyncStorage.getItem(key);
-                setValue(item ? JSON.parse(item) : initialValue);
+                if (item) {
+                    setValue(JSON.parse(item));
+                } else {
+                    setValue(initialValue);
+                    await AsyncStorage.setItem(key, JSON.stringify(initialValue));
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -18,10 +23,11 @@ const useAsyncStorage = (key, initialValue) => {
         getStored(key, initialValue);
     }, [key, initialValue]);
 
-    const setStored = async (value) => {
+    const setStored = async (_value) => {
         try {
-            setValue(value);
-            await AsyncStorage.setItem(key, JSON.stringify(value));
+            const newValue = _value instanceof Function ? value(value) : _value;
+            setValue(newValue);
+            await AsyncStorage.setItem(key, JSON.stringify(newValue));
         } catch (error) {
             console.log(error);
         }

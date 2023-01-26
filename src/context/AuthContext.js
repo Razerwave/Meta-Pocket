@@ -1,10 +1,10 @@
-import React, {createContext, useState, useContext} from 'react'
+import React, { createContext, useState, useContext } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import useAsyncStorage from '../hooks/useAsyncStorage';
 
 export const AuthContext = createContext({
     password: null,
-    setPassword: () => {},
+    setPassword: () => { },
     isLoggedIn: false,
     // isLocked: false,
     // setIsLocked: () => {},
@@ -15,28 +15,19 @@ export const AuthContext = createContext({
 export const useAuth = () => {
     return useContext(AuthContext)
 }
- export default useAuth;
+export default useAuth;
 
 console.log(AuthContext.password, " hahahah")
 
-export const AuthProvier = ({children}) => {
+export const AuthProvier = ({ children }) => {
     const [password, setPassword] = useAsyncStorage("password", null)
-        console.log("password ++++++" + password)
 
-        const [isLoggedIn , setIsLoggedin] = useState();
-        const [isLocked, setIsLocked] = useState(true);
-        const [isLogout, setIsLogout] = useState();
+    const [isLoggedIn, setIsLoggedin] = useState();
+    const [isLocked, setIsLocked] = useState(true);
+    const [isLogout, setIsLogout] = useState();
 
-        const Pass = (value) => {
-            // if(value){
-                setPassword(value)
-            // } else {
-            //     setIsLoggedin(false)
-            // }
-        }
     return (
-        <AuthContext.Provider 
-            value={{password,setPassword: Pass, isLoggedIn: !!password, setIsLoggedin,isLocked, setIsLocked, isLogout, setIsLogout}}>
+        <AuthContext.Provider value={{ password, setPassword, isLoggedIn: !!password, setIsLoggedin, isLocked, setIsLocked, isLogout, setIsLogout }}>
             {children}
         </AuthContext.Provider>
     );

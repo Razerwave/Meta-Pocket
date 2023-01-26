@@ -40,7 +40,7 @@ const MainNavigation = () => {
 
   }, []);
   return (
-    <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <NavigationContainer>
       {!isLoggedIn ? <AuthNavigation /> : isLocked ? <PasswordLoginScreen /> : <HomeNavigation />}
     </NavigationContainer>
   )

@@ -5,31 +5,24 @@ import { DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen } 
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import { useThemeChange } from '../context/ThemeChangeContext';
 import { TabBarBottom } from '../components';
+import { useTheme } from 'styled-components'
 
 const Tab = createBottomTabNavigator();
 
 const HomeNavigation = () => {
-  const { theme } = useThemeChange()
-  const backgroundColor = theme === "dark" ? "black" : '#ffffff'
+  const { backgroundColor, fontColor } = useTheme()
 
   return (
     <Tab.Navigator
       tabBar={props => <TabBarBottom {...props} />}
-      // tabBarOptions={{
-      //   showLabel: false,
-      //   style: {
-      //     position: 'absolute',
-      //     bottom: 25,
-      //     left: 20,
-      //     right: 20,
-      //     elevation: 0,
-      //     backgroundColor: backgroundColor,
-      //     borderRadius: 15,
-      //     height: 90,
-      //   },
-      // }}
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, size, colour }) => {
+        headerStyle: {
+          backgroundColor: backgroundColor,
+        },
+        headerTitleStyle: {
+          color: fontColor
+        },
+        tabBarIcon: ({ focused, size, color }) => {
           let iconName;
           if (route.name === "Wallet") {
             iconName = focused ? "wallet-outline" : "wallet";
@@ -43,7 +36,7 @@ const HomeNavigation = () => {
             iconName = focused ? "settings-outline" : "settings";
           }
 
-          return <IonIcon name={iconName} size={size} colour={backgroundColor} />
+          return <IonIcon name={iconName} size={size} color={color} />
         }
       })}
     >

@@ -1,19 +1,19 @@
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
-import { useThemeChange } from '../context/ThemeChangeContext';
+import { useTheme } from 'styled-components'
 
 const TabBarBottom = ({ state, descriptors, navigation }) => {
-  const { theme } = useThemeChange()
-  const backgroundColor = theme === 'dark' ? 'white' : 'lightgray'
+  const { backgroundColor, fontColor } = useTheme()
+  // const backgroundColor = theme === 'dark' ? 'white' : 'lightgray'
   return (
-    <View style={{ 
+    <View style={{
       position: 'absolute',
       bottom: 0,
       left: 10,
       right: 10,
       bottom: 10,
       elevation: 0,
-      flexDirection: 'row', 
-      justifyContent: 'space-evenly', 
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
       paddingVertical: 5,
       borderRadius: 50,
       backgroundColor,
@@ -28,7 +28,7 @@ const TabBarBottom = ({ state, descriptors, navigation }) => {
               : route.name;
 
         const isFocused = state.index === index;
-        const icon = options.tabBarIcon({ focused: isFocused, size: 25 });
+        const icon = options.tabBarIcon({ focused: isFocused, size: 25, color: fontColor });
 
         const onPress = () => {
           const event = navigation.emit({
@@ -52,6 +52,7 @@ const TabBarBottom = ({ state, descriptors, navigation }) => {
 
         return (
           <TouchableOpacity
+            key={index}
             accessibilityRole="button"
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -61,7 +62,7 @@ const TabBarBottom = ({ state, descriptors, navigation }) => {
             style={{ flex: 1, alignItems: 'center' }}
           >
             {icon}
-            <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
+            <Text style={{ color: isFocused ? '#673ab7' : fontColor }}>
               {label}
             </Text>
           </TouchableOpacity>

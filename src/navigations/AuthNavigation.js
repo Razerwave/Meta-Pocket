@@ -43,8 +43,6 @@ const AuthNavigation = () => {
             <Stack.Screen name={ROUTES.TERMS_SCREEN} component={Terms} />
             <Stack.Screen name={ROUTES.CREATE_PASSWORD} component={CreatePassword} />
             <Stack.Screen name={ROUTES.RENTRYPASSWORD} component={ReEntryPassword} />
-            <Stack.Screen name={ROUTES.HOME} component={HomeScreen} />
-            <Stack.Screen name={ROUTES.PASSWORDLOGIN} component={PasswordLoginScreen} />
         </Stack.Navigator>
     )
 }

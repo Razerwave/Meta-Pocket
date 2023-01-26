@@ -4,6 +4,7 @@ import { NewWalletScreen, NewWalletWordScreen, RecoverWalletScreen, WelcomeScree
 
 import { View, StyleSheet } from 'react-native'
 import { CreatePassword, LoginScreen, ReEntryPassword, Terms, HomeScreen, PasswordLoginScreen } from '../screens';
+import { useTheme } from 'styled-components'
 
 const stepsName = {
     [ROUTES.NEW_WALLET]: 1,
@@ -18,18 +19,23 @@ const stepsName = {
 const Stack = createNativeStackNavigator();
 
 const AuthNavigation = () => {
+    const { backgroundColor, activeTintColor } = useTheme()
+    
     return (
         <Stack.Navigator
             screenOptions={{
+                headerStyle: {
+                  backgroundColor: backgroundColor,
+                },
                 headerTitle: (props) => {
                     const currentStep = stepsName[props.children] || 0
                     return (
-                        <View style={styles.stepContainer}>
-                            <View style={[styles.step, { backgroundColor: 1 <= currentStep ? 'gray' : 'lightgray' }]} />
-                            <View style={[styles.step, { backgroundColor: 2 <= currentStep ? 'gray' : 'lightgray' }]} />
-                            <View style={[styles.step, { backgroundColor: 3 <= currentStep ? 'gray' : 'lightgray' }]} />
-                            <View style={[styles.step, { backgroundColor: 4 <= currentStep ? 'gray' : 'lightgray' }]} />
-                            <View style={[styles.step, { backgroundColor: 5 <= currentStep ? 'gray' : 'lightgray' }]} />
+                        <View style={[styles.stepContainer, { backgroundColor }]}>
+                            <View style={[styles.step, { backgroundColor: 1 <= currentStep ? activeTintColor : 'lightgray' }]} />
+                            <View style={[styles.step, { backgroundColor: 2 <= currentStep ? activeTintColor : 'lightgray' }]} />
+                            <View style={[styles.step, { backgroundColor: 3 <= currentStep ? activeTintColor : 'lightgray' }]} />
+                            <View style={[styles.step, { backgroundColor: 4 <= currentStep ? activeTintColor : 'lightgray' }]} />
+                            <View style={[styles.step, { backgroundColor: 5 <= currentStep ? activeTintColor : 'lightgray' }]} />
                         </View>
                     )
                 },

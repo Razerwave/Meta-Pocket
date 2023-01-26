@@ -4,6 +4,7 @@ import useAuth from '../context/AuthContext';
 import { ROUTES } from '../constants/index'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
+import { Screen, StyledText } from '../components';
 
 const WalletScreen = () => {
   const {isLogout, setIsLogout, password, isLoggedIn,setPassword} = useAuth();
@@ -43,13 +44,13 @@ const WalletScreen = () => {
   }, []);
 
   return (
-    <View>
-      <Text>WalletScreen {password}</Text>
-      <Text>Current state is: {appStateVisible}</Text>
+    <Screen>
+      <StyledText>WalletScreen {password}</StyledText>
+      <StyledText>Current state is: {appStateVisible}</StyledText>
       <TouchableOpacity onPress={logoutHandler}>
-        <Text>Logout</Text>
+        <StyledText>Logout</StyledText>
       </TouchableOpacity>
-    </View>
+    </Screen>
   )
 }
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import {View, Text, Button, Alert, StyleSheet} from 'react-native'
+import { Screen, StyledText } from '../components'
 
 const ExploreScreen = () => {
   return (
-    <View>
-      <Text>ExploreScreen</Text>
-    </View>
+    <Screen>
+      <StyledText>ExploreScreen</StyledText>
+    </Screen>
   )
 }
 

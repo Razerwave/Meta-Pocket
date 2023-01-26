@@ -1,11 +1,12 @@
 import React from 'react'
 import {View, Text} from 'react-native'
+import { Screen, StyledText } from '../components'
 
 const DappScreen = () => {
   return (
-    <View>
-      <Text>DappScreen</Text>
-    </View>
+    <Screen>
+      <StyledText>DappScreen</StyledText>
+    </Screen>
   )
 }
 

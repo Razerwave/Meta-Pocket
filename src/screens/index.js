@@ -1,5 +1,5 @@
 import ButtomTabs from './WalletScreen'
-import HomeScreen from '../navigations/Home'
+import HomeScreen from '../navigations/HomeNavigation'
 import LoginScreen from './Login'
 import DappScreen from './DappScreen'
 import ExploreScreen from './ExploreScreen'

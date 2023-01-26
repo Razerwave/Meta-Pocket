@@ -1,13 +1,12 @@
 import React from 'react';
-import { AuthProvier } from './src/context/AuthContext';
 import ContextProvider from './src/context/ContextProvider';
-import { Main } from './src/navigations';
+import { MainNavigation } from './src/navigations';
 // import styled from 'styled-components/native'
 
 const App = () => {
   return (
     <ContextProvider>
-      <Main />
+      <MainNavigation />
     </ContextProvider>
   );
 }

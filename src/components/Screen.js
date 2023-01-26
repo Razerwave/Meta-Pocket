@@ -14,7 +14,8 @@ const Screen = ({ children, bottom }) => {
 
 const StyledViewContainer = styled.View`
     flex: 1;
-    gap: 15px
+    gap: 15px;
+    background-color: ${props => props.theme.backgroundColor};
 `
 
 

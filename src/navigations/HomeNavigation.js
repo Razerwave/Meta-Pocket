@@ -4,28 +4,30 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen } from "../screens/index";
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import { useThemeChange } from '../context/ThemeChangeContext';
+import { TabBarBottom } from '../components';
 
 const Tab = createBottomTabNavigator();
 
 const HomeNavigation = () => {
-  const {theme } = useThemeChange()
+  const { theme } = useThemeChange()
   const backgroundColor = theme === "dark" ? "black" : '#ffffff'
 
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        showLabel: false,
-        style: {
-          position: 'absolute',
-          bottom: 25,
-          left: 20,
-          right: 20,
-          elevation: 0,
-          backgroundColor: backgroundColor,
-          borderRadius: 15,
-          height: 90,
-        },
-      }}
+      tabBar={props => <TabBarBottom {...props} />}
+      // tabBarOptions={{
+      //   showLabel: false,
+      //   style: {
+      //     position: 'absolute',
+      //     bottom: 25,
+      //     left: 20,
+      //     right: 20,
+      //     elevation: 0,
+      //     backgroundColor: backgroundColor,
+      //     borderRadius: 15,
+      //     height: 90,
+      //   },
+      // }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, size, colour }) => {
           let iconName;

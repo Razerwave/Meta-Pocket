@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator();
 
 const AuthNavigation = () => {
     const { backgroundColor, activeTintColor } = useTheme()
-    
+
     return (
         <Stack.Navigator
             screenOptions={{
@@ -40,7 +40,8 @@ const AuthNavigation = () => {
                     )
                 },
             }}
-            initialRouteName={ROUTES.WELCOME}>
+            initialRouteName={ROUTES.WELCOME}
+        >
             <Stack.Screen options={{ headerShown: false }} name={ROUTES.WELCOME} component={WelcomeScreen} />
             <Stack.Screen name={ROUTES.NEW_WALLET} component={NewWalletScreen} />
             <Stack.Screen name={ROUTES.NEW_WALLET_WORDS} component={NewWalletWordScreen} />

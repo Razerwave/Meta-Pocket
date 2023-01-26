@@ -1,14 +1,14 @@
 const DefaultTheme = {
-    backgroundColor: 'white',
-    fontColor: 'black',
-    activeTintColor: 'blue',
+    backgroundColor: '#f8f9fa',
+    fontColor: '#343a40',
+    activeTintColor: '#007bff',
     inactiveTintColor: '#ccc',
 }
 
 const DarkTheme = {
-    backgroundColor: 'black',
-    fontColor: 'white',
-    activeTintColor: 'blue',
+    backgroundColor: '#343a40',
+    fontColor: '#f8f9fa',
+    activeTintColor: '#007bff',
     inactiveTintColor: '#ccc',
 }
 

@@ -5,6 +5,7 @@ import { useThemeChange } from '../context/ThemeChangeContext'
 import { useTheme } from 'styled-components'
 
 const SettingScreen = () => {
+  const { activeTintColor } = useTheme()
   const { theme, toggleTheme } = useThemeChange()
   const isEnabled = theme === "dark"
 
@@ -15,7 +16,7 @@ const SettingScreen = () => {
         <StyledText>Dark Mode</StyledText>
         <Switch
           style={{ flex: 1 }}
-          trackColor={{ false: 'lightgray', true: 'lightgray' }}
+          trackColor={{ false: 'lightgray', true: activeTintColor }}
           thumbColor={'gray'}
 
           ios_backgroundColor="#3e3e3e"

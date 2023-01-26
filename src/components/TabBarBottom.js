@@ -2,7 +2,7 @@ import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-n
 import { useTheme } from 'styled-components'
 
 const TabBarBottom = ({ state, descriptors, navigation }) => {
-  const { backgroundColor, fontColor } = useTheme()
+  const { backgroundColor, activeTintColor, fontColor } = useTheme()
   // const backgroundColor = theme === 'dark' ? 'white' : 'lightgray'
   return (
     <View style={{
@@ -28,7 +28,7 @@ const TabBarBottom = ({ state, descriptors, navigation }) => {
               : route.name;
 
         const isFocused = state.index === index;
-        const icon = options.tabBarIcon({ focused: isFocused, size: 25, color: fontColor });
+        const icon = options.tabBarIcon({ focused: isFocused, size: 25, color: isFocused ? activeTintColor : fontColor });
 
         const onPress = () => {
           const event = navigation.emit({
@@ -62,7 +62,7 @@ const TabBarBottom = ({ state, descriptors, navigation }) => {
             style={{ flex: 1, alignItems: 'center' }}
           >
             {icon}
-            <Text style={{ color: isFocused ? '#673ab7' : fontColor }}>
+            <Text style={{ color: isFocused ? activeTintColor : fontColor }}>
               {label}
             </Text>
           </TouchableOpacity>

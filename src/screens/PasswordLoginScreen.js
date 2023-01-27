@@ -16,22 +16,21 @@ const PasswordLoginScreen = () => {
   } = useAuth();
   const [pwd, setPwd] = useState('');
   const navigation = useNavigation();
-  console.log(password);
 
   useEffect(() => {
     if (pwd?.length === 6) {
       if (pwd == password) {
-        console.log(pwd);
         Alert.alert('success');
         setIsLocked(false);
         setIsLoggedin(true);
-        console.log(isLoggedIn + ' ------------');
-        console.log(password + ' +++++++++++');
         // navigation.navigate(ROUTES.HOME);
       } else {
         Alert.alert("doesn't match password");
         setPwd('');
       }
+      console.log("pwd", pwd);
+      console.log("password", password);
+      console.log("isLoggedIn", isLoggedIn);
     }
   }, [pwd]);
 

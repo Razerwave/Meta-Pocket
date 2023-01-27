@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, TextInput } from 'react-native'
-import { Screen } from '../../components'
+import { ButtonPrimary, Screen, StyledText } from '../../components'
+import StyledTextInput from '../../components/StyledTextInput'
 import { ROUTES } from '../../constants'
 
 const RecoverWalletScreen = ({ navigation }) => {
@@ -13,12 +14,13 @@ const RecoverWalletScreen = ({ navigation }) => {
 
   return (
     <Screen bottom={
-      <Button title='Continue' onPress={handleSubmit} />
+      <ButtonPrimary title='Continue' onPress={handleSubmit} />
     }>
-      <Text>Recover Your Wallet</Text>
-      <Text>Recover through the 12 words you kept safely.</Text>
-      <TextInput
+      <StyledText>Recover Your Wallet</StyledText>
+      <StyledText>Recover through the 12 words you kept safely.</StyledText>
+      <StyledTextInput
         style={{ height: 40 }}
+        placeholderTextColor="#000"
         placeholder="Paste the recovery phrase."
         onChangeText={v => setWords(v)}
         defaultValue={words}

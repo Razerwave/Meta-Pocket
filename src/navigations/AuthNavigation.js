@@ -19,7 +19,7 @@ const stepsName = {
 const Stack = createNativeStackNavigator();
 
 const AuthNavigation = () => {
-    const { backgroundColor, activeTintColor } = useTheme()
+    const { backgroundColor, activeTintColor, fontColor } = useTheme()
 
     return (
         <Stack.Navigator
@@ -31,11 +31,11 @@ const AuthNavigation = () => {
                     const currentStep = stepsName[props.children] || 0
                     return (
                         <View style={[styles.stepContainer, { backgroundColor }]}>
-                            <View style={[styles.step, { backgroundColor: 1 <= currentStep ? activeTintColor : 'lightgray' }]} />
-                            <View style={[styles.step, { backgroundColor: 2 <= currentStep ? activeTintColor : 'lightgray' }]} />
-                            <View style={[styles.step, { backgroundColor: 3 <= currentStep ? activeTintColor : 'lightgray' }]} />
-                            <View style={[styles.step, { backgroundColor: 4 <= currentStep ? activeTintColor : 'lightgray' }]} />
-                            <View style={[styles.step, { backgroundColor: 5 <= currentStep ? activeTintColor : 'lightgray' }]} />
+                            <View style={[styles.step, { backgroundColor: 1 <= currentStep ? fontColor : 'gray' }]} />
+                            <View style={[styles.step, { backgroundColor: 2 <= currentStep ? fontColor : 'gray' }]} />
+                            <View style={[styles.step, { backgroundColor: 3 <= currentStep ? fontColor : 'gray' }]} />
+                            <View style={[styles.step, { backgroundColor: 4 <= currentStep ? fontColor : 'gray' }]} />
+                            <View style={[styles.step, { backgroundColor: 5 <= currentStep ? fontColor : 'gray' }]} />
                         </View>
                     )
                 },

@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {Text, TextInput, View, Alert} from 'react-native';
 import {ROUTES} from '../constants';
 import {useAuth} from '../context/AuthContext';
-import ReactNativeBiometrics, {BiometryTypes} from 'react-native-biometrics';
+// import ReactNativeBiometrics, {BiometryTypes} from 'react-native-biometrics';
 
 const PasswordLoginScreen = () => {
   const {
@@ -14,7 +14,7 @@ const PasswordLoginScreen = () => {
     isLocked,
     setIsLocked,
   } = useAuth();
-  const [pwd, setPwd] = useState([]);
+  const [pwd, setPwd] = useState('');
   const navigation = useNavigation();
   console.log(password);
 
@@ -35,9 +35,9 @@ const PasswordLoginScreen = () => {
     }
   }, [pwd]);
 
-  const rnBiometrics = new ReactNativeBiometrics();
+  // const rnBiometrics = new ReactNativeBiometrics();
 
-  const {biometryType} = rnBiometrics.isSensorAvailable();
+  // const {biometryType} = rnBiometrics.isSensorAvailable();
 
   // rnBiometrics.isSensorAvailable()
   //   .then((resultObject) => {

@@ -1,8 +1,8 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState, useEffect} from 'react';
-import {Text, TextInput, View, Alert} from 'react-native';
-import {ROUTES} from '../constants';
-import {useAuth} from '../context/AuthContext';
+// import { useNavigation } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { Text, TextInput, View, Alert } from 'react-native';
+import { useAuth } from '../context/AuthContext';
+// import { ROUTES } from '../constants';
 // import ReactNativeBiometrics, {BiometryTypes} from 'react-native-biometrics';
 
 const PasswordLoginScreen = () => {
@@ -15,14 +15,14 @@ const PasswordLoginScreen = () => {
     setIsLocked,
   } = useAuth();
   const [pwd, setPwd] = useState('');
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   useEffect(() => {
     if (pwd?.length === 6) {
       if (pwd == password) {
         Alert.alert('success');
         setIsLocked(false);
-        setIsLoggedin(true);
+        // setIsLoggedin(true);
         // navigation.navigate(ROUTES.HOME);
       } else {
         Alert.alert("doesn't match password");

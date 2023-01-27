@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet } from 'react-native'
 import Clipboard from '@react-native-clipboard/clipboard';
-import { CardBox, Screen } from '../../components';
+import { ButtonPrimary, CardBox, Screen, StyledText } from '../../components';
 import { ROUTES } from '../../constants'
 
 const NewWalletScreen = ({ navigation }) => {
@@ -19,15 +19,15 @@ const NewWalletScreen = ({ navigation }) => {
 
   return (
     <Screen bottom={
-      <Button title='Continue' onPress={() => navigation.navigate(ROUTES.NEW_WALLET_WORDS, { words })} />
+      <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.NEW_WALLET_WORDS, { words })} />
     }>
-      <Text>Back Up Your Wallet</Text>
-      <Text>The recovery phrase is the only way to recover your cryptocurrency if you lose your phone or switch to another wallet.</Text>
-      <Text>Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.</Text>
+      <StyledText>Back Up Your Wallet</StyledText>
+      <StyledText>The recovery phrase is the only way to recover your cryptocurrency if you lose your phone or switch to another wallet.</StyledText>
+      <StyledText>Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.</StyledText>
       <CardBox>
-        <Text>{words}</Text>
+        <StyledText>{words}</StyledText>
       </CardBox>
-      <Button title={copied ? 'Copied' : 'Copy'} onPress={handleCopy} />
+      <ButtonPrimary title={copied ? 'Copied' : 'Copy'} onPress={handleCopy} />
     </Screen>
   )
 }

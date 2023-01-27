@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
-import { CardBox, Screen } from '../../components'
+import { ButtonPrimary, CardBox, Screen, StyledText } from '../../components'
 import { ROUTES } from '../../constants'
 
 const NewWalletWordScreen = ({ route, navigation }) => {
@@ -15,12 +15,12 @@ const NewWalletWordScreen = ({ route, navigation }) => {
   const passed = chosenWords.join(' ') === words
   return (
     <Screen bottom={
-      <Button title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.LOGIN_SCREEN)} />
+      <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.LOGIN_SCREEN)} />
     }>
-      <Text>Have you backed up?</Text>
-      <Text>Please click the first(1st) word first, then the last word(12th)</Text>
+      <StyledText>Have you backed up?</StyledText>
+      <StyledText>Please click the first(1st) word first, then the last word(12th)</StyledText>
       <CardBox>
-        <Text>{chosenWords.join(' ')}</Text>
+        <StyledText>{chosenWords.join(' ')}</StyledText>
       </CardBox>
       <View style={styles.containerWords}>
         {wordsArray.map((word, index) => {
@@ -32,7 +32,7 @@ const NewWalletWordScreen = ({ route, navigation }) => {
               style={[styles.wordBox, { backgroundColor: bgColor }]}
               onPress={() => handleClick(word)}
             >
-              <Text>{word} : {position}</Text>
+              <StyledText>{word} : {position}</StyledText>
             </TouchableOpacity>
           )
         })}

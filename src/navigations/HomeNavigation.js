@@ -24,15 +24,16 @@ const HomeNavigation = () => {
         },
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
-          if (route.name === "Wallet") {
+          const tabName = route.name
+          if (tabName === "Wallet") {
             iconName = focused ? "wallet-outline" : "wallet";
-          } else if (route.name === "Explore") {
+          } else if (tabName === "Explore") {
             iconName = focused ? "ios-search" : "ios-search-circle";
-          } else if (route.name === "Invest") {
-            iconName = focused ? "logo-bitcoin" : "logo-bitcoin";
-          } else if (route.name === "Dapp") {
+          } else if (tabName === "Invest") {
+            iconName = "logo-bitcoin";
+          } else if (tabName === "Dapp") {
             iconName = focused ? "apps-outline" : "apps";
-          } else if (route.name === "Setting") {
+          } else {
             iconName = focused ? "settings-outline" : "settings";
           }
 

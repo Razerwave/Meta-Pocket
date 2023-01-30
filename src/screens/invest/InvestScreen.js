@@ -14,10 +14,10 @@ const InvestScreen = ({ navigation }) => {
 
           </CardBox>
           <Stack style={{ flex: 1, marginLeft: 6 }} spacing={6}>
-            <ListItem2 />
-            <ListItem2 />
-            <ListItem2 />
-            <ListItem2 />
+            <ListItem1 />
+            <ListItem1 />
+            <ListItem1 />
+            <ListItem1 />
           </Stack>
         </Stack>
         <Stack padding={16}>
@@ -29,14 +29,14 @@ const InvestScreen = ({ navigation }) => {
             <CardBox style={{ width: 120 }}>
               <StyledText>JAN 12, 2022</StyledText>
             </CardBox>
-            <ListItem />
+            <ListItem2 />
           </Stack>
           <Stack spacing={8}>
             <CardBox style={{ width: 120 }}>
               <StyledText>JAN 12, 2022</StyledText>
             </CardBox>
-            <ListItem />
-            <ListItem />
+            <ListItem2 />
+            <ListItem2 />
           </Stack>
         </Stack>
       </Stack>
@@ -44,14 +44,14 @@ const InvestScreen = ({ navigation }) => {
   )
 }
 
-const ListItem = () => {
+const ListItem1 = () => {
   const { fontColor } = useTheme()
   return (
-    <Stack direction='row' spacing={16}>
-      <View style={{ width: 30, height: 30, borderWidth: 1, borderRadius: 8, borderColor: fontColor }}></View>
-      <StyledText style={{ fontWeight: 'bold', borderWidth: 1, borderColor: fontColor, padding: 2 }}>Staking</StyledText>
+    <Stack direction='row' spacing={8}>
+      <View style={{ width: 18, height: 18, borderWidth: 1, borderColor: fontColor }}></View>
+      <StyledText style={{ fontWeight: 'bold' }}>Staking</StyledText>
       <View style={{ flex: 1, alignItems: 'flex-end' }}>
-        <StyledText style={{ fontWeight: 'bold', borderWidth: 1, borderColor: fontColor, padding: 2 }}>-0.01 BTC</StyledText>
+        <StyledText>0.01 BTC (10%)​</StyledText>
       </View>
     </Stack>
   )
@@ -60,11 +60,11 @@ const ListItem = () => {
 const ListItem2 = () => {
   const { fontColor } = useTheme()
   return (
-    <Stack direction='row' spacing={8}>
-      <View style={{ width: 18, height: 18, borderWidth: 1, borderColor: fontColor }}></View>
-      <StyledText style={{ fontWeight: 'bold' }}>Staking</StyledText>
+    <Stack direction='row' spacing={16}>
+      <View style={{ width: 30, height: 30, borderWidth: 1, borderRadius: 8, borderColor: fontColor }}></View>
+      <StyledText style={{ fontWeight: 'bold', borderWidth: 1, borderColor: fontColor, padding: 4 }}>Staking</StyledText>
       <View style={{ flex: 1, alignItems: 'flex-end' }}>
-        <StyledText>0.01 BTC (10%)​</StyledText>
+        <StyledText style={{ fontWeight: 'bold', borderWidth: 1, borderColor: fontColor, padding: 4 }}>-0.01 BTC</StyledText>
       </View>
     </Stack>
   )

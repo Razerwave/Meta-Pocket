@@ -1,9 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ROUTES } from '../constants';
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from 'styled-components'
 import { PasscodeReEnterScreen, PasscodeResetScreen, SettingScreen } from '../screens/setting';
-import { CardBox, StyledText } from '../components';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,17 +27,5 @@ const SettingNavigation = () => {
     </Stack.Navigator>
   )
 }
-
-const styles = StyleSheet.create({
-  stepContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  step: {
-    marginHorizontal: '1%',
-    height: 10,
-    minWidth: '15%',
-  },
-})
 
 export default SettingNavigation

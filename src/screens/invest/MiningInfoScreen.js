@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import {View, Text, Button, Alert, StyleSheet} from 'react-native'
-import { Screen, StyledText } from '../components'
+import { Screen, StyledText } from '../../components'
 
-const InvestScreen = () => {
+const MiningInfoScreen = () => {
   return (
     <Screen>
       <StyledText>InvestScreen</StyledText>
@@ -10,4 +10,4 @@ const InvestScreen = () => {
   )
 }
 
-export default InvestScreen
+export default MiningInfoScreen

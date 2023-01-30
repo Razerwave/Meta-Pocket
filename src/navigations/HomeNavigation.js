@@ -8,6 +8,7 @@ import { TabBarBottom } from '../components';
 import { useTheme } from 'styled-components'
 import SettingNavigation from './SettingNavigation';
 import { ROUTES } from '../constants';
+import InvestNavigation from './InvestNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,7 +47,7 @@ const HomeNavigation = () => {
     >
       <Tab.Screen name='Wallet' component={WalletScreen} />
       <Tab.Screen name='Explore' component={ExploreScreen} />
-      <Tab.Screen name='Invest' component={InvestScreen} />
+      <Tab.Screen name='Invest' component={InvestNavigation} />
       <Tab.Screen name='Dapp' component={DappScreen} />
       <Tab.Screen name='Setting' component={SettingNavigation} />
     </Tab.Navigator>

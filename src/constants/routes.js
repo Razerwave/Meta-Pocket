@@ -13,6 +13,11 @@ const ROUTES = {
         BASE: "SETTING",
         PASSCODE_RESET: "PASSCODE_RESET",
         PASSCODE_RE_ENTER: "PASSCODE_RE_ENTER"
+    },
+    INVEST: {
+        BASE: "INVEST",
+        MINNING_SWAP: "MINNING_SWAP",
+        MINNING_INFO: "MINNING_INFO",
     }
 }
 

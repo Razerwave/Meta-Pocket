@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, AppState, Text, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { DappScreen, ExploreScreen, WalletScreen } from "../screens/index";
+import { DappScreen, WalletScreen } from "../screens/index";
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import { useThemeChange } from '../context/ThemeChangeContext';
 import { TabBarBottom } from '../components';
 import { useTheme } from 'styled-components'
 import { ROUTES } from '../constants';
-import { InvestScreen, SettingScreen } from '../screens/home';
+import { ExploreScreen, InvestScreen, SettingScreen } from '../screens/home';
 
 const Tab = createBottomTabNavigator();
 

@@ -4,16 +4,21 @@ import { ButtonPrimary, Screen, StyledText } from '../../components'
 import { useThemeChange } from '../../context/ThemeChangeContext'
 import { useTheme } from 'styled-components'
 import { ROUTES } from '../../constants'
+import useAuth from '../../context/AuthContext'
+import { useRoute } from '@react-navigation/native'
 
-const PasscodeReEnterScreen = ({ navigation }) => {
+const PasscodeReEnterScreen = ({ navigation, route }) => {
   const { activeTintColor } = useTheme()
   const { theme, toggleTheme } = useThemeChange()
   const isEnabled = theme === "dark"
 
   const [passcode, setPasscode] = useState('')
+  const {setPassword} = useAuth()
+  const passcodePrev = route.params.passcode
 
   useEffect(() => {
-    if (passcode.length === 6) {
+    if (passcode === passcodePrev) {
+      setPassword(passcode)
       navigation.navigate(ROUTES.SETTING.BASE);
     }
   }, [passcode])

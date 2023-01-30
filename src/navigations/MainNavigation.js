@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from 'styled-components'
 import { MiningInfoScreen, MiningSwapScreen } from '../screens/invest';
-import { PasscodeReEnterScreen, PasscodeResetScreen } from '../screens/setting';
+import { ExploreListScreen, PasscodeReEnterScreen, PasscodeResetScreen } from '../screens/setting';
 import { ROUTES } from '../constants';
 import HomeNavigation from './HomeNavigation';
 
@@ -31,6 +31,8 @@ const MainNavigation = () => {
       {/* SETTING */}
       <Stack.Screen options={{ title: '' }} name={ROUTES.SETTING.PASSCODE_RESET} component={PasscodeResetScreen} />
       <Stack.Screen options={{ title: '' }} name={ROUTES.SETTING.PASSCODE_RE_ENTER} component={PasscodeReEnterScreen} />
+      {/* EXPLORE */}
+      <Stack.Screen options={{ title: '' }} name={ROUTES.EXPLORE.LIST_SCREEN} component={ExploreListScreen} />
     </Stack.Navigator>
   )
 }

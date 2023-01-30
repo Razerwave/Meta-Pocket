@@ -1,4 +1,4 @@
 import ROUTES from "./routes";
 import { DarkTheme, DefaultTheme } from "./themes";
-
-export { ROUTES, DarkTheme, DefaultTheme }
+import DATA from './ListData'
+export { ROUTES, DarkTheme, DefaultTheme, DATA}

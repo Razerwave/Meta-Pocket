@@ -11,25 +11,25 @@ import styled from 'styled-components/native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import WebView from 'react-native-webview';
 
-const ExploreScreen = () => {
+const ExploreListScreen = () => {
   const [data , setData] = useState([
     {
       id: 1,
       Subject: 'Amaraa',
       Description: '#FF0000',
-      Image: require('../assets/images.jpg'),
+      Image: require('../../assets/images.jpg'),
     },
     {
       id: 2,
       Subject: 'Tsogoo',
       Description: '#800000',
-      Image: require('../assets/images.jpg'),
+      Image: require('../../assets/images.jpg'),
     },
     {
       id: 3,
       Subject: 'Bat',
       Description: '#808000',
-      Image: require('../assets/images.jpg'),
+      Image: require('../../assets/images.jpg'),
     },
   ])
   const [visible, setVisible] = useState(false)
@@ -87,33 +87,6 @@ const ExploreScreen = () => {
                 />
              </TouchableButton1>
 
-            <TouchableButton2>
-                <TitleAndArrow>
-                  <Text>Title 2</Text>
-                  <IonIcon name="arrow-forward"/>
-                </TitleAndArrow>
-                <FlatList
-                horizontal={true}
-                scrollEnabled={false}
-                data={data}
-                renderItem={ itemRender }
-                keyExtractor={data => data.id}
-                />
-             </TouchableButton2>
-
-            <TouchableButton3>
-                <TitleAndArrow>
-                  <Text>Title 2</Text>
-                  <IonIcon name="arrow-forward"/>
-                </TitleAndArrow>
-                <FlatList
-                horizontal={true}
-                data={data}
-                scrollEnabled={false}
-                renderItem={ itemRender }
-                keyExtractor={data => data.id}
-                />
-             </TouchableButton3>
         </Container>
   );
 };
@@ -167,4 +140,4 @@ const TouchableButton3 = styled.TouchableOpacity`
 const StyledImage = styled.Image`
 
 `;
-export default ExploreScreen;
+export default ExploreListScreen;

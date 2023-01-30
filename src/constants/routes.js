@@ -21,7 +21,11 @@ const ROUTES = {
         BASE: "INVEST",
         MINNING_SWAP: "MINNING_SWAP",
         MINNING_INFO: "MINNING_INFO",
-    }
+    },
+    EXPLORE: {
+        BASE: "EXPLORE",
+        LIST_SCREEN: "LIST_SCREEN",
+    },
 }
 
 export default ROUTES

@@ -18,7 +18,7 @@ const NewWalletWordScreen = ({ route, navigation }) => {
   return (
     <Screen bottom={
       <Stack padding={16} spacing={16}>
-        <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.LOGIN_SCREEN)} />
+        <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)} />
       </Stack>
     }>
       <Stack padding={16} spacing={16}>

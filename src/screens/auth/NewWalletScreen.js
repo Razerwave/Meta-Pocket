@@ -20,7 +20,7 @@ const NewWalletScreen = ({ navigation }) => {
   return (
     <Screen bottom={
       <Stack padding={16} spacing={16}>
-        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.NEW_WALLET_WORDS, { words })} />
+        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET_WORDS, { words })} />
       </Stack>
     }>
       <Stack padding={16} spacing={16}>

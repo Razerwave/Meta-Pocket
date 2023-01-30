@@ -10,7 +10,7 @@ const RecoverWalletScreen = ({ navigation }) => {
 
   const handleSubmit = () => {
     console.log("submitted")
-    navigation.navigate(ROUTES.CREATE_PASSWORD)
+    navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)
   }
 
   return (

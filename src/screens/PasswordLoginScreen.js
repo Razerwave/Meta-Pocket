@@ -1,7 +1,9 @@
 // import { useNavigation } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react';
 import { Text, TextInput, View, Alert } from 'react-native';
+import { CardBox, Screen, Stack, StyledText } from '../components';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from 'styled-components'
 // import { ROUTES } from '../constants';
 // import ReactNativeBiometrics, {BiometryTypes} from 'react-native-biometrics';
 
@@ -14,6 +16,7 @@ const PasswordLoginScreen = () => {
     isLocked,
     setIsLocked,
   } = useAuth();
+  const { fontColor } = useTheme()
   const [pwd, setPwd] = useState('');
   // const navigation = useNavigation();
 
@@ -53,22 +56,29 @@ const PasswordLoginScreen = () => {
   //     }
   //   })
   return (
-    <View>
-      <TextInput
-        placeholder="Enter password"
-        value={pwd}
-        secureTextEntry={true}
-        numberOfLines={4}
-        keyboardType="numeric"
-        autoFocus={true}
-        onChangeText={data => setPwd(data)}
-        underlineColorAndroid="transparent"
-      />
-
-      <Text>
-        {pwd} {password}
-      </Text>
-    </View>
+    <Screen>
+      <Stack padding={16} spacing={16}>
+        <CardBox>
+          <StyledText style={{ fontSize: 20, fontWeight: 'bold' }}>
+            Enter Passcode
+          </StyledText>
+        </CardBox>
+        <CardBox>
+          <TextInput
+            style={{ height: 40, color: fontColor }}
+            placeholderTextColor="gray"
+            placeholder="Enter Passcode"
+            value={pwd}
+            secureTextEntry={true}
+            numberOfLines={4}
+            keyboardType="numeric"
+            autoFocus={true}
+            onChangeText={data => setPwd(data)}
+            underlineColorAndroid="transparent"
+          />
+        </CardBox>
+      </Stack>
+    </Screen>
   );
 };
 

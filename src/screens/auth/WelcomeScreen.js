@@ -11,8 +11,8 @@ const WelcomeScreen = ({ navigation }) => {
   return (
     <Screen bottom={
       <Stack padding={16} spacing={16}>
-        <ButtonPrimary title='Create New Wallet' onPress={() => navigation.navigate(ROUTES.NEW_WALLET)} />
-        <ButtonPrimary title='I already have a wallet' onPress={() => navigation.navigate(ROUTES.RECOVER_WALLET)} />
+        <ButtonPrimary title='Create New Wallet' onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET)} />
+        <ButtonPrimary title='I already have a wallet' onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)} />
       </Stack>
     }>
     </Screen>

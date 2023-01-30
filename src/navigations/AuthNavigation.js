@@ -1,19 +1,16 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ROUTES } from '../constants';
-import { NewWalletScreen, NewWalletWordScreen, RecoverWalletScreen, WelcomeScreen } from '../screens/auth';
-
+import { CreatePassword, NewWalletScreen, NewWalletWordScreen, RecoverWalletScreen, ReEntryPassword, TermsScreen, WelcomeScreen } from '../screens/auth';
 import { View, StyleSheet } from 'react-native'
-import { CreatePassword, LoginScreen, ReEntryPassword, Terms, HomeScreen, PasswordLoginScreen } from '../screens';
 import { useTheme } from 'styled-components'
 
 const stepsName = {
-    [ROUTES.NEW_WALLET]: 1,
-    [ROUTES.NEW_WALLET_WORDS]: 2,
-    [ROUTES.RECOVER_WALLET]: 2,
-    [ROUTES.LOGIN_SCREEN]: 3,
-    [ROUTES.TERMS_SCREEN]: 3,
-    [ROUTES.CREATE_PASSWORD]: 4,
-    [ROUTES.RENTRYPASSWORD]: 5,
+    [ROUTES.AUTH.NEW_WALLET]: 1,
+    [ROUTES.AUTH.NEW_WALLET_WORDS]: 2,
+    [ROUTES.AUTH.RECOVER_WALLET]: 2,
+    [ROUTES.AUTH.TERMS_SCREEN]: 3,
+    [ROUTES.AUTH.CREATE_PASSWORD]: 4,
+    [ROUTES.AUTH.RE_ENTRY_PASSWORD]: 5,
 }
 
 const Stack = createNativeStackNavigator();
@@ -44,16 +41,15 @@ const AuthNavigation = () => {
                     )
                 },
             }}
-            initialRouteName={ROUTES.WELCOME}
+            initialRouteName={ROUTES.AUTH.WELCOME}
         >
-            <Stack.Screen options={{ headerShown: false }} name={ROUTES.WELCOME} component={WelcomeScreen} />
-            <Stack.Screen name={ROUTES.NEW_WALLET} component={NewWalletScreen} />
-            <Stack.Screen name={ROUTES.NEW_WALLET_WORDS} component={NewWalletWordScreen} />
-            <Stack.Screen name={ROUTES.RECOVER_WALLET} component={RecoverWalletScreen} />
-            <Stack.Screen name={ROUTES.LOGIN_SCREEN} component={LoginScreen} />
-            <Stack.Screen name={ROUTES.TERMS_SCREEN} component={Terms} />
-            <Stack.Screen name={ROUTES.CREATE_PASSWORD} component={CreatePassword} />
-            <Stack.Screen name={ROUTES.RENTRYPASSWORD} component={ReEntryPassword} />
+            <Stack.Screen options={{ headerShown: false }} name={ROUTES.AUTH.WELCOME} component={WelcomeScreen} />
+            <Stack.Screen name={ROUTES.AUTH.NEW_WALLET} component={NewWalletScreen} />
+            <Stack.Screen name={ROUTES.AUTH.NEW_WALLET_WORDS} component={NewWalletWordScreen} />
+            <Stack.Screen name={ROUTES.AUTH.RECOVER_WALLET} component={RecoverWalletScreen} />
+            <Stack.Screen name={ROUTES.AUTH.TERMS_SCREEN} component={TermsScreen} />
+            <Stack.Screen name={ROUTES.AUTH.CREATE_PASSWORD} component={CreatePassword} />
+            <Stack.Screen name={ROUTES.AUTH.RE_ENTRY_PASSWORD} component={ReEntryPassword} />
         </Stack.Navigator>
     )
 }

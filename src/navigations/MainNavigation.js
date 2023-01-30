@@ -1,48 +1,37 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useColorScheme, AppState } from 'react-native';
-import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
-import { PasswordLoginScreen } from '../screens';
-import AuthNavigation from './AuthNavigation';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useTheme } from 'styled-components'
+import { MiningInfoScreen, MiningSwapScreen } from '../screens/invest';
+import { PasscodeReEnterScreen, PasscodeResetScreen } from '../screens/setting';
+import { ROUTES } from '../constants';
 import HomeNavigation from './HomeNavigation';
-import useAuth from '../context/AuthContext';
+
+const Stack = createNativeStackNavigator();
 
 const MainNavigation = () => {
-  const { isLoggedIn, isLocked, setIsLocked, password } = useAuth();
-  const scheme = useColorScheme();
+  const { backgroundColor, fontColor } = useTheme()
 
-  const appState = useRef(AppState.currentState);
-  const [appStateVisible, setAppStateVisible] = useState(appState.current);
-  console.log(appState.current)
-
-  useEffect(() => {
-    console.log(isLoggedIn, " LOGGED state");
-    const subscription = AppState.addEventListener('change', nextAppState => {
-      if (
-        appState.current.match(/inactive|background/) &&
-        nextAppState === 'active'
-      ) {
-        console.log('App has come to the foreground!');
-      }
-
-      appState.current = nextAppState;
-      setAppStateVisible(appState.current);
-      if (appState.current === 'background') {
-        setIsLocked(true);
-        console.log(isLocked, " JJJJJJJJJ");
-      }
-      console.log('AppState', appState.current);
-    });
-
-
-    return () => {
-      subscription.remove();
-    }
-
-  }, []);
   return (
-    <NavigationContainer>
-      {!isLoggedIn ? <AuthNavigation /> : isLocked ? <PasswordLoginScreen /> : <HomeNavigation />}
-    </NavigationContainer>
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: backgroundColor,
+        },
+        headerTitleStyle: {
+          color: fontColor,
+        },
+        headerTintColor: fontColor,
+      }}
+    >
+      <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeNavigation} />
+      {/* INVEST */}
+      <Stack.Screen options={{ title: 'Minning Swap' }} name={ROUTES.INVEST.MINNING_SWAP} component={MiningSwapScreen} />
+      <Stack.Screen options={{ title: '0x1234kdsfklsajdf' }} name={ROUTES.INVEST.MINNING_INFO} component={MiningInfoScreen} />
+      {/* SETTING */}
+      <Stack.Screen options={{ title: '' }} name={ROUTES.SETTING.PASSCODE_RESET} component={PasscodeResetScreen} />
+      <Stack.Screen options={{ title: '' }} name={ROUTES.SETTING.PASSCODE_RE_ENTER} component={PasscodeReEnterScreen} />
+    </Stack.Navigator>
   )
 }
 

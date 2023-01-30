@@ -1,12 +1,13 @@
 import React from 'react';
 import ContextProvider from './src/context/ContextProvider';
-import { MainNavigation } from './src/navigations';
+import TheNavigation, { MainNavigation } from './src/navigations';
 // import styled from 'styled-components/native'
 
 const App = () => {
   return (
     <ContextProvider>
-      <MainNavigation />
+      {/* <MainNavigation /> */}
+      <TheNavigation />
     </ContextProvider>
   );
 }

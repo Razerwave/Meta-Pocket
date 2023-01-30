@@ -14,7 +14,7 @@ const PasscodeReEnterScreen = ({ navigation, route }) => {
   useEffect(() => {
     if (passcode === passcodePrev) {
       setPassword(passcode)
-      navigation.navigate(ROUTES.SETTING.BASE);
+      navigation.navigate(ROUTES.HOME.SETTING);
     }
   }, [passcode])
 

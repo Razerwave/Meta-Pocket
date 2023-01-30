@@ -30,7 +30,7 @@ const PasscodeResetScreen = ({ navigation }) => {
         <CardBox>
           <TextInput
             style={{ color: fontColor }}
-            placeholderTextColor={fontColor}
+            placeholderTextColor="gray"
             placeholder="Enter Passcode"
             value={passcode}
             secureTextEntry={true}

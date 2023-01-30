@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
-import { ButtonPrimary, CardBox, Screen, StyledText } from '../../components'
+import { useTheme } from 'styled-components'
+import { ButtonPrimary, CardBox, Screen, Stack, StyledText } from '../../components'
 import { ROUTES } from '../../constants'
 
 const NewWalletWordScreen = ({ route, navigation }) => {
   const { words } = route.params
+  const { fontColor, backgroundColor } = useTheme()
   const wordsArray = words.split(' ')
   const [chosenWords, setChosenWords] = useState([])
 
@@ -15,28 +17,43 @@ const NewWalletWordScreen = ({ route, navigation }) => {
   const passed = chosenWords.join(' ') === words
   return (
     <Screen bottom={
-      <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.LOGIN_SCREEN)} />
+      <Stack padding={16} spacing={16}>
+        <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.LOGIN_SCREEN)} />
+      </Stack>
     }>
-      <StyledText>Have you backed up?</StyledText>
-      <StyledText>Please click the first(1st) word first, then the last word(12th)</StyledText>
-      <CardBox>
-        <StyledText>{chosenWords.join(' ')}</StyledText>
-      </CardBox>
-      <View style={styles.containerWords}>
-        {wordsArray.map((word, index) => {
-          const position = chosenWords.indexOf(word) + 1
-          const bgColor = position === 0 ? 'lightgray' : 'gray'
-          return (
-            <TouchableOpacity
-              key={index}
-              style={[styles.wordBox, { backgroundColor: bgColor }]}
-              onPress={() => handleClick(word)}
-            >
-              <StyledText>{word} : {position}</StyledText>
-            </TouchableOpacity>
-          )
-        })}
-      </View>
+      <Stack padding={16} spacing={16}>
+        <CardBox>
+          <StyledText style={{ fontSize: 20, fontWeight: 'bold' }}>
+            Have you backed up?
+          </StyledText>
+        </CardBox>
+        <CardBox>
+          <StyledText>
+            Please click the first(1st) word first, then the last word(12th)
+          </StyledText>
+        </CardBox>
+        <CardBox style={{ borderRadius: 16 }}>
+          <View style={{ paddingVertical: 24 }}>
+            <StyledText>{chosenWords.join(' ')}</StyledText>
+          </View>
+        </CardBox>
+        <View style={styles.containerWords}>
+          {wordsArray.map((word, index) => {
+            const position = chosenWords.indexOf(word) + 1
+            const bgColor = position === 0 ? backgroundColor : fontColor
+            const fColor = position === 0 ? fontColor : backgroundColor
+            return (
+              <TouchableOpacity
+                key={index}
+                style={[styles.wordBox, { backgroundColor: bgColor, borderColor: fColor, borderWidth: 1 }]}
+                onPress={() => handleClick(word)}
+              >
+                <StyledText style={{ color: fColor }}>{word} : {position}</StyledText>
+              </TouchableOpacity>
+            )
+          })}
+        </View>
+      </Stack>
     </Screen>
   )
 }
@@ -45,7 +62,6 @@ const styles = StyleSheet.create({
   containerWords: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    backgroundColor: 'aliceblue',
     justifyContent: 'space-between',
   },
   wordBox: {

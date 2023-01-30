@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet } from 'react-native'
 import Clipboard from '@react-native-clipboard/clipboard';
-import { ButtonPrimary, CardBox, Screen, StyledText } from '../../components';
+import { ButtonPrimary, CardBox, Screen, Stack, StyledText } from '../../components';
 import { ROUTES } from '../../constants'
 
 const NewWalletScreen = ({ navigation }) => {
@@ -19,15 +19,33 @@ const NewWalletScreen = ({ navigation }) => {
 
   return (
     <Screen bottom={
-      <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.NEW_WALLET_WORDS, { words })} />
+      <Stack padding={16} spacing={16}>
+        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.NEW_WALLET_WORDS, { words })} />
+      </Stack>
     }>
-      <StyledText>Back Up Your Wallet</StyledText>
-      <StyledText>The recovery phrase is the only way to recover your cryptocurrency if you lose your phone or switch to another wallet.</StyledText>
-      <StyledText>Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.</StyledText>
-      <CardBox>
-        <StyledText>{words}</StyledText>
-      </CardBox>
-      <ButtonPrimary title={copied ? 'Copied' : 'Copy'} onPress={handleCopy} />
+      <Stack padding={16} spacing={16}>
+        <CardBox>
+          <StyledText style={{ fontSize: 20, fontWeight: 'bold' }}>
+            Back Up Your Wallet
+          </StyledText>
+        </CardBox>
+        <CardBox>
+          <StyledText>
+            The recovery phrase is the only way to recover your cryptocurrency if you lose your phone or switch to another wallet.
+          </StyledText>
+        </CardBox>
+        <CardBox>
+          <StyledText>
+            Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.
+          </StyledText>
+        </CardBox>
+        <CardBox style={{ borderRadius: 16 }}>
+          <View style={{ paddingVertical: 24 }}>
+            <StyledText>{words}</StyledText>
+          </View>
+        </CardBox>
+        <ButtonPrimary title={copied ? 'Copied' : 'Copy'} onPress={handleCopy} />
+      </Stack>
     </Screen>
   )
 }

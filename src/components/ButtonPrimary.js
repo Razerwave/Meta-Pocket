@@ -13,7 +13,6 @@ const ButtonPrimary = ({disabled, ...props}) => {
 }
 
 const StyledButtonViewDisabled = styled.View`
-    marginBottom: 30px;
     border: 2px solid gray;
     alignItems: center;
     background-color: gray;
@@ -22,7 +21,6 @@ const StyledButtonViewDisabled = styled.View`
 `
 
 const StyledButtonView = styled.View`
-    marginBottom: 30px;
     border: 2px solid ${props => props.theme.fontColor};
     alignItems: center;
     background-color: ${props => props.theme.backgroundColor};

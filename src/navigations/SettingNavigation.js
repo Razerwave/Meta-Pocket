@@ -17,13 +17,13 @@ const SettingNavigation = () => {
         },
         headerTitleStyle: {
           color: fontColor
-        },
+        }
       }}
       initialRouteName={ROUTES.SETTING.BASE}
     >
       <Stack.Screen name={ROUTES.SETTING.BASE} component={SettingScreen} />
-      <Stack.Screen name={ROUTES.SETTING.PASSCODE_RESET} component={PasscodeResetScreen} />
-      <Stack.Screen name={ROUTES.SETTING.PASSCODE_RE_ENTER} component={PasscodeReEnterScreen} />
+      <Stack.Screen options={{ headerTitle: '' }} name={ROUTES.SETTING.PASSCODE_RESET} component={PasscodeResetScreen} />
+      <Stack.Screen options={{ headerTitle: '' }} name={ROUTES.SETTING.PASSCODE_RE_ENTER} component={PasscodeReEnterScreen} />
     </Stack.Navigator>
   )
 }

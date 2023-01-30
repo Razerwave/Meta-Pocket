@@ -6,6 +6,8 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 import { useThemeChange } from '../context/ThemeChangeContext';
 import { TabBarBottom } from '../components';
 import { useTheme } from 'styled-components'
+import SettingNavigation from './SettingNavigation';
+import { ROUTES } from '../constants';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,6 +18,7 @@ const HomeNavigation = () => {
     <Tab.Navigator
       tabBar={props => <TabBarBottom {...props} />}
       screenOptions={({ route }) => ({
+        headerShown: false,
         headerStyle: {
           backgroundColor: backgroundColor,
         },
@@ -45,7 +48,7 @@ const HomeNavigation = () => {
       <Tab.Screen name='Explore' component={ExploreScreen} />
       <Tab.Screen name='Invest' component={InvestScreen} />
       <Tab.Screen name='Dapp' component={DappScreen} />
-      <Tab.Screen name='Setting' component={SettingScreen} />
+      <Tab.Screen name='Setting' component={SettingNavigation} />
     </Tab.Navigator>
   )
 }

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, Switch } from 'react-native'
-import { ButtonPrimary, Screen, StyledText } from '../components'
-import { useThemeChange } from '../context/ThemeChangeContext'
+import { ButtonPrimary, Screen, StyledText } from '../../components'
+import { useThemeChange } from '../../context/ThemeChangeContext'
 import { useTheme } from 'styled-components'
+import { ROUTES } from '../../constants'
 
-const SettingScreen = () => {
+const SettingScreen = ({ navigation }) => {
   const { activeTintColor } = useTheme()
   const { theme, toggleTheme } = useThemeChange()
   const isEnabled = theme === "dark"
@@ -24,6 +25,7 @@ const SettingScreen = () => {
           value={isEnabled}
         />
       </View>
+        <ButtonPrimary title='RESET PASSCODE' onPress={() => navigation.navigate(ROUTES.SETTING.PASSCODE_RESET)} />
     </Screen>
   )
 }

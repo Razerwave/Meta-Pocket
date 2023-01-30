@@ -1,13 +1,14 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ROUTES } from '../constants';
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from 'styled-components'
 import { PasscodeReEnterScreen, PasscodeResetScreen, SettingScreen } from '../screens/setting';
+import { CardBox, StyledText } from '../components';
 
 const Stack = createNativeStackNavigator();
 
 const SettingNavigation = () => {
-  const { backgroundColor, activeTintColor, fontColor } = useTheme()
+  const { backgroundColor, fontColor } = useTheme()
 
   return (
     <Stack.Navigator
@@ -16,14 +17,15 @@ const SettingNavigation = () => {
           backgroundColor: backgroundColor,
         },
         headerTitleStyle: {
-          color: fontColor
-        }
+          color: fontColor,
+        },
+        headerTintColor: fontColor,
       }}
       initialRouteName={ROUTES.SETTING.BASE}
     >
       <Stack.Screen name={ROUTES.SETTING.BASE} component={SettingScreen} />
-      <Stack.Screen options={{ headerTitle: '' }} name={ROUTES.SETTING.PASSCODE_RESET} component={PasscodeResetScreen} />
-      <Stack.Screen options={{ headerTitle: '' }} name={ROUTES.SETTING.PASSCODE_RE_ENTER} component={PasscodeReEnterScreen} />
+      <Stack.Screen options={{ title: '' }} name={ROUTES.SETTING.PASSCODE_RESET} component={PasscodeResetScreen} />
+      <Stack.Screen options={{ title: '' }} name={ROUTES.SETTING.PASSCODE_RE_ENTER} component={PasscodeReEnterScreen} />
     </Stack.Navigator>
   )
 }

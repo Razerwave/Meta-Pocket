@@ -27,6 +27,10 @@ const AuthNavigation = () => {
                 headerStyle: {
                   backgroundColor: backgroundColor,
                 },
+                headerTitleStyle: {
+                  color: fontColor
+                },
+                headerTintColor: fontColor,
                 headerTitle: (props) => {
                     const currentStep = stepsName[props.children] || 0
                     return (

@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Text, Button, Alert, StyleSheet, Switch } from 'react-native'
 import { ButtonPrimary, CardBox, Screen, Stack, StyledText } from '../../components'
 import { useThemeChange } from '../../context/ThemeChangeContext'
 import { useTheme } from 'styled-components'
 import { ROUTES } from '../../constants'
+import IonIcon from 'react-native-vector-icons/Ionicons';
 
 const SettingScreen = ({ navigation }) => {
-  const { activeTintColor } = useTheme()
+  const { fontColor, activeTintColor } = useTheme()
   const { theme, toggleTheme } = useThemeChange()
   const isEnabled = theme === "dark"
 
@@ -30,8 +31,9 @@ const SettingScreen = ({ navigation }) => {
           <StyledText>OK</StyledText>
         </ListItem>
         <ListItem label="Reset Passcode">
-          <StyledText onPress={() => navigation.navigate(ROUTES.SETTING.PASSCODE_RESET)}>RESET</StyledText>
-          {/* <Button title='RESET PASSCODE' onPress={() => navigation.navigate(ROUTES.SETTING.PASSCODE_RESET)} /> */}
+          <StyledText onPress={() => navigation.navigate(ROUTES.SETTING.PASSCODE_RESET)}>
+            <IonIcon name="arrow-forward" size={18} color={fontColor} />
+          </StyledText>
         </ListItem>
         <ListItem label="Version">
           <StyledText>1.0.0</StyledText>

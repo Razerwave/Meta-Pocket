@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   Modal,
+  SafeAreaView,
 } from 'react-native';
 import styled from 'styled-components/native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
@@ -51,7 +52,14 @@ const ExploreScreen = ({navigation}) => {
             setVisible(!visible);
           }}>
           <TouchableOpacity onPress={() => setVisible(!visible)}>
-          <Stack direction='row' style={{justifyContent: 'space-between', paddingLeft: 10, paddingRight: 10}}>
+            <Stack
+              direction="row"
+              style={{
+                justifyContent: 'space-between',
+                paddingLeft: 10,
+                paddingRight: 10,
+                paddingTop: 50,
+              }}>
               <StyledText>
                 {/* <IonIcon
                       name="arrow-back"
@@ -60,11 +68,7 @@ const ExploreScreen = ({navigation}) => {
                     /> */}
               </StyledText>
               <StyledText>
-                <IonIcon
-                        name="close-outline"
-                        size={19}
-                        color={fontColor}
-                      />
+                <IonIcon name="close-outline" size={19} color={fontColor} />
               </StyledText>
             </Stack>
           </TouchableOpacity>

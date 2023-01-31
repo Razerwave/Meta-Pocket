@@ -1,13 +1,13 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { useColorScheme, AppState } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { PasscodeLoginScreen } from '../screens';
+import React, {useRef, useState, useEffect} from 'react';
+import {AppState} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {PasscodeLoginScreen} from '../screens';
 import AuthNavigation from './AuthNavigation';
 import MainNavigation from './MainNavigation';
 import useAuth from '../context/AuthContext';
 
 const TheNavigation = () => {
-  const { isLoggedIn, isLocked, setIsLocked, password } = useAuth();
+  const {isLoggedIn, isLocked, setIsLocked, password} = useAuth();
   // const scheme = useColorScheme();
 
   const appState = useRef(AppState.currentState);
@@ -29,17 +29,22 @@ const TheNavigation = () => {
       }
     });
 
-
     return () => {
       subscription.remove();
-    }
+    };
   }, []);
 
   return (
     <NavigationContainer>
-      {!isLoggedIn ? <AuthNavigation /> : isLocked ? <PasscodeLoginScreen /> : <MainNavigation />}
+      {!isLoggedIn ? (
+        <AuthNavigation />
+      ) : isLocked ? (
+        <PasscodeLoginScreen />
+      ) : (
+        <MainNavigation />
+      )}
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default TheNavigation
+export default TheNavigation;

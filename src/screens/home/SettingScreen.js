@@ -5,11 +5,17 @@ import { useThemeChange } from '../../context/ThemeChangeContext'
 import { useTheme } from 'styled-components'
 import { ROUTES } from '../../constants'
 import IonIcon from 'react-native-vector-icons/Ionicons';
+import useAuth from '../../context/AuthContext'
 
 const SettingScreen = ({ navigation }) => {
+  const { setPassword } = useAuth();
   const { fontColor, activeTintColor } = useTheme()
   const { theme, toggleTheme } = useThemeChange()
   const isEnabled = theme === "dark"
+
+  const logoutHandler = () => {
+    setPassword(null)
+  }
 
   return (
     <Screen>
@@ -43,6 +49,9 @@ const SettingScreen = ({ navigation }) => {
         <CardBox style={{ width: 50, height: 50 }}></CardBox>
         <CardBox style={{ width: 50, height: 50 }}></CardBox>
         <CardBox style={{ width: 50, height: 50 }}></CardBox>
+      </Stack>
+      <Stack padding={16} spacing={32}>
+        <ButtonPrimary title="Logout" onPress={logoutHandler} />
       </Stack>
     </Screen>
   )

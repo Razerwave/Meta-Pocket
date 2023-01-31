@@ -12,13 +12,7 @@ const DappScreen = () => {
 
   return (
     <HomeScreen>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={visible}
-        onDismiss={() => {
-          setVisible(!visible);
-        }}>
+      <Modal animationType="slide" transparent={true} visible={visible}>
         <TouchableOpacity onPress={() => setVisible(!visible)}>
           <Stack
             direction="row"
@@ -44,29 +38,39 @@ const DappScreen = () => {
       <Stack spacing={16} padding={16}>
         <Tabs fontColor={fontColor} activeTintColor={activeTintColor} />
         {[1, 2, 3, 4, 5, 6].map((_, index) => (
-          <TouchableOpacity key={index} fontColor={fontColor} onPress={() => setVisible(true)} style={{flexDirection: 'row', gap: 16}}>
-      <View
-        style={{
-          height: 40,
-          width: 40,
-          borderWidth: 1,
-          borderColor: fontColor,
-        }}></View>
-      <Stack style={{flex: 1}}>
-        <Stack direction="row" style={{borderWidth: 1, borderColor: 'gray'}}>
-          <StyledText style={{fontWeight: 'bold', paddingHorizontal: 8}}>
-            Subject
-          </StyledText>
-        </Stack>
+          <TouchableOpacity
+            key={index}
+            fontColor={fontColor}
+            onPress={() => setVisible(true)}
+            style={{flexDirection: 'row', gap: 16}}>
+            <View
+              style={{
+                height: 40,
+                width: 40,
+                borderWidth: 1,
+                borderColor: fontColor,
+              }}></View>
+            <Stack style={{flex: 1}}>
+              <Stack
+                direction="row"
+                style={{borderWidth: 1, borderColor: 'gray'}}>
+                <StyledText style={{fontWeight: 'bold', paddingHorizontal: 8}}>
+                  Subject
+                </StyledText>
+              </Stack>
 
-        <Stack>
-          <StyledText
-            style={{borderWidth: 1, borderColor: 'gray', paddingHorizontal: 8}}>
-            Description
-          </StyledText>
-        </Stack>
-      </Stack>
-    </TouchableOpacity>
+              <Stack>
+                <StyledText
+                  style={{
+                    borderWidth: 1,
+                    borderColor: 'gray',
+                    paddingHorizontal: 8,
+                  }}>
+                  Description
+                </StyledText>
+              </Stack>
+            </Stack>
+          </TouchableOpacity>
         ))}
       </Stack>
     </HomeScreen>

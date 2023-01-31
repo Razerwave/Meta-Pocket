@@ -18,13 +18,7 @@ const ExploreListScreen = ({navigation, route}) => {
 
   return (
     <HomeScreen>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={visible}
-        onDismiss={() => {
-          setVisible(!visible);
-        }}>
+      <Modal animationType="slide" transparent={true} visible={visible}>
         <TouchableOpacity onPress={() => setVisible(!visible)}>
           <Stack
             direction="row"

@@ -20,7 +20,7 @@ const Screen = ({children, bottom}) => {
 };
 
 const StyledViewContainer = styled.View`
-  flex: 1;
+  height: 100%;
   background-color: ${props => props.theme.backgroundColor};
 `;
 

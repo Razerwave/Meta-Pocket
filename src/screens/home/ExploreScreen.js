@@ -44,34 +44,29 @@ const ExploreScreen = ({navigation}) => {
   return (
     <HomeScreen>
       <Stack spacing={32} padding={16}>
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={visible}
-          onDismiss={() => {
-            setVisible(!visible);
-          }}>
-          <TouchableOpacity onPress={() => setVisible(!visible)}>
-            <Stack
-              direction="row"
-              style={{
-                justifyContent: 'space-between',
-                paddingLeft: 10,
-                paddingRight: 10,
-                paddingTop: 50,
-              }}>
-              <StyledText>
-                {/* <IonIcon
+        <Modal animationType="slide" transparent={true} visible={visible}>
+          <SafeAreaView>
+            <TouchableOpacity onPress={() => setVisible(!visible)}>
+              <Stack
+                direction="row"
+                style={{
+                  justifyContent: 'space-between',
+                  paddingLeft: 10,
+                  paddingRight: 10,
+                }}>
+                <StyledText>
+                  {/* <IonIcon
                       name="arrow-back"
                       size={19}
                       color={fontColor}
                     /> */}
-              </StyledText>
-              <StyledText>
-                <IonIcon name="close-outline" size={19} color={fontColor} />
-              </StyledText>
-            </Stack>
-          </TouchableOpacity>
+                </StyledText>
+                <StyledText>
+                  <IonIcon name="close-outline" size={19} color={fontColor} />
+                </StyledText>
+              </Stack>
+            </TouchableOpacity>
+          </SafeAreaView>
           <WebView source={{uri: WEB_LINK}} />
         </Modal>
         {data.map(item => (

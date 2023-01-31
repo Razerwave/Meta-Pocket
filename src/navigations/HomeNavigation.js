@@ -44,7 +44,7 @@ const HomeNavigation = () => {
       })}
     >
       <Tab.Screen name='Wallet' component={WalletScreen} />
-      <Tab.Screen name='Explore' component={ExploreScreen} />
+      <Tab.Screen options={{title:''}} name='Explore' component={ExploreScreen} />
       <Tab.Screen options={{ headerShown: false }} name='Invest' component={InvestScreen} />
       <Tab.Screen name='Dapp' component={DappScreen} />
       <Tab.Screen name={ROUTES.HOME.SETTING} component={SettingScreen} />

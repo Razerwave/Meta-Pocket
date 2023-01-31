@@ -16,6 +16,7 @@ import {ROUTES} from '../../constants';
 
 const ExploreScreen = ({navigation}) => {
   const {fontColor} = useTheme();
+  const [title , setTitle] = useState('titleee')
   const [data, setData] = useState([
     {
       id: 1,
@@ -39,56 +40,34 @@ const ExploreScreen = ({navigation}) => {
   const [visible, setVisible] = useState(false);
   const WEB_LINK = 'https://www.youtube.com/';
 
-  const showModal = () => {
-    setVisible(true);
-    console.log('CLICKED');
-  };
-  const itemRender = ({item, index}) => {
-    return (
-      <TouchableOpacity onPress={() => showModal()}>
-        <View>
-          <View>
-            <Image
-              source={item.Image}
-              style={{width: 70, height: 70, borderRadius: 10}}
-            />
-          </View>
-          <Text>
-            {index + 1}: {item.Subject} : {item.Description}
-          </Text>
-        </View>
-
-        <View>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={visible}
-            onDismiss={() => {
-              setVisible(!visible);
-            }}>
-            <TouchableOpacity onPress={() => setVisible(!visible)}>
-              <Text>Go back</Text>
-            </TouchableOpacity>
-            <WebView source={{uri: WEB_LINK}} />
-          </Modal>
-        </View>
-      </TouchableOpacity>
-    );
-  };
-
   return (
     <Screen>
       <Stack spacing={32}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={visible}
+          onDismiss={() => {
+            setVisible(!visible);
+          }}>
+          <TouchableOpacity onPress={() => setVisible(!visible)}>
+            <Text>Go back</Text>
+          </TouchableOpacity>
+          <WebView source={{uri: WEB_LINK}} />
+        </Modal>
         {data.map(item => (
-          <Stack spacing={16}>
+          <Stack key={item.Subject} spacing={16}>
             <TitleAndArrow>
               <StyledText style={{fontSize: 20, fontWeight: 'bold'}}>
-                Title 1
+                {title}
               </StyledText>
               <IonIcon
-                onPress={() => {
-                  console.log('IONC CLICK');
-                }}
+                onPress={() =>
+                  navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
+                    'data' : data,
+                    'title' : title,
+                  })
+                }
                 name="arrow-forward"
                 size={25}
                 color={fontColor}
@@ -97,16 +76,13 @@ const ExploreScreen = ({navigation}) => {
             <Stack direction="row" spacing={16}>
               {data.map(item => (
                 <TouchableOpacity
+                  key={item.Subject}
                   style={{flex: 1}}
-                  onPress={() =>
-                    navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
-                      url: 'google.com',
-                    })
-                  }>
+                  onPress={() => setVisible(true)}>
                   <Stack style={{height: 100}} spacing={8}>
                     <CardBox style={{flex: 1}}></CardBox>
                     <StyledText style={{textAlign: 'center'}}>
-                      Subject
+                      {item.Subject}
                     </StyledText>
                   </Stack>
                 </TouchableOpacity>
@@ -115,52 +91,6 @@ const ExploreScreen = ({navigation}) => {
           </Stack>
         ))}
       </Stack>
-      <TouchableButton1>
-        <TitleAndArrow>
-          <Text>Title 1</Text>
-          <IonIcon
-            onPress={() => {
-              console.log('IONC CLICK');
-            }}
-            name="arrow-forward"
-          />
-        </TitleAndArrow>
-        <FlatList
-          horizontal={true}
-          data={data}
-          scrollEnabled={false}
-          renderItem={itemRender}
-          keyExtractor={data => data.id}
-        />
-      </TouchableButton1>
-
-      <TouchableButton2>
-        <TitleAndArrow>
-          <Text>Title 2</Text>
-          <IonIcon name="arrow-forward" />
-        </TitleAndArrow>
-        <FlatList
-          horizontal={true}
-          scrollEnabled={false}
-          data={data}
-          renderItem={itemRender}
-          keyExtractor={data => data.id}
-        />
-      </TouchableButton2>
-
-      <TouchableButton3>
-        <TitleAndArrow>
-          <Text>Title 2</Text>
-          <IonIcon name="arrow-forward" />
-        </TitleAndArrow>
-        <FlatList
-          horizontal={true}
-          data={data}
-          scrollEnabled={false}
-          renderItem={itemRender}
-          keyExtractor={data => data.id}
-        />
-      </TouchableButton3>
     </Screen>
   );
 };
@@ -187,12 +117,6 @@ const ModalView = styled.View`
   align-items: center;
 `;
 
-// const StyledText = styled.Text`
-//   gap: 20px;
-//   /* padding: 20px 0px; */
-//   /* margin: 0px 10px; */
-// `;
-
 const TitleAndArrow = styled.View`
   display: flex;
   flex-direction: row;
@@ -202,11 +126,4 @@ const TitleAndArrow = styled.View`
   margin-right: 15px;
 `;
 
-const TouchableButton1 = styled.TouchableOpacity``;
-
-const TouchableButton2 = styled.TouchableOpacity``;
-
-const TouchableButton3 = styled.TouchableOpacity``;
-
-const StyledImage = styled.Image``;
 export default ExploreScreen;

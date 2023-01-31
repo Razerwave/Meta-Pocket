@@ -10,7 +10,6 @@ const Stack = createNativeStackNavigator();
 
 const MainNavigation = () => {
   const { backgroundColor, fontColor } = useTheme()
-
   return (
     <Stack.Navigator
       initialRouteName="Home"

@@ -6,8 +6,8 @@ import { CardBox, Screen, Stack, StyledText } from '../../components';
 import { ROUTES } from '../../constants';
 import { useTheme } from 'styled-components'
 
-const CreatePassword = () => {
-  const [password, setPassword] = useState('');
+const CreatePasscode = () => {
+  const [passcode, setPasscode] = useState('');
   const navigation = useNavigation();
   const regex = /^[0-9]*$/
   const { fontColor } = useTheme()
@@ -19,15 +19,15 @@ const CreatePassword = () => {
   handleChange = (val) => {
     console.log(val, val.length === 6, onlyNumber(val));
     if (onlyNumber(val)) {
-      setPassword(val)
+      setPasscode(val)
     }
   }
 
   useEffect(() => {
-    if (password.length === 6) {
-      navigation.navigate(ROUTES.RENTRYPASSWORD, { 'password': password });
+    if (passcode.length === 6) {
+      navigation.navigate(ROUTES.AUTH.RE_ENTRY_PASSWORD, { 'passcode': passcode });
     }
-  }, [password]);
+  }, [passcode]);
 
   return (
     <Screen>
@@ -46,8 +46,8 @@ const CreatePassword = () => {
           <TextInput
             style={{ height: 40, color: fontColor }}
             placeholderTextColor="gray"
-            value={password}
-            placeholder='Enter password'
+            value={passcode}
+            placeholder='Enter passcode'
             secureTextEntry={true}
             keyboardType='numeric'
             autoFocus={true}
@@ -60,4 +60,4 @@ const CreatePassword = () => {
   )
 }
 
-export default CreatePassword
+export default CreatePasscode

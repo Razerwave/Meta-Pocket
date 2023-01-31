@@ -7,7 +7,7 @@ import MainNavigation from './MainNavigation';
 import useAuth from '../context/AuthContext';
 
 const TheNavigation = () => {
-  const { isLoggedIn, isLocked, setIsLocked, password } = useAuth();
+  const { isLoggedIn, isLocked, setIsLocked, passcode } = useAuth();
   // const scheme = useColorScheme();
 
   const appState = useRef(AppState.currentState);

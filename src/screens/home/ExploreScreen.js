@@ -16,7 +16,7 @@ import {ROUTES} from '../../constants';
 
 const ExploreScreen = ({navigation}) => {
   const {fontColor} = useTheme();
-  const [title , setTitle] = useState('Title')
+  const [title, setTitle] = useState('Title');
   const [data, setData] = useState([
     {
       id: 1,
@@ -51,7 +51,22 @@ const ExploreScreen = ({navigation}) => {
             setVisible(!visible);
           }}>
           <TouchableOpacity onPress={() => setVisible(!visible)}>
-            <Text>Go back</Text>
+          <Stack direction='row' style={{justifyContent: 'space-between', paddingLeft: 10, paddingRight: 10}}>
+              <StyledText>
+                {/* <IonIcon
+                      name="arrow-back"
+                      size={19}
+                      color={fontColor}
+                    /> */}
+              </StyledText>
+              <StyledText>
+                <IonIcon
+                        name="close-outline"
+                        size={19}
+                        color={fontColor}
+                      />
+              </StyledText>
+            </Stack>
           </TouchableOpacity>
           <WebView source={{uri: WEB_LINK}} />
         </Modal>
@@ -64,8 +79,8 @@ const ExploreScreen = ({navigation}) => {
               <IonIcon
                 onPress={() =>
                   navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
-                    'data' : data,
-                    'title' : title,
+                    data: data,
+                    title: title,
                   })
                 }
                 name="arrow-forward"

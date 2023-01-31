@@ -34,23 +34,25 @@ const ExploreListScreen = ({navigation, route}) => {
             setVisible(!visible);
           }}>
           <TouchableOpacity onPress={() => setVisible(!visible)}>
-            <Text style={{marginBottom: 30}}></Text>
+            <Stack direction='row' style={{justifyContent: 'space-between', paddingLeft: 10, paddingRight: 10}}>
+              <StyledText>
+                {/* <IonIcon
+                      name="arrow-back"
+                      size={19}
+                      color={fontColor}
+                    /> */}
+              </StyledText>
+              <StyledText>
+                <IonIcon
+                        name="close-outline"
+                        size={19}
+                        color={fontColor}
+                      />
+              </StyledText>
+            </Stack>
           </TouchableOpacity>
           <WebView source={{uri: WEB_LINK}} />
         </Modal>
-
-        <CardBox>
-          <TitleAndArrow>
-            <IonIcon
-              name="arrow-back"
-              size={25}
-              color={fontColor}
-            />
-            <StyledText style={{fontSize: 20, fontWeight: 'bold'}}>
-              {title}
-            </StyledText>
-          </TitleAndArrow>
-        </CardBox>
 
         {data.map(item => (
           <TouchableOpacity key={item.Subject} onPress={() => setVisible(true)}>

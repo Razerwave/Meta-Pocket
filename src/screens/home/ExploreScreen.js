@@ -10,13 +10,13 @@ import {
 import styled from 'styled-components/native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import WebView from 'react-native-webview';
-import {CardBox, Screen, Stack, StyledText} from '../../components';
+import {CardBox, HomeScreen, Screen, Stack, StyledText} from '../../components';
 import {useTheme} from 'styled-components';
 import {ROUTES} from '../../constants';
 
 const ExploreScreen = ({navigation}) => {
   const {fontColor} = useTheme();
-  const [title , setTitle] = useState('titleee')
+  const [title , setTitle] = useState('Title')
   const [data, setData] = useState([
     {
       id: 1,
@@ -41,7 +41,7 @@ const ExploreScreen = ({navigation}) => {
   const WEB_LINK = 'https://www.youtube.com/';
 
   return (
-    <Screen>
+    <HomeScreen>
       <Stack spacing={32} padding={16}>
         <Modal
           animationType="slide"
@@ -91,7 +91,7 @@ const ExploreScreen = ({navigation}) => {
           </Stack>
         ))}
       </Stack>
-    </Screen>
+    </HomeScreen>
   );
 };
 

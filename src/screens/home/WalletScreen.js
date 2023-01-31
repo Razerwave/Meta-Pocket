@@ -5,7 +5,7 @@ import { ROUTES } from '../../constants/index'
 import { useTheme } from 'styled-components'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
-import { ButtonPrimary, CardBox, Screen, Stack, StyledText } from '../../components';
+import { ButtonPrimary, CardBox, HomeScreen, Screen, Stack, StyledText } from '../../components';
 
 const WalletScreen = () => {
   const { fontColor, activeTintColor } = useTheme()
@@ -33,7 +33,7 @@ const WalletScreen = () => {
   }, []);
 
   return (
-    <Screen>
+    <HomeScreen>
       <Stack spacing={16} padding={16}>
         <View style={{ alignItems: 'center' }}>
           <CardBox style={{ height: 120, width: 120, borderRadius: 60, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
@@ -58,11 +58,11 @@ const WalletScreen = () => {
           </View>
         </View>
         <Tabs fontColor={fontColor} activeTintColor={activeTintColor} />
-        {[1, 2].map((_, index) => (
+        {[1, 2, 3].map((_, index) => (
           <ListItem key={index} fontColor={fontColor} />
         ))}
       </Stack>
-    </Screen>
+    </HomeScreen>
   )
 }
 

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet } from 'react-native'
-import { ButtonPrimary, CardBox, Screen, Stack, StyledText } from '../../components'
+import { ButtonPrimary, CardBox, HomeScreen, Screen, Stack, StyledText } from '../../components'
 import { ROUTES } from '../../constants'
 import { useTheme } from 'styled-components'
 
 const InvestScreen = ({ navigation }) => {
   const { fontColor } = useTheme()
   return (
-    <Screen>
+    <HomeScreen>
       <Stack spacing={16} style={{ marginTop: 24 }}>
         <Stack padding={16} direction='row'>
           <CardBox style={{ width: 100, height: 100, borderRadius: 50 }}>
@@ -40,7 +40,7 @@ const InvestScreen = ({ navigation }) => {
           </Stack>
         </Stack>
       </Stack>
-    </Screen>
+    </HomeScreen>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Button, Alert, StyleSheet, Switch } from 'react-native'
-import { ButtonPrimary, CardBox, Screen, Stack, StyledText } from '../../components'
+import { ButtonPrimary, CardBox, HomeScreen, Screen, Stack, StyledText } from '../../components'
 import { useThemeChange } from '../../context/ThemeChangeContext'
 import { useTheme } from 'styled-components'
 import { ROUTES } from '../../constants'
@@ -18,7 +18,7 @@ const SettingScreen = ({ navigation }) => {
   }
 
   return (
-    <Screen>
+    <HomeScreen>
       <Stack padding={16} spacing={32}>
         <ListItem label="My UID">
           <StyledText>12345</StyledText>
@@ -53,7 +53,7 @@ const SettingScreen = ({ navigation }) => {
       <Stack padding={16} spacing={32}>
         <ButtonPrimary title="Logout" onPress={logoutHandler} />
       </Stack>
-    </Screen>
+    </HomeScreen>
   )
 }
 

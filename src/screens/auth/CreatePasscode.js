@@ -17,7 +17,6 @@ const CreatePasscode = () => {
   }
 
   handleChange = (val) => {
-    console.log(val, val.length === 6, onlyNumber(val));
     if (onlyNumber(val)) {
       setPasscode(val)
     }

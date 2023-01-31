@@ -25,12 +25,9 @@ const ReEntryPasscode = () => {
     if (repasscode.length === 6) {
       if (repasscode === passcode) {
         // AsyncStorage.setItem('passcode', passcode);
-        console.log(passcode, "pass ok");
-        setPasscode(passcode)
-        setIsLoggedin(true);
+        setPasscode(passcode);
         setIsLocked(false);
         // navigation.navigate(ROUTES.HOME, { 'passcode': passcode });
-        console.log('DATA SAVED');
       }
       else {
         Alert.alert('Passcode does not match')

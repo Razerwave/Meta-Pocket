@@ -42,7 +42,7 @@ const ExploreScreen = ({navigation}) => {
 
   return (
     <Screen>
-      <Stack spacing={32}>
+      <Stack spacing={32} padding={16}>
         <Modal
           animationType="slide"
           transparent={true}

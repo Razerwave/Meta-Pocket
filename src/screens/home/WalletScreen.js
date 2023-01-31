@@ -1,13 +1,13 @@
-import React, {useRef, useState, useEffect} from 'react';
-import { AppState, Text, View,TouchableOpacity} from 'react-native'
-import useAuth from '../context/AuthContext';
-import { ROUTES } from '../constants/index'
+import React, { useRef, useState, useEffect } from 'react';
+import { AppState, Text, View, TouchableOpacity } from 'react-native'
+import useAuth from '../../context/AuthContext';
+import { ROUTES } from '../../constants/index'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
-import { Screen, StyledText } from '../components';
+import { Screen, Stack, StyledText } from '../../components';
 
 const WalletScreen = () => {
-  const {isLogout, setIsLogout, password, isLoggedIn,setPassword} = useAuth();
+  const { isLogout, setIsLogout, password, isLoggedIn, setPassword } = useAuth();
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const navigation = useNavigation();
@@ -45,11 +45,13 @@ const WalletScreen = () => {
 
   return (
     <Screen>
-      <StyledText>WalletScreen {password}</StyledText>
-      <StyledText>Current state is: {appStateVisible}</StyledText>
-      <TouchableOpacity onPress={logoutHandler}>
-        <StyledText>Logout</StyledText>
-      </TouchableOpacity>
+      <Stack spacing={16} padding={16}>
+        <StyledText>WalletScreen {password}</StyledText>
+        <StyledText>Current state is: {appStateVisible}</StyledText>
+        <TouchableOpacity onPress={logoutHandler}>
+          <StyledText>Logout</StyledText>
+        </TouchableOpacity>
+      </Stack>
     </Screen>
   )
 }

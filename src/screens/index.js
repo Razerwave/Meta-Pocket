@@ -1,8 +1,3 @@
-import ButtomTabs from './WalletScreen'
-import HomeScreen from '../navigations/HomeNavigation'
-import LoginScreen from './Login'
-import DappScreen from './DappScreen'
-import WalletScreen from './WalletScreen'
-import PasswordLoginScreen from './PasswordLoginScreen'
+import PasscodeLoginScreen from './PasscodeLoginScreen'
 
-export {LoginScreen, ButtomTabs, HomeScreen, DappScreen, WalletScreen, PasswordLoginScreen}
+export { PasscodeLoginScreen }

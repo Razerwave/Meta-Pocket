@@ -1,13 +1,12 @@
 import React from 'react';
 import { StyleSheet, AppState, Text, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { DappScreen, WalletScreen } from "../screens/index";
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import { useThemeChange } from '../context/ThemeChangeContext';
 import { TabBarBottom } from '../components';
 import { useTheme } from 'styled-components'
 import { ROUTES } from '../constants';
-import { ExploreScreen, InvestScreen, SettingScreen } from '../screens/home';
+import { DappScreen, ExploreScreen, InvestScreen, SettingScreen, WalletScreen } from '../screens/home';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,10 +42,10 @@ const HomeNavigation = () => {
         }
       })}
     >
-      <Tab.Screen name='Wallet' component={WalletScreen} />
-      <Tab.Screen options={{title:''}} name='Explore' component={ExploreScreen} />
+      <Tab.Screen options={{ headerShown: false }} name='Wallet' component={WalletScreen} />
+      <Tab.Screen options={{ headerShown: false }} name='Explore' component={ExploreScreen} />
       <Tab.Screen options={{ headerShown: false }} name='Invest' component={InvestScreen} />
-      <Tab.Screen name='Dapp' component={DappScreen} />
+      <Tab.Screen options={{ headerShown: false }} name='Dapp' component={DappScreen} />
       <Tab.Screen name={ROUTES.HOME.SETTING} component={SettingScreen} />
     </Tab.Navigator>
   )

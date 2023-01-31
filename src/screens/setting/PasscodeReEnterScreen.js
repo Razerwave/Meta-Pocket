@@ -3,17 +3,18 @@ import { View, Text, Button, Alert, StyleSheet, Switch, TextInput } from 'react-
 import { ButtonPrimary, CardBox, Screen, Stack, StyledText } from '../../components'
 import { useTheme } from 'styled-components'
 import { ROUTES } from '../../constants'
-import useAuth from '../../context/AuthContext'
+import {useAuth} from '../../context/AuthContext'
 
 const PasscodeReEnterScreen = ({ navigation, route }) => {
   const { fontColor } = useTheme()
   const [pass, setPass] = useState('')
-  const { setPasscode } = useAuth()
+  const { Login } = useAuth()
   const passcode = route.params.passcode
 
   useEffect(() => {
     if (pass === passcode) {
-      setPasscode(passcode)
+      Login(passcode);
+      
       navigation.navigate(ROUTES.HOME.SETTING);
     }
   }, [pass])

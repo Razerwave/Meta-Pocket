@@ -4,12 +4,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import {PasscodeLoginScreen} from '../screens';
 import AuthNavigation from './AuthNavigation';
 import MainNavigation from './MainNavigation';
-import useAuth from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 const TheNavigation = () => {
-  const {isLoggedIn, isLocked, setIsLocked, passcode} = useAuth();
+  const {isLoggedIn, isLocked, Lock} = useAuth();
   // const scheme = useColorScheme();
-
+  console.log(isLoggedIn, isLocked);
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
@@ -25,7 +25,7 @@ const TheNavigation = () => {
       appState.current = nextAppState;
       setAppStateVisible(appState.current);
       if (appState.current === 'background') {
-        setIsLocked(true);
+        Lock();
       }
     });
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet } from 'react-native'
 import { ButtonPrimary, Screen, Stack, StyledText } from '../../components'
 import { ROUTES } from '../../constants'
-import useAuth from '../../context/AuthContext'
+import {useAuth} from '../../context/AuthContext'
 import { useThemeChange } from '../../context/ThemeChangeContext'
 
 const WelcomeScreen = ({ navigation }) => {

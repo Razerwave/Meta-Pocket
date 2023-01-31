@@ -3,7 +3,7 @@ import NewWalletScreen from "./NewWalletScreen";
 import NewWalletWordScreen from "./NewWalletWordScreen";
 import RecoverWalletScreen from "./RecoverWalletScreen";
 import TermsScreen from "./TermsScreen";
-import CreatePassword from "./CreatePassword";
-import ReEntryPassword from "./ReEntryPassword";
+import CreatePasscode from "./CreatePasscode";
+import ReEntryPasscode from "./ReEntryPasscode";
 
-export { WelcomeScreen, NewWalletScreen, NewWalletWordScreen, TermsScreen, RecoverWalletScreen, CreatePassword, ReEntryPassword }
+export { WelcomeScreen, NewWalletScreen, NewWalletWordScreen, TermsScreen, RecoverWalletScreen, CreatePasscode, ReEntryPasscode }

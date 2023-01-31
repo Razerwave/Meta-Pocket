@@ -7,16 +7,16 @@ import useAuth from '../../context/AuthContext'
 
 const PasscodeReEnterScreen = ({ navigation, route }) => {
   const { fontColor } = useTheme()
-  const [passcode, setPasscode] = useState('')
-  const { setPassword } = useAuth()
-  const passcodePrev = route.params.passcode
+  const [pass, setPass] = useState('')
+  const { setPasscode } = useAuth()
+  const passcode = route.params.passcode
 
   useEffect(() => {
-    if (passcode === passcodePrev) {
-      setPassword(passcode)
+    if (pass === passcode) {
+      setPasscode(passcode)
       navigation.navigate(ROUTES.HOME.SETTING);
     }
-  }, [passcode])
+  }, [pass])
 
   return (
     <Screen>
@@ -36,11 +36,11 @@ const PasscodeReEnterScreen = ({ navigation, route }) => {
             style={{ color: fontColor }}
             placeholderTextColor="gray"
             placeholder="Enter Passcode"
-            value={passcode}
+            value={pass}
             secureTextEntry={true}
             autoFocus={true}
             keyboardType="numeric"
-            onChangeText={setPasscode}
+            onChangeText={setPass}
             underlineColorAndroid="transparent"
           />
         </CardBox>

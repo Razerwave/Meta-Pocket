@@ -7,33 +7,30 @@ import useAuth from '../../context/AuthContext';
 import { CardBox, Screen, Stack, StyledText } from '../../components';
 import { useTheme } from 'styled-components'
 
-const ReEntryPassword = () => {
+const ReEntryPasscode = () => {
   const { fontColor } = useTheme()
   const route = useRoute();
   const navigation = useNavigation();
-  const { isLoggedIn, setIsLoggedin, setPassword, setIsLocked } = useAuth();
+  const { isLoggedIn, setIsLoggedin, setPasscode, setIsLocked } = useAuth();
 
-  const [repassword, setRePassword] = useState('');
-  const password = route.params.password
+  const [repasscode, setRePasscode] = useState('');
+  const passcode = route.params.passcode
 
   const [usel, setUsel] = useState();
 
   const getValue = () => {
-    AsyncStorage.getItem('password').then(value => setUsel(value))
+    AsyncStorage.getItem('passcode').then(value => setUsel(value))
   }
   useEffect(() => {
-    if (repassword.length === 6) {
-      if (repassword === password) {
-        // AsyncStorage.setItem('password', password);
-        console.log(password, "pass ok");
-        setPassword(password)
-        setIsLoggedin(true);
+    if (repasscode.length === 6) {
+      if (repasscode === passcode) {
+        // AsyncStorage.setItem('passcode', passcode);
+        setPasscode(passcode);
         setIsLocked(false);
-        // navigation.navigate(ROUTES.HOME, { 'password': password });
-        console.log('DATA SAVED');
+        // navigation.navigate(ROUTES.HOME, { 'passcode': passcode });
       }
       else {
-        Alert.alert('Password does not match')
+        Alert.alert('Passcode does not match')
       }
     }
   });
@@ -51,14 +48,14 @@ const ReEntryPassword = () => {
           </StyledText>
         </CardBox>
         <CardBox>
-          <TextInput placeholder='Re-Entry password'
+          <TextInput placeholder='Re-Entry passcode'
             style={{ height: 40, color: fontColor }}
             placeholderTextColor="gray"
-            value={repassword}
+            value={repasscode}
             secureTextEntry={true}
             keyboardType='numeric'
             autoFocus={true}
-            onChangeText={(data) => setRePassword(data)}
+            onChangeText={(data) => setRePasscode(data)}
             underlineColorAndroid='transparent'
           />
         </CardBox>
@@ -67,4 +64,4 @@ const ReEntryPassword = () => {
   )
 }
 
-export default ReEntryPassword
+export default ReEntryPasscode

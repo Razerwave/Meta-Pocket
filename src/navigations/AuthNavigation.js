@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ROUTES } from '../constants';
-import { CreatePassword, NewWalletScreen, NewWalletWordScreen, RecoverWalletScreen, ReEntryPassword, TermsScreen, WelcomeScreen } from '../screens/auth';
+import { CreatePasscode, NewWalletScreen, NewWalletWordScreen, RecoverWalletScreen, ReEntryPasscode, TermsScreen, WelcomeScreen } from '../screens/auth';
 import { View, StyleSheet } from 'react-native'
 import { useTheme } from 'styled-components'
 
@@ -48,8 +48,8 @@ const AuthNavigation = () => {
             <Stack.Screen name={ROUTES.AUTH.NEW_WALLET_WORDS} component={NewWalletWordScreen} />
             <Stack.Screen name={ROUTES.AUTH.RECOVER_WALLET} component={RecoverWalletScreen} />
             <Stack.Screen name={ROUTES.AUTH.TERMS_SCREEN} component={TermsScreen} />
-            <Stack.Screen name={ROUTES.AUTH.CREATE_PASSWORD} component={CreatePassword} />
-            <Stack.Screen name={ROUTES.AUTH.RE_ENTRY_PASSWORD} component={ReEntryPassword} />
+            <Stack.Screen name={ROUTES.AUTH.CREATE_PASSWORD} component={CreatePasscode} />
+            <Stack.Screen name={ROUTES.AUTH.RE_ENTRY_PASSWORD} component={ReEntryPasscode} />
         </Stack.Navigator>
     )
 }

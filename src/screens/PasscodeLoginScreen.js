@@ -7,10 +7,10 @@ import { useTheme } from 'styled-components'
 // import { ROUTES } from '../constants';
 // import ReactNativeBiometrics, {BiometryTypes} from 'react-native-biometrics';
 
-const PasswordLoginScreen = () => {
+const PasscodeLoginScreen = () => {
   const {
-    password,
-    setPassword,
+    passcode,
+    setPasscode,
     isLoggedIn,
     setIsLoggedin,
     isLocked,
@@ -22,17 +22,17 @@ const PasswordLoginScreen = () => {
 
   useEffect(() => {
     if (pwd?.length === 6) {
-      if (pwd == password) {
+      if (pwd == passcode) {
         Alert.alert('success');
         setIsLocked(false);
         // setIsLoggedin(true);
         // navigation.navigate(ROUTES.HOME);
       } else {
-        Alert.alert("doesn't match password");
+        Alert.alert("doesn't match passcode");
         setPwd('');
       }
       console.log("pwd", pwd);
-      console.log("password", password);
+      console.log("passcode", passcode);
       console.log("isLoggedIn", isLoggedIn);
     }
   }, [pwd]);
@@ -82,4 +82,4 @@ const PasswordLoginScreen = () => {
   );
 };
 
-export default PasswordLoginScreen;
+export default PasscodeLoginScreen;

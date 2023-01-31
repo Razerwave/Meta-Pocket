@@ -1,117 +1,92 @@
-import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  TouchableOpacity,
-  Modal,
-} from 'react-native';
-import styled from 'styled-components/native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, TouchableOpacity, Modal} from 'react-native';
+import {CardBox, HomeScreen, Screen, Stack, StyledText} from '../../components';
+import {useTheme} from 'styled-components';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import WebView from 'react-native-webview';
-import {CardBox, Screen, Stack, StyledText} from '../../components';
-import {useTheme} from 'styled-components';
-import {ROUTES} from '../../constants';
 
 const ExploreListScreen = ({navigation, route}) => {
-  const {fontColor} = useTheme();
+  const {fontColor, activeTintColor} = useTheme();
   const data = route.params.data;
   const title = route.params.title;
   const [visible, setVisible] = useState(false);
   const WEB_LINK = 'https://www.youtube.com/';
-    useEffect(() => {
-        navigation.setOptions({title: title})
-    }, [])
+
+  useEffect(() => {
+    navigation.setOptions({title: title});
+  }, []);
+
   return (
-    <Screen>
-      <Stack spacing={32}>
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={visible}
-          onDismiss={() => {
-            setVisible(!visible);
-          }}>
-          <TouchableOpacity onPress={() => setVisible(!visible)}>
-            <Stack direction='row' style={{justifyContent: 'space-between', paddingLeft: 10, paddingRight: 10}}>
-              <StyledText>
-                {/* <IonIcon
+    <HomeScreen>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={visible}
+        onDismiss={() => {
+          setVisible(!visible);
+        }}>
+        <TouchableOpacity onPress={() => setVisible(!visible)}>
+          <Stack
+            direction="row"
+            style={{
+              justifyContent: 'space-between',
+              paddingLeft: 10,
+              paddingRight: 10,
+            }}>
+            <StyledText>
+              {/* <IonIcon
                       name="arrow-back"
                       size={19}
                       color={fontColor}
                     /> */}
-              </StyledText>
-              <StyledText>
-                <IonIcon
-                        name="close-outline"
-                        size={19}
-                        color={fontColor}
-                      />
-              </StyledText>
-            </Stack>
-          </TouchableOpacity>
-          <WebView source={{uri: WEB_LINK}} />
-        </Modal>
+            </StyledText>
+            <StyledText>
+              <IonIcon name="close-outline" size={19} color={fontColor} />
+            </StyledText>
+          </Stack>
+        </TouchableOpacity>
+        <WebView source={{uri: WEB_LINK}} />
+      </Modal>
 
-        {data.map(item => (
-          <TouchableOpacity key={item.Subject} onPress={() => setVisible(true)}>
-            <Stack style={{height: 100}}>
-              <Stack direction="row" style={{flex: 1}}>
-                <CardBox>
-                  <Stack>
-                    <StyledText>Zurag</StyledText>
-                  </Stack>
-                </CardBox>
+      <Stack spacing={16} padding={16}>
+        {data.map(index => (
+          <TouchableOpacity
+            onPress={() => setVisible(true)}
+            key={index.Subject}
+            fontColor={fontColor}
+            style={{flexDirection: 'row', gap: 16}}>
+            <View
+              style={{
+                height: 40,
+                width: 40,
+                borderWidth: 1,
+                borderColor: fontColor,
+              }}></View>
+            <Stack style={{flex: 1}}>
+              <Stack
+                direction="row"
+                style={{borderWidth: 1, borderColor: 'gray'}}>
+                <StyledText style={{fontWeight: 'bold', paddingHorizontal: 8}}>
+                  {index.Subject}
+                </StyledText>
+              </Stack>
 
-                <Stack style={{flex: 1}}>
-                  <Stack>
-                    <CardBox style={{height: 50}}>
-                      <StyledText>{item.Subject}</StyledText>
-                    </CardBox>
-                    <CardBox style={{height: 50}}>
-                      <StyledText>{item.Description}</StyledText>
-                    </CardBox>
-                  </Stack>
-                </Stack>
+              <Stack>
+                <StyledText
+                  style={{
+                    borderWidth: 1,
+                    borderColor: 'gray',
+                    paddingHorizontal: 8,
+                  }}>
+                  {index.Description}
+                </StyledText>
               </Stack>
             </Stack>
           </TouchableOpacity>
         ))}
       </Stack>
-    </Screen>
+    </HomeScreen>
   );
 };
-
-const Container = styled.View`
-  flex: 1;
-  display: flex;
-  justify-content: space-around;
-`;
-
-const Wrapper = styled.View`
-  flex: 1;
-  background-color: '#808000';
-  justify-content: center;
-  align-items: center;
-  margin-top: 22px;
-`;
-
-const ModalView = styled.View`
-  margin: 20px;
-  background-color: white;
-  border-radius: 20px;
-  padding: 35px;
-  align-items: center;
-`;
-
-const TitleAndArrow = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-`;
 
 export default ExploreListScreen;

@@ -3,8 +3,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import useAsyncStorage from '../hooks/useAsyncStorage';
 
 export const AuthContext = createContext({
-    password: null,
-    setPassword: () => { },
+    passcode: null,
+    setPasscode: () => { },
     isLoggedIn: false,
     // isLocked: false,
     // setIsLocked: () => {},
@@ -17,17 +17,17 @@ export const useAuth = () => {
 }
 export default useAuth;
 
-console.log(AuthContext.password, " hahahah")
+console.log(AuthContext.passcode, " hahahah")
 
 export const AuthProvier = ({ children }) => {
-    const [password, setPassword] = useAsyncStorage("password", null)
+    const [passcode, setPasscode] = useAsyncStorage("passcode", null)
 
     const [isLoggedIn, setIsLoggedin] = useState();
     const [isLocked, setIsLocked] = useState(true);
     const [isLogout, setIsLogout] = useState();
 
     return (
-        <AuthContext.Provider value={{ password, setPassword, isLoggedIn: !!password, setIsLoggedin, isLocked, setIsLocked, isLogout, setIsLogout }}>
+        <AuthContext.Provider value={{ passcode, setPasscode, isLoggedIn: !!passcode, setIsLoggedin, isLocked, setIsLocked, isLogout, setIsLogout }}>
             {children}
         </AuthContext.Provider>
     );

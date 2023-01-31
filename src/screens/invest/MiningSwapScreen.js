@@ -6,7 +6,7 @@ const MiningSwapScreen = () => {
   return (
     <Screen bottom={
       <Stack padding={16} spacing={16}>
-        <ButtonPrimary title='OK' onPress={() => {}} />
+        <ButtonPrimary title='Exchange' onPress={() => {}} />
       </Stack>
     }>
 

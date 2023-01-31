@@ -13,8 +13,6 @@ const WalletScreen = () => {
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const navigation = useNavigation();
 
-  console.log(appState.current)
-
   useEffect(() => {
     const subscription = AppState.addEventListener('change', nextAppState => {
       if (

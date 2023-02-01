@@ -35,13 +35,7 @@ const TheNavigation = () => {
 
   return (
     <NavigationContainer>
-      {!isLoggedIn ? (
-        <AuthNavigation />
-      ) : isLocked ? (
-        <PasscodeLoginScreen />
-      ) : (
-        <MainNavigation />
-      )}
+      {isLoggedIn ? isLocked ? <PasscodeLoginScreen /> : <MainNavigation /> : <AuthNavigation />}
     </NavigationContainer>
   );
 };

@@ -96,7 +96,7 @@ const AuthProvier = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ ...state, isLoggedIn, isDarkTheme, login, logout, lock, unlock, checkPasscode, toggleTheme }}>
+      value={{ isLocked: state.isLocked, isLoggedIn, isDarkTheme, login, logout, lock, unlock, checkPasscode, toggleTheme }}>
       <ThemeProvider theme={isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}
       </ThemeProvider>

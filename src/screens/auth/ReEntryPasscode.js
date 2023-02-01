@@ -11,7 +11,7 @@ const ReEntryPasscode = () => {
   const { fontColor } = useTheme()
   const route = useRoute();
   const navigation = useNavigation();
-  const { Login } = useAuth();
+  const { login } = useAuth();
 
   const [repasscode, setRePasscode] = useState('');
   const passcode = route.params.passcode
@@ -21,7 +21,7 @@ const ReEntryPasscode = () => {
     if (repasscode.length === 6) {
       if (repasscode === passcode) {
         // AsyncStorage.setItem('passcode', passcode);
-        Login(passcode)
+        login(passcode)
         // navigation.navigate(ROUTES.HOME, { 'passcode': passcode });
       }
       else {

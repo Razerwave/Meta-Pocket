@@ -7,9 +7,8 @@ import MainNavigation from './MainNavigation';
 import { useAuth } from '../context/AuthContext';
 
 const TheNavigation = () => {
-  const {isLoggedIn, isLocked, Lock} = useAuth();
+  const {isLoggedIn, isLocked, lock} = useAuth();
   // const scheme = useColorScheme();
-  console.log(isLoggedIn, isLocked);
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
@@ -25,7 +24,7 @@ const TheNavigation = () => {
       appState.current = nextAppState;
       setAppStateVisible(appState.current);
       if (appState.current === 'background') {
-        Lock();
+        lock();
       }
     });
 

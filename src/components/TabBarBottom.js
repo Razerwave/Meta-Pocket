@@ -4,8 +4,7 @@ import * as Animatable from 'react-native-animatable'
 import { useTheme } from 'styled-components'
 
 const TabBarBottom = ({ state, descriptors, navigation }) => {
-  // const backgroundColor = theme === 'dark' ? 'white' : 'lightgray'
-  const { backgroundColor, activeTintColor, fontColor } = useTheme()
+  const { fontColor } = useTheme()
   return (
     <View style={[styles.tabContainer, { backgroundColor: fontColor }]}>
       {state.routes.map((route, index) => <TabButton key={index} route={route} index={index} state={state} descriptors={descriptors} navigation={navigation} />)}

@@ -8,12 +8,12 @@ import {useAuth} from '../../context/AuthContext'
 const PasscodeReEnterScreen = ({ navigation, route }) => {
   const { fontColor } = useTheme()
   const [pass, setPass] = useState('')
-  const { Login } = useAuth()
+  const { login } = useAuth()
   const passcode = route.params.passcode
 
   useEffect(() => {
     if (pass === passcode) {
-      Login(passcode);
+      login(passcode);
       
       navigation.navigate(ROUTES.HOME.SETTING);
     }

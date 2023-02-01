@@ -8,24 +8,19 @@ import { useTheme } from 'styled-components'
 // import ReactNativeBiometrics, {BiometryTypes} from 'react-native-biometrics';
 
 const PasscodeLoginScreen = () => {
-  const {
-    passcode,
-    Unlock,
-  } = useAuth();
+  const { unlock, checkPasscode } = useAuth();
   const { fontColor } = useTheme()
   const [pwd, setPwd] = useState('');
 
   useEffect(() => {
     if (pwd?.length === 6) {
-      if (pwd == passcode) {
+      if (checkPasscode(pwd)) {
         Alert.alert('success');
-        Unlock();
+        unlock();
       } else {
         Alert.alert("doesn't match passcode");
         setPwd('');
       }
-      console.log("pwd", pwd);
-      console.log("passcode", passcode);
     }
   }, [pwd]);
 

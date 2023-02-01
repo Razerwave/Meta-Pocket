@@ -5,9 +5,7 @@ import React, {
   useReducer,
   useEffect,
 } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import useAsyncStorage from '../hooks/useAsyncStorage';
-import {ThemeProvider} from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import reducer from './reducer';
 import {
   LOCK,
@@ -17,7 +15,8 @@ import {
   TOGGLE_THEME,
   UNLOCK,
 } from './actions';
-import {DarkTheme, DefaultTheme} from '../constants';
+import { DarkTheme, DefaultTheme } from '../constants';
+import store from '../utils/store';
 
 const initialState = {
   passcode: null,
@@ -31,18 +30,20 @@ const useAuth = () => {
   return useContext(AuthContext);
 };
 
-const AuthProvier = ({children}) => {
+const AuthProvier = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const isLoggedIn = Boolean(state.passcode);
+  const isDarkTheme = state.theme === "dark";
 
   useEffect(() => {
     const restoreState = async () => {
       try {
-        const passcode = await AsyncStorage.getItem('passcode');
-        const theme = await AsyncStorage.getItem('theme');
+        const passcode = await store.getItem('passcode');
+        const theme = await store.getItem('theme');
 
         dispatch({
           type: RESTORE_STATE,
-          payload: {passcode, theme},
+          payload: { passcode, theme }
         });
       } catch (error) {
         console.log(error);
@@ -51,66 +52,56 @@ const AuthProvier = ({children}) => {
 
     restoreState()
   }, []);
-  // const addUserToAsyncStorage = (useAsyncStorage("passcode", null))
 
-  // const [passcode, setPasscode] = useAsyncStorage("passcode", null)
-  // const [isLoggedIn, setIsLoggedin] = useState();
-  // const [isLocked, setIsLocked] = useState(true);
-  // const [isLogout, setIsLogout] = useState();
-  // const [theme, setTheme] = useAsyncStorage("theme", "light")
-  // const toggleTheme = () => {
-  //     setTheme(v => v === 'dark' ? 'light' : 'dark')
-  // }
-
-  const isLoggedIn = Boolean(state.passcode);
-
-  const Login = passcode => {
+  const login = passcode => {
     dispatch({
       type: LOGIN_USER,
-      payload: {passcode},
+      payload: { passcode },
     });
-    
-    AsyncStorage.setItem('passcode', passcode);
+
+    store.setItem('passcode', passcode);
   };
 
-  const Logout = () => {
+  const logout = () => {
     dispatch({
       type: LOGOUT_USER,
     });
 
-    AsyncStorage.removeItem('passcode');
+    store.removeItem('passcode');
   };
 
-  const Lock = () => {
+  const lock = () => {
     dispatch({
       type: LOCK,
     });
   };
 
-  const Unlock = () => {
+  const unlock = () => {
     dispatch({
       type: UNLOCK,
     });
   };
 
-  const ToggleTheme = theme => {
-    const newTheme = state.theme === 'dark' ? 'light' : 'dark'
+  const checkPasscode = (passcode) => state.passcode === passcode;
+
+  const toggleTheme = () => {
+    const newTheme = isDarkTheme ? 'light' : 'dark'
     dispatch({
       type: TOGGLE_THEME,
-      payload: {theme: newTheme},
+      payload: { theme: newTheme },
     });
 
-    AsyncStorage.setItem('theme', newTheme);
+    store.setItem('theme', newTheme);
   };
 
   return (
     <AuthContext.Provider
-      value={{...state, isLoggedIn, Login, Logout, Lock, Unlock, ToggleTheme}}>
-      <ThemeProvider theme={state.theme === 'dark' ? DarkTheme : DefaultTheme}>
+      value={{ ...state, isLoggedIn, isDarkTheme, login, logout, lock, unlock, checkPasscode, toggleTheme }}>
+      <ThemeProvider theme={isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}
       </ThemeProvider>
     </AuthContext.Provider>
   );
 };
 
-export {useAuth, initialState, AuthProvier};
+export { useAuth, initialState, AuthProvier };

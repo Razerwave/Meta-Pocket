@@ -1,20 +1,17 @@
 import React from 'react'
 import { View, Text, Button, Alert, StyleSheet, Switch } from 'react-native'
 import { ButtonPrimary, CardBox, HomeScreen, Screen, Stack, StyledText } from '../../components'
-import { useThemeChange } from '../../context/ThemeChangeContext'
 import { useTheme } from 'styled-components'
 import { ROUTES } from '../../constants'
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import {useAuth} from '../../context/AuthContext'
 
 const SettingScreen = ({ navigation }) => {
-  const { Logout } = useAuth();
+  const { logout, isDarkTheme, toggleTheme } = useAuth();
   const { fontColor, activeTintColor } = useTheme()
-  const { theme, toggleTheme } = useThemeChange()
-  const isEnabled = theme === "dark"
 
   const logoutHandler = () => {
-    Logout();
+    logout();
   }
 
   return (
@@ -30,7 +27,7 @@ const SettingScreen = ({ navigation }) => {
             thumbColor={'gray'}
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleTheme}
-            value={isEnabled}
+            value={isDarkTheme}
           />
         </ListItem>
         <ListItem label="Language">

@@ -5,16 +5,16 @@ import { useThemeChange } from '../../context/ThemeChangeContext'
 import { useTheme } from 'styled-components'
 import { ROUTES } from '../../constants'
 import IonIcon from 'react-native-vector-icons/Ionicons';
-import useAuth from '../../context/AuthContext'
+import {useAuth} from '../../context/AuthContext'
 
 const SettingScreen = ({ navigation }) => {
-  const { setPasscode } = useAuth();
+  const { Logout } = useAuth();
   const { fontColor, activeTintColor } = useTheme()
   const { theme, toggleTheme } = useThemeChange()
   const isEnabled = theme === "dark"
 
   const logoutHandler = () => {
-    setPasscode(null)
+    Logout();
   }
 
   return (

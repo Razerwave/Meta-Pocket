@@ -1,12 +1,10 @@
 import React from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import ContextProvider from './src/context/ContextProvider';
-import TheNavigation, { MainNavigation } from './src/navigations';
+import TheNavigation from './src/navigations';
 // import styled from 'styled-components/native'
 
 const App = () => {
-  // #f8f9fa
-  // #343a40
   return (
     <ContextProvider>
       <TheStatusBar />
@@ -17,6 +15,7 @@ const App = () => {
 
 import { useTheme } from 'styled-components'
 import { useThemeChange } from './src/context/ThemeChangeContext';
+
 const TheStatusBar = () => {
   const { backgroundColor } = useTheme()
   const { theme } = useThemeChange()

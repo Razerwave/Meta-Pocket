@@ -3,7 +3,7 @@ import { Text, TextInput, View, TouchableOpacity, Alert, Button } from 'react-na
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { ROUTES } from '../../constants';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import useAuth from '../../context/AuthContext';
+import {useAuth} from '../../context/AuthContext';
 import { CardBox, Screen, Stack, StyledText } from '../../components';
 import { useTheme } from 'styled-components'
 
@@ -11,29 +11,24 @@ const ReEntryPasscode = () => {
   const { fontColor } = useTheme()
   const route = useRoute();
   const navigation = useNavigation();
-  const { isLoggedIn, setIsLoggedin, setPasscode, setIsLocked } = useAuth();
+  const { Login } = useAuth();
 
   const [repasscode, setRePasscode] = useState('');
   const passcode = route.params.passcode
 
-  const [usel, setUsel] = useState();
-
-  const getValue = () => {
-    AsyncStorage.getItem('passcode').then(value => setUsel(value))
-  }
   useEffect(() => {
+    console.log("USEEFFECT", repasscode.length === 6, repasscode === passcode, passcode, repasscode);
     if (repasscode.length === 6) {
       if (repasscode === passcode) {
         // AsyncStorage.setItem('passcode', passcode);
-        setPasscode(passcode);
-        setIsLocked(false);
+        Login(passcode)
         // navigation.navigate(ROUTES.HOME, { 'passcode': passcode });
       }
       else {
         Alert.alert('Passcode does not match')
       }
     }
-  });
+  },[repasscode]);
   return (
     <Screen>
       <Stack spacing={16} padding={16}>
@@ -44,7 +39,7 @@ const ReEntryPasscode = () => {
         </CardBox>
         <CardBox>
           <StyledText>
-            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
+            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. {repasscode}  {passcode}
           </StyledText>
         </CardBox>
         <CardBox>

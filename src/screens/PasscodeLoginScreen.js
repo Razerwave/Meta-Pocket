@@ -10,30 +10,22 @@ import { useTheme } from 'styled-components'
 const PasscodeLoginScreen = () => {
   const {
     passcode,
-    setPasscode,
-    isLoggedIn,
-    setIsLoggedin,
-    isLocked,
-    setIsLocked,
+    Unlock,
   } = useAuth();
   const { fontColor } = useTheme()
   const [pwd, setPwd] = useState('');
-  // const navigation = useNavigation();
 
   useEffect(() => {
     if (pwd?.length === 6) {
       if (pwd == passcode) {
         Alert.alert('success');
-        setIsLocked(false);
-        // setIsLoggedin(true);
-        // navigation.navigate(ROUTES.HOME);
+        Unlock();
       } else {
         Alert.alert("doesn't match passcode");
         setPwd('');
       }
       console.log("pwd", pwd);
       console.log("passcode", passcode);
-      console.log("isLoggedIn", isLoggedIn);
     }
   }, [pwd]);
 

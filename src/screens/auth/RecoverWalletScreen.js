@@ -9,7 +9,6 @@ const RecoverWalletScreen = ({ navigation }) => {
   const { fontColor } = useTheme()
 
   const handleSubmit = () => {
-    console.log("submitted")
     navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)
   }
 

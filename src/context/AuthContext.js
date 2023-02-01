@@ -46,7 +46,7 @@ const AuthProvier = ({ children }) => {
           payload: { passcode, theme }
         });
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
 

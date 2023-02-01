@@ -18,7 +18,7 @@ const TheNavigation = () => {
         appState.current.match(/inactive|background/) &&
         nextAppState === 'active'
       ) {
-        console.log('App has come to the foreground!');
+        console.error('App has come to the foreground!');
       }
 
       appState.current = nextAppState;

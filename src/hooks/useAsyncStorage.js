@@ -16,7 +16,7 @@ const useAsyncStorage = (key, initialValue) => {
                     await AsyncStorage.setItem(key, JSON.stringify(initialValue));
                 }
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         }
 
@@ -29,7 +29,7 @@ const useAsyncStorage = (key, initialValue) => {
             setValue(newValue);
             await AsyncStorage.setItem(key, JSON.stringify(newValue));
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
 

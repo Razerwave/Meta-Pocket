@@ -17,7 +17,6 @@ const ReEntryPasscode = () => {
   const passcode = route.params.passcode
 
   useEffect(() => {
-    console.log("USEEFFECT", repasscode.length === 6, repasscode === passcode, passcode, repasscode);
     if (repasscode.length === 6) {
       if (repasscode === passcode) {
         // AsyncStorage.setItem('passcode', passcode);

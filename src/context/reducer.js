@@ -30,7 +30,7 @@ import {
     }
   
     if (action.type === LOCK) {
-      return { ...state, isLocked: true, isInitialized: false }
+      return { ...state, isLocked: true }
     }
   
     if (action.type === UNLOCK) {

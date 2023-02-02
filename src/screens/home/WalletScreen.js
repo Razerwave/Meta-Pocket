@@ -15,6 +15,7 @@ import {
 } from '../../components';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
+import {Shadow} from 'react-native-shadow-2';
 
 const WalletScreen = () => {
   const {fontColor, activeTintColor} = useTheme();
@@ -28,23 +29,19 @@ const WalletScreen = () => {
         spacing={16}
         padding={16}
         style={{justifyContent: 'center', alignItems: 'center'}}>
-        <StyledText style={{fontSize: 20, fontWeight: 'bold'}}>
+        <StyledText
+          style={{fontSize: 20, fontWeight: 'bold', marginBottom: 10}}>
           Wallet
         </StyledText>
-        
+
         <View>
           <View
-          style={{
-            shadowColor: '#000',
-            elevation: 15,
-            shadowOpacity: 1,
-            opacity: 1,
-            flexDirection: 'row',
-            alignItems: 'center',
-            width: 140,
-            height: 140,
-          }}>
-          <LinearGradient
+            style={{
+              alignItems: 'center',
+              width: 140,
+              height: 140,
+            }}>
+            {/* <LinearGradient
             style={{
               width: 140,
               height: 140,
@@ -89,8 +86,44 @@ const WalletScreen = () => {
                 </View>
               </View>
             </View>
-          </LinearGradient>
-        </View>
+          </LinearGradient> */}
+            <Shadow
+              distance={16}
+              startColor={('rgba(9,9,121,1)', 'rgba(9,9,121,1)')}
+              endColor={'#ff00ff10'}
+              paintInside={false}
+              style={{
+                flexDirection: 'row',
+                borderRadius: 100,
+              }}>
+              <View style={{alignItems: 'center'}}>
+                <View
+                  style={{
+                    height: 120,
+                    width: 120,
+                    borderRadius: 60,
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <View
+                    style={{
+                      borderColor: fontColor,
+                      padding: 3,
+                      flex: 1,
+                      alignItems: 'center',
+                    }}>
+                    <StyledText style={{fontSize: 10, fontWeight: 'bold'}}>
+                      Total value
+                    </StyledText>
+                    <StyledText style={{fontSize: 20, fontWeight: 'bold'}}>
+                      $0.00
+                    </StyledText>
+                  </View>
+                </View>
+              </View>
+            </Shadow>
+          </View>
         </View>
 
         <View
@@ -115,7 +148,6 @@ const WalletScreen = () => {
               borderWidth: 1,
               borderColor: 'gray',
               paddingHorizontal: 8,
-              
             }}>
             <StyledText>ALEO Metaverse Coming Soon​</StyledText>
           </View>

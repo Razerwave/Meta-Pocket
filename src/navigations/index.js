@@ -1,13 +1,13 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {AppState} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {PasscodeLoginScreen} from '../screens';
+import {LoadingScreen, PasscodeLoginScreen} from '../screens';
 import AuthNavigation from './AuthNavigation';
 import MainNavigation from './MainNavigation';
 import { useAuth } from '../context/AuthContext';
 
 const TheNavigation = () => {
-  const {isLoggedIn, isLocked, lock} = useAuth();
+  const {isInitialized, isLoggedIn, isLocked, lock} = useAuth();
   // const scheme = useColorScheme();
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
@@ -18,7 +18,7 @@ const TheNavigation = () => {
         appState.current.match(/inactive|background/) &&
         nextAppState === 'active'
       ) {
-        console.error('App has come to the foreground!');
+        console.log('App has come to the foreground!');
       }
 
       appState.current = nextAppState;
@@ -35,7 +35,7 @@ const TheNavigation = () => {
 
   return (
     <NavigationContainer>
-      {isLoggedIn ? isLocked ? <PasscodeLoginScreen /> : <MainNavigation /> : <AuthNavigation />}
+      {isInitialized ? isLoggedIn ? isLocked ? <PasscodeLoginScreen /> : <MainNavigation /> : <AuthNavigation /> : <LoadingScreen />}
     </NavigationContainer>
   );
 };

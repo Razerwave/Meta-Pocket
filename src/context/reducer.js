@@ -5,9 +5,13 @@ import {
     LOCK,
     UNLOCK,
     RESTORE_STATE,
+    INITIALIZE
   } from './actions'
   
   const reducer = (state, action) => {
+    if (action.type === INITIALIZE) {
+      return {...state, isInitialized: true}
+    }
 
     if (action.type === RESTORE_STATE) {
       return { ...state, ...action.payload }
@@ -18,7 +22,7 @@ import {
     }
   
     if (action.type === LOGOUT_USER) {
-      return { ...state, passcode: null }
+      return { ...state, passcode: null, isInitialized: false }
     }
   
     if (action.type === TOGGLE_THEME) {
@@ -26,7 +30,7 @@ import {
     }
   
     if (action.type === LOCK) {
-      return { ...state, isLocked: true }
+      return { ...state, isLocked: true, isInitialized: false }
     }
   
     if (action.type === UNLOCK) {

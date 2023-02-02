@@ -8,6 +8,7 @@ import React, {
 import { ThemeProvider } from 'styled-components';
 import reducer from './reducer';
 import {
+  INITIALIZE,
   LOCK,
   LOGIN_USER,
   LOGOUT_USER,
@@ -21,6 +22,7 @@ import store from '../utils/store';
 const initialState = {
   passcode: null,
   isLocked: true,
+  isInitialized: false,
   theme: 'light',
 };
 
@@ -32,26 +34,40 @@ const useAuth = () => {
 
 const AuthProvier = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { isLocked, isInitialized } = state
   const isLoggedIn = Boolean(state.passcode);
   const isDarkTheme = state.theme === "dark";
 
   useEffect(() => {
-    const restoreState = async () => {
+    const restoreData = async () => {
       try {
         const passcode = await store.getItem('passcode');
         const theme = await store.getItem('theme');
 
         dispatch({
           type: RESTORE_STATE,
-          payload: { passcode, theme }
+          payload: {
+            passcode,
+            theme,
+          }
         });
       } catch (error) {
         console.error(error);
       }
     };
 
-    restoreState()
+    restoreData()
   }, []);
+
+  useEffect(() => {
+    if (!isInitialized) {
+      setTimeout(() => {
+        dispatch({
+          type: INITIALIZE,
+        });
+      }, 3000)
+    }
+  }, [isInitialized])
 
   const login = passcode => {
     dispatch({
@@ -96,7 +112,7 @@ const AuthProvier = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLocked: state.isLocked, isLoggedIn, isDarkTheme, login, logout, lock, unlock, checkPasscode, toggleTheme }}>
+      value={{ isInitialized, isLoggedIn, isLocked, isDarkTheme, login, logout, lock, unlock, checkPasscode, toggleTheme }}>
       <ThemeProvider theme={isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}
       </ThemeProvider>

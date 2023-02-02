@@ -15,7 +15,6 @@ import {
 } from '../../components';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
-import RadialGradient from 'react-native-radial-gradient';
 
 const WalletScreen = () => {
   const {fontColor, activeTintColor} = useTheme();

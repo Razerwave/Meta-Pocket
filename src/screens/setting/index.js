@@ -1,9 +1,4 @@
-import PasscodeResetScreen from "./PasscodeResetScreen";
-import PasscodeReEnterScreen from "./PasscodeReEnterScreen";
-import ExploreListScreen from "./ExploreListScreen";
+import PasscodeResetScreen from './PasscodeResetScreen';
+import PasscodeReEnterScreen from './PasscodeReEnterScreen';
 
-export {
-  PasscodeResetScreen,
-  PasscodeReEnterScreen,
-  ExploreListScreen,
-}
+export {PasscodeResetScreen, PasscodeReEnterScreen};

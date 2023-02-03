@@ -5,7 +5,7 @@ import React, {
   useReducer,
   useEffect,
 } from 'react';
-import { ThemeProvider } from 'styled-components';
+import {ThemeProvider} from 'styled-components';
 import reducer from './reducer';
 import {
   INITIALIZE,
@@ -16,7 +16,7 @@ import {
   TOGGLE_THEME,
   UNLOCK,
 } from './actions';
-import { DarkTheme, DefaultTheme } from '../constants';
+import {DarkTheme, DefaultTheme} from '../constants';
 import store from '../utils/store';
 
 const initialState = {
@@ -32,11 +32,11 @@ const useAuth = () => {
   return useContext(AuthContext);
 };
 
-const AuthProvier = ({ children }) => {
+const AuthProvier = ({children}) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { isLocked, isInitialized } = state
+  const {isLocked, isInitialized} = state;
   const isLoggedIn = Boolean(state.passcode);
-  const isDarkTheme = state.theme === "dark";
+  const isDarkTheme = state.theme === 'dark';
 
   useEffect(() => {
     const restoreData = async () => {
@@ -49,14 +49,14 @@ const AuthProvier = ({ children }) => {
           payload: {
             passcode,
             theme,
-          }
+          },
         });
       } catch (error) {
         console.error(error);
       }
     };
 
-    restoreData()
+    restoreData();
   }, []);
 
   useEffect(() => {
@@ -65,14 +65,14 @@ const AuthProvier = ({ children }) => {
         dispatch({
           type: INITIALIZE,
         });
-      }, 3100)
+      }, 3100);
     }
-  }, [isInitialized])
+  }, [isInitialized]);
 
   const login = passcode => {
     dispatch({
       type: LOGIN_USER,
-      payload: { passcode },
+      payload: {passcode},
     });
 
     store.setItem('passcode', passcode);
@@ -98,13 +98,13 @@ const AuthProvier = ({ children }) => {
     });
   };
 
-  const checkPasscode = (passcode) => state.passcode === passcode;
+  const checkPasscode = passcode => state.passcode === passcode;
 
   const toggleTheme = () => {
-    const newTheme = isDarkTheme ? 'light' : 'dark'
+    const newTheme = isDarkTheme ? 'light' : 'dark';
     dispatch({
       type: TOGGLE_THEME,
-      payload: { theme: newTheme },
+      payload: {theme: newTheme},
     });
 
     store.setItem('theme', newTheme);
@@ -112,7 +112,18 @@ const AuthProvier = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isInitialized, isLoggedIn, isLocked, isDarkTheme, login, logout, lock, unlock, checkPasscode, toggleTheme }}>
+      value={{
+        isInitialized,
+        isLoggedIn,
+        isLocked,
+        isDarkTheme,
+        login,
+        logout,
+        lock,
+        unlock,
+        checkPasscode,
+        toggleTheme,
+      }}>
       <ThemeProvider theme={isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}
       </ThemeProvider>
@@ -120,4 +131,4 @@ const AuthProvier = ({ children }) => {
   );
 };
 
-export { useAuth, initialState, AuthProvier };
+export {useAuth, initialState, AuthProvier};

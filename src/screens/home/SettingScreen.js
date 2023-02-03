@@ -1,18 +1,25 @@
-import React from 'react'
-import { View, Text, Button, Alert, StyleSheet, Switch } from 'react-native'
-import { ButtonPrimary, CardBox, HomeScreen, Screen, Stack, StyledText } from '../../components'
-import { useTheme } from 'styled-components'
-import { ROUTES } from '../../constants'
+import React from 'react';
+import {View, Text, Button, Alert, StyleSheet, Switch} from 'react-native';
+import {
+  ButtonPrimary,
+  CardBox,
+  HomeScreen,
+  Screen,
+  Stack,
+  StyledText,
+} from '../../components';
+import {useTheme} from 'styled-components';
+import {ROUTES} from '../../constants';
 import IonIcon from 'react-native-vector-icons/Ionicons';
-import {useAuth} from '../../context/AuthContext'
+import {useAuth} from '../../context/AuthContext';
 
-const SettingScreen = ({ navigation }) => {
-  const { logout, isDarkTheme, toggleTheme } = useAuth();
-  const { fontColor, activeTintColor } = useTheme()
+const SettingScreen = ({navigation}) => {
+  const {logout, isDarkTheme, toggleTheme} = useAuth();
+  const {fontColor, activeTintColor} = useTheme();
 
   const logoutHandler = () => {
     logout();
-  }
+  };
 
   return (
     <HomeScreen>
@@ -22,8 +29,8 @@ const SettingScreen = ({ navigation }) => {
         </ListItem>
         <ListItem label="Dark Mode">
           <Switch
-            style={{ flex: 1 }}
-            trackColor={{ false: 'lightgray', true: activeTintColor }}
+            style={{flex: 1}}
+            trackColor={{false: 'lightgray', true: activeTintColor}}
             thumbColor={'gray'}
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleTheme}
@@ -34,7 +41,8 @@ const SettingScreen = ({ navigation }) => {
           <StyledText>OK</StyledText>
         </ListItem>
         <ListItem label="Reset Passcode">
-          <StyledText onPress={() => navigation.navigate(ROUTES.SETTING.PASSCODE_RESET)}>
+          <StyledText
+            onPress={() => navigation.navigate(ROUTES.SETTING.PASSCODE_RESET)}>
             <IonIcon name="arrow-forward" size={18} color={fontColor} />
           </StyledText>
         </ListItem>
@@ -42,27 +50,29 @@ const SettingScreen = ({ navigation }) => {
           <StyledText>1.0.0</StyledText>
         </ListItem>
       </Stack>
-      <Stack direction='row' spacing={16} padding={16} style={{ marginTop: 48, justifyContent: 'space-evenly' }}>
-        <CardBox style={{ width: 50, height: 50 }}></CardBox>
-        <CardBox style={{ width: 50, height: 50 }}></CardBox>
-        <CardBox style={{ width: 50, height: 50 }}></CardBox>
+      <Stack
+        direction="row"
+        spacing={16}
+        padding={16}
+        style={{marginTop: 48, justifyContent: 'space-evenly'}}>
+        <CardBox style={{width: 50, height: 50}}></CardBox>
+        <CardBox style={{width: 50, height: 50}}></CardBox>
+        <CardBox style={{width: 50, height: 50}}></CardBox>
       </Stack>
       <Stack padding={16} spacing={32}>
         <ButtonPrimary title="Logout" onPress={logoutHandler} />
       </Stack>
     </HomeScreen>
-  )
-}
+  );
+};
 
-const ListItem = ({ label, children }) => {
+const ListItem = ({label, children}) => {
   return (
-    <View style={{ flexDirection: 'row' }}>
+    <View style={{flexDirection: 'row'}}>
       <StyledText>{label}</StyledText>
-      <View style={{ flex: 1, alignItems: 'flex-end' }}>
-        {children}
-      </View>
+      <View style={{flex: 1, alignItems: 'flex-end'}}>{children}</View>
     </View>
-  )
-}
+  );
+};
 
-export default SettingScreen
+export default SettingScreen;

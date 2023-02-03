@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {LoadingScreen, PasscodeLoginScreen} from '../screens';
 import AuthNavigation from './AuthNavigation';
 import MainNavigation from './MainNavigation';
-import { useAuth } from '../context/AuthContext';
+import {useAuth} from '../context/AuthContext';
 
 const TheNavigation = () => {
   const {isInitialized, isLoggedIn, isLocked, lock} = useAuth();
@@ -35,7 +35,19 @@ const TheNavigation = () => {
 
   return (
     <NavigationContainer>
-      {isInitialized ? isLoggedIn ? isLocked ? <PasscodeLoginScreen /> : <MainNavigation /> : <AuthNavigation /> : <LoadingScreen />}
+      {isInitialized ? (
+        isLoggedIn ? (
+          isLocked ? (
+            <PasscodeLoginScreen />
+          ) : (
+            <MainNavigation />
+          )
+        ) : (
+          <AuthNavigation />
+        )
+      ) : (
+        <LoadingScreen />
+      )}
     </NavigationContainer>
   );
 };

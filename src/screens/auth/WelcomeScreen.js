@@ -23,19 +23,19 @@ const WelcomeScreen = ({navigation}) => {
       id: 1,
       title: 'Private and Secure',
       desription: 'Private key never leave your device.',
-      image: '../../assets//images.jpg',
+      image: require('../../assets//SecurityHeader.jpeg'),
     },
     {
       id: 2,
       title: 'All assets in one place',
       desription: 'View and store your assets seamlessy',
-      image: '../../assets//images.jpg',
+      image: require('../../assets//banner-The-Mobile-App-security-Best-Practices-To-Ensure-a-Hack-Proof-App-02.png'),
     },
     {
       id: 3,
       title: 'Trade assets',
       desription: 'Trade your assets anonymously',
-      image: '../../assets/images.jpg',
+      image: require('../../assets/Header+Blog.png'),
     },
   ]);
 
@@ -51,7 +51,7 @@ const WelcomeScreen = ({navigation}) => {
 
   const Item = ({item}) => (
     <View style={[styles.container, {width}]}>
-      <Image source={require('../../assets/images.jpg')} style={styles.image} />
+      <Image source={item.image} style={styles.image} />
       <View>
         <StyledText style={styles.title}>{item.title}</StyledText>
         <StyledText style={styles.description}>{item.desription}</StyledText>

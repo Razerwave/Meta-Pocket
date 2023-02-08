@@ -72,7 +72,8 @@ const ExploreScreen = ({ navigation }) => {
                   key={index}
                   style={{ flex: 1 }}
                   onPress={() => navigation.navigate(ROUTES.EXPLORE.WEB, {
-                    uri: WEB_LINK
+                    uri: WEB_LINK,
+                    title: 'title'
                   })}>
                   <Stack style={{ height: 100 }} spacing={8}>
                     <CardBox style={{ flex: 1 }}></CardBox>

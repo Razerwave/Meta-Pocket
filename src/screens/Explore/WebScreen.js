@@ -1,15 +1,9 @@
 import WebView from 'react-native-webview';
 import styled from 'styled-components/native';
 import { SafeAreaView } from 'react-native';
-import { useEffect } from 'react';
 
-
-const WebScreen = ({ route, navigation }) => {
+const WebScreen = ({ route }) => {
   const { uri } = route.params;
-
-  useEffect(() => {
-    navigation.setOptions({ title: uri })
-  }, [navigation, uri])
 
   return (
     <SafeAreaView>

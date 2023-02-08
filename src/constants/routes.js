@@ -24,6 +24,7 @@ const ROUTES = {
     },
     EXPLORE: {
         LIST_SCREEN: "LIST_SCREEN",
+        WEB: "WEBB_LINK"
     },
 }
 

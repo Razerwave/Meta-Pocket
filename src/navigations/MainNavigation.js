@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useTheme} from 'styled-components';
 import {MiningInfoScreen, MiningSwapScreen} from '../screens/invest';
 import {PasscodeReEnterScreen, PasscodeResetScreen} from '../screens/setting';
-import {ExploreListScreen} from '../screens/Explore';
+import {ExploreListScreen, WebScreen} from '../screens/Explore';
 import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
 
@@ -55,6 +55,10 @@ const MainNavigation = () => {
         options={{title: ''}}
         name={ROUTES.EXPLORE.LIST_SCREEN}
         component={ExploreListScreen}
+      />
+      <Stack.Screen
+        name={ROUTES.EXPLORE.WEB}
+        component={WebScreen}
       />
     </Stack.Navigator>
   );

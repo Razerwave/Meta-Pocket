@@ -2,46 +2,21 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Modal} from 'react-native';
 import {CardBox, HomeScreen, Screen, Stack, StyledText} from '../../components';
 import {useTheme} from 'styled-components';
-import WebView from 'react-native-webview';
-import IonIcon from 'react-native-vector-icons/Ionicons';
+import { ROUTES } from '../../constants';
 
-const DappScreen = () => {
+const DappScreen = ({navigation}) => {
   const {fontColor, activeTintColor} = useTheme();
   const WEB_LINK = 'https://www.youtube.com/';
-  const [visible, setVisible] = useState(false);
 
   return (
     <HomeScreen>
-      <Modal animationType="slide" transparent={true} visible={visible}>
-        <TouchableOpacity onPress={() => setVisible(!visible)}>
-          <Stack
-            direction="row"
-            style={{
-              justifyContent: 'space-between',
-              paddingLeft: 10,
-              paddingRight: 10,
-            }}>
-            <StyledText>
-              {/* <IonIcon
-                      name="arrow-back"
-                      size={19}
-                      color={fontColor}
-                    /> */}
-            </StyledText>
-            <StyledText>
-              <IonIcon name="close-outline" size={19} color={fontColor} />
-            </StyledText>
-          </Stack>
-        </TouchableOpacity>
-        <WebView source={{uri: WEB_LINK}} />
-      </Modal>
       <Stack spacing={16} padding={16}>
         <Tabs fontColor={fontColor} activeTintColor={activeTintColor} />
         {[1, 2, 3, 4, 5, 6].map((_, index) => (
           <TouchableOpacity
             key={index}
             fontColor={fontColor}
-            onPress={() => setVisible(true)}
+            onPress={() => navigation.navigate(ROUTES.EXPLORE.WEB, { uri: WEB_LINK })}
             style={{flexDirection: 'row', gap: 16}}>
             <View
               style={{

@@ -1,3 +1,4 @@
 import ExploreListScreen from './ExploreListScreen';
+import WebScreen from './WebScreen';
 
-export {ExploreListScreen};
+export {ExploreListScreen, WebScreen};

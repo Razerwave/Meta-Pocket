@@ -43,7 +43,7 @@ const data = [
 
 const ExploreScreen = ({ navigation }) => {
   const { fontColor } = useTheme();
-  const WEB_LINK = 'https://www.youtube.com/';
+  const WEB_LINK = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 
   return (
     <HomeScreen>

@@ -1,14 +1,16 @@
 const DefaultTheme = {
-    backgroundColor: '#f8f9fa',
-    fontColor: '#343a40',
-    activeTintColor: '#007bff',
+    backgroundColor: '#F7F8F9',
+    backgroundCardColor: '#FFFFFF',
+    fontColor: '#1F2129',
+    activeTintColor: '#3769F1',
     inactiveTintColor: '#ccc',
 }
 
 const DarkTheme = {
-    backgroundColor: '#343a40',
-    fontColor: '#f8f9fa',
-    activeTintColor: '#007bff',
+    backgroundColor: '#1C1C28',
+    backgroundCardColor: '#262637',
+    fontColor: '#FFFFFF',
+    activeTintColor: '#3769F1',
     inactiveTintColor: '#ccc',
 }
 

@@ -1,8 +1,8 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ROUTES} from '../constants';
 import {
+  WalletBackupScreen,
   CreatePasscode,
-  NewWalletScreen,
   NewWalletWordScreen,
   RecoverWalletScreen,
   ReEntryPasscode,
@@ -80,7 +80,7 @@ const AuthNavigation = () => {
         name={ROUTES.AUTH.WELCOME}
         component={WelcomeScreen}
       />
-      <Stack.Screen name={ROUTES.AUTH.NEW_WALLET} component={NewWalletScreen} />
+      <Stack.Screen name={ROUTES.AUTH.NEW_WALLET} component={WalletBackupScreen} />
       <Stack.Screen
         name={ROUTES.AUTH.NEW_WALLET_WORDS}
         component={NewWalletWordScreen}

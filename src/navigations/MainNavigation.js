@@ -3,7 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from 'styled-components';
 import { MiningInfoScreen, MiningSwapScreen } from '../screens/invest';
 import { PasscodeReEnterScreen, PasscodeResetScreen } from '../screens/setting';
-import { ExploreListScreen, WebScreen } from '../screens/Explore';
+import { ExploreListScreen } from '../screens/Explore';
+import { WebScreen } from '../screens';
 import { ROUTES } from '../constants';
 import HomeNavigation from './HomeNavigation';
 

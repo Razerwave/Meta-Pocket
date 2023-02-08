@@ -60,9 +60,9 @@ const WelcomeScreen = ({navigation}) => {
   );
 
   return (
-    <Screen>
-      <Screen
-        children={
+    <Screen
+      bottom={
+        <Stack padding={16} spacing={16}>
           <SafeAreaView>
             <View>
               <FlatList
@@ -86,20 +86,16 @@ const WelcomeScreen = ({navigation}) => {
             </View>
             <Paginator data={StaticPagination} scrollX={scrollX} />
           </SafeAreaView>
-        }
-        bottom={
-          <Stack padding={16} spacing={16}>
-            <ButtonPrimary
-              title="Create New Wallet"
-              onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET)}
-            />
-            <ButtonPrimary
-              title="I already have a wallet"
-              onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}
-            />
-          </Stack>
-        }></Screen>
-    </Screen>
+          <ButtonPrimary
+            title="Create New Wallet"
+            onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET)}
+          />
+          <ButtonPrimary
+            title="I already have a wallet"
+            onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}
+          />
+        </Stack>
+      }></Screen>
   );
 };
 const styles = StyleSheet.create({

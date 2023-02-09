@@ -5,9 +5,9 @@ import {
   CreatePasscode,
   WalletPasscodeScreen,
   RecoverWalletScreen,
-  ReEntryPasscode,
   WelcomeScreen,
   ProtectWallet,
+  ConfirmPasscode,
 } from '../screens/auth';
 import { View, StyleSheet } from 'react-native';
 import { useTheme } from 'styled-components';
@@ -96,7 +96,7 @@ const AuthNavigation = () => {
       />
       <Stack.Screen
         name={ROUTES.AUTH.RE_ENTRY_PASSWORD}
-        component={ReEntryPasscode}
+        component={ConfirmPasscode}
       />
     </Stack.Navigator>
   );

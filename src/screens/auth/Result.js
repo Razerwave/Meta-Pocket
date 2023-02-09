@@ -2,14 +2,14 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { AuthLayout } from '../../components'
 
-const Completed = () => {
+const Result = () => {
   return (
     <AuthLayout>
-      <Text>Completed</Text>
+      <Text>Result</Text>
     </AuthLayout>
   )
 }
 
-export default Completed
+export default Result
 
 const styles = StyleSheet.create({})

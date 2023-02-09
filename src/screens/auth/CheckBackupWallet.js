@@ -27,7 +27,11 @@ const CheckBackupWallet = ({ route, navigation }) => {
 
   const passed = chosenWords[0] === firstWord && chosenWords[1] === lastWord
   return (
-    <AuthLayout>
+    <AuthLayout
+      button={
+        <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)} />
+      }
+    >
       <Stack padding={28} spacing={20}>
         <Title>
           Have you backed up?
@@ -78,9 +82,6 @@ const CheckBackupWallet = ({ route, navigation }) => {
             })}
           </View>
         </View>
-        <Stack padding={16} spacing={16} style={{ alignItems: 'center' }}>
-          <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)} />
-        </Stack>
       </Stack>
     </AuthLayout>
   )

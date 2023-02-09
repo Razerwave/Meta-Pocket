@@ -26,7 +26,9 @@ const ProtectWallet = ({ navigation }) => {
   }
 
   return (
-    <AuthLayout>
+    <AuthLayout button={
+      <ButtonPrimary title='Create Passcode' disabled={!agreed} onPress={() => navigation.navigate(ROUTES.AUTH.CREATE_PASSWORD)} />
+    }>
       <Stack padding={28} spacing={29}>
         <Title>
           Protect your wallet.
@@ -67,7 +69,6 @@ const ProtectWallet = ({ navigation }) => {
             </TouchableOpacity>
           </Stack>
         </Stack>
-        <ButtonPrimary title='Create Passcode' disabled={!agreed} onPress={() => navigation.navigate(ROUTES.AUTH.CREATE_PASSWORD)} />
       </Stack>
 
       <BottomModal

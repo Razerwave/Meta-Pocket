@@ -21,7 +21,15 @@ const BackupWallet = ({ navigation }) => {
   }
 
   return (
-    <AuthLayout>
+    <AuthLayout
+      button={
+        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET_WORDS, {
+          firstWord: words[0],
+          lastWord: words[words.length - 1],
+          words: [...words].sort((a, b) => 0.5 - Math.random()),
+        })} />
+      }
+    >
       <Stack padding={28} spacing={20}>
         <Title>
           Back Up Your Wallet
@@ -51,13 +59,6 @@ const BackupWallet = ({ navigation }) => {
             </Stack>
           </TouchableOpacity>
         </Stack>
-      </Stack>
-      <Stack padding={16} spacing={16} style={{ alignItems: 'center' }}>
-        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET_WORDS, {
-          firstWord: words[0],
-          lastWord: words[words.length - 1],
-          words: [...words].sort((a, b) => 0.5 - Math.random()),
-        })} />
       </Stack>
     </AuthLayout>
   )

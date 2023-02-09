@@ -7,8 +7,10 @@ import {
   Image,
   useWindowDimensions,
   Animated,
+  TouchableOpacity,
 } from 'react-native';
 import {
+  AuthLayout,
   ButtonPrimary,
   Paginator,
   Screen,
@@ -60,44 +62,21 @@ const WelcomeScreen = ({ navigation }) => {
   );
 
   return (
-    <Screen
-      bottom={
-        <Stack padding={16} spacing={16}>
-          <ButtonPrimary
-            title="Create New Wallet"
-            onPress={() => navigation.navigate(ROUTES.AUTH.BACKUP_WALLET)}
-          />
-          <ButtonPrimary
-            title="I already have a wallet"
-            onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}
-          />
-        </Stack>
-      }
-    >
-      <Stack>
-        <View>
-          <FlatList
-            data={StaticPagination}
-            renderItem={({ item }) => <Item item={item} />}
-            keyExtractor={item => item.id}
-            horizontal
-            pagingEnabled
-            bounces={false}
-            showsHorizontalScrollIndicator={false}
-            onScroll={Animated.event(
-              [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-              {
-                useNativeDriver: false,
-              },
-            )}
-            onViewableItemsChanged={viewableItemsChanged}
-            viewabilityConfig={viewConfig}
-            ref={slideRef}
-          />
-        </View>
-        <Paginator data={StaticPagination} scrollX={scrollX} />
-      </Stack>
-    </Screen>
+    <AuthLayout button={[
+      <ButtonPrimary
+        key="Create"
+        title="Create New Wallet"
+        onPress={() => navigation.navigate(ROUTES.AUTH.BACKUP_WALLET)}
+        style={{ marginBottom: 20 }}
+      />,
+      <TouchableOpacity key="Recover" onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
+        <StyledText style={{ fontSize: 14, lineHeight: 21 }}>
+          I already have a wallet
+        </StyledText>
+      </TouchableOpacity>
+    ]}>
+
+    </AuthLayout>
   );
 };
 const styles = StyleSheet.create({

@@ -2,12 +2,11 @@ import styled from 'styled-components/native';
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
 
 const ButtonPrimary = ({ disabled, ...props }) => {
-    const ButtonView = disabled ? StyledButtonViewDisabled : StyledButtonView
     return (
         <TouchableOpacity {...props} disabled={disabled}>
-            <ButtonView>
+            <StyledButtonView style={{ opacity: disabled ? 0.5 : 1 }}>
                 <StyledButtonText>{props.title}</StyledButtonText>
-            </ButtonView>
+            </StyledButtonView>
         </TouchableOpacity>
     )
 }

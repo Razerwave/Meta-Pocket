@@ -6,7 +6,7 @@ import {
   Animated,
   useWindowDimensions,
 } from 'react-native';
-import StyledText from './StyledText';
+import StyledText from './texts/StyledText';
 
 const Paginator = ({data, scrollX}) => {
   const {width} = useWindowDimensions();

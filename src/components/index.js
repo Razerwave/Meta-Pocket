@@ -1,7 +1,9 @@
+import StyledText from './texts/StyledText';
+import Title from './texts/Title';
+import AuthLayout from './layouts/AuthLayout';
 import Screen from './Screen';
 import HomeScreen from './HomeScreen';
-import ButtonPrimary from './ButtonPrimary';
-import StyledText from './StyledText';
+import ButtonPrimary from './buttons/ButtonPrimary';
 import CardBox from './CardBox';
 import TabBarBottom from './TabBarBottom';
 import Stack from './Stack';
@@ -10,6 +12,7 @@ import CircleAnimated from './CircleAnimated';
 import Paginator from './Paginator';
 
 export {
+  Title,
   Screen,
   HomeScreen,
   ButtonPrimary,
@@ -20,4 +23,5 @@ export {
   AppStatusBar,
   CircleAnimated,
   Paginator,
+  AuthLayout
 };

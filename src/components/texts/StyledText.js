@@ -10,3 +10,15 @@ const StyledText = styled.Text`
 `
 
 export default StyledText
+
+// import { View, Text } from 'react-native'
+
+// const StyledText = () => {
+//   return (
+//     <View>
+//       <Text>text</Text>
+//     </View>
+//   )
+// }
+
+// export default StyledText

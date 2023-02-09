@@ -1,16 +1,16 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ROUTES} from '../constants';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ROUTES } from '../constants';
 import {
   WalletBackupScreen,
   CreatePasscode,
-  NewWalletWordScreen,
+  WalletPasscodeScreen,
   RecoverWalletScreen,
   ReEntryPasscode,
   TermsScreen,
   WelcomeScreen,
 } from '../screens/auth';
-import {View, StyleSheet} from 'react-native';
-import {useTheme} from 'styled-components';
+import { View, StyleSheet } from 'react-native';
+import { useTheme } from 'styled-components';
 
 const stepsName = {
   [ROUTES.AUTH.NEW_WALLET]: 1,
@@ -24,7 +24,7 @@ const stepsName = {
 const Stack = createNativeStackNavigator();
 
 const AuthNavigation = () => {
-  const {backgroundColor, activeTintColor, fontColor} = useTheme();
+  const { backgroundColor, activeTintColor, fontColor } = useTheme();
 
   return (
     <Stack.Navigator
@@ -39,35 +39,35 @@ const AuthNavigation = () => {
         headerTitle: props => {
           const currentStep = stepsName[props.children] || 0;
           return (
-            <View style={[styles.stepContainer, {backgroundColor}]}>
+            <View style={[styles.stepContainer, { backgroundColor }]}>
               <View
                 style={[
                   styles.step,
-                  {backgroundColor: 1 <= currentStep ? fontColor : 'gray'},
+                  { backgroundColor: 1 <= currentStep ? fontColor : 'gray' },
                 ]}
               />
               <View
                 style={[
                   styles.step,
-                  {backgroundColor: 2 <= currentStep ? fontColor : 'gray'},
+                  { backgroundColor: 2 <= currentStep ? fontColor : 'gray' },
                 ]}
               />
               <View
                 style={[
                   styles.step,
-                  {backgroundColor: 3 <= currentStep ? fontColor : 'gray'},
+                  { backgroundColor: 3 <= currentStep ? fontColor : 'gray' },
                 ]}
               />
               <View
                 style={[
                   styles.step,
-                  {backgroundColor: 4 <= currentStep ? fontColor : 'gray'},
+                  { backgroundColor: 4 <= currentStep ? fontColor : 'gray' },
                 ]}
               />
               <View
                 style={[
                   styles.step,
-                  {backgroundColor: 5 <= currentStep ? fontColor : 'gray'},
+                  { backgroundColor: 5 <= currentStep ? fontColor : 'gray' },
                 ]}
               />
             </View>
@@ -76,14 +76,14 @@ const AuthNavigation = () => {
       }}
       initialRouteName={ROUTES.AUTH.WELCOME}>
       <Stack.Screen
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         name={ROUTES.AUTH.WELCOME}
         component={WelcomeScreen}
       />
       <Stack.Screen name={ROUTES.AUTH.NEW_WALLET} component={WalletBackupScreen} />
       <Stack.Screen
         name={ROUTES.AUTH.NEW_WALLET_WORDS}
-        component={NewWalletWordScreen}
+        component={WalletPasscodeScreen}
       />
       <Stack.Screen
         name={ROUTES.AUTH.RECOVER_WALLET}

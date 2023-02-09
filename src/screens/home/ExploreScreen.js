@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -8,11 +8,12 @@ import {
   Modal,
   SafeAreaView,
 } from 'react-native';
+import {WebView} from 'react-native-webview';
 import styled from 'styled-components/native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
-import { CardBox, HomeScreen, Stack, StyledText } from '../../components';
-import { useTheme } from 'styled-components';
-import { ROUTES } from '../../constants';
+import {CardBox, HomeScreen, Stack, StyledText} from '../../components';
+import {useTheme} from 'styled-components';
+import {ROUTES} from '../../constants';
 
 const links = [
   {
@@ -33,56 +34,180 @@ const links = [
     Description: '#808000',
     Image: require('../../assets/images.jpg'),
   },
+  {
+    id: 4,
+    Subject: 'Selenge',
+    Description: '#808000',
+    Image: require('../../assets/images.jpg'),
+  },
 ];
 
-const data = [
-  { title: 'Title 1', links: links },
-  { title: 'Title 2', links: links },
-  { title: 'Title 3', links: links },
+const testData = [
+  {
+    title: 'All',
+    items: links,
+    icons: require('../../assets/icons/all.png'),
+  },
+
+  {
+    title: 'Favorite',
+    items: links,
+    icons: require('../../assets/icons/Vector.png'),
+  },
+
+  {
+    title: 'Website',
+    items: links,
+    icons: require('../../assets/icons/Ellipse93.png'),
+  },
+
+  {
+    title: 'Item',
+    items: links,
+    icons: require('../../assets/icons/Ellipse94.png'),
+  },
+
+  {
+    title: 'Art',
+    items: links,
+    icons: require('../../assets/icons/Ellipse95.png'),
+  },
+
+  {
+    title: 'Article',
+    items: links,
+    icons: require('../../assets/icons/Ellipse96.png'),
+  },
 ];
 
-const ExploreScreen = ({ navigation }) => {
-  const { fontColor } = useTheme();
+const ExploreScreen = ({navigation}) => {
+  const {fontColor} = useTheme();
   const WEB_LINK = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+  const [item, setItem] = useState([]);
+  const [art, setArt] = useState([]);
+  const [article, setArticle] = useState([]);
+  const [all, setAll] = useState([
+    {
+      title: 'All',
+      links: links,
+      icons: require('../../assets/icons/all.png'),
+    },
+  ]);
+  const [favorite, setFavorite] = useState([]);
+  const [website, setWebsite] = useState([]);
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+    const getData = async () => {
+      setData(testData);
+    };
+
+    getData();
+  }, []);
+  const handleClick = () => {
+    console.log('clicked');
+    return (
+      <View style={{flex: 1, backgroundColor: 'red', height: 600, width: 600}}>
+        <WebView source={{uri: 'https://reactnative.dev/'}} />
+      </View>
+    );
+  };
   return (
     <HomeScreen>
-      <Stack spacing={32} padding={16}>
-        {data.map((item, index) => (
-          <Stack key={index} spacing={16}>
-            <TitleAndArrow>
-              <StyledText style={{ fontSize: 20, fontWeight: 'bold' }}>
-                {item.title}
-              </StyledText>
-              <IonIcon
-                onPress={() =>
-                  navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
-                    data: item.links,
-                    title: item.title,
-                  })
-                }
-                name="arrow-forward"
-                size={25}
-                color={fontColor}
-              />
-            </TitleAndArrow>
-            <Stack direction="row" spacing={16}>
-              {item?.links?.map((item, index) => (
-                <TouchableOpacity
+      <Stack padding={16}>
+        {data.map(({title, icons, items}, index) => (
+          <Stack>
+            <Stack key={index}>
+              <Stack
+                direction="row"
+                style={{
+                  justifyContent: 'space-between',
+                  textAlign: 'center',
+                  alignItems: 'center',
+                  marginVertical: 20,
+                }}>
+                <Stack
+                  direction="row"
                   key={index}
-                  style={{ flex: 1 }}
-                  onPress={() => navigation.navigate(ROUTES.EXPLORE.WEB, {
-                    uri: WEB_LINK,
-                    title: 'title'
-                  })}>
-                  <Stack style={{ height: 100 }} spacing={8}>
-                    <CardBox style={{ flex: 1 }}></CardBox>
-                    <StyledText style={{ textAlign: 'center' }}>
-                      {item.Subject}
-                    </StyledText>
+                  style={{
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    gap: 7,
+                  }}>
+                  <Image source={icons} style={{width: 14, height: 14}} />
+                  <StyledText>{title}</StyledText>
+                </Stack>
+
+                <IonIcon
+                  onPress={() =>
+                    navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
+                      data: data.links,
+                      title: data.title,
+                    })
+                  }
+                  name="chevron-forward-outline"
+                  size={25}
+                  color={fontColor}
+                />
+              </Stack>
+            </Stack>
+
+            <Stack>
+              <Stack>
+                {title !== 'All' && title !== 'Favorite' ? (
+                  <Stack>
+                    <Stack
+                      spacing={10}
+                      style={{
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                      }}>
+                      {items.map((item, index) => {
+                        console.log(item);
+                        return (
+                          <Stack style={{alignItems: 'center', gap: 8}}>
+                            <TouchableOpacity
+                              onPress={handleClick}
+                              key={index}
+                              style={{
+                                height: 70,
+                                width: 70,
+                                alignItems: 'center',
+                                backgroundColor: '#262637',
+                                borderRadius: 4,
+                              }}>
+                              <StyledText
+                                style={{
+                                  justifyContent: 'center',
+                                  alignItems: 'center',
+                                  textAlign: 'center',
+                                }}>
+                                {item.Subject}
+                              </StyledText>
+                            </TouchableOpacity>
+                            {title !== 'Website' && (
+                              <Stack style={{gap: 8}}>
+                                <StyledText>{item.Subject}</StyledText>
+                                <StyledText style={{color: '#777777'}}>
+                                  {item.Subject}
+                                </StyledText>
+                              </Stack>
+                            )}
+                          </Stack>
+                        );
+                      })}
+                    </Stack>
                   </Stack>
-                </TouchableOpacity>
-              ))}
+                ) : null}
+              </Stack>
+              {title !== 'Article' && (
+                <Stack
+                  style={{
+                    borderWidth: 1,
+                    borderColor: '#313545',
+                    marginVertical: 20,
+                  }}></Stack>
+              )}
             </Stack>
           </Stack>
         ))}
@@ -120,6 +245,7 @@ const TitleAndArrow = styled.View`
   margin-bottom: 15px;
   margin-left: 15px;
   margin-right: 15px;
+  border-radius: 4px;
 `;
 
 export default ExploreScreen;

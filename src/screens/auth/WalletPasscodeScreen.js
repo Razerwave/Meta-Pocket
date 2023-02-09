@@ -5,7 +5,7 @@ import { AuthLayout, ButtonPrimary, CardBox, Screen, Stack, StyledText, Title } 
 import { ROUTES } from '../../constants'
 
 const WalletPasscodeScreen = ({ route, navigation }) => {
-  const words = route?.params?.words || []
+  const { words = [], firstWord = '', lastWord = '' } = route?.params
   const { fontColor, backgroundColor, backgroundCardColor } = useTheme()
   const [chosenWords, setChosenWords] = useState(['', ''])
 
@@ -25,7 +25,7 @@ const WalletPasscodeScreen = ({ route, navigation }) => {
     })
   }
 
-  const passed = chosenWords[0] === words[0] && chosenWords[1] === words[words.length - 1]
+  const passed = chosenWords[0] === firstWord && chosenWords[1] === lastWord
   return (
     <AuthLayout>
       <Stack padding={28} spacing={20}>

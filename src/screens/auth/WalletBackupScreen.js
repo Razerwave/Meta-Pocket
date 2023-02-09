@@ -53,7 +53,11 @@ const WalletBackupScreen = ({ navigation }) => {
         </Stack>
       </Stack>
       <Stack padding={16} spacing={16} style={{ alignItems: 'center' }}>
-        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET_WORDS, { words })} />
+        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET_WORDS, {
+          firstWord: words[0],
+          lastWord: words[words.length - 1],
+          words: [...words].sort((a, b) => 0.5 - Math.random()),
+        })} />
       </Stack>
     </AuthLayout>
   )

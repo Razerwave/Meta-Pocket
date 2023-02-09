@@ -35,46 +35,48 @@ const WalletPasscodeScreen = ({ route, navigation }) => {
         <StyledText>
           Please click the first(1st) word first, then the last word(12th)
         </StyledText>
-        <View style={styles.containerWords}>
-          {words.map((word, index) => {
-            if (word === chosenWords[0])
+        <View style={styles.wordsContainerOuter}>
+          <View style={styles.wordsContainerInner}>
+            {words.map((word, index) => {
+              if (word === chosenWords[0])
+                return (
+                  <WordBox
+                    key={index}
+                    backgroundCardColor="#3769F1"
+                    onPress={() => handleClick(word)}
+                  >
+                    <Stack direction="row" spacing={3} style={{ alignItems: 'center' }}>
+                      <CircleBox text1="1" text2="st" />
+                      <StyledText style={[styles.boxText, { fontWeight: '600' }]}>{word}</StyledText>
+                    </Stack>
+                  </WordBox>
+                )
+
+              if (word === chosenWords[1])
+                return (
+                  <WordBox
+                    key={index}
+                    backgroundCardColor="#A35AFF"
+                    onPress={() => handleClick(word)}
+                  >
+                    <Stack direction="row" spacing={3} style={{ alignItems: 'center' }}>
+                      <CircleBox text1="12" text2="th" />
+                      <StyledText style={[styles.boxText, { fontWeight: '600' }]}>{word}</StyledText>
+                    </Stack>
+                  </WordBox>
+                )
+
               return (
                 <WordBox
                   key={index}
-                  backgroundCardColor="#3769F1"
+                  backgroundCardColor={backgroundCardColor}
                   onPress={() => handleClick(word)}
                 >
-                  <Stack direction="row" spacing={3} style={{ alignItems: 'center' }}>
-                    <CircleBox text1="1" text2="st" />
-                    <StyledText style={[styles.boxText, { fontWeight: '600' }]}>{word}</StyledText>
-                  </Stack>
+                  <StyledText style={[styles.boxText]}>{word}</StyledText>
                 </WordBox>
               )
-
-            if (word === chosenWords[1])
-              return (
-                <WordBox
-                  key={index}
-                  backgroundCardColor="#A35AFF"
-                  onPress={() => handleClick(word)}
-                >
-                  <Stack direction="row" spacing={3} style={{ alignItems: 'center' }}>
-                    <CircleBox text1="12" text2="th" />
-                    <StyledText style={[styles.boxText, { fontWeight: '600' }]}>{word}</StyledText>
-                  </Stack>
-                </WordBox>
-              )
-
-            return (
-              <WordBox
-                key={index}
-                backgroundCardColor={backgroundCardColor}
-                onPress={() => handleClick(word)}
-              >
-                <StyledText style={[styles.boxText]}>{word}</StyledText>
-              </WordBox>
-            )
-          })}
+            })}
+          </View>
         </View>
         <Stack padding={16} spacing={16} style={{ alignItems: 'center' }}>
           <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)} />
@@ -109,14 +111,16 @@ const CircleBox = ({ text1, text2 }) => {
 }
 
 const styles = StyleSheet.create({
-  containerWords: {
+  wordsContainerOuter: {
     marginHorizontal: 30,
+  },
+  wordsContainerInner: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   boxOuter: {
-    minWidth: '25%',
+    minWidth: '30%',
     marginBottom: 25,
     borderRadius: 9999,
   },

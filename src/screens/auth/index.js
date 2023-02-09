@@ -1,9 +1,9 @@
 import WelcomeScreen from "./WelcomeScreen";
-import WalletBackupScreen from "./WalletBackupScreen";
-import WalletPasscodeScreen from "./WalletPasscodeScreen";
+import BackupWallet from "./BackupWallet";
+import CheckBackupWallet from "./CheckBackupWallet";
 import RecoverWalletScreen from "./RecoverWalletScreen";
 import ProtectWallet from "./ProtectWallet";
 import CreatePasscode from "./CreatePasscode";
 import ConfirmPasscode from "./ConfirmPasscode";
 
-export { WelcomeScreen, WalletBackupScreen, WalletPasscodeScreen, ProtectWallet, RecoverWalletScreen, CreatePasscode, ConfirmPasscode }
+export { WelcomeScreen, BackupWallet, CheckBackupWallet, ProtectWallet, RecoverWalletScreen, CreatePasscode, ConfirmPasscode }

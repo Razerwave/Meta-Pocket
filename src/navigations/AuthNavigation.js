@@ -1,13 +1,14 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ROUTES } from '../constants';
 import {
-  WalletBackupScreen,
+  BackupWallet,
   CreatePasscode,
   WalletPasscodeScreen,
   RecoverWalletScreen,
   WelcomeScreen,
   ProtectWallet,
   ConfirmPasscode,
+  CheckBackupWallet,
 } from '../screens/auth';
 import { View, StyleSheet } from 'react-native';
 import { useTheme } from 'styled-components';
@@ -80,23 +81,15 @@ const AuthNavigation = () => {
         name={ROUTES.AUTH.WELCOME}
         component={WelcomeScreen}
       />
-      <Stack.Screen name={ROUTES.AUTH.NEW_WALLET} component={WalletBackupScreen} />
-      <Stack.Screen
-        name={ROUTES.AUTH.NEW_WALLET_WORDS}
-        component={WalletPasscodeScreen}
-      />
+      <Stack.Screen name={ROUTES.AUTH.BACKUP_WALLET} component={BackupWallet} />
+      <Stack.Screen name={ROUTES.AUTH.NEW_WALLET_WORDS} component={CheckBackupWallet} />
+      <Stack.Screen name={ROUTES.AUTH.TERMS_SCREEN} component={ProtectWallet} />
+      <Stack.Screen name={ROUTES.AUTH.CREATE_PASSWORD} component={CreatePasscode} />
+      <Stack.Screen name={ROUTES.AUTH.RE_ENTRY_PASSWORD} component={ConfirmPasscode} />
+
       <Stack.Screen
         name={ROUTES.AUTH.RECOVER_WALLET}
         component={RecoverWalletScreen}
-      />
-      <Stack.Screen name={ROUTES.AUTH.TERMS_SCREEN} component={ProtectWallet} />
-      <Stack.Screen
-        name={ROUTES.AUTH.CREATE_PASSWORD}
-        component={CreatePasscode}
-      />
-      <Stack.Screen
-        name={ROUTES.AUTH.RE_ENTRY_PASSWORD}
-        component={ConfirmPasscode}
       />
     </Stack.Navigator>
   );

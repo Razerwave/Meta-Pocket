@@ -6,7 +6,7 @@ import { ROUTES } from '../../constants'
 import { Svg, SvgXml } from 'react-native-svg';
 import { useTheme } from 'styled-components';
 
-const WalletBackupScreen = ({ navigation }) => {
+const BackupWallet = ({ navigation }) => {
   const [copied, setCopied] = useState(false);
   const [words, setWords] = useState([]);
   const { fontColor } = useTheme();
@@ -63,4 +63,4 @@ const WalletBackupScreen = ({ navigation }) => {
   )
 }
 
-export default WalletBackupScreen
+export default BackupWallet

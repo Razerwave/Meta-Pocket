@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 import { AuthLayout, ButtonPrimary, CardBox, Screen, Stack, StyledText, Title } from '../../components'
 import { ROUTES } from '../../constants'
 
-const WalletPasscodeScreen = ({ route, navigation }) => {
+const CheckBackupWallet = ({ route, navigation }) => {
   const { words = [], firstWord = '', lastWord = '' } = route?.params
   const { fontColor, backgroundColor, backgroundCardColor } = useTheme()
   const [chosenWords, setChosenWords] = useState(['', ''])
@@ -164,4 +164,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default WalletPasscodeScreen
+export default CheckBackupWallet

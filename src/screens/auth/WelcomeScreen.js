@@ -65,7 +65,7 @@ const WelcomeScreen = ({ navigation }) => {
         <Stack padding={16} spacing={16}>
           <ButtonPrimary
             title="Create New Wallet"
-            onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET)}
+            onPress={() => navigation.navigate(ROUTES.AUTH.BACKUP_WALLET)}
           />
           <ButtonPrimary
             title="I already have a wallet"

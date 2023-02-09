@@ -11,6 +11,7 @@ import AppStatusBar from './AppStatusBar';
 import CircleAnimated from './CircleAnimated';
 import Paginator from './Paginator';
 import BottomModal from './BottomModal';
+import KeyBoardNumeric from './KeyBoardNumeric';
 
 export {
   Title,
@@ -25,5 +26,6 @@ export {
   CircleAnimated,
   Paginator,
   AuthLayout,
-  BottomModal
+  BottomModal,
+  KeyBoardNumeric
 };

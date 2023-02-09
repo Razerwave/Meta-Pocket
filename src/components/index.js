@@ -10,6 +10,7 @@ import Stack from './Stack';
 import AppStatusBar from './AppStatusBar';
 import CircleAnimated from './CircleAnimated';
 import Paginator from './Paginator';
+import BottomModal from './BottomModal';
 
 export {
   Title,
@@ -23,5 +24,6 @@ export {
   AppStatusBar,
   CircleAnimated,
   Paginator,
-  AuthLayout
+  AuthLayout,
+  BottomModal
 };

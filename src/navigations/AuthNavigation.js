@@ -6,8 +6,8 @@ import {
   WalletPasscodeScreen,
   RecoverWalletScreen,
   ReEntryPasscode,
-  TermsScreen,
   WelcomeScreen,
+  ProtectWallet,
 } from '../screens/auth';
 import { View, StyleSheet } from 'react-native';
 import { useTheme } from 'styled-components';
@@ -89,7 +89,7 @@ const AuthNavigation = () => {
         name={ROUTES.AUTH.RECOVER_WALLET}
         component={RecoverWalletScreen}
       />
-      <Stack.Screen name={ROUTES.AUTH.TERMS_SCREEN} component={TermsScreen} />
+      <Stack.Screen name={ROUTES.AUTH.TERMS_SCREEN} component={ProtectWallet} />
       <Stack.Screen
         name={ROUTES.AUTH.CREATE_PASSWORD}
         component={CreatePasscode}

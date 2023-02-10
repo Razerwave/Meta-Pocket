@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from 'styled-components'
-import { AuthLayout, ButtonPrimary, CardBox, Screen, Stack, StyledText, Title } from '../../components'
+import { LayoutScreen, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title } from '../../components'
 import { ROUTES } from '../../constants'
 
 const CheckBackupWallet = ({ route, navigation }) => {
@@ -27,11 +27,7 @@ const CheckBackupWallet = ({ route, navigation }) => {
 
   const passed = chosenWords[0] === firstWord && chosenWords[1] === lastWord
   return (
-    <AuthLayout
-      button={
-        <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)} />
-      }
-    >
+    <LayoutScreen>
       <Stack padding={28} spacing={20}>
         <Title>
           Have you backed up?
@@ -83,7 +79,10 @@ const CheckBackupWallet = ({ route, navigation }) => {
           </View>
         </View>
       </Stack>
-    </AuthLayout>
+      <LayoutBottom>
+        <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)} />
+      </LayoutBottom>
+    </LayoutScreen>
   )
 }
 

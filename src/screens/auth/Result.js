@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { AuthLayout } from '../../components'
+import { LayoutScreen } from '../../components'
 
 const Result = () => {
   return (
-    <AuthLayout>
+    <LayoutScreen>
       <Text>Result</Text>
-    </AuthLayout>
+    </LayoutScreen>
   )
 }
 

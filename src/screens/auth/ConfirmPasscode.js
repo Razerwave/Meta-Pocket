@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { ROUTES } from '../../constants';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useAuth } from '../../context/AuthContext';
-import { AuthLayout, CardBox, KeyBoardNumeric, Screen, Stack, StyledText, Title } from '../../components';
+import { LayoutScreen, CardBox, KeyBoardNumeric, Screen, Stack, StyledText, Title } from '../../components';
 import { useTheme } from 'styled-components'
 
 const ConfirmPasscode = ({ route }) => {
@@ -29,7 +29,7 @@ const ConfirmPasscode = ({ route }) => {
   }, [passcode]);
 
   return (
-    <AuthLayout>
+    <LayoutScreen>
       <Stack padding={28} spacing={29}>
         <Title>
           Confirm Passcode
@@ -48,7 +48,7 @@ const ConfirmPasscode = ({ route }) => {
 
         <KeyBoardNumeric onNumber={(num) => handleChange(num)} onReset={() => setPasscode('')} onDelete={() => setPasscode(s => s.slice(0, -1))} />
       </Stack>
-    </AuthLayout>
+    </LayoutScreen>
   )
 }
 

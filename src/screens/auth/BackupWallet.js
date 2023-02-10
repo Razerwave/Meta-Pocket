@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
 import Clipboard from '@react-native-clipboard/clipboard';
-import { AuthLayout, ButtonPrimary, CardBox, Screen, Stack, StyledText, Title } from '../../components';
+import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Screen, Stack, StyledText, Title } from '../../components';
 import { ROUTES } from '../../constants'
 import { Svg, SvgXml } from 'react-native-svg';
 import { useTheme } from 'styled-components';
@@ -21,15 +21,7 @@ const BackupWallet = ({ navigation }) => {
   }
 
   return (
-    <AuthLayout
-      button={
-        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET_WORDS, {
-          firstWord: words[0],
-          lastWord: words[words.length - 1],
-          words: [...words].sort((a, b) => 0.5 - Math.random()),
-        })} />
-      }
-    >
+    <LayoutScreen>
       <Stack padding={28} spacing={20}>
         <Title>
           Back Up Your Wallet
@@ -40,7 +32,7 @@ const BackupWallet = ({ navigation }) => {
         <StyledText>
           Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.
         </StyledText>
-        <CardBox style={{ borderRadius: 16 }}>
+        <CardBox style={{ borderRadius: 10 }}>
           <Stack direction='row' spacing={10} style={{ flexWrap: 'wrap' }}>
             {words.map((word, index) => <StyledText key={index} style={{ fontSize: 12, lineHeight: 16 }}>{word}</StyledText>)}
           </Stack>
@@ -60,7 +52,14 @@ const BackupWallet = ({ navigation }) => {
           </TouchableOpacity>
         </Stack>
       </Stack>
-    </AuthLayout>
+      <LayoutBottom>
+        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET_WORDS, {
+          firstWord: words[0],
+          lastWord: words[words.length - 1],
+          words: [...words].sort((a, b) => 0.5 - Math.random()),
+        })} />
+      </LayoutBottom>
+    </LayoutScreen>
   )
 }
 

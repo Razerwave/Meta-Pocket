@@ -6,6 +6,6 @@ import CreatePasscode from "./CreatePasscode";
 import ConfirmPasscode from "./ConfirmPasscode";
 import Result from "./Result";
 
-import RecoverWalletScreen from "./RecoverWalletScreen";
+import RecoverWallet from "./RecoverWallet";
 
-export { WelcomeScreen, BackupWallet, CheckBackupWallet, ProtectWallet, RecoverWalletScreen, CreatePasscode, ConfirmPasscode, Result }
+export { WelcomeScreen, BackupWallet, CheckBackupWallet, RecoverWallet, ProtectWallet, CreatePasscode, ConfirmPasscode, Result }

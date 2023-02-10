@@ -1,6 +1,7 @@
 import StyledText from './texts/StyledText';
 import Title from './texts/Title';
-import AuthLayout from './layouts/AuthLayout';
+import LayoutScreen from './layouts/LayoutScreen';
+import LayoutBottom from './layouts/LayoutBottom';
 import Screen from './Screen';
 import HomeScreen from './HomeScreen';
 import ButtonPrimary from './buttons/ButtonPrimary';
@@ -25,7 +26,8 @@ export {
   AppStatusBar,
   CircleAnimated,
   Paginator,
-  AuthLayout,
+  LayoutScreen,
   BottomModal,
-  KeyBoardNumeric
+  KeyBoardNumeric,
+  LayoutBottom
 };

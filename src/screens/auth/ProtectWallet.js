@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Image, TouchableOpacity, StyleSheet, Modal, Pressable } from 'react-native'
 import { Rect, Svg, SvgXml } from 'react-native-svg'
-import { AuthLayout, BottomModal, ButtonPrimary, CardBox, Screen, Stack, StyledText, Title } from '../../components'
+import { LayoutScreen, BottomModal, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title } from '../../components'
 import { ROUTES } from '../../constants'
 import { useTheme } from 'styled-components'
 import IonIcon from 'react-native-vector-icons/Ionicons';
@@ -26,9 +26,7 @@ const ProtectWallet = ({ navigation }) => {
   }
 
   return (
-    <AuthLayout button={
-      <ButtonPrimary title='Create Passcode' disabled={!agreed} onPress={() => navigation.navigate(ROUTES.AUTH.CREATE_PASSWORD)} />
-    }>
+    <LayoutScreen>
       <Stack padding={28} spacing={29}>
         <Title>
           Protect your wallet.
@@ -40,36 +38,39 @@ const ProtectWallet = ({ navigation }) => {
           <Image source={ImageURI} />
         </Stack>
       </Stack>
-      <Stack padding={16} spacing={16}>
-        <Stack direction='row' spacing={9}>
-          <TouchableOpacity onPress={() => handleToggle()}>
-            <View style={[styles.checkBox, checkStyle]}>
-              {agreed && (
-                <SvgXml width="10" height="8" viewBox="0 0 10 8" fill={fontColor} xml={`
+      <LayoutBottom height={224}>
+        <View style={{ height: 44 }}>
+          <Stack direction='row' spacing={9}>
+            <TouchableOpacity onPress={() => handleToggle()}>
+              <View style={[styles.checkBox, checkStyle]}>
+                {agreed && (
+                  <SvgXml width="10" height="8" viewBox="0 0 10 8" fill={fontColor} xml={`
                   <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.91185 7.27273L0 3.36088L1.15702 2.20386L3.91185 4.93113L8.84298 0L10 1.18457L3.91185 7.27273Z" fill="white"/>
                   </svg>              
                 `}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-          <Stack direction='row' spacing={4}>
-            <StyledText style={{ fontSize: 12, lineHeight: 14 }}>
-              I agree to the
-            </StyledText>
-            <TouchableOpacity onPress={() => setModalVisible('Terms')}>
-              <StyledText style={{ fontSize: 12, lineHeight: 14, borderBottomWidth: 1, borderColor: fontColor }}>Terms</StyledText>
+                  />
+                )}
+              </View>
             </TouchableOpacity>
-            <StyledText style={{ fontSize: 12, lineHeight: 14 }}>
-              and
-            </StyledText>
-            <TouchableOpacity onPress={() => setModalVisible('Privacy Policy')}>
-              <StyledText style={{ fontSize: 12, lineHeight: 14, borderBottomWidth: 1, borderColor: fontColor }}>Privacy Policy</StyledText>
-            </TouchableOpacity>
+            <Stack direction='row' spacing={4}>
+              <StyledText style={{ fontSize: 12, lineHeight: 14 }}>
+                I agree to the
+              </StyledText>
+              <TouchableOpacity onPress={() => setModalVisible('Terms')}>
+                <StyledText style={{ fontSize: 12, lineHeight: 14, borderBottomWidth: 1, borderColor: fontColor }}>Terms</StyledText>
+              </TouchableOpacity>
+              <StyledText style={{ fontSize: 12, lineHeight: 14 }}>
+                and
+              </StyledText>
+              <TouchableOpacity onPress={() => setModalVisible('Privacy Policy')}>
+                <StyledText style={{ fontSize: 12, lineHeight: 14, borderBottomWidth: 1, borderColor: fontColor }}>Privacy Policy</StyledText>
+              </TouchableOpacity>
+            </Stack>
           </Stack>
-        </Stack>
-      </Stack>
+        </View>
+        <ButtonPrimary title='Create Passcode' disabled={!agreed} onPress={() => navigation.navigate(ROUTES.AUTH.CREATE_PASSWORD)} />
+      </LayoutBottom>
 
       <BottomModal
         visible={modalVisible === 'Terms'}
@@ -114,7 +115,7 @@ const ProtectWallet = ({ navigation }) => {
           </StyledText>
         </Stack>
       </BottomModal>
-    </AuthLayout>
+    </LayoutScreen>
   )
 }
 

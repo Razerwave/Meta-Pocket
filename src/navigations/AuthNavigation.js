@@ -3,8 +3,7 @@ import { ROUTES } from '../constants';
 import {
   BackupWallet,
   CreatePasscode,
-  WalletPasscodeScreen,
-  RecoverWalletScreen,
+  RecoverWallet,
   WelcomeScreen,
   ProtectWallet,
   ConfirmPasscode,
@@ -89,7 +88,7 @@ const AuthNavigation = () => {
 
       <Stack.Screen
         name={ROUTES.AUTH.RECOVER_WALLET}
-        component={RecoverWalletScreen}
+        component={RecoverWallet}
       />
     </Stack.Navigator>
   );

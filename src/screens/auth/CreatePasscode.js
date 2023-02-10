@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View } from 'react-native'
-import { AuthLayout, KeyBoardNumeric, Stack, StyledText, Title } from '../../components';
+import { LayoutScreen, KeyBoardNumeric, Stack, StyledText, Title } from '../../components';
 import { ROUTES } from '../../constants';
 import { useTheme } from 'styled-components'
 
@@ -19,7 +19,7 @@ const CreatePasscode = ({ navigation }) => {
   }, [passcode]);
 
   return (
-    <AuthLayout>
+    <LayoutScreen>
       <Stack padding={28} spacing={29}>
         <Title>
           Create Passcode
@@ -38,7 +38,7 @@ const CreatePasscode = ({ navigation }) => {
 
         <KeyBoardNumeric onNumber={(num) => handleChange(num)} onReset={() => setPasscode('')} onDelete={() => setPasscode(s => s.slice(0, -1))} />
       </Stack>
-    </AuthLayout>
+    </LayoutScreen>
   )
 }
 

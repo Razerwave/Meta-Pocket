@@ -1,9 +1,19 @@
 import styled from 'styled-components/native';
 import { View, Text, Button, Alert, StyleSheet } from 'react-native'
 
-const Stack = ({ children, direction = "column", spacing, padding = 0, alignItems, marginTop, marginBottom, style }) => {
+const Stack = ({ 
+  children, 
+  direction = "column", 
+  spacing, 
+  padding = 0, 
+  alignItems, 
+  marginTop, 
+  marginBottom,
+  marginHorizontal,
+  style, 
+}) => {
   return (
-    <View style={[{ padding: padding, flexDirection: direction, gap: spacing, alignItems, marginTop, marginBottom }, style]}>
+    <View style={[{ padding: padding, flexDirection: direction, gap: spacing, alignItems, marginHorizontal, marginTop, marginBottom }, style]}>
       {children}
     </View>
   )

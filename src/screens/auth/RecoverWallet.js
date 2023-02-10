@@ -15,13 +15,15 @@ const RecoverWallet = ({ navigation }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={1} />
-      <Stack padding={28} spacing={20}>
+      <Stack marginTop={80} marginHorizontal={28} spacing={20}>
         <Title>
           Recover Your Wallet
         </Title>
         <StyledText>
           Recover through the 12 words you kept safely.
         </StyledText>
+      </Stack>
+      <Stack marginTop={40} marginHorizontal={28}>
         <TextInput
           style={[styles.input, { color: fontColor, backgroundColor: backgroundCardColor }]}
           editable

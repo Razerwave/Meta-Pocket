@@ -25,7 +25,7 @@ const KeyBoardPasscode = ({ value = '', onChange = () => { } }) => {
   const handleDelete = () => onChange(value.slice(0, -1))
 
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.dotContainer}>
         {[1, 2, 3, 4, 5, 6].map((_, index) => (
           <View key={index} style={[styles.dot, { backgroundColor: index < value.length ? white : 'transparent' }]} />
@@ -70,6 +70,9 @@ const KeyBoardPasscode = ({ value = '', onChange = () => { } }) => {
 export default KeyBoardPasscode
 
 const styles = StyleSheet.create({
+  container: {    
+    width: 300,
+  },
   dotContainer: {
     display: 'flex',
     flexDirection: 'row',

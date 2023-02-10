@@ -23,7 +23,7 @@ const BackupWallet = ({ navigation }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={1} />
-      <Stack padding={28} spacing={20}>
+      <Stack marginTop={80} marginHorizontal={28} marginBottom={30} spacing={20}>
         <Title>
           Back Up Your Wallet
         </Title>
@@ -33,6 +33,8 @@ const BackupWallet = ({ navigation }) => {
         <StyledText>
           Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.
         </StyledText>
+      </Stack>
+      <Stack marginHorizontal={28} spacing={20}>
         <CardBox style={{ borderRadius: 10 }}>
           <Stack direction='row' spacing={10} style={{ flexWrap: 'wrap' }}>
             {words.map((word, index) => <StyledText key={index} style={{ fontSize: 12, lineHeight: 16 }}>{word}</StyledText>)}

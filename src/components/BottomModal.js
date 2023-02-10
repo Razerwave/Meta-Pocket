@@ -31,7 +31,7 @@ export default BottomModal
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    marginTop: 80,
+    marginTop: 94,
     borderRadius: 30,
   },
 })

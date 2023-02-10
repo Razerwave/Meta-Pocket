@@ -21,7 +21,7 @@ const CreatePasscode = ({ navigation }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={4} />
-      <Stack padding={28} spacing={29}>
+      <Stack marginTop={80} marginHorizontal={28} marginBottom={62} spacing={29}>
         <Title>
           Create Passcode
         </Title>
@@ -30,7 +30,7 @@ const CreatePasscode = ({ navigation }) => {
         </StyledText>
       </Stack>
 
-      <Stack padding={50}>
+      <Stack alignItems="center">
         <KeyBoardPasscode value={passcode} onChange={(v) => setPasscode(v)} />
       </Stack>
     </LayoutScreen>

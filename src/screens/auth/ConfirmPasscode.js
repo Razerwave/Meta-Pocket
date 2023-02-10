@@ -31,16 +31,16 @@ const ConfirmPasscode = ({ route }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={5} />
-      <Stack padding={28} spacing={29}>
+      <Stack marginTop={80} marginHorizontal={28} marginBottom={62} spacing={29}>
         <Title>
           Confirm Passcode
         </Title>
         <StyledText>
-          Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. {paramPasscode}  {passcode}
+          Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
         </StyledText>
       </Stack>
 
-      <Stack padding={50}>
+      <Stack alignItems="center">
         <KeyBoardPasscode value={passcode} onChange={(v) => setPasscode(v)} />
       </Stack>
     </LayoutScreen>

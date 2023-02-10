@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Button, Image, TouchableOpacity, StyleSheet, Modal, Pressable } from 'react-native'
+import { View, Text, Button, Image, TouchableOpacity, StyleSheet, Modal, Pressable, ScrollView } from 'react-native'
 import { Rect, Svg, SvgXml } from 'react-native-svg'
 import { LayoutScreen, BottomModal, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title, StepsAuth } from '../../components'
 import { ROUTES } from '../../constants'
@@ -28,16 +28,16 @@ const ProtectWallet = ({ navigation }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={3} />
-      <Stack padding={28} spacing={29}>
+      <Stack marginTop={80} marginHorizontal={28} marginBottom={76} spacing={29}>
         <Title>
           Protect your wallet.
         </Title>
         <StyledText>
           This extra layer of security prevents​ anyone with your phone from accessing​ your funds.
         </StyledText>
-        <Stack alignItems="center">
-          <Image source={ImageURI} />
-        </Stack>
+      </Stack>
+      <Stack alignItems="center">
+        <Image source={ImageURI} />
       </Stack>
       <LayoutBottom height={224}>
         <View style={{ height: 44 }}>
@@ -81,17 +81,15 @@ const ProtectWallet = ({ navigation }) => {
       >
         <Stack spacing={20}>
           <Title>Terms</Title>
-          <StyledText style={{ fontSize: 12, lineHeight: 18 }}>
-            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-
-            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-
-            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-
-            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-
-            Set a 6-digit passcode to unlock your wallet. This
-          </StyledText>
+          <ScrollView style={{ height: 500 }} indicatorStyle="white">
+            <Stack spacing={20}>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
+                <StyledText key={index} style={{ fontSize: 12, lineHeight: 18 }}>
+                  Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
+                </StyledText>
+              ))}
+            </Stack>
+          </ScrollView>
         </Stack>
       </BottomModal>
 
@@ -102,18 +100,16 @@ const ProtectWallet = ({ navigation }) => {
         }}
       >
         <Stack spacing={20}>
-          <Title>Privacy Police</Title>
-          <StyledText style={{ fontSize: 12, lineHeight: 18 }}>
-            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-
-            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-
-            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-
-            Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-
-            Set a 6-digit passcode to unlock your wallet. This
-          </StyledText>
+          <Title>Privacy Policy</Title>
+          <ScrollView style={{ height: 500 }} indicatorStyle="white">
+            <Stack spacing={20}>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
+                <StyledText key={index} style={{ fontSize: 12, lineHeight: 18 }}>
+                  Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
+                </StyledText>
+              ))}
+            </Stack>
+          </ScrollView>
         </Stack>
       </BottomModal>
     </LayoutScreen>

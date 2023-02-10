@@ -30,13 +30,15 @@ const CheckBackupWallet = ({ route, navigation }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={2} />
-      <Stack padding={28} spacing={20}>
+      <Stack marginTop={80} marginHorizontal={28} marginBottom={70} spacing={20}>
         <Title>
           Have you backed up?
         </Title>
         <StyledText>
           Please click the first(1st) word first, then the last word(12th)
         </StyledText>
+      </Stack>
+      <Stack marginHorizontal={58}>
         <View style={styles.wordsContainerOuter}>
           <View style={styles.wordsContainerInner}>
             {words.map((word, index) => (
@@ -71,6 +73,7 @@ const CheckBackupWallet = ({ route, navigation }) => {
             ))}
           </View>
         </View>
+
       </Stack>
       <LayoutBottom>
         <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.PROTECT_WALLET)} />
@@ -93,9 +96,6 @@ const WordBox = ({ children, backgroundCardColor, onPress }) => {
 }
 
 const styles = StyleSheet.create({
-  wordsContainerOuter: {
-    marginHorizontal: 30,
-  },
   wordsContainerInner: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -122,16 +122,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   activeBox1: {
-    zIndex: 1, 
-    opacity: .85, 
+    zIndex: 1,
+    opacity: .85,
     borderRadius: 9999,
-    backgroundColor: blue, 
+    backgroundColor: blue,
   },
   activeBox2: {
-    zIndex: 1, 
-    opacity: .85, 
+    zIndex: 1,
+    opacity: .85,
     borderRadius: 9999,
-    backgroundColor: purple, 
+    backgroundColor: purple,
   },
   activeText1: {
     fontFamily: 'Lato',

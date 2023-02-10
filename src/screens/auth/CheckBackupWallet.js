@@ -44,6 +44,7 @@ const CheckBackupWallet = ({ route, navigation }) => {
             {words.map((word, index) => (
               <WordBox
                 key={index}
+                fontColor={fontColor}
                 backgroundCardColor={backgroundCardColor}
                 onPress={() => handleClick(word)}
               >
@@ -82,13 +83,13 @@ const CheckBackupWallet = ({ route, navigation }) => {
   )
 }
 
-const WordBox = ({ children, backgroundCardColor, onPress }) => {
+const WordBox = ({ children, backgroundCardColor, fontColor, onPress }) => {
   return (
     <TouchableOpacity
       style={[styles.boxOuter, { backgroundColor: backgroundCardColor }]}
       onPress={onPress}
     >
-      <View style={[styles.boxInside]}>
+      <View style={[styles.boxInside, {borderColor: fontColor}]}>
         {children}
       </View>
     </TouchableOpacity>

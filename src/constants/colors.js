@@ -17,3 +17,4 @@ export const purple = '#A35AFF'
 export const gray = "#838AA5"
 export const gray2 = "#808080"
 export const gray3 = "#777777"
+export const grayLight = "#DFDFDF"

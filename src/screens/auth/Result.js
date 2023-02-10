@@ -1,11 +1,20 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { LayoutScreen } from '../../components'
+import { ButtonPrimary, LayoutBottom, LayoutScreen } from '../../components'
+import { Layout } from 'react-native-reanimated'
+import { useAuth } from '../../context/AuthContext'
 
-const Result = () => {
+const Result = ({ route }) => {
+  const { login } = useAuth()
+
   return (
     <LayoutScreen>
-      <Text>Result</Text>
+      <LayoutBottom>
+        <ButtonPrimary
+          title="Get Started"
+          onPress={() => login(route.params.passcode)}
+        />
+      </LayoutBottom>
     </LayoutScreen>
   )
 }

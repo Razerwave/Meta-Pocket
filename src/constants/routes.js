@@ -7,6 +7,7 @@ const ROUTES = {
         PROTECT_WALLET: 'AUTH_TERMS SCREEN',
         CREATE_PASSCODE: 'AUTH_CREATE PASSWORD',
         CONFIRM_PASSCODE: 'AUTH_RE-ENTRY PASSWORD',
+        RESULT: 'AUTH_RESULT',
     },
     HOME: {
         WALLET: "Wallet",

@@ -8,6 +8,7 @@ import {
   ProtectWallet,
   ConfirmPasscode,
   CheckBackupWallet,
+  Result,
 } from '../screens/auth';
 import { View, StyleSheet } from 'react-native';
 import { useTheme } from 'styled-components';
@@ -50,6 +51,7 @@ const AuthNavigation = () => {
       <Stack.Screen name={ROUTES.AUTH.PROTECT_WALLET} component={ProtectWallet} />
       <Stack.Screen name={ROUTES.AUTH.CREATE_PASSCODE} component={CreatePasscode} />
       <Stack.Screen name={ROUTES.AUTH.CONFIRM_PASSCODE} component={ConfirmPasscode} />
+      <Stack.Screen name={ROUTES.AUTH.RESULT} component={Result} />
 
     </Stack.Navigator>
   );

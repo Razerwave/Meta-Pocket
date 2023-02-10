@@ -7,10 +7,8 @@ import { useAuth } from '../../context/AuthContext';
 import { LayoutScreen, CardBox, KeyBoardNumeric, Screen, Stack, StyledText, Title, StepsAuth, KeyBoardPasscode } from '../../components';
 import { useTheme } from 'styled-components'
 
-const ConfirmPasscode = ({ route }) => {
+const ConfirmPasscode = ({ route, navigation }) => {
   const [passcode, setPasscode] = useState('');
-  const { fontColor } = useTheme()
-  const { login } = useAuth();
 
   handleChange = (num) => {
     setPasscode(s => s.length < 6 ? s + num : s)
@@ -20,7 +18,7 @@ const ConfirmPasscode = ({ route }) => {
   useEffect(() => {
     if (passcode.length === 6) {
       if (passcode === paramPasscode) {
-        login(passcode)
+        navigation.navigate(ROUTES.AUTH.RESULT, { 'passcode': passcode });
       }
       else {
         Alert.alert('Passcode does not match')

@@ -14,72 +14,9 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 import {CardBox, HomeScreen, Stack, StyledText} from '../../components';
 import {useTheme} from 'styled-components';
 import {ROUTES} from '../../constants';
+import WebScreen from '../WebScreen';
 
-const links = [
-  {
-    id: 1,
-    Subject: 'Amaraa',
-    Description: '#FF0000',
-    Image: require('../../assets/images.jpg'),
-  },
-  {
-    id: 2,
-    Subject: 'Tsogoo',
-    Description: '#800000',
-    Image: require('../../assets/images.jpg'),
-  },
-  {
-    id: 3,
-    Subject: 'Bat',
-    Description: '#808000',
-    Image: require('../../assets/images.jpg'),
-  },
-  {
-    id: 4,
-    Subject: 'Selenge',
-    Description: '#808000',
-    Image: require('../../assets/images.jpg'),
-  },
-];
-
-const testData = [
-  {
-    title: 'All',
-    items: links,
-    icons: require('../../assets/icons/all.png'),
-  },
-
-  {
-    title: 'Favorite',
-    items: links,
-    icons: require('../../assets/icons/Vector.png'),
-  },
-
-  {
-    title: 'Website',
-    items: links,
-    icons: require('../../assets/icons/Ellipse93.png'),
-  },
-
-  {
-    title: 'Item',
-    items: links,
-    icons: require('../../assets/icons/Ellipse94.png'),
-  },
-
-  {
-    title: 'Art',
-    items: links,
-    icons: require('../../assets/icons/Ellipse95.png'),
-  },
-
-  {
-    title: 'Article',
-    items: links,
-    icons: require('../../assets/icons/Ellipse96.png'),
-  },
-];
-
+import {links, testData} from '../../constants/ListData';
 const ExploreScreen = ({navigation}) => {
   const {fontColor} = useTheme();
   const WEB_LINK = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
@@ -93,7 +30,7 @@ const ExploreScreen = ({navigation}) => {
       icons: require('../../assets/icons/all.png'),
     },
   ]);
-  const [favorite, setFavorite] = useState([]);
+  // const [favorite, setFavorite] = useState(true);
   const [website, setWebsite] = useState([]);
   const [data, setData] = useState([]);
 
@@ -104,113 +41,116 @@ const ExploreScreen = ({navigation}) => {
 
     getData();
   }, []);
-  const handleClick = () => {
-    console.log('clicked');
-    return (
-      <View style={{flex: 1, backgroundColor: 'red', height: 600, width: 600}}>
-        <WebView source={{uri: 'https://reactnative.dev/'}} />
-      </View>
-    );
-  };
+
   return (
     <HomeScreen>
       <Stack padding={16}>
-        {data.map(({title, icons, items}, index) => (
-          <Stack>
+        {data.map(({title, icons, items}, index) => {
+          return (
             <Stack key={index}>
-              <Stack
-                direction="row"
-                style={{
-                  justifyContent: 'space-between',
-                  textAlign: 'center',
-                  alignItems: 'center',
-                  marginVertical: 20,
-                }}>
+              <Stack>
                 <Stack
                   direction="row"
-                  key={index}
                   style={{
+                    justifyContent: 'space-between',
                     textAlign: 'center',
                     alignItems: 'center',
-                    gap: 7,
-                  }}>
-                  <Image source={icons} style={{width: 14, height: 14}} />
-                  <StyledText>{title}</StyledText>
-                </Stack>
-
-                <IonIcon
-                  onPress={() =>
-                    navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
-                      data: data.links,
-                      title: data.title,
-                    })
-                  }
-                  name="chevron-forward-outline"
-                  size={25}
-                  color={fontColor}
-                />
-              </Stack>
-            </Stack>
-
-            <Stack>
-              <Stack>
-                {title !== 'All' && title !== 'Favorite' ? (
-                  <Stack>
-                    <Stack
-                      spacing={10}
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'center',
-                      }}>
-                      {items.map((item, index) => {
-                        console.log(item);
-                        return (
-                          <Stack style={{alignItems: 'center', gap: 8}}>
-                            <TouchableOpacity
-                              onPress={handleClick}
-                              key={index}
-                              style={{
-                                height: 70,
-                                width: 70,
-                                alignItems: 'center',
-                                backgroundColor: '#262637',
-                                borderRadius: 4,
-                              }}>
-                              <StyledText
-                                style={{
-                                  justifyContent: 'center',
-                                  alignItems: 'center',
-                                  textAlign: 'center',
-                                }}>
-                                {item.Subject}
-                              </StyledText>
-                            </TouchableOpacity>
-                            {title !== 'Website' && (
-                              <Stack style={{gap: 8}}>
-                                <StyledText>{item.Subject}</StyledText>
-                                <StyledText style={{color: '#777777'}}>
-                                  {item.Subject}
-                                </StyledText>
-                              </Stack>
-                            )}
-                          </Stack>
-                        );
-                      })}
-                    </Stack>
-                  </Stack>
-                ) : null}
-              </Stack>
-              {title !== 'Article' && (
-                <Stack
-                  style={{
-                    borderWidth: 1,
-                    borderColor: '#313545',
                     marginVertical: 20,
-                  }}></Stack>
-              )}
+                  }}>
+                  <Stack
+                    direction="row"
+                    style={{
+                      textAlign: 'center',
+                      alignItems: 'center',
+                      gap: 7,
+                    }}>
+                    <Image source={icons} style={{width: 14, height: 14}} />
+                    <StyledText>{title}</StyledText>
+                  </Stack>
+
+                  <IonIcon
+                    onPress={() =>
+                      navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
+                        data: items,
+                        title: testData,
+                        // favorite: favorite,
+                        // setFavorite: setFavorite,
+                      })
+                    }
+                    name="chevron-forward-outline"
+                    size={25}
+                    color={fontColor}
+                  />
+                </Stack>
+              </Stack>
+
+              <Stack>
+                <Stack>
+                  {title !== 'All' && title !== 'Favorite' ? (
+                    <Stack>
+                      <Stack
+                        spacing={10}
+                        style={{
+                          flexDirection: 'row',
+                          justifyContent: 'center',
+                        }}>
+                        {items.map((item, index) => {
+                          if (index < 4) {
+                            return (
+                              <Stack
+                                key={index}
+                                style={{alignItems: 'center', gap: 8}}>
+                                <TouchableOpacity
+                                  onPress={() =>
+                                    navigation.navigate(ROUTES.EXPLORE.WEB, {
+                                      uri: WEB_LINK,
+                                      title: title,
+                                    })
+                                  }
+                                  style={{
+                                    height: 70,
+                                    width: 70,
+                                    alignItems: 'center',
+                                    backgroundColor: '#262637',
+                                    borderRadius: 4,
+                                  }}>
+                                  <StyledText
+                                    style={{
+                                      justifyContent: 'center',
+                                      alignItems: 'center',
+                                      textAlign: 'center',
+                                    }}>
+                                    {item.Subject}
+                                  </StyledText>
+                                </TouchableOpacity>
+                                {title !== 'Website' && (
+                                  <Stack style={{gap: 8}}>
+                                    <StyledText>{item.Subject}</StyledText>
+                                    <StyledText style={{color: '#777777'}}>
+                                      {item.Subject}
+                                    </StyledText>
+                                  </Stack>
+                                )}
+                              </Stack>
+                            );
+                          }
+                        })}
+                      </Stack>
+                    </Stack>
+                  ) : null}
+                </Stack>
+                {title !== 'Article' && (
+                  <Stack
+                    style={{
+                      borderWidth: 1,
+                      borderColor: '#313545',
+                      marginVertical: 20,
+                    }}></Stack>
+                )}
+              </Stack>
             </Stack>
-          </Stack>
-        ))}
+          );
+        })}
       </Stack>
     </HomeScreen>
   );

@@ -11,10 +11,12 @@ export const blue = "#3769F1"
 export const blue2 = "#3539C0"
 export const blue3 = "#001E70"
 export const blue4 = "#2859DA"
+export const blue5 = "#236BFE"
 
 export const purple = '#A35AFF' 
 
 export const gray = "#838AA5"
 export const gray2 = "#808080"
 export const gray3 = "#777777"
+export const gray4 = "#8F8F8F"
 export const grayLight = "#DFDFDF"

@@ -1,4 +1,4 @@
-import { blackBlue1, blackBlue2, gray2, white, white2, black2, blue, blue2, blue3, blue4, white3, grayLight } from "./colors"
+import { blackBlue1, blackBlue2, gray2, white, white2, black2, blue, blue2, blue3, blue4, white3, grayLight, gray4, blue5 } from "./colors"
 
 const DefaultTheme = {
     backgroundColor: white2,
@@ -19,6 +19,13 @@ const DefaultTheme = {
         bgColor: grayLight,
         opacity: '1',
         stroke: black2,
+    },
+    bottomTab: {
+        bgColor: white,
+        inactiveColor: gray4,
+        activeColor: blue5,
+        activeIconColor: white,
+        activeTextColor: blue5,
     },
 }
 
@@ -41,6 +48,13 @@ const DarkTheme = {
         bgColor: white3,
         opacity: '0.1',
         stroke: white3,
+    },
+    bottomTab: {
+        bgColor: blackBlue2,
+        inactiveColor: gray4,
+        activeColor: blue5,
+        activeIconColor: white,
+        activeTextColor: white,
     },
 }
 

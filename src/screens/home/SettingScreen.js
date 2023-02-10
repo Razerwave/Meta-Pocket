@@ -4,6 +4,7 @@ import {
   ButtonPrimary,
   CardBox,
   HomeScreen,
+  LayoutScreen,
   Screen,
   Stack,
   StyledText,
@@ -22,7 +23,7 @@ const SettingScreen = ({navigation}) => {
   };
 
   return (
-    <HomeScreen>
+    <LayoutScreen>
       <Stack padding={16} spacing={32}>
         <ListItem label="My UID">
           <StyledText>12345</StyledText>
@@ -62,7 +63,7 @@ const SettingScreen = ({navigation}) => {
       <Stack padding={16} spacing={32}>
         <ButtonPrimary title="Logout" onPress={logoutHandler} />
       </Stack>
-    </HomeScreen>
+    </LayoutScreen>
   );
 };
 

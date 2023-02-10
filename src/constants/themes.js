@@ -4,6 +4,10 @@ const DefaultTheme = {
     fontColor: '#1F2129',
     activeTintColor: '#3769F1',
     inactiveTintColor: '#ccc',
+    steps: {
+        activeColor: '#3539C0',
+        inactiveColor: '#808080',
+    },
 }
 
 const DarkTheme = {
@@ -12,6 +16,10 @@ const DarkTheme = {
     fontColor: '#FFFFFF',
     activeTintColor: '#3769F1',
     inactiveTintColor: '#ccc',
+    steps: {
+        activeColor: '#FFFFFF',
+        inactiveColor: '#808080',
+    },
 }
 
 export { DarkTheme, DefaultTheme }

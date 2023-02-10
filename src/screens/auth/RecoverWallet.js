@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, TextInput } from 'react-native'
 import { useTheme } from 'styled-components'
-import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Screen, Stack, StyledText, Title } from '../../components'
+import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Screen, Stack, StepsAuth, StyledText, Title } from '../../components'
 import { ROUTES } from '../../constants'
 
 const RecoverWallet = ({ navigation }) => {
@@ -14,6 +14,7 @@ const RecoverWallet = ({ navigation }) => {
 
   return (
     <LayoutScreen>
+      <StepsAuth current={1} />
       <Stack padding={28} spacing={20}>
         <Title>
           Recover Your Wallet

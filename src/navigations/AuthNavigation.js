@@ -13,9 +13,9 @@ import { View, StyleSheet } from 'react-native';
 import { useTheme } from 'styled-components';
 
 const stepsName = {
-  [ROUTES.AUTH.NEW_WALLET]: 1,
+  [ROUTES.AUTH.RECOVER_WALLET]: 1,
+  [ROUTES.AUTH.BACKUP_WALLET]: 1,
   [ROUTES.AUTH.CHECK_BACKUP_WALLET]: 2,
-  [ROUTES.AUTH.RECOVER_WALLET]: 2,
   [ROUTES.AUTH.PROTECT_WALLET]: 3,
   [ROUTES.AUTH.CREATE_PASSCODE]: 4,
   [ROUTES.AUTH.CONFIRM_PASSCODE]: 5,
@@ -30,49 +30,49 @@ const AuthNavigation = () => {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: backgroundColor,
+          backgroundColor,
         },
         headerTitleStyle: {
           color: fontColor,
         },
         headerTintColor: fontColor,
-        headerTitle: props => {
-          const currentStep = stepsName[props.children] || 0;
-          return (
-            <View style={[styles.stepContainer, { backgroundColor }]}>
-              <View
-                style={[
-                  styles.step,
-                  { backgroundColor: 1 <= currentStep ? fontColor : 'gray' },
-                ]}
-              />
-              <View
-                style={[
-                  styles.step,
-                  { backgroundColor: 2 <= currentStep ? fontColor : 'gray' },
-                ]}
-              />
-              <View
-                style={[
-                  styles.step,
-                  { backgroundColor: 3 <= currentStep ? fontColor : 'gray' },
-                ]}
-              />
-              <View
-                style={[
-                  styles.step,
-                  { backgroundColor: 4 <= currentStep ? fontColor : 'gray' },
-                ]}
-              />
-              <View
-                style={[
-                  styles.step,
-                  { backgroundColor: 5 <= currentStep ? fontColor : 'gray' },
-                ]}
-              />
-            </View>
-          );
-        },
+        // headerTitle: props => {
+        //   const currentStep = stepsName[props.children] || 0;
+        //   return (
+        //     <View style={[styles.stepContainer, { backgroundColor }]}>
+        //       <View
+        //         style={[
+        //           styles.step,
+        //           { backgroundColor: 1 <= currentStep ? fontColor : 'gray' },
+        //         ]}
+        //       />
+        //       <View
+        //         style={[
+        //           styles.step,
+        //           { backgroundColor: 2 <= currentStep ? fontColor : 'gray' },
+        //         ]}
+        //       />
+        //       <View
+        //         style={[
+        //           styles.step,
+        //           { backgroundColor: 3 <= currentStep ? fontColor : 'gray' },
+        //         ]}
+        //       />
+        //       <View
+        //         style={[
+        //           styles.step,
+        //           { backgroundColor: 4 <= currentStep ? fontColor : 'gray' },
+        //         ]}
+        //       />
+        //       <View
+        //         style={[
+        //           styles.step,
+        //           { backgroundColor: 5 <= currentStep ? fontColor : 'gray' },
+        //         ]}
+        //       />
+        //     </View>
+        //   );
+        // },
       }}
       initialRouteName={ROUTES.AUTH.WELCOME}>
       <Stack.Screen

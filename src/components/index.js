@@ -13,6 +13,7 @@ import CircleAnimated from './CircleAnimated';
 import Paginator from './Paginator';
 import BottomModal from './BottomModal';
 import KeyBoardNumeric from './KeyBoardNumeric';
+import StepsAuth from './StepsAuth';
 
 export {
   Title,
@@ -29,5 +30,6 @@ export {
   LayoutScreen,
   BottomModal,
   KeyBoardNumeric,
-  LayoutBottom
+  LayoutBottom,
+  StepsAuth,
 };

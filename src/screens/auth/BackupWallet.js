@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
 import Clipboard from '@react-native-clipboard/clipboard';
-import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Screen, Stack, StyledText, Title } from '../../components';
+import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Screen, Stack, StepsAuth, StyledText, Title } from '../../components';
 import { ROUTES } from '../../constants'
 import { Svg, SvgXml } from 'react-native-svg';
 import { useTheme } from 'styled-components';
@@ -22,6 +22,7 @@ const BackupWallet = ({ navigation }) => {
 
   return (
     <LayoutScreen>
+      <StepsAuth current={1} />
       <Stack padding={28} spacing={20}>
         <Title>
           Back Up Your Wallet

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Image, TouchableOpacity, StyleSheet, Modal, Pressable } from 'react-native'
 import { Rect, Svg, SvgXml } from 'react-native-svg'
-import { LayoutScreen, BottomModal, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title } from '../../components'
+import { LayoutScreen, BottomModal, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title, StepsAuth } from '../../components'
 import { ROUTES } from '../../constants'
 import { useTheme } from 'styled-components'
 import IonIcon from 'react-native-vector-icons/Ionicons';
@@ -27,6 +27,7 @@ const ProtectWallet = ({ navigation }) => {
 
   return (
     <LayoutScreen>
+      <StepsAuth current={3} />
       <Stack padding={28} spacing={29}>
         <Title>
           Protect your wallet.

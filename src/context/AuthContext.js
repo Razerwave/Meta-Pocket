@@ -35,6 +35,7 @@ const useAuth = () => {
 const AuthProvier = ({children}) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const {isLocked, isInitialized} = state;
+  const [favorite, setFavorite] = useState(false);
   const isLoggedIn = Boolean(state.passcode);
   const isDarkTheme = state.theme === 'dark';
 
@@ -125,6 +126,8 @@ const AuthProvier = ({children}) => {
         unlock,
         checkPasscode,
         toggleTheme,
+        favorite,
+        setFavorite,
       }}>
       <ThemeProvider theme={isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}

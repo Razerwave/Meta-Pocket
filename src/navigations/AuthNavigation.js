@@ -14,11 +14,11 @@ import { useTheme } from 'styled-components';
 
 const stepsName = {
   [ROUTES.AUTH.NEW_WALLET]: 1,
-  [ROUTES.AUTH.NEW_WALLET_WORDS]: 2,
+  [ROUTES.AUTH.CHECK_BACKUP_WALLET]: 2,
   [ROUTES.AUTH.RECOVER_WALLET]: 2,
-  [ROUTES.AUTH.TERMS_SCREEN]: 3,
-  [ROUTES.AUTH.CREATE_PASSWORD]: 4,
-  [ROUTES.AUTH.RE_ENTRY_PASSWORD]: 5,
+  [ROUTES.AUTH.PROTECT_WALLET]: 3,
+  [ROUTES.AUTH.CREATE_PASSCODE]: 4,
+  [ROUTES.AUTH.CONFIRM_PASSCODE]: 5,
 };
 
 const Stack = createNativeStackNavigator();
@@ -80,16 +80,13 @@ const AuthNavigation = () => {
         name={ROUTES.AUTH.WELCOME}
         component={WelcomeScreen}
       />
+      <Stack.Screen name={ROUTES.AUTH.RECOVER_WALLET} component={RecoverWallet} />
       <Stack.Screen name={ROUTES.AUTH.BACKUP_WALLET} component={BackupWallet} />
-      <Stack.Screen name={ROUTES.AUTH.NEW_WALLET_WORDS} component={CheckBackupWallet} />
-      <Stack.Screen name={ROUTES.AUTH.TERMS_SCREEN} component={ProtectWallet} />
-      <Stack.Screen name={ROUTES.AUTH.CREATE_PASSWORD} component={CreatePasscode} />
-      <Stack.Screen name={ROUTES.AUTH.RE_ENTRY_PASSWORD} component={ConfirmPasscode} />
+      <Stack.Screen name={ROUTES.AUTH.CHECK_BACKUP_WALLET} component={CheckBackupWallet} />
+      <Stack.Screen name={ROUTES.AUTH.PROTECT_WALLET} component={ProtectWallet} />
+      <Stack.Screen name={ROUTES.AUTH.CREATE_PASSCODE} component={CreatePasscode} />
+      <Stack.Screen name={ROUTES.AUTH.CONFIRM_PASSCODE} component={ConfirmPasscode} />
 
-      <Stack.Screen
-        name={ROUTES.AUTH.RECOVER_WALLET}
-        component={RecoverWallet}
-      />
     </Stack.Navigator>
   );
 };

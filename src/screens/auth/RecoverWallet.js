@@ -9,7 +9,7 @@ const RecoverWallet = ({ navigation }) => {
   const { fontColor, backgroundCardColor } = useTheme()
 
   const handleSubmit = () => {
-    navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)
+    navigation.navigate(ROUTES.AUTH.PROTECT_WALLET)
   }
 
   return (

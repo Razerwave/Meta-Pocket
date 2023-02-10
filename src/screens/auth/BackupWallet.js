@@ -53,7 +53,7 @@ const BackupWallet = ({ navigation }) => {
         </Stack>
       </Stack>
       <LayoutBottom>
-        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.NEW_WALLET_WORDS, {
+        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.CHECK_BACKUP_WALLET, {
           firstWord: words[0],
           lastWord: words[words.length - 1],
           words: [...words].sort((a, b) => 0.5 - Math.random()),

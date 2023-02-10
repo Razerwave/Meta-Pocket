@@ -80,7 +80,7 @@ const CheckBackupWallet = ({ route, navigation }) => {
         </View>
       </Stack>
       <LayoutBottom>
-        <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.TERMS_SCREEN)} />
+        <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.PROTECT_WALLET)} />
       </LayoutBottom>
     </LayoutScreen>
   )

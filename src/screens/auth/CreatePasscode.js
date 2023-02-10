@@ -14,7 +14,7 @@ const CreatePasscode = ({ navigation }) => {
 
   useEffect(() => {
     if (passcode.length === 6) {
-      navigation.navigate(ROUTES.AUTH.RE_ENTRY_PASSWORD, { 'passcode': passcode });
+      navigation.navigate(ROUTES.AUTH.CONFIRM_PASSCODE, { 'passcode': passcode });
     }
   }, [passcode]);
 

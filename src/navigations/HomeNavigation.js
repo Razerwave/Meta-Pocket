@@ -59,11 +59,6 @@ const HomeNavigation = () => {
       />
       <Tab.Screen
         options={{headerShown: false}}
-        name="Invest"
-        component={InvestScreen}
-      />
-      <Tab.Screen
-        options={{headerShown: false}}
         name={ROUTES.HOME.DAPP}
         component={DappScreen}
       />

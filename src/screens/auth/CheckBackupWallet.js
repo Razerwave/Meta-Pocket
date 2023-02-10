@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from 'styled-components'
-import { LayoutScreen, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title, StepsAuth } from '../../components'
+import { LayoutScreen, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title, StepsAuth, LayoutCenter } from '../../components'
 import { ROUTES } from '../../constants'
+import { blue, blue2, purple, white } from '../../constants/colors'
 
 const CheckBackupWallet = ({ route, navigation }) => {
   const { words = [], firstWord = '', lastWord = '' } = route?.params
@@ -38,45 +39,36 @@ const CheckBackupWallet = ({ route, navigation }) => {
         </StyledText>
         <View style={styles.wordsContainerOuter}>
           <View style={styles.wordsContainerInner}>
-            {words.map((word, index) => {
-              if (word === chosenWords[0])
-                return (
-                  <WordBox
-                    key={index}
-                    backgroundCardColor="#3769F1"
-                    onPress={() => handleClick(word)}
-                  >
-                    <Stack direction="row" spacing={3} style={{ alignItems: 'center' }}>
-                      <CircleBox text1="1" text2="st" />
-                      <StyledText style={[styles.boxText, { fontWeight: '600' }]}>{word}</StyledText>
-                    </Stack>
-                  </WordBox>
-                )
-
-              if (word === chosenWords[1])
-                return (
-                  <WordBox
-                    key={index}
-                    backgroundCardColor="#A35AFF"
-                    onPress={() => handleClick(word)}
-                  >
-                    <Stack direction="row" spacing={3} style={{ alignItems: 'center' }}>
-                      <CircleBox text1="12" text2="th" />
-                      <StyledText style={[styles.boxText, { fontWeight: '600' }]}>{word}</StyledText>
-                    </Stack>
-                  </WordBox>
-                )
-
-              return (
-                <WordBox
-                  key={index}
-                  backgroundCardColor={backgroundCardColor}
-                  onPress={() => handleClick(word)}
-                >
-                  <StyledText style={[styles.boxText]}>{word}</StyledText>
-                </WordBox>
-              )
-            })}
+            {words.map((word, index) => (
+              <WordBox
+                key={index}
+                backgroundCardColor={backgroundCardColor}
+                onPress={() => handleClick(word)}
+              >
+                {word === chosenWords[0] ? (
+                  <>
+                    <LayoutCenter overlayStlye={styles.activeBox1}>
+                      <Stack direction='row'>
+                        <Text style={[styles.activeText1]}>1</Text>
+                        <Text style={[styles.activeText2]}>st</Text>
+                      </Stack>
+                    </LayoutCenter>
+                    <StyledText style={[styles.boxText]}>{word}</StyledText>
+                  </>
+                ) : word === chosenWords[1] ? (
+                  <>
+                    <LayoutCenter overlayStlye={styles.activeBox2}>
+                      <Stack direction='row'>
+                        <Text style={[styles.activeText1]}>12</Text>
+                        <Text style={[styles.activeText2]}>th</Text>
+                      </Stack>
+                    </LayoutCenter>
+                    <StyledText style={[styles.boxText]}>{word}</StyledText>
+                  </>
+                ) : <StyledText style={[styles.boxText]}>{word}</StyledText>
+                }
+              </WordBox>
+            ))}
           </View>
         </View>
       </Stack>
@@ -97,17 +89,6 @@ const WordBox = ({ children, backgroundCardColor, onPress }) => {
         {children}
       </View>
     </TouchableOpacity>
-  )
-}
-
-const CircleBox = ({ text1, text2 }) => {
-  return (
-    <View style={styles.circle}>
-      <Stack direction='row'>
-        <StyledText style={[styles.circleText1]}>{text1}</StyledText>
-        <StyledText style={[styles.circleText2]}>{text2}</StyledText>
-      </Stack>
-    </View>
   )
 }
 
@@ -140,28 +121,34 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     textAlign: 'center',
   },
-  circle: {
-    padding: 5,
-    backgroundColor: '#1C1C28',
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    borderColor: '#000000',
+  activeBox1: {
+    zIndex: 1, 
+    opacity: .85, 
     borderRadius: 9999,
+    backgroundColor: blue, 
   },
-  circleText1: {
+  activeBox2: {
+    zIndex: 1, 
+    opacity: .85, 
+    borderRadius: 9999,
+    backgroundColor: purple, 
+  },
+  activeText1: {
     fontFamily: 'Lato',
     fontStyle: 'normal',
-    fontWeight: '600',
-    fontSize: 10,
+    fontWeight: '700',
+    fontSize: 14,
+    lineHeight: 17,
+    color: white,
+  },
+  activeText2: {
+    fontFamily: 'Lato',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: 8,
     lineHeight: 12,
-  },
-  circleText2: {
-    fontFamily: 'Lato',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    fontSize: 6,
-    lineHeight: 9,
-    verticalAlign: 'top'
+    verticalAlign: 'top',
+    color: white,
   }
 })
 

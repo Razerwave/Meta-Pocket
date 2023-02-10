@@ -9,6 +9,8 @@ export const blackBlue2 = "#262637"
 export const blue = "#3769F1"
 export const blue2 = "#3539C0"
 
+export const purple = '#A35AFF' 
+
 export const gray = "#838AA5"
 export const gray2 = "#808080"
 export const gray3 = "#777777"

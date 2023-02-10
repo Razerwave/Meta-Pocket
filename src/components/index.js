@@ -2,6 +2,7 @@ import StyledText from './texts/StyledText';
 import Title from './texts/Title';
 import LayoutScreen from './layouts/LayoutScreen';
 import LayoutBottom from './layouts/LayoutBottom';
+import LayoutCenter from './layouts/LayoutCenter';
 import Screen from './Screen';
 import HomeScreen from './HomeScreen';
 import ButtonPrimary from './buttons/ButtonPrimary';
@@ -31,5 +32,6 @@ export {
   BottomModal,
   KeyBoardPasscode,
   LayoutBottom,
+  LayoutCenter,
   StepsAuth,
 };

@@ -1,4 +1,4 @@
-import { blackBlue1, balckBlue2, gray2, white, white2, black2, blue, blue2 } from "./colors"
+import { blackBlue1, blackBlue2, gray2, white, white2, black2, blue, blue2 } from "./colors"
 
 const DefaultTheme = {
     backgroundColor: white2,
@@ -13,7 +13,7 @@ const DefaultTheme = {
 
 const DarkTheme = {
     backgroundColor: blackBlue1,
-    backgroundCardColor: balckBlue2,
+    backgroundCardColor: blackBlue2,
     fontColor: white,
     activeTintColor: blue,
     steps: {

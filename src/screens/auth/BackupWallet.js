@@ -12,7 +12,7 @@ const BackupWallet = ({ navigation }) => {
   const { fontColor } = useTheme();
 
   useEffect(() => {
-    setWords('Isolate tiny hat want latin glide already Friend exchangessssssssssssssssssssss gap frost inner'.split(' '))
+    setWords('Isolate tiny hat want latin glide already Friend exchange gap frost inner'.split(' '))
   }, [])
 
   const handleCopy = () => {

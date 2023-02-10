@@ -1,29 +1,4 @@
-import React, { useRef, useState } from 'react';
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  SafeAreaView,
-  Image,
-  useWindowDimensions,
-  Animated,
-  TouchableOpacity,
-} from 'react-native';
-import { SvgXml } from 'react-native-svg';
-import {
-  LayoutScreen,
-  ButtonPrimary,
-  LayoutBottom,
-  Paginator,
-  Screen,
-  Stack,
-  StyledText,
-  LayoutCenter,
-} from '../../components';
-import { ROUTES } from '../../constants';
-
-// const ImageURI = require('../../assets/Logo.png')
-const LogoXML = `<svg width="117" height="113" viewBox="0 0 117 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="117" height="113" viewBox="0 0 117 113" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.8" d="M39.926 46.8648L77.9867 82.5262C80.1549 84.5578 83.5523 84.4546 85.575 82.2958L106.929 59.5052C108.952 57.3464 108.834 53.9494 106.666 51.9179L68.6049 16.2565C66.4367 14.2249 63.0393 14.3281 61.0165 16.4869L39.6626 39.2775C37.6399 41.4363 37.7578 44.8332 39.926 46.8648Z" fill="#497CFF"/>
 <path d="M79.2172 30.8262C82.4269 27.4005 82.2519 22.0215 78.8262 18.8117C75.4005 15.602 70.0215 15.7771 66.8117 19.2027C63.602 22.6284 63.7771 28.0074 67.2027 31.2172C70.6284 34.4269 76.0075 34.2518 79.2172 30.8262Z" fill="#FFE600"/>
 <path d="M76.716 10.486C78.6041 8.47089 78.5011 5.30674 76.486 3.41866C74.4709 1.53059 71.3067 1.63356 69.4187 3.64866C67.5306 5.66376 67.6336 8.82791 69.6487 10.716C71.6638 12.6041 74.8279 12.5011 76.716 10.486Z" fill="#DADF00"/>
@@ -39,31 +14,4 @@ const LogoXML = `<svg width="117" height="113" viewBox="0 0 117 113" fill="none"
 <path d="M25.1311 66.786H19.1371V70.746H24.9151V72.312H19.1371V76.434H25.3651L25.2211 78H17.3551V65.22H25.1311V66.786Z" fill="white"/>
 <path d="M35.8066 65.22L35.6266 66.804H31.5766V78H29.7586V66.804H25.6006V65.22H35.8066Z" fill="white"/>
 <path d="M34.4617 78L39.8437 65.22H41.3917L46.5577 78H44.7037L43.4617 74.814H37.6117L36.3157 78H34.4617ZM38.2417 73.266H42.8677L40.5997 67.452L38.2417 73.266Z" fill="white"/>
-</svg>`
-
-const WelcomeScreen = ({ navigation }) => {
-  return (
-    <LayoutScreen>
-      <LayoutCenter>
-        {/* <Image source={ImageURI} /> */}
-        <SvgXml xml={LogoXML} />
-      </LayoutCenter>
-      <LayoutBottom>
-        <ButtonPrimary
-          title="Create New Wallet"
-          onPress={() => navigation.navigate(ROUTES.AUTH.BACKUP_WALLET)}
-          style={{ marginBottom: 20 }}
-        />
-        <View style={{ alignItems: 'center' }}>
-          <TouchableOpacity onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
-            <StyledText style={{ fontSize: 14, lineHeight: 21 }}>
-              I already have a wallet
-            </StyledText>
-          </TouchableOpacity>
-        </View>
-      </LayoutBottom>
-    </LayoutScreen>
-  );
-};
-
-export default WelcomeScreen;
+</svg>

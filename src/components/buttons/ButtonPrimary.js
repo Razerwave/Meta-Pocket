@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
+import { white } from '../../constants/colors';
 
 const ButtonPrimary = ({ disabled, style, ...props }) => {
     return (
@@ -25,7 +26,7 @@ const StyledButtonText = styled.Text`
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
-    color: ${props => props.theme.fontColor};
+    color: ${white};
 `
 
 export default ButtonPrimary

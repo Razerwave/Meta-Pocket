@@ -1,24 +1,24 @@
+import { blackBlue1, balckBlue2, gray2, white, white2, black2, blue, blue2 } from "./colors"
+
 const DefaultTheme = {
-    backgroundColor: '#F7F8F9',
-    backgroundCardColor: '#FFFFFF',
-    fontColor: '#1F2129',
-    activeTintColor: '#3769F1',
-    inactiveTintColor: '#ccc',
+    backgroundColor: white2,
+    backgroundCardColor: white,
+    fontColor: black2,
+    activeTintColor: blue,
     steps: {
-        activeColor: '#3539C0',
-        inactiveColor: '#808080',
+        activeColor: blue2,
+        inactiveColor: gray2,
     },
 }
 
 const DarkTheme = {
-    backgroundColor: '#1C1C28',
-    backgroundCardColor: '#262637',
-    fontColor: '#FFFFFF',
-    activeTintColor: '#3769F1',
-    inactiveTintColor: '#ccc',
+    backgroundColor: blackBlue1,
+    backgroundCardColor: balckBlue2,
+    fontColor: white,
+    activeTintColor: blue,
     steps: {
-        activeColor: '#FFFFFF',
-        inactiveColor: '#808080',
+        activeColor: white,
+        inactiveColor: gray2,
     },
 }
 

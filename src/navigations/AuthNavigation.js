@@ -36,43 +36,7 @@ const AuthNavigation = () => {
           color: fontColor,
         },
         headerTintColor: fontColor,
-        // headerTitle: props => {
-        //   const currentStep = stepsName[props.children] || 0;
-        //   return (
-        //     <View style={[styles.stepContainer, { backgroundColor }]}>
-        //       <View
-        //         style={[
-        //           styles.step,
-        //           { backgroundColor: 1 <= currentStep ? fontColor : 'gray' },
-        //         ]}
-        //       />
-        //       <View
-        //         style={[
-        //           styles.step,
-        //           { backgroundColor: 2 <= currentStep ? fontColor : 'gray' },
-        //         ]}
-        //       />
-        //       <View
-        //         style={[
-        //           styles.step,
-        //           { backgroundColor: 3 <= currentStep ? fontColor : 'gray' },
-        //         ]}
-        //       />
-        //       <View
-        //         style={[
-        //           styles.step,
-        //           { backgroundColor: 4 <= currentStep ? fontColor : 'gray' },
-        //         ]}
-        //       />
-        //       <View
-        //         style={[
-        //           styles.step,
-        //           { backgroundColor: 5 <= currentStep ? fontColor : 'gray' },
-        //         ]}
-        //       />
-        //     </View>
-        //   );
-        // },
+        headerTitle: '',
       }}
       initialRouteName={ROUTES.AUTH.WELCOME}>
       <Stack.Screen

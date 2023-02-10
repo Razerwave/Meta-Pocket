@@ -6,9 +6,12 @@ import { useTheme } from 'styled-components'
 const TabBarBottom = ({ state, descriptors, navigation }) => {
   const { bottomTab: { bgColor } } = useTheme()
   return (
-    <View style={[styles.tabContainer, { backgroundColor: bgColor }]}>
-      {state.routes.map((route, index) => <TabButton key={index} route={route} index={index} state={state} descriptors={descriptors} navigation={navigation} />)}
-    </View>
+    <>
+      <View style={{ marginTop: 99 }} />
+      <View style={[styles.tabContainer, { backgroundColor: bgColor }]}>
+        {state.routes.map((route, index) => <TabButton key={index} route={route} index={index} state={state} descriptors={descriptors} navigation={navigation} />)}
+      </View>
+    </>
   );
 }
 

@@ -5,7 +5,8 @@ const Stack = ({
   children, 
   direction = "column", 
   spacing, 
-  padding = 0, 
+  padding = 0,
+  paddingHorizontal,
   alignItems, 
   marginTop, 
   marginBottom,
@@ -13,7 +14,7 @@ const Stack = ({
   style, 
 }) => {
   return (
-    <View style={[{ padding: padding, flexDirection: direction, gap: spacing, alignItems, marginHorizontal, marginTop, marginBottom }, style]}>
+    <View style={[{ padding: padding, flexDirection: direction, gap: spacing, alignItems, marginHorizontal, marginTop, marginBottom, paddingHorizontal }, style]}>
       {children}
     </View>
   )

@@ -15,6 +15,8 @@ import Paginator from './Paginator';
 import BottomModal from './BottomModal';
 import KeyBoardPasscode from './KeyBoardPasscode';
 import StepsAuth from './StepsAuth';
+import SubTitle from './texts/SubTitle';
+import Divider from './Divider';
 
 export {
   Title,
@@ -34,4 +36,6 @@ export {
   LayoutBottom,
   LayoutCenter,
   StepsAuth,
+  SubTitle,
+  Divider,
 };

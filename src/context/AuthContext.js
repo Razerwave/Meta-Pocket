@@ -44,6 +44,8 @@ const AuthProvier = ({children}) => {
         const passcode = await store.getItem('passcode');
         const theme = await store.getItem('theme');
 
+        console.log('passcode', passcode)
+
         dispatch({
           type: RESTORE_STATE,
           payload: {

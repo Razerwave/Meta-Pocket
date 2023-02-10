@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { ROUTES } from '../../constants';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useAuth } from '../../context/AuthContext';
-import { LayoutScreen, CardBox, KeyBoardNumeric, Screen, Stack, StyledText, Title, StepsAuth } from '../../components';
+import { LayoutScreen, CardBox, KeyBoardNumeric, Screen, Stack, StyledText, Title, StepsAuth, KeyBoardPasscode } from '../../components';
 import { useTheme } from 'styled-components'
 
 const ConfirmPasscode = ({ route }) => {
@@ -40,14 +40,8 @@ const ConfirmPasscode = ({ route }) => {
         </StyledText>
       </Stack>
 
-      <Stack padding={50} spacing={50}>
-        <Stack direction="row" alignItems="center" spacing={16} style={{ justifyContent: 'center' }}>
-          {[1, 2, 3, 4, 5, 6].map((_, index) => (
-            <View key={index} style={{ width: 10, height: 10, borderWidth: 1, borderStyle: 'solid', borderColor: fontColor, borderRadius: 9999, backgroundColor: index < passcode.length ? fontColor : 'transparent' }} />
-          ))}
-        </Stack>
-
-        <KeyBoardNumeric onNumber={(num) => handleChange(num)} onReset={() => setPasscode('')} onDelete={() => setPasscode(s => s.slice(0, -1))} />
+      <Stack padding={50}>
+        <KeyBoardPasscode value={passcode} onChange={(v) => setPasscode(v)} />
       </Stack>
     </LayoutScreen>
   )

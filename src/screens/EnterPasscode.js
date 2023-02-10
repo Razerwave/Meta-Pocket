@@ -1,7 +1,7 @@
 // import { useNavigation } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react';
 import { Text, TextInput, View, Alert } from 'react-native';
-import { CardBox, Screen, Stack, StyledText } from '../components';
+import { CardBox, KeyBoardPasscode, LayoutScreen, Screen, Stack, StyledText, Title } from '../components';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from 'styled-components'
 // import { ROUTES } from '../constants';
@@ -9,20 +9,19 @@ import { useTheme } from 'styled-components'
 
 const PasscodeLoginScreen = () => {
   const { unlock, checkPasscode } = useAuth();
-  const { fontColor } = useTheme()
-  const [pwd, setPwd] = useState('');
+  const [passcode, setPasscode] = useState('');
 
   useEffect(() => {
-    if (pwd?.length === 6) {
-      if (checkPasscode(pwd)) {
+    if (passcode?.length === 6) {
+      if (checkPasscode(passcode)) {
         Alert.alert('success');
         unlock();
       } else {
         Alert.alert("doesn't match passcode");
-        setPwd('');
+        setPasscode('');
       }
     }
-  }, [pwd]);
+  }, [passcode]);
 
   // const rnBiometrics = new ReactNativeBiometrics();
 
@@ -43,29 +42,20 @@ const PasscodeLoginScreen = () => {
   //     }
   //   })
   return (
-    <Screen>
-      <Stack padding={16} spacing={16}>
-        <CardBox>
-          <StyledText style={{ fontSize: 20, fontWeight: 'bold' }}>
-            Enter Passcode
-          </StyledText>
-        </CardBox>
-        <CardBox>
-          <TextInput
-            style={{ height: 40, color: fontColor }}
-            placeholderTextColor="gray"
-            placeholder="Enter Passcode"
-            value={pwd}
-            secureTextEntry={true}
-            numberOfLines={4}
-            keyboardType="numeric"
-            autoFocus={true}
-            onChangeText={data => setPwd(data)}
-            underlineColorAndroid="transparent"
-          />
-        </CardBox>
+    <LayoutScreen>
+      <Stack padding={28} spacing={29} marginTop={50}>
+        <Title>
+          Enter The Passcode
+        </Title>
+        <StyledText>
+          Enter your 6-digit passcode.
+        </StyledText>
       </Stack>
-    </Screen>
+
+      <Stack padding={50}>
+        <KeyBoardPasscode value={passcode} onChange={(v) => setPasscode(v)} />
+      </Stack>
+    </LayoutScreen>
   );
 };
 

@@ -12,7 +12,7 @@ import AppStatusBar from './AppStatusBar';
 import CircleAnimated from './CircleAnimated';
 import Paginator from './Paginator';
 import BottomModal from './BottomModal';
-import KeyBoardNumeric from './KeyBoardNumeric';
+import KeyBoardPasscode from './KeyBoardPasscode';
 import StepsAuth from './StepsAuth';
 
 export {
@@ -29,7 +29,7 @@ export {
   Paginator,
   LayoutScreen,
   BottomModal,
-  KeyBoardNumeric,
+  KeyBoardPasscode,
   LayoutBottom,
   StepsAuth,
 };

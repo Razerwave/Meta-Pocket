@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   backArrow: {
     position: 'absolute',
     left: 21,
-    top: 25,
+    top: 20,
   },
   title: {
     fontFamily: 'Poppins',

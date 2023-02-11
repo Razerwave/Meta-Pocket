@@ -1,5 +1,5 @@
 import IconArrowBack from "./IconArrowBack";
-import IconArrowForward from "./ArrowForward";
+import IconArrowForward from "./IconArrowForward";
 import IconPerson from "./IconPerson";
 import IconArrowDown from "./IconDownArrow";
 import IconYoutube from "./IconYoutube";

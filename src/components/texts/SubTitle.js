@@ -1,10 +1,19 @@
 import React from 'react'
-import { Text } from 'react-native'
+import styled from 'styled-components/native';
 
 const SubTitle = (props) => {
   return (
-    <Text style={{ fontSize: 16, fontWeight: 600, lineHeight: 19, color: '#777777' }} {...props} />
+    <StyledSubTitle {...props} />
   )
 }
+
+const StyledSubTitle = styled.Text`
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: ${props => props.theme.fonts.subTitleColor};
+`
 
 export default SubTitle

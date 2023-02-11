@@ -1,18 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import styled from 'styled-components';
 
 const Divider = () => {
   return (
-    <View style={styles.divider} />
+    <StyledDivider />
   )
 }
 
 export default Divider
 
-const styles = StyleSheet.create({
-  divider: {
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '#D9D9D9',
-  }
-})
+const StyledDivider = styled.View`
+  border: 1px solid ${props => props.theme.dividerColor};
+`
+
+// const styles = StyleSheet.create({
+//   divider: {
+//     borderWidth: 1,
+//     borderStyle: 'solid',
+//     borderColor: '#D9D9D9',
+//   }
+// })

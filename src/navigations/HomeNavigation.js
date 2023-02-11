@@ -50,7 +50,7 @@ const HomeNavigation = ({ navigation }) => {
         },
       })}>
       <Tab.Screen name={ROUTES.HOME.WALLET} component={WalletScreen} />
-      <Tab.Screen options={{ headerShown: true }} name={ROUTES.HOME.EXPLORE} component={ExploreScreen} />
+      <Tab.Screen options={{ headerShown: true, title: 'Explore' }} name={ROUTES.HOME.EXPLORE} component={ExploreScreen} />
       <Tab.Screen name={ROUTES.HOME.DAPP} component={DappScreen} />
       <Tab.Screen options={{ headerShown: true, title: 'Setting' }} name={ROUTES.HOME.SETTING} component={SettingScreen} />
     </Tab.Navigator>

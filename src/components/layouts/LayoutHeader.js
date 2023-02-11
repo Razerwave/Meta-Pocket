@@ -22,7 +22,6 @@ export default LayoutHeader
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    paddingBottom: 40,
     alignItems: 'center',
     justifyContent: 'center',
   },

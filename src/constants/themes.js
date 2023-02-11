@@ -1,14 +1,16 @@
-import { blackBlue1, blackBlue2, gray2, white, white2, black2, blue, blue2, blue3, blue4, white3, grayLight, gray4, blue5 } from "./colors"
+import { blackBlue1, blackBlue2, gray2, white, white2, black2, blue, blue2, blue3, blue4, white3, grayLight, gray4, blue5, gray3, gray5, grayLight2, blackBlue3 } from "./colors"
 
 const DefaultTheme = {
     backgroundColor: white2,
     backgroundCardColor: white,
     fontColor: black2,
     activeTintColor: blue,
+    dividerColor: grayLight2,
     card: {
-       border: blue4,
+        border: blue4,
     },
     fonts: {
+        subTitleColor: gray3,
         logoColor: blue3,
     },
     steps: {
@@ -34,10 +36,12 @@ const DarkTheme = {
     backgroundCardColor: blackBlue2,
     fontColor: white,
     activeTintColor: blue,
+    dividerColor: blackBlue3,
     card: {
-       border: blackBlue2,
+        border: blackBlue2,
     },
     fonts: {
+        subTitleColor: gray5,
         logoColor: white,
     },
     steps: {

@@ -11,7 +11,13 @@ import {
 import {WebView} from 'react-native-webview';
 import styled from 'styled-components/native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
-import {CardBox, HomeScreen, Stack, StyledText} from '../../components';
+import {
+  CardBox,
+  HomeScreen,
+  LayoutScreen,
+  Stack,
+  StyledText,
+} from '../../components';
 import {useTheme} from 'styled-components';
 import {ROUTES} from '../../constants';
 import WebScreen from '../WebScreen';
@@ -73,8 +79,6 @@ const ExploreScreen = ({navigation}) => {
                       navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
                         data: items,
                         title: testData,
-                        // favorite: favorite,
-                        // setFavorite: setFavorite,
                       })
                     }
                     name="chevron-forward-outline"
@@ -99,7 +103,12 @@ const ExploreScreen = ({navigation}) => {
                             return (
                               <Stack
                                 key={index}
-                                style={{alignItems: 'center', gap: 8}}>
+                                style={{
+                                  alignItems: 'center',
+                                  flex: 1,
+                                  height: 'auto',
+                                  flexWrap: 'wrap',
+                                }}>
                                 <TouchableOpacity
                                   onPress={() =>
                                     navigation.navigate(ROUTES.EXPLORE.WEB, {
@@ -108,8 +117,9 @@ const ExploreScreen = ({navigation}) => {
                                     })
                                   }
                                   style={{
-                                    height: 70,
-                                    width: 70,
+                                    flex: 1,
+                                    height: 102,
+                                    width: 150,
                                     alignItems: 'center',
                                     backgroundColor: '#262637',
                                     borderRadius: 4,
@@ -123,6 +133,7 @@ const ExploreScreen = ({navigation}) => {
                                     {item.Subject}
                                   </StyledText>
                                 </TouchableOpacity>
+
                                 {title !== 'Website' && (
                                   <Stack style={{gap: 8}}>
                                     <StyledText>{item.Subject}</StyledText>

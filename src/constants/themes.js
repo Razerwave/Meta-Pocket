@@ -1,4 +1,4 @@
-import { blackBlue1, blackBlue2, gray2, white, white2, black2, blue, blue2, blue3, blue4, white3, grayLight, gray4, blue5, gray3, gray5, grayLight2, blackBlue3 } from "./colors"
+import { blackBlue1, blackBlue2, gray2, white, white2, black2, blue, blue2, blue3, blue4, white3, grayLight, gray4, blue5, gray3, gray5, grayLight2, blackBlue3, red, gray, black3, grayLight3, black4 } from "./colors"
 
 const DefaultTheme = {
     backgroundColor: white2,
@@ -28,6 +28,15 @@ const DefaultTheme = {
         activeColor: blue5,
         activeIconColor: white,
         activeTextColor: blue5,
+    },
+    input: {
+        backgroundColor: white,
+        borderColor: gray5,
+        borderColorFocus: black3,
+        borderColorError: red,
+        placeholerColor: grayLight3,
+        inputColor: black4,
+        btnColor: black3,
     },
 }
 
@@ -59,6 +68,15 @@ const DarkTheme = {
         activeColor: blue5,
         activeIconColor: white,
         activeTextColor: white,
+    },
+    input: {
+        backgroundColor: blackBlue2,
+        borderColor: blackBlue2,
+        borderColorFocus: gray5,
+        borderColorError: red,
+        placeholerColor: gray,
+        inputColor: white,
+        btnColor: gray,
     },
 }
 

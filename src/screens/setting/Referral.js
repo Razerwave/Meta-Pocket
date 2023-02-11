@@ -7,7 +7,7 @@ const Referral = ({ navigation }) => {
   const [uid, setUID] = useState('')
 
   const handleOK = () => {
-    navigation.navigate(ROUTES.SETTING.REFERRAL);
+    navigation.navigate(ROUTES.HOME.SETTING);
   }
 
   return (

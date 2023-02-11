@@ -1,17 +1,26 @@
 import { useState } from 'react'
 import { StyleSheet, TextInput, View, TouchableOpacity, Text } from 'react-native'
 import { useTheme } from 'styled-components'
+import { red, white } from '../../constants/colors'
 
 const CustomInput = ({ value, onChange, placeholder, onPress, btnText = "ok", action, error = false }) => {
   const [focused, setFocused] = useState(false)
+  const { input: {
+    backgroundColor,
+    borderColor,
+    borderColorFocus,
+    borderColorError,
+    placeholerColor,
+    inputColor,
+    btnColor,
+  } } = useTheme()
 
   return (
-    <View style={[styles.container, { borderColor: error ? '#FF3D60' : focused ? '#C2C2C2' : "#262637" }]}>
+    <View style={[styles.container, { backgroundColor: backgroundColor, borderColor: error ? borderColorError : focused ? borderColorFocus : borderColor }]}>
       <TextInput
-        style={[styles.input]}
         editable
-        // textAlignVertical="top"
-        placeholderTextColor="#838AA5"
+        style={[styles.input, { color: inputColor }]}
+        placeholderTextColor={placeholerColor}
         placeholder={placeholder}
         onChangeText={onChange}
         value={value}
@@ -21,7 +30,7 @@ const CustomInput = ({ value, onChange, placeholder, onPress, btnText = "ok", ac
       {onPress && (
         <View style={{ alignItems: 'flex-end' }}>
           <TouchableOpacity onPress={onPress}>
-            <View style={styles.btn}>
+            <View style={[styles.btn, { color: btnColor }]}>
               <Text style={styles.btnText}>{btnText}</Text>
             </View>
           </TouchableOpacity>
@@ -41,7 +50,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: "#262637",
     borderRadius: 4,
     borderWidth: 1,
     borderStyle: 'solid',
@@ -54,7 +62,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 14,
     fontWeight: '400',
-    color: 'white',
   },
   btn: {
     backgroundColor: '#838AA5',
@@ -66,6 +73,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins',
     fontSize: 10,
     fontWeight: '600',
-    color: '#FFFFFF',
+    color: white,
   }
 })

@@ -129,7 +129,7 @@ import {useScrollToTop} from '@react-navigation/native';
 //   );
 // };
 
-const AllTabRoute = ({navigation, route}) => {
+const WebsiteTab = ({navigation, route}) => {
   const WEB_LINK = 'https://www.youtube.com/';
   const {fontColor} = useTheme();
 
@@ -222,19 +222,11 @@ const AllTabRoute = ({navigation, route}) => {
     </HomeScreen>
   );
 };
-const FavoriteTabRoute = () => <HomeScreen />;
-const WebsiteTabRoute = () => <HomeScreen />;
-const ItemTabRoute = () => <HomeScreen />;
 const ArtTabRoute = () => <HomeScreen />;
-const ArticleTab = () => <HomeScreen />;
 
 const renderScene = SceneMap({
-  alltab: AllTabRoute,
-  favoriteTab: FavoriteTabRoute,
-  websiteTab: WebsiteTabRoute,
-  itemTab: ItemTabRoute,
+  websiteTab: WebsiteTab,
   artTab: ArtTabRoute,
-  articleTab: ArticleTab,
 });
 
 const TabViewExample = () => {
@@ -242,12 +234,8 @@ const TabViewExample = () => {
   const {logout, isDarkTheme, toggleTheme} = useAuth();
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    {key: 'alltab', title: 'All'},
-    {key: 'favoriteTab', title: 'Favorite'},
     {key: 'websiteTab', title: 'Website'},
-    {key: 'itemTab', title: 'Item'},
     {key: 'artTab', title: 'Art'},
-    {key: 'articleTab', title: 'Article'},
   ]);
 
   return (

@@ -1,23 +1,57 @@
+const Artlinks = [
+  {
+    name: 'Two gils ...',
+    coin: 'ETH',
+    total: '0.1',
+    image: require('../assets//icons/MaskGroup.png'),
+    fav: true,
+  },
+  {
+    name: 'Flowers ...',
+    coin: 'ETH',
+    total: '0.3',
+    image: require('../assets//icons/flowers.png'),
+    fav: true,
+  },
+  {
+    name: 'Steamboats in the Port ...',
+    coin: 'ETH',
+    total: '0.2',
+    image: require('../assets//icons/SteamBoats.png'),
+    fav: true,
+  },
+  {
+    name: 'Ancient Winter city ...',
+    coin: 'ETH',
+    total: '0.2',
+    image: require('../assets//icons/Rectangle229.png'),
+    fav: true,
+  },
+];
+
 const links = [
   {
     id: 1,
-    Subject: 'Aleo',
-    url: 'Aleo.org',
-    Image: require('../assets/icons/all.png'),
-    fav: false,
-  },
-  {
-    id: 2,
     Subject: 'Bitcoin',
     url: 'bitcoin.org/ko',
     Image: require('../assets/icons/Vector.png'),
+    logo: require('../assets/icons/bitcoin.png'),
     fav: true,
+  },
+  {
+    id: 2,
+    Subject: 'Aleo',
+    url: 'Aleo.org',
+    Image: require('../assets/icons/all.png'),
+    logo: require('../assets/icons/Group6679.png'),
+    fav: false,
   },
   {
     id: 3,
     Subject: 'Filecoin',
     url: 'filecoin.io',
     Image: require('../assets/icons/Ellipse93.png'),
+    logo: require('../assets/icons/fx.png'),
     fav: true,
   },
   {
@@ -25,6 +59,7 @@ const links = [
     Subject: 'Plenty',
     url: 'www.plenty.com',
     Image: require('../assets/icons/Ellipse94.png'),
+    logo: require('../assets/icons/Layer_1.png'),
     fav: true,
   },
   {
@@ -54,41 +89,6 @@ const links = [
     url: 'www.etherium.com',
     Image: require('../assets/icons/Ellipse95.png'),
     fav: false,
-  },
-  {
-    id: 7,
-    Subject: 'Sol1',
-    url: 'www.sol.io',
-    Image: require('../assets/icons/Ellipse96.png'),
-    fav: false,
-  },
-  {
-    id: 8,
-    Subject: 'Tether1',
-    url: 'www.Tether.org',
-    Image: require('../assets/icons/favorite.png'),
-    fav: true,
-  },
-  {
-    id: 9,
-    Subject: 'Tether4',
-    url: 'www.Tether.org',
-    Image: require('../assets/icons/favorite.png'),
-    fav: true,
-  },
-  {
-    id: 10,
-    Subject: 'Tether3',
-    url: 'www.Tether.org',
-    Image: require('../assets/icons/favorite.png'),
-    fav: true,
-  },
-  {
-    id: 11,
-    Subject: 'Tether2',
-    url: 'www.Tether.org',
-    Image: require('../assets/icons/favorite.png'),
-    fav: true,
   },
 ];
 
@@ -123,47 +123,51 @@ const Tabs = [
 ];
 
 const testData = [
-  {
-    key: 'All',
-    title: 'All',
-    items: links,
-    icons: require('../assets/icons/all.png'),
-  },
+  // {
+  //   key: 'All',
+  //   title: 'All',
+  //   items: links,
+  //   icons: require('../assets/icons/all.png'),
+  // },
 
-  {
-    key: 'Favorite',
-    title: 'Favorite',
-    items: links,
-    icons: require('../assets/icons/Vector.png'),
-  },
+  // {
+  //   key: 'Favorite',
+  //   title: 'Favorite',
+  //   items: links,
+  //   icons: require('../assets/icons/Vector.png'),
+  // },
 
   {
     key: 'Website',
     title: 'Website',
     items: links,
     icons: require('../assets/icons/Ellipse93.png'),
+    fav: true,
   },
 
-  {
-    key: 'Item',
-    title: 'Item',
-    items: links,
-    icons: require('../assets/icons/Ellipse94.png'),
-  },
+  // {
+  //   key: 'Item',
+  //   title: 'Item',
+  //   items: links,
+  //   icons: require('../assets/icons/Ellipse94.png'),
+  //   fav: true,
+  // },
 
   {
     key: 'Art',
     title: 'Art',
-    items: links,
+    items: Artlinks,
     icons: require('../assets/icons/Ellipse95.png'),
+    fav: true,
   },
 
-  {
-    key: 'Article',
-    title: 'Article',
-    items: links,
-    icons: require('../assets/icons/Ellipse96.png'),
-  },
+  // {
+  //   key: 'Article',
+  //   title: 'Article',
+  //   items: links,
+  //   icons: require('../assets/icons/Ellipse96.png'),
+  //   fav: false,
+  // },
 ];
 
 export {links, testData, items, Tabs};

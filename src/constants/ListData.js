@@ -1,3 +1,34 @@
+const Artlinks = [
+  {
+    name: 'Two gils ...',
+    coin: 'ETH',
+    total: '0.1',
+    image: require('../assets//icons/MaskGroup.png'),
+    fav: true,
+  },
+  {
+    name: 'Flowers ...',
+    coin: 'ETH',
+    total: '0.3',
+    image: require('../assets//icons/flowers.png'),
+    fav: true,
+  },
+  {
+    name: 'Steamboats in the Port ...',
+    coin: 'ETH',
+    total: '0.2',
+    image: require('../assets//icons/SteamBoats.png'),
+    fav: true,
+  },
+  {
+    name: 'Ancient Winter city ...',
+    coin: 'ETH',
+    total: '0.2',
+    image: require('../assets//icons/Rectangle229.png'),
+    fav: true,
+  },
+];
+
 const links = [
   {
     id: 1,
@@ -59,41 +90,6 @@ const links = [
     Image: require('../assets/icons/Ellipse95.png'),
     fav: false,
   },
-  {
-    id: 7,
-    Subject: 'Sol1',
-    url: 'www.sol.io',
-    Image: require('../assets/icons/Ellipse96.png'),
-    fav: false,
-  },
-  {
-    id: 8,
-    Subject: 'Tether1',
-    url: 'www.Tether.org',
-    Image: require('../assets/icons/favorite.png'),
-    fav: true,
-  },
-  {
-    id: 9,
-    Subject: 'Tether4',
-    url: 'www.Tether.org',
-    Image: require('../assets/icons/favorite.png'),
-    fav: true,
-  },
-  {
-    id: 10,
-    Subject: 'Tether3',
-    url: 'www.Tether.org',
-    Image: require('../assets/icons/favorite.png'),
-    fav: true,
-  },
-  {
-    id: 11,
-    Subject: 'Tether2',
-    url: 'www.Tether.org',
-    Image: require('../assets/icons/favorite.png'),
-    fav: true,
-  },
 ];
 
 const items = [
@@ -149,29 +145,29 @@ const testData = [
     fav: true,
   },
 
-  {
-    key: 'Item',
-    title: 'Item',
-    items: links,
-    icons: require('../assets/icons/Ellipse94.png'),
-    fav: true,
-  },
+  // {
+  //   key: 'Item',
+  //   title: 'Item',
+  //   items: links,
+  //   icons: require('../assets/icons/Ellipse94.png'),
+  //   fav: true,
+  // },
 
   {
     key: 'Art',
     title: 'Art',
-    items: links,
+    items: Artlinks,
     icons: require('../assets/icons/Ellipse95.png'),
     fav: true,
   },
 
-  {
-    key: 'Article',
-    title: 'Article',
-    items: links,
-    icons: require('../assets/icons/Ellipse96.png'),
-    fav: false,
-  },
+  // {
+  //   key: 'Article',
+  //   title: 'Article',
+  //   items: links,
+  //   icons: require('../assets/icons/Ellipse96.png'),
+  //   fav: false,
+  // },
 ];
 
 export {links, testData, items, Tabs};

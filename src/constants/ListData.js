@@ -1,6 +1,7 @@
 const Artlinks = [
   {
     name: 'Two gils ...',
+    author: 'Pierre-Auguste Renoir (1881)',
     coin: 'ETH',
     total: '0.1',
     image: require('../assets//icons/MaskGroup.png'),
@@ -8,6 +9,7 @@ const Artlinks = [
   },
   {
     name: 'Flowers ...',
+    author: 'Edgar Degas (1873)',
     coin: 'ETH',
     total: '0.3',
     image: require('../assets//icons/flowers.png'),
@@ -15,6 +17,7 @@ const Artlinks = [
   },
   {
     name: 'Steamboats in the Port ...',
+    author: 'Vladimir Kush (1111)',
     coin: 'ETH',
     total: '0.2',
     image: require('../assets//icons/SteamBoats.png'),
@@ -22,6 +25,7 @@ const Artlinks = [
   },
   {
     name: 'Ancient Winter city ...',
+    author: 'Paul Jackson Pollock (1912)',
     coin: 'ETH',
     total: '0.2',
     image: require('../assets//icons/Rectangle229.png'),
@@ -170,4 +174,4 @@ const testData = [
   // },
 ];
 
-export {links, testData, items, Tabs};
+export {links, testData, items, Tabs, Artlinks};

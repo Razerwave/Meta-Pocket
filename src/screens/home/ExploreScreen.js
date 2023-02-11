@@ -15,6 +15,7 @@ import styled from 'styled-components/native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import {
   CardBox,
+  Divider,
   HomeScreen,
   LayoutScreen,
   Stack,
@@ -46,7 +47,7 @@ const ExploreScreen = ({navigation}) => {
   return (
     <HomeScreen>
       <Stack padding={16}>
-        {data.map(({title, icons, items}, index) => {
+        {data.map(({title, icons, items, key}, index) => {
           return (
             <Stack key={index}>
               <Stack
@@ -72,7 +73,9 @@ const ExploreScreen = ({navigation}) => {
                   onPress={() =>
                     navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
                       data: items,
-                      title: testData,
+                      key: key,
+                      title: title,
+                      tabIndex: index,
                     })
                   }
                   name="chevron-forward-outline"
@@ -269,12 +272,9 @@ const ExploreScreen = ({navigation}) => {
                 )}
               </Stack>
               {title !== 'Art' && (
-                <Stack
-                  style={{
-                    borderWidth: 1,
-                    borderColor: '#313545',
-                    marginVertical: 20,
-                  }}></Stack>
+                <Stack style={{marginVertical: 20}}>
+                  <Divider></Divider>
+                </Stack>
               )}
             </Stack>
           );

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,8 @@ import {
   Pressable,
   useWindowDimensions,
   StyleSheet,
+  ScrollView,
+  Dimensions,
 } from 'react-native';
 import {CardBox, HomeScreen, Screen, Stack, StyledText} from '../../components';
 import {useTheme} from 'styled-components';
@@ -16,7 +18,7 @@ import {ROUTES} from '../../constants';
 import {useAuth} from '../../context/AuthContext';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import {links, testData, items, Tabs} from '../../constants/ListData';
-
+import {useScrollToTop} from '@react-navigation/native';
 // const ExploreListScreen = ({navigation, route}) => {
 //   const {fontColor, activeTintColor} = useTheme();
 //   const data = route.params.data;
@@ -129,6 +131,12 @@ import {links, testData, items, Tabs} from '../../constants/ListData';
 
 const AllTabRoute = ({navigation, route}) => {
   const WEB_LINK = 'https://www.youtube.com/';
+  const {fontColor} = useTheme();
+
+  const ListView = () => {
+    console.log('clicked');
+  };
+
   return (
     <HomeScreen>
       <Stack spacing={20} padding={16}>
@@ -189,6 +197,27 @@ const AllTabRoute = ({navigation, route}) => {
             </TouchableOpacity>
           </Stack>
         ))}
+        <View
+          style={{
+            alignItems: 'flex-end',
+          }}>
+          <TouchableOpacity>
+            <Stack
+              style={{
+                width: 34,
+                height: 34,
+                borderWidth: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 60,
+                backgroundColor: '#236BFE',
+              }}>
+              <Text style={{color: 'white'}}>
+                <IonIcon name="arrow-up-outline" size={25} color={fontColor} />
+              </Text>
+            </Stack>
+          </TouchableOpacity>
+        </View>
       </Stack>
     </HomeScreen>
   );
@@ -264,4 +293,11 @@ const TabViewExample = () => {
     />
   );
 };
+const styles = StyleSheet.create({
+  scrollTopButton: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+  },
+});
 export default TabViewExample;

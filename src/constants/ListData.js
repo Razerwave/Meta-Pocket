@@ -48,6 +48,48 @@ const links = [
     Image: require('../assets/icons/favorite.png'),
     fav: true,
   },
+  {
+    id: 6,
+    Subject: 'Ethererium1',
+    url: 'www.etherium.com',
+    Image: require('../assets/icons/Ellipse95.png'),
+    fav: false,
+  },
+  {
+    id: 7,
+    Subject: 'Sol1',
+    url: 'www.sol.io',
+    Image: require('../assets/icons/Ellipse96.png'),
+    fav: false,
+  },
+  {
+    id: 8,
+    Subject: 'Tether1',
+    url: 'www.Tether.org',
+    Image: require('../assets/icons/favorite.png'),
+    fav: true,
+  },
+  {
+    id: 9,
+    Subject: 'Tether4',
+    url: 'www.Tether.org',
+    Image: require('../assets/icons/favorite.png'),
+    fav: true,
+  },
+  {
+    id: 10,
+    Subject: 'Tether3',
+    url: 'www.Tether.org',
+    Image: require('../assets/icons/favorite.png'),
+    fav: true,
+  },
+  {
+    id: 11,
+    Subject: 'Tether2',
+    url: 'www.Tether.org',
+    Image: require('../assets/icons/favorite.png'),
+    fav: true,
+  },
 ];
 
 const items = [

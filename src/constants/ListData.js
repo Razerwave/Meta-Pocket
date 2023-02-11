@@ -1,23 +1,26 @@
 const links = [
   {
     id: 1,
-    Subject: 'Aleo',
-    url: 'Aleo.org',
-    Image: require('../assets/icons/all.png'),
-    fav: false,
-  },
-  {
-    id: 2,
     Subject: 'Bitcoin',
     url: 'bitcoin.org/ko',
     Image: require('../assets/icons/Vector.png'),
+    logo: require('../assets/icons/bitcoin.png'),
     fav: true,
+  },
+  {
+    id: 2,
+    Subject: 'Aleo',
+    url: 'Aleo.org',
+    Image: require('../assets/icons/all.png'),
+    logo: require('../assets/icons/Group6679.png'),
+    fav: false,
   },
   {
     id: 3,
     Subject: 'Filecoin',
     url: 'filecoin.io',
     Image: require('../assets/icons/Ellipse93.png'),
+    logo: require('../assets/icons/fx.png'),
     fav: true,
   },
   {
@@ -25,6 +28,7 @@ const links = [
     Subject: 'Plenty',
     url: 'www.plenty.com',
     Image: require('../assets/icons/Ellipse94.png'),
+    logo: require('../assets/icons/Layer_1.png'),
     fav: true,
   },
   {
@@ -123,25 +127,26 @@ const Tabs = [
 ];
 
 const testData = [
-  {
-    key: 'All',
-    title: 'All',
-    items: links,
-    icons: require('../assets/icons/all.png'),
-  },
+  // {
+  //   key: 'All',
+  //   title: 'All',
+  //   items: links,
+  //   icons: require('../assets/icons/all.png'),
+  // },
 
-  {
-    key: 'Favorite',
-    title: 'Favorite',
-    items: links,
-    icons: require('../assets/icons/Vector.png'),
-  },
+  // {
+  //   key: 'Favorite',
+  //   title: 'Favorite',
+  //   items: links,
+  //   icons: require('../assets/icons/Vector.png'),
+  // },
 
   {
     key: 'Website',
     title: 'Website',
     items: links,
     icons: require('../assets/icons/Ellipse93.png'),
+    fav: true,
   },
 
   {
@@ -149,6 +154,7 @@ const testData = [
     title: 'Item',
     items: links,
     icons: require('../assets/icons/Ellipse94.png'),
+    fav: true,
   },
 
   {
@@ -156,6 +162,7 @@ const testData = [
     title: 'Art',
     items: links,
     icons: require('../assets/icons/Ellipse95.png'),
+    fav: true,
   },
 
   {
@@ -163,6 +170,7 @@ const testData = [
     title: 'Article',
     items: links,
     icons: require('../assets/icons/Ellipse96.png'),
+    fav: false,
   },
 ];
 

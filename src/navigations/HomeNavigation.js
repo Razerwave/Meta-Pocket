@@ -13,6 +13,7 @@ import {
   SettingScreen,
   WalletScreen,
 } from '../screens/home';
+import { IconDapp, IconExplore, IconMore, IconWallet } from '../assets/icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,25 +35,21 @@ const HomeNavigation = () => {
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
           const tabName = route.name;
-          if (tabName === 'Wallet') {
-            iconName = focused ? 'wallet-outline' : 'wallet';
-          } else if (tabName === 'Explore') {
-            iconName = focused ? 'ios-search' : 'ios-search-circle';
-          } else if (tabName === 'Invest') {
-            iconName = 'logo-bitcoin';
-          } else if (tabName === 'Dapp') {
-            iconName = focused ? 'apps-outline' : 'apps';
-          } else {
-            iconName = focused ? 'settings-outline' : 'settings';
+          if (tabName === ROUTES.HOME.WALLET) {
+            return <IconWallet color={color} />
+          } else if (tabName === ROUTES.HOME.EXPLORE) {
+            return <IconExplore color={color} />
+          } else if (tabName === ROUTES.HOME.DAPP) {
+            return <IconDapp color={color} />
           }
-
-          return <IonIcon name={iconName} size={size} color={color} />;
+            
+          return <IconMore color={color} />
         },
       })}>
-      <Tab.Screen name={ROUTES.HOME.WALLET} component={WalletScreen} />
+      <Tab.Screen options={{ title: 'Wallet' }} name={ROUTES.HOME.WALLET} component={WalletScreen} />
       <Tab.Screen options={{ headerShown: true, title: 'Explore' }} name={ROUTES.HOME.EXPLORE} component={ExploreScreen} />
-      <Tab.Screen name={ROUTES.HOME.DAPP} component={DappScreen} />
-      <Tab.Screen options={{ headerShown: true, title: 'Setting' }} name={ROUTES.HOME.SETTING} component={SettingScreen} />
+      <Tab.Screen options={{ title: 'Dapp' }} name={ROUTES.HOME.DAPP} component={DappScreen} />
+      <Tab.Screen options={{ headerShown: true, title: 'More' }} name={ROUTES.HOME.SETTING} component={SettingScreen} />
     </Tab.Navigator>
   );
 };

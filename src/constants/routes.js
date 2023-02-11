@@ -10,10 +10,10 @@ const ROUTES = {
     RESULT: 'AUTH_RESULT',
   },
   HOME: {
-    WALLET: "Wallet",
-    EXPLORE: "Explore",
-    DAPP: "Dapp",
-    SETTING: "Setting",
+    WALLET: "HOME_WALLET",
+    EXPLORE: "HOME_EXPLORE",
+    DAPP: "HOME_DAPP",
+    SETTING: "HOME_SETTING",
   },
   SETTING: {
     RESET_PASSCODE: "RESET_PASSCODE",

@@ -1,5 +1,8 @@
 import StyledText from './texts/StyledText';
 import Title from './texts/Title';
+import SubTitle from './texts/SubTitle';
+import LayoutHeader from './layouts/LayoutHeader';
+
 import LayoutScreen from './layouts/LayoutScreen';
 import LayoutBottom from './layouts/LayoutBottom';
 import LayoutCenter from './layouts/LayoutCenter';
@@ -15,7 +18,6 @@ import Paginator from './Paginator';
 import BottomModal from './BottomModal';
 import KeyBoardPasscode from './KeyBoardPasscode';
 import StepsAuth from './StepsAuth';
-import SubTitle from './texts/SubTitle';
 import Divider from './Divider';
 
 export {
@@ -38,4 +40,5 @@ export {
   StepsAuth,
   SubTitle,
   Divider,
-};
+  LayoutHeader,
+}

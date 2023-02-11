@@ -1,9 +1,9 @@
 import React from 'react'
-import StyledText from './StyledText'
+import { Text } from 'react-native'
 
 const SubTitle = (props) => {
   return (
-    <StyledText style={{ fontSize: 16, fontWeight: 600, lineHeight: 19 }} {...props} />
+    <Text style={{ fontSize: 16, fontWeight: 600, lineHeight: 19, color: '#777777' }} {...props} />
   )
 }
 

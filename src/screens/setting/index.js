@@ -1,4 +1,4 @@
-import PasscodeResetScreen from './PasscodeResetScreen';
-import PasscodeReEnterScreen from './PasscodeReEnterScreen';
+import ResetPasscode from './ResetPasscode';
+import ConfirmResetPasscode from './ConfirmResetPasscode';
 
-export {PasscodeResetScreen, PasscodeReEnterScreen};
+export {ResetPasscode, ConfirmResetPasscode};

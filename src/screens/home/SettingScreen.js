@@ -37,11 +37,11 @@ const SettingScreen = ({ navigation }) => {
           <ListItem label="My UID" icon={<IconPerson />}>
             <StyledText>123451234512345</StyledText>
           </ListItem>
-          <ListItem label="Reset Passcode" icon={<IconPerson />} onPress={() => navigation.navigate(ROUTES.SETTING.PASSCODE_RESET)}>
+          <ListItem label="Reset Passcode" icon={<IconPerson />} onPress={() => navigation.navigate(ROUTES.SETTING.RESET_PASSCODE)}>
             <IconArrowForward />
           </ListItem>
           <ListItem label="KYC" icon={<IconPerson />}>
-            <IconArrowForward />
+            <StyledText>test@gmail.com</StyledText>
           </ListItem>
           <ListItem label="Referral UID" icon={<IconPerson />}>
             <IconArrowForward />

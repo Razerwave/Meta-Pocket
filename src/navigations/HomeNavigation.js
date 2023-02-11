@@ -16,7 +16,7 @@ import {
 
 const Tab = createBottomTabNavigator();
 
-const HomeNavigation = ({ navigation }) => {
+const HomeNavigation = () => {
   const { backgroundColor, fontColor } = useTheme();
 
   return (
@@ -30,7 +30,7 @@ const HomeNavigation = ({ navigation }) => {
         headerTitleStyle: {
           color: fontColor,
         },
-        header: ({ options }) => <LayoutHeader {...options} navigation={navigation} />,
+        header: ({ options }) => <LayoutHeader {...options} />,
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
           const tabName = route.name;

@@ -1,16 +1,17 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { IconArrowBack } from '../../assets/icons'
+import { useNavigation } from '@react-navigation/native';
 
-const LayoutHeader = ({ title, headerStyle, headerTitleStyle, navigation }) => {
+const LayoutHeader = ({ title, headerStyle, headerTitleStyle }) => {
+  const navigation = useNavigation()
+
   return (
     <View style={[styles.container, headerStyle]}>
       <View style={styles.backArrow}>
-        {navigation.canGoBack() &&
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <IconArrowBack />
-          </TouchableOpacity>
-        }
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <IconArrowBack />
+        </TouchableOpacity>
       </View>
       <Text style={[styles.title, headerTitleStyle]}>{title}</Text>
     </View>
@@ -27,8 +28,8 @@ const styles = StyleSheet.create({
   },
   backArrow: {
     position: 'absolute',
-    left: 20,
-    top: 24,
+    left: 21,
+    top: 25,
   },
   title: {
     fontFamily: 'Poppins',

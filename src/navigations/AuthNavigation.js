@@ -51,7 +51,7 @@ const AuthNavigation = () => {
       <Stack.Screen name={ROUTES.AUTH.PROTECT_WALLET} component={ProtectWallet} />
       <Stack.Screen name={ROUTES.AUTH.CREATE_PASSCODE} component={CreatePasscode} />
       <Stack.Screen name={ROUTES.AUTH.CONFIRM_PASSCODE} component={ConfirmPasscode} />
-      <Stack.Screen name={ROUTES.AUTH.RESULT} component={Result} />
+      <Stack.Screen options={{ headerShown: false }} name={ROUTES.AUTH.RESULT} component={Result} />
 
     </Stack.Navigator>
   );

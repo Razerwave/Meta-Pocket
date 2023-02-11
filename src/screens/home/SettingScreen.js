@@ -18,7 +18,7 @@ import { ROUTES } from '../../constants';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import { useAuth } from '../../context/AuthContext';
 import { Path, Svg, SvgXml } from 'react-native-svg';
-import { IconArrowForward, IconPerson } from '../../assets/icons';
+import { IconArrowForward, IconFacebook, IconInstagram, IconPerson, IconTwitter, IconYoutube } from '../../assets/icons';
 
 const SettingScreen = ({ navigation }) => {
   const { logout, isDarkTheme, toggleTheme } = useAuth();
@@ -80,7 +80,12 @@ const SettingScreen = ({ navigation }) => {
             <StyledText>support@metapocket.com</StyledText>
           </ListItem>
           <ListItem label="SNS" icon={<IconPerson />}>
-            <StyledText>1.0.0</StyledText>
+            <Stack direction='row' spacing={8}>
+              <IconFacebook />
+              <IconInstagram />
+              <IconTwitter />
+              <IconYoutube />
+            </Stack>
           </ListItem>
           <Stack spacing={32}>
             <ButtonPrimary title="Logout" onPress={logoutHandler} />

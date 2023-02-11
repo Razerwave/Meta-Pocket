@@ -1,23 +1,34 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { ButtonPrimary, CustomInput, LayoutBottom, LayoutScreen, Stack, StyledText, Title } from '../../components'
-import { ROUTES } from '../../constants'
+import { ButtonPrimary, CustomInput, ErrorText, LayoutBottom, LayoutScreen, Stack, StyledText, Title } from '../../components'
+import { REGEX_EMAIL, ROUTES } from '../../constants'
+
+const TIMER_SEC = 10
+
 
 const EmailVerification = ({ navigation }) => {
   const [email, setEmail] = useState('')
   const [isSent, setSent] = useState(false)
+  const [error, setError] = useState(false)
   const [code, setCode] = useState('')
-  const [timer, setTimer] = useState(3)
+  const [timer, setTimer] = useState(TIMER_SEC)
   const [intervalID, setIntervalID] = useState()
 
   const handleChangeEmail = v => {
     setEmail(v)
+    if (REGEX_EMAIL.test(email)) {
+      setError(false)
+    }
   }
 
   const handleSend = () => {
+    if (!REGEX_EMAIL.test(email)) {
+      setError(true)
+      return
+    }
     setSent(true)
     const timer = setInterval(() => {
-      setTimer(v => v-1)
+      setTimer(v => v - 1)
     }, 1000);
     setIntervalID(timer)
   }
@@ -26,9 +37,9 @@ const EmailVerification = ({ navigation }) => {
     if (timer == 0) {
       clearInterval(intervalID)
       setSent(false)
-      setTimer(3)
+      setTimer(TIMER_SEC)
     }
-  },[timer])
+  }, [timer])
 
   const handleOK = () => {
     navigation.navigate(ROUTES.HOME.SETTING)
@@ -51,10 +62,14 @@ const EmailVerification = ({ navigation }) => {
           placeholder="Enter your Email Address"
           btnText='Send'
           onPress={!isSent && handleSend}
+          error={error}
           action={isSent && (
-            <Text style={styles.timer}>00:{timer < 10 ? `0${timer}` :timer}</Text>
+            <Text style={styles.timer}>00:{timer < 10 ? `0${timer}` : timer}</Text>
           )}
         />
+        {error && <ErrorText>
+          Enter valid email
+        </ErrorText>}
         {isSent && (
           <CustomInput
             value={code}

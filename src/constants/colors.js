@@ -16,6 +16,8 @@ export const blue5 = "#236BFE"
 
 export const purple = '#A35AFF' 
 
+export const red = '#FF3D60'
+
 export const gray = "#838AA5"
 export const gray2 = "#808080"
 export const gray3 = "#777777"

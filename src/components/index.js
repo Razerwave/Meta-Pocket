@@ -20,6 +20,7 @@ import KeyBoardPasscode from './KeyBoardPasscode';
 import StepsAuth from './StepsAuth';
 import Divider from './Divider';
 import CustomInput from './input/CustomInput';
+import ErrorText from './texts/ErrorText';
 
 export {
   Title,
@@ -43,4 +44,5 @@ export {
   Divider,
   LayoutHeader,
   CustomInput,
+  ErrorText,
 }

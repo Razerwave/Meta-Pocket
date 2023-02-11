@@ -40,7 +40,7 @@ const SettingScreen = ({ navigation }) => {
           <ListItem label="Reset Passcode" icon={<IconPerson />} onPress={() => navigation.navigate(ROUTES.SETTING.RESET_PASSCODE)}>
             <IconArrowForward />
           </ListItem>
-          <ListItem label="KYC" icon={<IconPerson />}>
+          <ListItem label="KYC" icon={<IconPerson />} onPress={() => navigation.navigate(ROUTES.SETTING.EMAIL_VERIFICATION)}>
             <StyledText>test@gmail.com</StyledText>
           </ListItem>
           <ListItem label="Referral UID" icon={<IconPerson />}>

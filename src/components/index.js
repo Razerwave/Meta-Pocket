@@ -19,6 +19,7 @@ import BottomModal from './BottomModal';
 import KeyBoardPasscode from './KeyBoardPasscode';
 import StepsAuth from './StepsAuth';
 import Divider from './Divider';
+import CustomInput from './input/CustomInput';
 
 export {
   Title,
@@ -41,4 +42,5 @@ export {
   SubTitle,
   Divider,
   LayoutHeader,
+  CustomInput,
 }

@@ -10,7 +10,7 @@ const ResetPasscode = ({ navigation }) => {
 
   useEffect(() => {
     if (passcode.length === 6) {
-      navigation.navigate(ROUTES.SETTING.PASSCODE_RE_ENTER, { 'passcode': passcode });
+      navigation.navigate(ROUTES.SETTING.CONFIRM_RESET_PASSCODE, { 'passcode': passcode });
     }
   }, [passcode])
 

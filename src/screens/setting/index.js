@@ -1,4 +1,5 @@
 import ResetPasscode from './ResetPasscode';
 import ConfirmResetPasscode from './ConfirmResetPasscode';
+import EmailVerification from './EmailVerification';
 
-export {ResetPasscode, ConfirmResetPasscode};
+export {ResetPasscode, ConfirmResetPasscode, EmailVerification};

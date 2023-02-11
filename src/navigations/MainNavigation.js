@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from 'styled-components';
 import { MiningInfoScreen, MiningSwapScreen } from '../screens/invest';
-import { ConfirmResetPasscode, ResetPasscode } from '../screens/setting';
+import { ConfirmResetPasscode, EmailVerification, ResetPasscode } from '../screens/setting';
 import { ExploreListScreen } from '../screens/Explore';
 import { WebScreen } from '../screens';
 import { ROUTES } from '../constants';
@@ -51,8 +51,13 @@ const MainNavigation = () => {
       />
       <Stack.Screen
         options={{ title: '' }}
-        name={ROUTES.SETTING.PASSCODE_RE_ENTER}
+        name={ROUTES.SETTING.CONFIRM_RESET_PASSCODE}
         component={ConfirmResetPasscode}
+      />
+      <Stack.Screen
+        options={{ title: 'KYC' }}
+        name={ROUTES.SETTING.EMAIL_VERIFICATION}
+        component={EmailVerification}
       />
       {/* EXPLORE */}
       <Stack.Screen

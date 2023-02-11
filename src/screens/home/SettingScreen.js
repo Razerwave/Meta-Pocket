@@ -43,7 +43,7 @@ const SettingScreen = ({ navigation }) => {
           <ListItem label="KYC" icon={<IconPerson />} onPress={() => navigation.navigate(ROUTES.SETTING.EMAIL_VERIFICATION)}>
             <StyledText>test@gmail.com</StyledText>
           </ListItem>
-          <ListItem label="Referral UID" icon={<IconPerson />}>
+          <ListItem label="Referral UID" icon={<IconPerson />} onPress={() => navigation.navigate(ROUTES.SETTING.REFERRAL)}>
             <IconArrowForward />
           </ListItem>
           <Divider />
@@ -92,7 +92,7 @@ const SettingScreen = ({ navigation }) => {
 const ListItem = ({ label, icon, children, onPress }) => {
   return (
     <TouchableOpacity disabled={!onPress} onPress={onPress}>
-      <Stack direction='row' spacing={11}>
+      <Stack direction='row' spacing={11} style={{alignItems: 'center'}}>
         {icon}
         <StyledText>{label}</StyledText>
         <View style={{ flex: 1, alignItems: 'flex-end' }}>{children}</View>

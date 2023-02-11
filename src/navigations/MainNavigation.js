@@ -8,6 +8,7 @@ import { WebScreen } from '../screens';
 import { ROUTES } from '../constants';
 import HomeNavigation from './HomeNavigation';
 import { LayoutHeader } from '../components';
+import Referral from '../screens/setting/Referral';
 
 const Stack = createNativeStackNavigator();
 
@@ -58,6 +59,11 @@ const MainNavigation = () => {
         options={{ title: 'KYC' }}
         name={ROUTES.SETTING.EMAIL_VERIFICATION}
         component={EmailVerification}
+      />
+      <Stack.Screen
+        options={{ title: 'Referral UID' }}
+        name={ROUTES.SETTING.REFERRAL}
+        component={Referral}
       />
       {/* EXPLORE */}
       <Stack.Screen

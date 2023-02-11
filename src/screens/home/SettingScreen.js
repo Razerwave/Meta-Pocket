@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, Alert, TouchableOpacity, Switch, ScrollView } from 'react-native';
 import {
   ButtonPrimary,
   CardBox,
+  CustomSelect,
   Divider,
   HeaderTitle,
   HomeScreen,
@@ -22,6 +23,7 @@ import { IconArrowForward, IconPerson } from '../../assets/icons';
 const SettingScreen = ({ navigation }) => {
   const { logout, isDarkTheme, toggleTheme } = useAuth();
   const { fontColor, activeTintColor } = useTheme();
+  const [language, setLanguage] = useState('KOR')
 
   const logoutHandler = () => {
     logout();
@@ -48,7 +50,7 @@ const SettingScreen = ({ navigation }) => {
           </ListItem>
           <Divider />
           <ListItem label="Language" icon={<IconPerson />}>
-            <StyledText>OK</StyledText>
+            <CustomSelect value={language} onChange={(v) => setLanguage(v)} />
           </ListItem>
           <ListItem label="Dark Mode" icon={<IconPerson />}>
             <Switch
@@ -65,7 +67,7 @@ const SettingScreen = ({ navigation }) => {
             Information
           </SubTitle>
           <ListItem label="Notice" icon={<IconPerson />}>
-            <StyledText>1.0.0</StyledText>
+            <IconArrowForward />
           </ListItem>
           <ListItem label="Version" icon={<IconPerson />}>
             <StyledText>1.0.0</StyledText>
@@ -92,7 +94,7 @@ const SettingScreen = ({ navigation }) => {
 const ListItem = ({ label, icon, children, onPress }) => {
   return (
     <TouchableOpacity disabled={!onPress} onPress={onPress}>
-      <Stack direction='row' spacing={11} style={{alignItems: 'center'}}>
+      <Stack direction='row' spacing={11} style={{ alignItems: 'center' }}>
         {icon}
         <StyledText>{label}</StyledText>
         <View style={{ flex: 1, alignItems: 'flex-end' }}>{children}</View>

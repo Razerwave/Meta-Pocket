@@ -11,7 +11,7 @@ const LayoutScroll = ({ children, bottomGap = 30 }) => {
   const [visible, setVisible] = useState(false);
 
   const onPressTouch = () => {
-    console.log("onPressTouch")
+    setVisible(false)
     scrollRef.current?.scrollTo({
       y: 0,
       animated: true,

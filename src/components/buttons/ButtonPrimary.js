@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
 const StyledButtonView = styled.View`
     height: 40px;
     alignItems: center;
-    background-color: ${props => props.theme.primaryColor};
+    background-color: ${props => props.theme.activeTintColor};
     padding: 10px;
     border-radius: 30px;
 `

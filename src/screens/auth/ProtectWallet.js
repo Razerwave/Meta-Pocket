@@ -9,7 +9,7 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 const ImageURI = require('../../assets/ProtectWallet.png')
 
 const ProtectWallet = ({ navigation }) => {
-  const { fontColor, primaryColor } = useTheme('')
+  const { fontColor, activeTintColor } = useTheme('')
   const [agreed, setAgreed] = useState(false);
   const [modalVisible, setModalVisible] = useState(null);
 
@@ -18,7 +18,7 @@ const ProtectWallet = ({ navigation }) => {
   }
 
   const checkStyle = agreed ? {
-    backgroundColor: primaryColor,
+    backgroundColor: activeTintColor,
   } : {
     borderWidth: 1,
     borderStyle: 'solid',

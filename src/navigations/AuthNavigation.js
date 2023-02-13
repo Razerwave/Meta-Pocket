@@ -25,7 +25,7 @@ const stepsName = {
 const Stack = createNativeStackNavigator();
 
 const AuthNavigation = () => {
-  const { backgroundColor, primaryColor, fontColor } = useTheme();
+  const { backgroundColor, activeTintColor, fontColor } = useTheme();
 
   return (
     <Stack.Navigator

@@ -23,7 +23,7 @@ import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import {links, Artlinks} from '../../constants/ListData';
 import {IconColorDot} from '../../assets/icons';
 // const ExploreListScreen = ({navigation, route}) => {
-//   const {fontColor, primaryColor} = useTheme();
+//   const {fontColor, activeTintColor} = useTheme();
 //   const data = route.params.data;
 //   const title = route.params.title;
 //   const favorite = route.params.favorite;

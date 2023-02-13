@@ -23,7 +23,7 @@ const DefaultTheme = {
     backgroundCardColor: white,
 
     // not done
-    primaryColor: primary,
+    activeTintColor: primary,
     dividerColor: white,
     fonts: {
         subTitleColor: white,
@@ -70,7 +70,7 @@ const DarkTheme = {
     backgroundCardColor: black,
 
     // not done
-    primaryColor: black,
+    activeTintColor: black,
     dividerColor: black,
     fonts: {
         subTitleColor: black,

@@ -88,7 +88,7 @@ const WalletScreen = ({navigation}) => {
                 }}></View>
             </View>
           </View>
-          <Tabs fontColor={fontColor} primaryColor={primaryColor} />
+          <Tabs fontColor={fontColor} activeTintColor={activeTintColor} />
           {[1, 2, 3].map((_, index) => (
             <ListItem key={index} fontColor={fontColor} />
           ))}
@@ -111,7 +111,7 @@ const Tabs = ({fontColor, activeTintColor}) => {
                 {paddingHorizontal: 12, borderWidth: 1, borderColor: fontColor},
                 isActive && {
                   borderBottomWidth: 3,
-                  borderBottomColor: primaryColor,
+                  borderBottomColor: activeTintColor,
                 },
               ]}>
               <StyledText

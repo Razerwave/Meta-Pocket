@@ -1,11 +1,18 @@
-import StyledText from './texts/StyledText';
-import Title from './texts/Title';
-import SubTitle from './texts/SubTitle';
 import LayoutHeader from './layouts/LayoutHeader';
-
 import LayoutScreen from './layouts/LayoutScreen';
 import LayoutBottom from './layouts/LayoutBottom';
 import LayoutCenter from './layouts/LayoutCenter';
+import LayoutScroll from './layouts/LayoutScroll';
+import LayoutTopDarkSection from './layouts/LayoutTopDarkSection';
+
+// 
+import Paragraph from './texts/Paragraph';
+import BodyHeading from './texts/BodyHeading';
+import BodyText from './texts/BodyText';
+
+import StyledText from './texts/StyledText';
+import Title from './texts/Title';
+import SubTitle from './texts/SubTitle';
 import Screen from './Screen';
 import HomeScreen from './HomeScreen';
 import ButtonPrimary from './buttons/ButtonPrimary';
@@ -22,9 +29,7 @@ import Divider from './Divider';
 import CustomInput from './input/CustomInput';
 import CustomSelect from './input/CustomSelect';
 import ErrorText from './texts/ErrorText';
-import LayoutScroll from './layouts/LayoutScroll';
 import ListItem from './ListItem';
-import LayoutTopDarkSection from './layouts/LayoutTopDarkSection';
 
 export {
   Title,
@@ -53,4 +58,7 @@ export {
   LayoutScroll,
   ListItem,
   LayoutTopDarkSection,
+  Paragraph,
+  BodyHeading,
+  BodyText,
 }

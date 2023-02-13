@@ -11,9 +11,10 @@ import IconExplore from "./IconExplore";
 import IconDapp from "./IconDapp";
 import IconMore from "./IconMore";
 import IconScrollTop from "./IconScrollTop";
+import IconCopy from "./IconCopy";
 
 export {
   IconArrowBack, IconArrowForward, IconArrowDown, IconPerson, IconYoutube,
   IconFacebook, IconInstagram, IconTwitter, IconWallet, IconExplore, IconDapp,
-  IconMore, IconScrollTop,
+  IconMore, IconScrollTop, IconCopy
 }

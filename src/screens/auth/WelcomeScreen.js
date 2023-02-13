@@ -23,6 +23,7 @@ import {
 import { ROUTES } from '../../constants';
 import { useTheme } from 'styled-components';
 import LogoBig from '../../assets/LogoBig';
+import ButtonText from '../../components/buttons/ButtonText';
 
 const WelcomeScreen = ({ navigation }) => {
   const { fonts: { logoColor } } = useTheme()
@@ -37,13 +38,14 @@ const WelcomeScreen = ({ navigation }) => {
           onPress={() => navigation.navigate(ROUTES.AUTH.BACKUP_WALLET)}
           style={{ marginBottom: 20 }}
         />
-        <View style={{ alignItems: 'center' }}>
-          <TouchableOpacity onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
-            <StyledText style={{ fontSize: 14, lineHeight: 21 }}>
-              I already have a wallet
-            </StyledText>
-          </TouchableOpacity>
-        </View>
+        <ButtonText onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
+          I already have a wallet
+        </ButtonText>
+        <TouchableOpacity onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
+          <StyledText style={{ fontSize: 14, lineHeight: 21 }}>
+            I already have a wallet
+          </StyledText>
+        </TouchableOpacity>
       </LayoutBottom>
     </LayoutScreen>
   );

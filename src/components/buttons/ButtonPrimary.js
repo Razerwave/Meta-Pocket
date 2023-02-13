@@ -6,7 +6,7 @@ import { button1Size, button1Weight, fontButton } from '../../constants/fonts';
 const ButtonPrimary = ({ type = 'solid', disabled, style, ...props }) => {
     const { bgStyle, textStyle } = ButtonStyles[type]
     return (
-        <TouchableOpacity {...props} style={{ width: '100%', ...style }} disabled={disabled}>
+        <TouchableOpacity {...props} style={{ flexDirection: 'row' }} disabled={disabled}>
             <View style={[styles.container, bgStyle, { opacity: disabled ? 0.5 : 1 }]}>
                 <Text style={[styles.text, textStyle]}>{props.title}</Text>
             </View>
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     container: {
         borderRadius: 50,
         height: 40,
+        flex: 1,
         maxWidth: 270,
         minWidth: 100,
         justifyContent: 'center',

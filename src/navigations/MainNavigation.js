@@ -12,7 +12,8 @@ import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
 import {LayoutHeader} from '../components';
 import Referral from '../screens/setting/Referral';
-import { PortfolioScreen } from '../screens/wallet';
+import {PortfolioScreen} from '../screens/wallet';
+import {BuyItem} from '../screens/BuyItem/index';
 
 const Stack = createNativeStackNavigator();
 
@@ -68,6 +69,12 @@ const MainNavigation = () => {
         options={{headerShown: true, title: 'Explore'}}
         name={ROUTES.EXPLORE.LIST_SCREEN}
         component={ExploreListScreen}
+      />
+      {/* Buy Item */}
+      <Stack.Screen
+        options={{headerShown: true, title: 'Buy Item'}}
+        name={ROUTES.BUY.BUY_SCREEN}
+        component={BuyItem}
       />
       <Stack.Screen
         options={({

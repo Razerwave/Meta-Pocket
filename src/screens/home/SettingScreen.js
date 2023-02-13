@@ -9,6 +9,7 @@ import {
   HomeScreen,
   LayoutScreen,
   Screen,
+  LayoutScroll,
   Stack,
   StyledText,
   SubTitle,
@@ -31,8 +32,8 @@ const SettingScreen = ({ navigation }) => {
 
   return (
     <LayoutScreen>
-      <ScrollView>
-        <Stack marginHorizontal={24} spacing={32}>
+      <LayoutScroll>
+        <Stack marginHorizontal={24} marginTop={20} spacing={32}>
           <SubTitle>
             General
           </SubTitle>
@@ -91,7 +92,7 @@ const SettingScreen = ({ navigation }) => {
             <ButtonPrimary title="Logout" onPress={logoutHandler} />
           </Stack>
         </Stack>
-      </ScrollView>
+      </LayoutScroll>
     </LayoutScreen>
   );
 };

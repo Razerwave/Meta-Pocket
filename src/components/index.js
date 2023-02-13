@@ -22,6 +22,7 @@ import Divider from './Divider';
 import CustomInput from './input/CustomInput';
 import CustomSelect from './input/CustomSelect';
 import ErrorText from './texts/ErrorText';
+import LayoutScroll from './layouts/LayoutScroll';
 
 export {
   Title,
@@ -47,4 +48,5 @@ export {
   CustomInput,
   ErrorText,
   CustomSelect,
+  LayoutScroll,
 }

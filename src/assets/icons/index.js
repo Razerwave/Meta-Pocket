@@ -10,5 +10,10 @@ import IconWallet from "./IconWallet";
 import IconExplore from "./IconExplore";
 import IconDapp from "./IconDapp";
 import IconMore from "./IconMore";
+import IconScrollTop from "./IconScrollTop";
 
-export { IconArrowBack, IconArrowForward, IconArrowDown, IconPerson, IconYoutube, IconFacebook, IconInstagram, IconTwitter, IconWallet, IconExplore, IconDapp, IconMore }
+export {
+  IconArrowBack, IconArrowForward, IconArrowDown, IconPerson, IconYoutube,
+  IconFacebook, IconInstagram, IconTwitter, IconWallet, IconExplore, IconDapp,
+  IconMore, IconScrollTop,
+}

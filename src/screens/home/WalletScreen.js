@@ -12,6 +12,7 @@ import {
   Screen,
   Stack,
   StyledText,
+  WalletTotalBalance,
 } from '../../components';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -33,99 +34,7 @@ const WalletScreen = () => {
           style={{fontSize: 20, fontWeight: 'bold', marginBottom: 10}}>
           Wallet
         </StyledText>
-
-        <View>
-          <View
-            style={{
-              alignItems: 'center',
-              width: 140,
-              height: 140,
-            }}>
-            {/* <LinearGradient
-            style={{
-              width: 140,
-              height: 140,
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 100,
-              shadowColor: '#000',
-              elevation: 15,
-            }}
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 1}}
-            colors={[
-              '  rgba(13,11,51,1)',
-              ' rgba(135,135,167,1) ',
-              'rgba(42,42,154,1) ',
-              'transparent',
-            ]}>
-            <View style={{alignItems: 'center'}}>
-              <View
-                style={{
-                  height: 120,
-                  width: 120,
-                  borderRadius: 60,
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <View
-                  style={{
-                    borderColor: fontColor,
-                    padding: 3,
-                    flex: 1,
-                    alignItems: 'center',
-                  }}>
-                  <StyledText style={{fontSize: 10, fontWeight: 'bold'}}>
-                    Total value
-                  </StyledText>
-                  <StyledText style={{fontSize: 20, fontWeight: 'bold'}}>
-                    $0.00
-                  </StyledText>
-                </View>
-              </View>
-            </View>
-          </LinearGradient> */}
-            <Shadow
-              distance={16}
-              startColor={('rgba(9,9,121,1)', 'rgba(9,9,121,1)')}
-              endColor={'#ff00ff10'}
-              paintInside={false}
-              style={{
-                flexDirection: 'row',
-                borderRadius: 100,
-              }}>
-              <View style={{alignItems: 'center'}}>
-                <View
-                  style={{
-                    height: 120,
-                    width: 120,
-                    borderRadius: 60,
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  <View
-                    style={{
-                      borderColor: fontColor,
-                      padding: 3,
-                      flex: 1,
-                      alignItems: 'center',
-                    }}>
-                    <StyledText style={{fontSize: 10, fontWeight: 'bold'}}>
-                      Total value
-                    </StyledText>
-                    <StyledText style={{fontSize: 20, fontWeight: 'bold'}}>
-                      $0.00
-                    </StyledText>
-                  </View>
-                </View>
-              </View>
-            </Shadow>
-          </View>
-        </View>
-
+        <WalletTotalBalance />
         <View
           style={{
             flexDirection: 'row',

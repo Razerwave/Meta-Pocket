@@ -23,6 +23,7 @@ import CustomInput from './input/CustomInput';
 import CustomSelect from './input/CustomSelect';
 import ErrorText from './texts/ErrorText';
 import LayoutScroll from './layouts/LayoutScroll';
+import WalletTotalBalance from './WalletTotalBalance';
 
 export {
   Title,
@@ -49,4 +50,5 @@ export {
   ErrorText,
   CustomSelect,
   LayoutScroll,
-}
+  WalletTotalBalance,
+};

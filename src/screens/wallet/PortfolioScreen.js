@@ -1,12 +1,23 @@
-import { StyleSheet, StatusBar, View } from 'react-native'
-import React from 'react'
-import { AppStatusBar, CircleAnimated, LayoutScreen, LayoutScroll, ListItem, Stack, StyledText } from '../../components'
-import { DarkTheme } from '../../constants'
+import {StyleSheet, StatusBar, View} from 'react-native';
+import React from 'react';
+import {
+  AppStatusBar,
+  CircleAnimated,
+  LayoutScreen,
+  LayoutScroll,
+  ListItem,
+  Stack,
+  StyledText,
+} from '../../components';
+import {DarkTheme} from '../../constants';
 
 const PortfolioScreen = () => {
   return (
     <LayoutScreen>
-      <AppStatusBar barColor={DarkTheme.backgroundColor} barStyle="light-content" />
+      <AppStatusBar
+        barColor={DarkTheme.backgroundColor}
+        barStyle="light-content"
+      />
       <View style={styles.upperContainer}>
         <LayoutScroll>
           <Stack marginTop={30}>
@@ -19,9 +30,8 @@ const PortfolioScreen = () => {
             <ListItem>
               <StyledText>Total value</StyledText>
               <StyledText>$57.584</StyledText>
-
             </ListItem>
-            <Stack direction='row' alignItems="center">
+            <Stack direction="row" alignItems="center">
               <StyledText>Total value</StyledText>
               <StyledText>$57.584</StyledText>
             </Stack>
@@ -29,13 +39,13 @@ const PortfolioScreen = () => {
         </LayoutScroll>
       </View>
     </LayoutScreen>
-  )
-}
+  );
+};
 
-export default PortfolioScreen
+export default PortfolioScreen;
 
 const styles = StyleSheet.create({
   upperContainer: {
-    backgroundColor: DarkTheme.backgroundColor
-  }
-})
+    backgroundColor: DarkTheme.backgroundColor,
+  },
+});

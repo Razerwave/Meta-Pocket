@@ -118,11 +118,13 @@ const DappScreen = ({navigation}) => {
                         style={{
                           marginTop: 10,
                           marginBottom: 6,
+                          fontSize: 12,
+                          lineHeight: 14,
                           color: fontColor,
                         }}>
                         {item.title}
                       </StyledText>
-                      <StyledText style={{color: gray}}>
+                      <StyledText style={{color: gray, fontSize: 10}}>
                         {item.description}
                       </StyledText>
                     </Stack>

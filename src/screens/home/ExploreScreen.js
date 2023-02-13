@@ -191,9 +191,9 @@ const ExploreScreen = ({navigation}) => {
                               }}>
                               <TouchableOpacity
                                 onPress={() =>
-                                  navigation.navigate(ROUTES.EXPLORE.WEB, {
+                                  navigation.navigate(ROUTES.BUY.BUY_SCREEN, {
                                     uri: WEB_LINK,
-                                    title: title,
+                                    item: item,
                                   })
                                 }
                                 style={{

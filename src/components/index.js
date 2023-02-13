@@ -23,6 +23,8 @@ import CustomInput from './input/CustomInput';
 import CustomSelect from './input/CustomSelect';
 import ErrorText from './texts/ErrorText';
 import LayoutScroll from './layouts/LayoutScroll';
+import ListItem from './ListItem';
+import LayoutTopDarkSection from './layouts/LayoutTopDarkSection';
 
 export {
   Title,
@@ -49,4 +51,6 @@ export {
   ErrorText,
   CustomSelect,
   LayoutScroll,
+  ListItem,
+  LayoutTopDarkSection,
 }

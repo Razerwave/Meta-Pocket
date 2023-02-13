@@ -10,7 +10,7 @@ const LayoutHeader = ({ title, headerStyle, headerTitleStyle }) => {
     <View style={[styles.container, headerStyle]}>
       <View style={styles.backArrow}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <IconArrowBack />
+          <IconArrowBack color={headerTitleStyle.color} />
         </TouchableOpacity>
       </View>
       <Text style={[styles.title, headerTitleStyle]}>{title}</Text>

@@ -36,7 +36,7 @@ const WalletScreen = ({navigation}) => {
             Wallet
           </StyledText>
 
-          <TouchableOpacity onPress={navigation.navigate(ROUTES.WALLET.PORTFOLIO)}>
+          <TouchableOpacity onPress={() => navigation.navigate(ROUTES.WALLET.PORTFOLIO)}>
             <View
               style={{
                 alignItems: 'center',

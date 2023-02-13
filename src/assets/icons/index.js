@@ -12,9 +12,26 @@ import IconDapp from "./IconDapp";
 import IconMore from "./IconMore";
 import IconScrollTop from "./IconScrollTop";
 import IconCopy from "./IconCopy";
+import IconExploreArrow from './IconExploreArrow';
+import IconColorDot from './IconColorDot';
+import IconDappArrow from './IconDappArrow';
 
 export {
-  IconArrowBack, IconArrowForward, IconArrowDown, IconPerson, IconYoutube,
-  IconFacebook, IconInstagram, IconTwitter, IconWallet, IconExplore, IconDapp,
-  IconMore, IconScrollTop, IconCopy
+  IconArrowBack,
+  IconArrowForward,
+  IconArrowDown,
+  IconPerson,
+  IconYoutube,
+  IconFacebook,
+  IconInstagram,
+  IconTwitter,
+  IconWallet,
+  IconExplore,
+  IconDapp,
+  IconMore,
+  IconScrollTop,
+  IconCopy,
+  IconExploreArrow,
+  IconColorDot,
+  IconDappArrow,
 }

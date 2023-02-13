@@ -29,6 +29,8 @@ import Divider from './Divider';
 import CustomInput from './input/CustomInput';
 import CustomSelect from './input/CustomSelect';
 import ErrorText from './texts/ErrorText';
+import LayoutScroll from './layouts/LayoutScroll';
+import WalletTotalBalance from './WalletTotalBalance';
 import ListItem from './ListItem';
 
 export {
@@ -56,6 +58,7 @@ export {
   ErrorText,
   CustomSelect,
   LayoutScroll,
+  WalletTotalBalance,
   ListItem,
   LayoutTopDarkSection,
   Paragraph,

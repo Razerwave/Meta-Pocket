@@ -1,3 +1,48 @@
+const Dappdata = [
+  {
+    title: 'Aleo Meta Pocket',
+    description: 'description',
+    image: require('../assets/icons/Meta.png'),
+    type: 'Mining',
+  },
+  {
+    title: 'Aleo Metaverse',
+    description: 'description',
+    image: require('../assets/icons/dapp/Metaverse.png'),
+    type: 'Mining',
+  },
+  {
+    title: 'Aleo Uni-level',
+    description: 'description',
+    image: require('../assets/icons/dapp/Uni-level.png'),
+    type: 'Mining',
+  },
+  {
+    title: 'Aleo Binary',
+    description: 'description',
+    image: require('../assets/icons/dapp/binary.png'),
+    type: 'Mining',
+  },
+  {
+    title: 'Daily Art Story',
+    description: 'description',
+    image: require('../assets/icons/dapp/ArtStory.png'),
+    type: 'Popular',
+  },
+  {
+    title: 'OTT Streaming',
+    description: 'description',
+    image: require('../assets/icons/dapp/OTT-Stream.png'),
+    type: 'Popular',
+  },
+  {
+    title: 'DAS Metaverse',
+    description: 'description',
+    image: require('../assets/icons/dapp/OTT-Stream.png'),
+    type: 'Popular',
+  },
+];
+
 const Artlinks = [
   {
     name: 'Two gils ...',
@@ -174,4 +219,4 @@ const testData = [
   // },
 ];
 
-export {links, testData, items, Tabs, Artlinks};
+export {links, testData, items, Tabs, Artlinks, Dappdata};

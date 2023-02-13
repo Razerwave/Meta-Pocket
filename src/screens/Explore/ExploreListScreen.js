@@ -137,14 +137,24 @@ const TabViewExample = ({navigation, route}) => {
   const {logout, isDarkTheme, toggleTheme} = useAuth();
   const [index, setIndex] = React.useState(route.params.tabIndex || 0);
 
-  const {backgroundColor, bottomTab, fontColor, steps, fonts} = useTheme();
+  const {
+    backgroundColor,
+    bottomTab,
+    fontColor,
+    steps,
+    fonts,
+    tabIndicatorColor,
+  } = useTheme();
   const WEB_LINK = 'https://www.youtube.com/';
 
   const WebsiteTab = () => {
     return (
       <LayoutScreen>
         <LayoutScroll>
-          <Stack spacing={20} padding={16}>
+          <Stack
+            spacing={20}
+            padding={16}
+            style={{borderTopWidth: 1, borderColor: tabIndicatorColor}}>
             {links.map((index, key) => (
               <Stack key={key} style={{gap: 20}}>
                 <TouchableOpacity
@@ -208,7 +218,10 @@ const TabViewExample = ({navigation, route}) => {
     return (
       <LayoutScreen>
         <LayoutScroll>
-          <Stack spacing={20} padding={16}>
+          <Stack
+            spacing={20}
+            padding={16}
+            style={{borderTopWidth: 1, borderColor: tabIndicatorColor}}>
             {Artlinks.map((index, key) => (
               <Stack key={key} style={{gap: 20}}>
                 <TouchableOpacity
@@ -299,7 +312,7 @@ const TabViewExample = ({navigation, route}) => {
             fontSize: 10,
           }}
           pressColor={'inherit'}
-          tabStyle={{fontSize: 10}}
+          tabStyle={{width: 70, padding: 0}}
           pagerStyle={{
             color: 'pink',
             marginTop: 15,
@@ -308,7 +321,8 @@ const TabViewExample = ({navigation, route}) => {
           indicatorContainerStyle={{}}
           labelStyle={{
             fontSize: 16,
-            fontWeight: 600,
+            fontWeight: 400,
+            lineHeight: 19,
             textTransform: 'capitalize',
           }}
           sceneContainerStyle={{color: 'pink'}}
@@ -316,7 +330,7 @@ const TabViewExample = ({navigation, route}) => {
           indicatorStyle={[
             {
               backgroundColor: steps.activeColor,
-              height: 3,
+              height: 2,
             },
           ]}
         />

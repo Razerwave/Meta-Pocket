@@ -32,6 +32,9 @@ const ROUTES = {
     BUY_SCREEN: 'BUY_SCREEN',
     WEB: 'WEBB_LINK',
   },
+  ENTERPASS: {
+    ENTRYPASS_SCREEN: 'ENTRYPASS_SCREEN',
+  },
 };
 
 export default ROUTES;

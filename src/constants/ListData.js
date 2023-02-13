@@ -80,20 +80,20 @@ const Artlinks = [
 
 const links = [
   {
-    id: 1,
-    Subject: 'Bitcoin',
-    url: 'bitcoin.org/ko',
-    Image: require('../assets/icons/Vector.png'),
-    logo: require('../assets/icons/bitcoin.png'),
-    fav: true,
-  },
-  {
     id: 2,
     Subject: 'Aleo',
     url: 'Aleo.org',
     Image: require('../assets/icons/all.png'),
     logo: require('../assets/icons/Group6679.png'),
     fav: false,
+  },
+  {
+    id: 1,
+    Subject: 'Bitcoin',
+    url: 'bitcoin.org/ko',
+    Image: require('../assets/icons/Vector.png'),
+    logo: require('../assets/icons/bitcoin.png'),
+    fav: true,
   },
   {
     id: 3,

@@ -1,35 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Modal,
-  Image,
-  useWindowDimensions,
-} from 'react-native';
+import {Image, useWindowDimensions} from 'react-native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import {useAuth} from '../../context/AuthContext';
-import {
-  CardBox,
-  HomeScreen,
-  LayoutScreen,
-  LayoutScroll,
-  Screen,
-  Stack,
-  StyledText,
-} from '../../components';
+import {LayoutScreen, LayoutScroll, Stack, StyledText} from '../../components';
 import {useTheme} from 'styled-components';
 import {ROUTES} from '../../constants';
 import {Dappdata} from '../../constants/ListData';
-import IonIcon from 'react-native-vector-icons/Ionicons';
-import ArrowButton from '../../components/buttons/ArrowButton';
-import {gray5, gray} from '../../constants/colors';
+import {neutral100, gray300, neutral300} from '../../constants/colors';
 import {IconDappArrow} from '../../assets/icons';
+import styled from 'styled-components/native';
+import {View} from 'react-native-animatable';
 
 const DappScreen = ({navigation}) => {
-  const {fontColor, activeTintColor, backgroundColor, fonts, steps} =
-    useTheme();
-  const WEB_LINK = 'https://www.youtube.com/';
+  const {backgroundColor, steps} = useTheme();
   const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -39,100 +21,44 @@ const DappScreen = ({navigation}) => {
     getData();
   }, []);
   const layout = useWindowDimensions();
-  const {logout, isDarkTheme, toggleTheme} = useAuth();
 
   const AllTab = () => {
     return (
       <LayoutScreen>
         <LayoutScroll>
-          <Stack
-            padding={30}
-            style={{borderTopWidth: 1, borderColor: '#313545'}}>
-            <Stack
-              spacing={20}
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-                flexWrap: 'wrap',
-              }}>
+          <Container>
+            <Content>
               {data.map((item, index) => {
                 return (
-                  <Stack
-                    key={index}
-                    style={{
-                      alignItems: 'center',
-                      height: 'auto',
-                    }}>
-                    <TouchableOpacity
+                  <View key={index}>
+                    <AllTabTouchableOpacity
                       onPress={() =>
-                        navigation.navigate(ROUTES.BUY.BUY_SCREEN, {
-                          uri: WEB_LINK,
-                          item: item,
-                        })
-                      }
-                      style={{
-                        flex: 1,
-                        height: 102,
-                        width: 150,
-                        backgroundColor: '#262637',
-                        borderTopLeftRadius: 4,
-                        borderTopRightRadius: 4,
-                        borderBottomLeftRadius: 4,
-                        borderBottomRightRadius: 20,
-                        flexDirection: 'row',
-                        justifyContent: 'space-around',
-                      }}>
-                      <Stack
-                        style={{
-                          flex: 1,
-                          flexDirection: 'row-reverse',
-                          justifyContent: 'space-between',
-                          alignSelf: 'flex-end',
-                        }}>
-                        <TouchableOpacity
-                          style={{
-                            alignSelf: 'flex-end',
-                            marginBottom: 10,
-                            marginRight: 7,
-                          }}>
-                          <TouchableOpacity
-                            onPress={() =>
-                              navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
-                                data: items,
-                                key: key,
-                                title: title,
-                                tabIndex: index,
-                              })
-                            }>
-                            <IconDappArrow />
-                          </TouchableOpacity>
-                        </TouchableOpacity>
-                        <Stack style={{marginBottom: 20, marginLeft: 20}}>
+                        navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+                      }>
+                      <Card>
+                        <ArrowIcon
+                          onPress={() =>
+                            navigation.navigate(
+                              ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
+                            )
+                          }>
+                          <IconDappArrow />
+                        </ArrowIcon>
+                        <ImageContainer>
                           <Image source={item.image} />
-                        </Stack>
-                      </Stack>
-                    </TouchableOpacity>
+                        </ImageContainer>
+                      </Card>
+                    </AllTabTouchableOpacity>
 
-                    <Stack style={{alignSelf: 'flex-start'}}>
-                      <StyledText
-                        style={{
-                          marginTop: 10,
-                          marginBottom: 6,
-                          fontSize: 12,
-                          lineHeight: 14,
-                          color: fontColor,
-                        }}>
-                        {item.title}
-                      </StyledText>
-                      <StyledText style={{color: gray, fontSize: 10}}>
-                        {item.description}
-                      </StyledText>
-                    </Stack>
-                  </Stack>
+                    <DescriptionContainer>
+                      <DescriptionContent>{item.title}</DescriptionContent>
+                      <SubText>{item.description}</SubText>
+                    </DescriptionContainer>
+                  </View>
                 );
               })}
-            </Stack>
-          </Stack>
+            </Content>
+          </Container>
         </LayoutScroll>
       </LayoutScreen>
     );
@@ -141,99 +67,45 @@ const DappScreen = ({navigation}) => {
     return (
       <LayoutScreen>
         <LayoutScroll>
-          <Stack
-            spacing={20}
-            padding={30}
-            style={{
-              borderTopWidth: 1,
-              borderColor: '#313545',
-            }}>
-            <Stack
-              spacing={20}
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-                flexWrap: 'wrap',
-              }}>
+          <Container>
+            <Content>
               {data.map((item, index) => {
                 if (index < 8) {
                   return (
                     item.type === 'Popular' && (
-                      <Stack key={index}>
-                        <TouchableOpacity
+                      <View key={index}>
+                        <AllTabTouchableOpacity
                           onPress={() =>
-                            navigation.navigate(ROUTES.EXPLORE.WEB, {
-                              uri: WEB_LINK,
-                              title: title,
-                            })
-                          }
-                          style={{
-                            flex: 1,
-                            height: 102,
-                            width: 150,
-                            backgroundColor: '#262637',
-                            borderTopLeftRadius: 4,
-                            borderTopRightRadius: 4,
-                            borderBottomLeftRadius: 4,
-                            borderBottomRightRadius: 20,
-                            flexDirection: 'row',
-                            justifyContent: 'space-around',
-                          }}>
-                          <Stack
-                            style={{
-                              flex: 1,
-                              flexDirection: 'row-reverse',
-                              justifyContent: 'space-between',
-                              alignSelf: 'flex-end',
-                            }}>
-                            <TouchableOpacity
-                              style={{
-                                alignSelf: 'flex-end',
-                                alignSelf: 'flex-end',
-                                marginBottom: 10,
-                                marginRight: 7,
-                              }}>
-                              <TouchableOpacity
-                                onPress={() =>
-                                  navigation.navigate(
-                                    ROUTES.EXPLORE.LIST_SCREEN,
-                                    {
-                                      data: items,
-                                      key: key,
-                                      title: title,
-                                      tabIndex: index,
-                                    },
-                                  )
-                                }>
-                                <IconDappArrow />
-                              </TouchableOpacity>
-                            </TouchableOpacity>
-                            <Stack style={{marginBottom: 20, marginLeft: 20}}>
+                            navigation.navigate(
+                              ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
+                            )
+                          }>
+                          <Card>
+                            <ArrowIcon
+                              onPress={() =>
+                                navigation.navigate(
+                                  ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
+                                )
+                              }>
+                              <IconDappArrow />
+                            </ArrowIcon>
+                            <ImageContainer>
                               <Image source={item.image} />
-                            </Stack>
-                          </Stack>
-                        </TouchableOpacity>
+                            </ImageContainer>
+                          </Card>
+                        </AllTabTouchableOpacity>
 
-                        <Stack style={{alignSelf: 'flex-start'}}>
-                          <StyledText
-                            style={{
-                              marginTop: 10,
-                              marginBottom: 6,
-                              color: fontColor,
-                            }}>
-                            {item.title}
-                          </StyledText>
-                          <StyledText style={{color: gray}}>
-                            {item.description}
-                          </StyledText>
-                        </Stack>
-                      </Stack>
+                        <DescriptionContainer>
+                          <DescriptionContent>{item.title}</DescriptionContent>
+                          <SubText>{item.description}</SubText>
+                        </DescriptionContainer>
+                      </View>
                     )
                   );
                 }
               })}
-            </Stack>
-          </Stack>
+            </Content>
+          </Container>
         </LayoutScroll>
       </LayoutScreen>
     );
@@ -243,96 +115,46 @@ const DappScreen = ({navigation}) => {
     return (
       <LayoutScreen>
         <LayoutScroll>
-          <Stack
-            padding={30}
-            style={{borderTopWidth: 1, borderColor: '#313545'}}>
-            <Stack
-              spacing={20}
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-                flexWrap: 'wrap',
-              }}>
+          <Container>
+            <Content>
               {data.map((item, index) => {
                 if (index < 6) {
                   return (
                     item.type === 'Mining' && (
-                      <Stack key={index} style={{}}>
-                        <TouchableOpacity
+                      <View key={index}>
+                        <AllTabTouchableOpacity
                           onPress={() =>
-                            navigation.navigate(ROUTES.EXPLORE.WEB, {
-                              uri: WEB_LINK,
-                              title: title,
-                            })
-                          }
-                          style={{
-                            flex: 1,
-                            height: 102,
-                            width: 150,
-                            alignItems: 'center',
-                            backgroundColor: '#262637',
-                            borderTopLeftRadius: 4,
-                            borderTopRightRadius: 4,
-                            borderBottomLeftRadius: 4,
-                            borderBottomRightRadius: 20,
-                            flexDirection: 'row',
-                            justifyContent: 'space-around',
-                          }}>
-                          <Stack
-                            style={{
-                              flex: 1,
-                              flexDirection: 'row-reverse',
-                              justifyContent: 'space-between',
-                              alignSelf: 'flex-end',
-                            }}>
-                            <TouchableOpacity
-                              style={{
-                                alignSelf: 'flex-end',
-                                alignSelf: 'flex-end',
-                                marginBottom: 10,
-                                marginRight: 7,
-                              }}>
-                              <TouchableOpacity
-                                onPress={() =>
-                                  navigation.navigate(
-                                    ROUTES.EXPLORE.LIST_SCREEN,
-                                    {
-                                      data: items,
-                                      key: key,
-                                      title: title,
-                                      tabIndex: index,
-                                    },
-                                  )
-                                }>
-                                <IconDappArrow />
-                              </TouchableOpacity>
-                            </TouchableOpacity>
-                            <Stack style={{marginBottom: 20, marginLeft: 20}}>
+                            navigation.navigate(
+                              ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
+                            )
+                          }>
+                          <Card>
+                            <ArrowIcon
+                              onPress={() =>
+                                navigation.navigate(
+                                  ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
+                                )
+                              }>
+                              <IconDappArrow />
+                            </ArrowIcon>
+                            <ImageContainer
+                              style={{marginBottom: 20, marginLeft: 20}}>
                               <Image source={item.image} />
-                            </Stack>
-                          </Stack>
-                        </TouchableOpacity>
+                            </ImageContainer>
+                          </Card>
+                        </AllTabTouchableOpacity>
 
-                        <Stack style={{alignSelf: 'flex-start'}}>
-                          <StyledText
-                            style={{
-                              marginTop: 10,
-                              marginBottom: 6,
-                              color: fontColor,
-                            }}>
-                            {item.title}
-                          </StyledText>
-                          <StyledText style={{color: gray}}>
-                            {item.description}
-                          </StyledText>
-                        </Stack>
-                      </Stack>
+                        <DescriptionContainer>
+                          <DescriptionContent>{item.title}</DescriptionContent>
+                          <SubText>{item.description}</SubText>
+                        </DescriptionContainer>
+                      </View>
                     )
                   );
                 }
               })}
-            </Stack>
-          </Stack>
+            </Content>
+          </Container>
         </LayoutScroll>
       </LayoutScreen>
     );
@@ -345,7 +167,7 @@ const DappScreen = ({navigation}) => {
   });
 
   const [index, setIndex] = React.useState(0);
-  const [routes, setRoutes] = React.useState([
+  const [routes] = React.useState([
     {key: 'AllTab', title: 'All'},
     {key: 'PopularTab', title: 'Popular'},
     {key: 'MiningTab', title: 'Mining'},
@@ -366,12 +188,15 @@ const DappScreen = ({navigation}) => {
             fontSize: 10,
           }}
           pressColor={'inherit'}
-          tabStyle={{fontSize: 10}}
+          tabStyle={{
+            width: 70,
+            padding: 0,
+          }}
           pagerStyle={{
             color: 'pink',
             marginTop: 15,
           }}
-          inactiveColor={fonts.subTitleColor}
+          inactiveColor={gray300}
           indicatorContainerStyle={{}}
           labelStyle={{
             fontSize: 16,
@@ -391,5 +216,68 @@ const DappScreen = ({navigation}) => {
     />
   );
 };
+const AllTabTouchableOpacity = styled.TouchableOpacity`
+  flex: 1;
+  height: 102px;
+  width: 150px;
+  background-color: ${neutral300};
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 20px;
+  flex-direction: row;
+  justify-content: space-around;
+`;
 
+const Container = styled.View`
+  padding: 30px;
+  gap: 20px;
+  border-top-width: 1px;
+  border-color: ${props => props.theme.tabIndicatorColor};
+`;
+
+const Content = styled.View`
+  gap: 20px;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+`;
+
+const Card = styled.View`
+  flex: 1;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-self: flex-end;
+`;
+
+const ArrowIcon = styled.TouchableOpacity`
+  align-self: flex-end;
+  margin-bottom: 10px;
+  margin-right: 7px;
+`;
+
+const ImageContainer = styled.View`
+  margin-bottom: 20px;
+  margin-left: 20px;
+`;
+
+const DescriptionContainer = styled.View`
+  align-self: flex-start;
+`;
+
+const DescriptionContent = styled.Text`
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  line-height: 14px;
+  font-style: normal;
+  color: ${props => props.theme.fontColor};
+`;
+
+const SubText = styled.Text`
+  color: ${neutral100};
+  font-size: 10px;
+  line-height: 12px;
+  font-style: normal;
+`;
 export default DappScreen;

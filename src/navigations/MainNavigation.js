@@ -7,7 +7,7 @@ import {
   ResetPasscode,
 } from '../screens/setting';
 import {ExploreListScreen} from '../screens/Explore';
-import {WebScreen} from '../screens';
+import {EnterPasscode, WebScreen} from '../screens';
 import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
 import {LayoutHeader} from '../components';
@@ -82,6 +82,11 @@ const MainNavigation = () => {
         }}
         name={ROUTES.BUY.BUY_SCREEN}
         component={BuyItem}
+      />
+      {/* Enter password */}
+      <Stack.Screen
+        name={ROUTES.ENTERPASS.ENTRYPASS_SCREEN}
+        component={EnterPasscode}
       />
       <Stack.Screen
         options={({

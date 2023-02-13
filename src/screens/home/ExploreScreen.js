@@ -1,18 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  TouchableOpacity,
-  Modal,
-  SafeAreaView,
-  ImageBackground,
-  StyleSheet,
-} from 'react-native';
-import {WebView} from 'react-native-webview';
+import {View, Image, TouchableOpacity, ImageBackground} from 'react-native';
 import styled from 'styled-components/native';
-import IonIcon from 'react-native-vector-icons/Ionicons';
 import {
   CardBox,
   Divider,
@@ -24,7 +12,6 @@ import {
 } from '../../components';
 import {useTheme} from 'styled-components';
 import {ROUTES} from '../../constants';
-import WebScreen from '../WebScreen';
 
 import {testData} from '../../constants/ListData';
 import {IconColorDot, IconExploreArrow} from '../../assets/icons';
@@ -51,7 +38,7 @@ const ExploreScreen = ({navigation}) => {
     <LayoutScreen>
       <LayoutScroll>
         <Stack padding={16}>
-          {data.map(({title, icons, items, key}, index) => {
+          {data.map(({title, items, key}, index) => {
             return (
               <Stack key={index}>
                 <Stack

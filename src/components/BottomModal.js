@@ -1,10 +1,10 @@
 import React from 'react'
 import { useTheme } from 'styled-components'
-import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Modal, StyleSheet, TouchableOpacity, View } from 'react-native'
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
 const BottomModal = ({ children, visible = false, onClose = () => { } }) => {
-  const { backgroundCardColor, fontColor } = useTheme('')
+  const { card: {bgColor}, fontColor } = useTheme('')
   return (
     <Modal
       animationType="slide"
@@ -14,7 +14,7 @@ const BottomModal = ({ children, visible = false, onClose = () => { } }) => {
         onClose();
       }}
     >
-      <View style={[styles.centeredView, { backgroundColor: backgroundCardColor }]}>
+      <View style={[styles.centeredView, { backgroundColor: bgColor }]}>
         <TouchableOpacity style={{ position: 'absolute', top: 30, right: 30, zIndex: 1 }} onPress={() => onClose()}>
           <IonIcon name="close-outline" size={30} color={fontColor} />
         </TouchableOpacity>

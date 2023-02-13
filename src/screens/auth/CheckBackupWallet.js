@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from 'styled-components'
-import { LayoutScreen, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title, StepsAuth, LayoutCenter } from '../../components'
+import { LayoutScreen, ButtonPrimary, LayoutBottom, Stack, StyledText, Title, StepsAuth, LayoutCenter } from '../../components'
 import { ROUTES } from '../../constants'
-import { blue, blue2, purple, white } from '../../constants/colors'
+import { blue300, purple100, white } from '../../constants/colors'
 
 const CheckBackupWallet = ({ route, navigation }) => {
   const { words = [], firstWord = '', lastWord = '' } = route?.params
@@ -126,13 +126,13 @@ const styles = StyleSheet.create({
     zIndex: 1,
     opacity: .85,
     borderRadius: 9999,
-    backgroundColor: blue,
+    backgroundColor: blue300,
   },
   activeBox2: {
     zIndex: 1,
     opacity: .85,
     borderRadius: 9999,
-    backgroundColor: purple,
+    backgroundColor: purple100,
   },
   activeText1: {
     fontFamily: 'Lato',

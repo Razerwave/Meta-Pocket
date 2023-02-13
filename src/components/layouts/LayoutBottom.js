@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   inner: {
-    paddingHorizontal: 55,
+    // paddingHorizontal: 55,
+    alignItems: 'center',
   }
 })

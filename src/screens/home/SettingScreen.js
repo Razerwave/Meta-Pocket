@@ -13,6 +13,7 @@ import {
   Stack,
   StyledText,
   SubTitle,
+  ListItem,
 } from '../../components';
 import { useTheme } from 'styled-components';
 import { ROUTES } from '../../constants';
@@ -94,18 +95,6 @@ const SettingScreen = ({ navigation }) => {
         </Stack>
       </LayoutScroll>
     </LayoutScreen>
-  );
-};
-
-const ListItem = ({ label, icon, children, onPress }) => {
-  return (
-    <TouchableOpacity disabled={!onPress} onPress={onPress}>
-      <Stack direction='row' spacing={11} style={{ alignItems: 'center' }}>
-        {icon}
-        <StyledText>{label}</StyledText>
-        <View style={{ flex: 1, alignItems: 'flex-end' }}>{children}</View>
-      </Stack>
-    </TouchableOpacity>
   );
 };
 

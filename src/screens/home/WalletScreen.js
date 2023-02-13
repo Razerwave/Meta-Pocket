@@ -9,6 +9,8 @@ import {
   ButtonPrimary,
   CardBox,
   HomeScreen,
+  LayoutScreen,
+  LayoutScroll,
   Screen,
   Stack,
   StyledText,
@@ -18,80 +20,81 @@ import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Shadow} from 'react-native-shadow-2';
 
-const WalletScreen = () => {
+const WalletScreen = ({navigation}) => {
   const {fontColor, activeTintColor} = useTheme();
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
-  const navigation = useNavigation();
 
   return (
-    <HomeScreen>
-      <Stack
-        spacing={16}
-        padding={16}
-        style={{justifyContent: 'center', alignItems: 'center'}}>
-        <StyledText
-          style={{fontSize: 20, fontWeight: 'bold', marginBottom: 10}}>
-          Wallet
-        </StyledText>
-        <WalletTotalBalance />
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            borderWidth: 1,
-            borderColor: fontColor,
-            gap: 16,
-            padding: 12,
-          }}>
+    <LayoutScreen>
+      <LayoutScroll>
+        <Stack
+          spacing={16}
+          padding={16}
+          style={{justifyContent: 'center', alignItems: 'center'}}>
+          <StyledText
+            style={{fontSize: 20, fontWeight: 'bold', marginBottom: 10}}>
+            Wallet
+          </StyledText>
+          <WalletTotalBalance />
           <View
             style={{
-              height: 40,
-              width: 40,
+              flexDirection: 'row',
+              alignItems: 'center',
               borderWidth: 1,
               borderColor: fontColor,
-            }}></View>
-          <View
-            style={{
-              flex: 1,
-              borderWidth: 1,
-              borderColor: 'gray',
-              paddingHorizontal: 8,
+              gap: 16,
+              padding: 12,
             }}>
-            <StyledText>ALEO Metaverse Coming Soon​</StyledText>
+            <View
+              style={{
+                height: 40,
+                width: 40,
+                borderWidth: 1,
+                borderColor: fontColor,
+              }}></View>
+            <View
+              style={{
+                flex: 1,
+                borderWidth: 1,
+                borderColor: 'gray',
+                paddingHorizontal: 8,
+              }}>
+              <StyledText>ALEO Metaverse Coming Soon​</StyledText>
+            </View>
           </View>
-        </View>
-        <View style={{alignItems: 'center'}}>
-          <View style={{flexDirection: 'row', gap: 16}}>
-            <View
-              style={{
-                height: 8,
-                width: 8,
-                borderRadius: 8,
-                backgroundColor: fontColor,
-              }}></View>
-            <View
-              style={{
-                height: 8,
-                width: 8,
-                borderRadius: 8,
-                backgroundColor: 'gray',
-              }}></View>
-            <View
-              style={{
-                height: 8,
-                width: 8,
-                borderRadius: 8,
-                backgroundColor: 'gray',
-              }}></View>
+          <View style={{alignItems: 'center'}}>
+            <View style={{flexDirection: 'row', gap: 16}}>
+              <View
+                style={{
+                  height: 8,
+                  width: 8,
+                  borderRadius: 8,
+                  backgroundColor: fontColor,
+                }}></View>
+              <View
+                style={{
+                  height: 8,
+                  width: 8,
+                  borderRadius: 8,
+                  backgroundColor: 'gray',
+                }}></View>
+              <View
+                style={{
+                  height: 8,
+                  width: 8,
+                  borderRadius: 8,
+                  backgroundColor: 'gray',
+                }}></View>
+            </View>
           </View>
-        </View>
-        <Tabs fontColor={fontColor} activeTintColor={activeTintColor} />
-        {[1, 2, 3].map((_, index) => (
-          <ListItem key={index} fontColor={fontColor} />
-        ))}
-      </Stack>
-    </HomeScreen>
+          <Tabs fontColor={fontColor} activeTintColor={activeTintColor} />
+          {[1, 2, 3].map((_, index) => (
+            <ListItem key={index} fontColor={fontColor} />
+          ))}
+        </Stack>
+      </LayoutScroll>
+    </LayoutScreen>
   );
 };
 
@@ -151,7 +154,7 @@ const ListItem = ({fontColor}) => {
           </StyledText>
           <View style={{flex: 1, alignItems: 'flex-end'}}>
             <StyledText style={{fontWeight: 'bold', paddingHorizontal: 8}}>
-              0.3​
+              0.3
             </StyledText>
           </View>
         </Stack>
@@ -188,7 +191,7 @@ const ListItem = ({fontColor}) => {
                 borderColor: 'gray',
                 paddingHorizontal: 8,
               }}>
-              +3.40%​
+              +3.40%
             </Text>
           </View>
         </Stack>

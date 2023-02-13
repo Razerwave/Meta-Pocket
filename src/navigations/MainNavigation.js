@@ -1,7 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useTheme} from 'styled-components';
-import {MiningInfoScreen, MiningSwapScreen} from '../screens/invest';
 import {
   ConfirmResetPasscode,
   EmailVerification,
@@ -13,6 +12,9 @@ import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
 import {LayoutHeader} from '../components';
 import Referral from '../screens/setting/Referral';
+import {PortfolioScreen} from '../screens/wallet';
+import {BuyItem} from '../screens/BuyItem/index';
+import {blackBlue2} from '../constants/colors';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,16 +38,11 @@ const MainNavigation = () => {
         name="Home"
         component={HomeNavigation}
       />
-      {/* INVEST */}
+      {/* WALLET */}
       <Stack.Screen
-        options={{title: 'Minning Swap'}}
-        name={ROUTES.INVEST.MINNING_SWAP}
-        component={MiningSwapScreen}
-      />
-      <Stack.Screen
-        options={{title: '0x1234kdsfklsajdf'}}
-        name={ROUTES.INVEST.MINNING_INFO}
-        component={MiningInfoScreen}
+        options={{title: ''}}
+        name={ROUTES.WALLET.PORTFOLIO}
+        component={PortfolioScreen}
       />
       {/* SETTING */}
       <Stack.Screen
@@ -73,6 +70,18 @@ const MainNavigation = () => {
         options={{headerShown: true, title: 'Explore'}}
         name={ROUTES.EXPLORE.LIST_SCREEN}
         component={ExploreListScreen}
+      />
+      {/* Buy Item */}
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: 'Buy Item',
+          headerStyle: {
+            backgroundColor: blackBlue2,
+          },
+        }}
+        name={ROUTES.BUY.BUY_SCREEN}
+        component={BuyItem}
       />
       <Stack.Screen
         options={({

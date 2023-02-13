@@ -5,13 +5,13 @@ import {useTheme} from 'styled-components';
 import { ROUTES } from '../../constants';
 
 const DappScreen = ({navigation}) => {
-  const {fontColor, activeTintColor} = useTheme();
+  const {fontColor, primaryColor} = useTheme();
   const WEB_LINK = 'https://www.youtube.com/';
 
   return (
     <HomeScreen>
       <Stack spacing={16} padding={16}>
-        <Tabs fontColor={fontColor} activeTintColor={activeTintColor} />
+        <Tabs fontColor={fontColor} primaryColor={primaryColor} />
         {[1, 2, 3, 4, 5, 6].map((_, index) => (
           <TouchableOpacity
             key={index}
@@ -52,7 +52,7 @@ const DappScreen = ({navigation}) => {
   );
 };
 
-const Tabs = ({fontColor, activeTintColor}) => {
+const Tabs = ({fontColor, primaryColor}) => {
   const [tab, setTab] = useState(0);
   return (
     <Stack direction="row" spacing={8}>
@@ -65,7 +65,7 @@ const Tabs = ({fontColor, activeTintColor}) => {
                 {paddingHorizontal: 12, borderColor: fontColor},
                 isActive && {
                   borderBottomWidth: 3,
-                  borderBottomColor: activeTintColor,
+                  borderBottomColor: primaryColor,
                 },
               ]}>
               <StyledText style={[{fontWeight: 'bold'}]}>{text}</StyledText>

@@ -1,82 +1,98 @@
-import { blackBlue1, blackBlue2, gray2, white, white2, black2, blue, blue2, blue3, blue4, white3, grayLight, gray4, blue5, gray3, gray5, grayLight2, blackBlue3, red, gray, black3, grayLight3, black4 } from "./colors"
+import { StyleSheet } from 'react-native'
+import { black, gray100, gray200, neutral300, primary, white } from "./colors"
+import { fontButton } from './fonts'
+
 
 const DefaultTheme = {
-    backgroundColor: white2,
-    backgroundCardColor: white,
-    fontColor: black2,
-    activeTintColor: blue,
-    dividerColor: grayLight2,
-    card: {
-        border: blue4,
-    },
-    fonts: {
-        subTitleColor: gray3,
-        logoColor: blue3,
-    },
-    steps: {
-        activeColor: blue2,
-        inactiveColor: gray2,
-    },
-    keyboardDeleteKey: {
-        bgColor: grayLight,
-        opacity: '1',
-        stroke: black2,
-    },
+    // Sure
+    fontColor: black,
+    backgroundColor: gray100,
     bottomTab: {
         bgColor: white,
-        inactiveColor: gray4,
-        activeColor: blue5,
+        inactiveColor: gray200,
+        activeColor: primary,
         activeIconColor: white,
-        activeTextColor: blue5,
+        activeTextColor: primary,
     },
-    input: {
-        backgroundColor: white,
-        borderColor: gray5,
-        borderColorFocus: black3,
-        borderColorError: red,
-        placeholerColor: grayLight3,
-        inputColor: black4,
-        btnColor: black3,
-    },
-}
-
-const DarkTheme = {
-    backgroundColor: blackBlue1,
-    backgroundCardColor: blackBlue2,
-    fontColor: white,
-    activeTintColor: blue,
-    dividerColor: blackBlue3,
     card: {
-        border: blackBlue2,
+        bgColor: white,
+        border: primary,
     },
+
+    // not sure
+    backgroundCardColor: white,
+
+    // not done
+    primaryColor: primary,
+    dividerColor: white,
     fonts: {
-        subTitleColor: gray5,
+        subTitleColor: white,
         logoColor: white,
     },
     steps: {
         activeColor: white,
-        inactiveColor: gray2,
+        inactiveColor: white,
     },
     keyboardDeleteKey: {
-        bgColor: white3,
-        opacity: '0.1',
-        stroke: white3,
+        bgColor: white,
+        opacity: '1',
+        stroke: white,
     },
+    input: {
+        backgroundColor: white,
+        borderColor: white,
+        borderColorFocus: white,
+        borderColorError: white,
+        placeholerColor: white,
+        inputColor: white,
+        btnColor: white,
+    },
+}
+
+const DarkTheme = {
+    // Sure
+    fontColor: white,
+    backgroundColor: black,
     bottomTab: {
-        bgColor: blackBlue2,
-        inactiveColor: gray4,
-        activeColor: blue5,
+        bgColor: neutral300,
+        inactiveColor: gray200,
+        activeColor: primary,
         activeIconColor: white,
         activeTextColor: white,
     },
+    card: {
+        bgColor: neutral300,
+        border: neutral300,
+    },
+
+
+    // not sure
+    backgroundCardColor: black,
+
+    // not done
+    primaryColor: black,
+    dividerColor: black,
+    fonts: {
+        subTitleColor: black,
+        logoColor: white,
+    },
+    steps: {
+        activeColor: white,
+        inactiveColor: black,
+    },
+    keyboardDeleteKey: {
+        bgColor: black,
+        opacity: '0.1',
+        stroke: black,
+    },
     input: {
-        backgroundColor: blackBlue2,
-        borderColor: blackBlue2,
-        borderColorFocus: gray5,
-        borderColorError: red,
-        placeholerColor: gray,
+        backgroundColor: black,
+        borderColor: black,
+        borderColorFocus: black,
+        borderColorError: black,
+        placeholerColor: black,
         inputColor: white,
-        btnColor: gray,
+        btnColor: black,
     },
 }
 

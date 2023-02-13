@@ -20,7 +20,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Shadow } from 'react-native-shadow-2';
 
 const WalletScreen = ({navigation}) => {
-  const { fontColor, activeTintColor } = useTheme();
+  const { fontColor, primaryColor } = useTheme();
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
@@ -179,7 +179,7 @@ const WalletScreen = ({navigation}) => {
                 }}></View>
             </View>
           </View>
-          <Tabs fontColor={fontColor} activeTintColor={activeTintColor} />
+          <Tabs fontColor={fontColor} primaryColor={primaryColor} />
           {[1, 2, 3].map((_, index) => (
             <ListItem key={index} fontColor={fontColor} />
           ))}
@@ -189,7 +189,7 @@ const WalletScreen = ({navigation}) => {
   );
 };
 
-const Tabs = ({ fontColor, activeTintColor }) => {
+const Tabs = ({ fontColor, primaryColor }) => {
   const [tab, setTab] = useState(0);
   return (
     <Stack direction="row" spacing={8}>
@@ -202,13 +202,13 @@ const Tabs = ({ fontColor, activeTintColor }) => {
                 { paddingHorizontal: 12, borderWidth: 1, borderColor: fontColor },
                 isActive && {
                   borderBottomWidth: 3,
-                  borderBottomColor: activeTintColor,
+                  borderBottomColor: primaryColor,
                 },
               ]}>
               <StyledText
                 style={[
                   { fontWeight: 'bold' },
-                  isActive && { color: activeTintColor },
+                  isActive && { color: primaryColor },
                 ]}>
                 {text}
               </StyledText>

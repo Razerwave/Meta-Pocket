@@ -99,7 +99,7 @@ const TabButton = ({ route, index, descriptors, navigation, state }) => {
       >
         {label}
       </Animatable.Text>
-      {/* <Text style={{ color: focused ? activeTintColor : fontColor }}>
+      {/* <Text style={{ color: focused ? primaryColor : fontColor }}>
           {label}
         </Text> */}
     </TouchableOpacity>

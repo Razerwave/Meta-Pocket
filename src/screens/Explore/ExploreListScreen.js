@@ -17,7 +17,7 @@ import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import {links, Artlinks} from '../../constants/ListData';
 import ArrowButton from '../../components/buttons/ArrowButton';
 // const ExploreListScreen = ({navigation, route}) => {
-//   const {fontColor, activeTintColor} = useTheme();
+//   const {fontColor, primaryColor} = useTheme();
 //   const data = route.params.data;
 //   const title = route.params.title;
 //   const favorite = route.params.favorite;

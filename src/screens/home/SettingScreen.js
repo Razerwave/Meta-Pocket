@@ -24,7 +24,7 @@ import { IconArrowForward, IconFacebook, IconInstagram, IconPerson, IconTwitter,
 
 const SettingScreen = ({ navigation }) => {
   const { logout, isDarkTheme, toggleTheme } = useAuth();
-  const { fontColor, activeTintColor } = useTheme();
+  const { fontColor, primaryColor } = useTheme();
   const [language, setLanguage] = useState('KOR')
 
   const logoutHandler = () => {
@@ -57,7 +57,7 @@ const SettingScreen = ({ navigation }) => {
           <ListItem label="Dark Mode" icon={<IconPerson />}>
             <Switch
               style={{ flex: 1 }}
-              trackColor={{ false: 'lightgray', true: activeTintColor }}
+              trackColor={{ false: 'lightgray', true: primaryColor }}
               thumbColor={'gray'}
               ios_backgroundColor="#3e3e3e"
               onValueChange={toggleTheme}

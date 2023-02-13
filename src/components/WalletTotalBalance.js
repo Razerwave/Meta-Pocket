@@ -8,7 +8,7 @@ const WalletTotalBalance = () => {
       <Background source={bg}>
         <Outer>
           <StyledText>Total value</StyledText>
-          <StyledText>$0.00</StyledText>
+          <StyledText>$18.254</StyledText>
         </Outer>
       </Background>
     </Wrapper>
@@ -30,7 +30,7 @@ const Outer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1;
 `;
 
 export default WalletTotalBalance;

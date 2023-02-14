@@ -12,6 +12,7 @@ import BodyText from './texts/BodyText';
 
 import ButtonPrimary from './buttons/ButtonPrimary';
 import ButtonText from './buttons/ButtonText';
+import CustomSearch from './input/CustomSearch';
 
 
 import StyledText from './texts/StyledText';
@@ -67,4 +68,5 @@ export {
   Paragraph,
   BodyHeading,
   BodyText,
+  CustomSearch,
 }

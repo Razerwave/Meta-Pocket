@@ -5,13 +5,14 @@ import {
   ConfirmResetPasscode,
   EmailVerification,
   ResetPasscode,
+  Referral,
+  NoticeList
 } from '../screens/setting';
 import {ExploreListScreen} from '../screens/Explore';
 import {EnterPasscode, WebScreen} from '../screens';
 import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
 import {LayoutHeader} from '../components';
-import Referral from '../screens/setting/Referral';
 import {PortfolioScreen} from '../screens/wallet';
 import {BuyItem} from '../screens/BuyItem/index';
 import {blackBlue2} from '../constants/colors';
@@ -64,6 +65,11 @@ const MainNavigation = () => {
         options={{title: 'Referral UID'}}
         name={ROUTES.SETTING.REFERRAL}
         component={Referral}
+      />
+      <Stack.Screen
+        options={{title: 'Notice'}}
+        name={ROUTES.SETTING.NOTICE_LIST}
+        component={NoticeList}
       />
       {/* EXPLORE */}
       <Stack.Screen

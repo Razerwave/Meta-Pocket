@@ -68,7 +68,7 @@ const SettingScreen = ({ navigation }) => {
           <SubTitle>
             Information
           </SubTitle>
-          <ListItem label="Notice" icon={<IconPerson />}>
+          <ListItem label="Notice" icon={<IconPerson />} onPress={() => navigation.navigate(ROUTES.SETTING.NOTICE_LIST)}>
             <IconArrowForward />
           </ListItem>
           <ListItem label="Version" icon={<IconPerson />}>

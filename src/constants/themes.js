@@ -10,6 +10,8 @@ import {
   backgroundColorLight,
   LogoColorLight,
   gray5,
+  neutral100,
+  red,
 } from './colors';
 
 const DefaultTheme = {
@@ -31,6 +33,15 @@ const DefaultTheme = {
   logoColor: LogoColorLight,
   dividerColor: gray100,
   subTitleColor: gray5,
+  input: {
+    backgroundColor: white,
+    borderColor: gray100,
+    borderColorFocus: neutral200,
+    borderColorError: red,
+    placeholerColor: neutral100,
+    inputColor: black,
+    btnColor: neutral100,
+  },
 
   // not sure
   backgroundCardColor: white,
@@ -45,15 +56,6 @@ const DefaultTheme = {
     bgColor: gray100,
     opacity: '1',
     stroke: black,
-  },
-  input: {
-    backgroundColor: white,
-    borderColor: white,
-    borderColorFocus: white,
-    borderColorError: white,
-    placeholerColor: white,
-    inputColor: white,
-    btnColor: white,
   },
 };
 
@@ -76,6 +78,15 @@ const DarkTheme = {
   logoColor: white,
   dividerColor: neutral200,
   subTitleColor: gray5,
+  input: {
+    backgroundColor: neutral300,
+    borderColor: black,
+    borderColorFocus: neutral100,
+    borderColorError: red,
+    placeholerColor: neutral100,
+    inputColor: white,
+    btnColor: neutral100,
+  },
 
   // not sure
   backgroundCardColor: black,
@@ -90,15 +101,6 @@ const DarkTheme = {
     bgColor: gray200,
     opacity: '0.3',
     stroke: white,
-  },
-  input: {
-    backgroundColor: black,
-    borderColor: black,
-    borderColorFocus: black,
-    borderColorError: black,
-    placeholerColor: black,
-    inputColor: white,
-    btnColor: black,
   },
 };
 

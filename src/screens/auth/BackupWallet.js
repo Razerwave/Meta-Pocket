@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import Clipboard from '@react-native-clipboard/clipboard';
-import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Paragraph, Screen, Stack, StepsAuth, StyledText, Title } from '../../components';
+import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Paragraph, Stack, StepsAuth, StyledText } from '../../components';
 import { ROUTES } from '../../constants'
-import { Svg, SvgXml } from 'react-native-svg';
-import { useTheme } from 'styled-components';
-import BodyHeading from '../../components/texts/BodyHeading';
-import BodyText from '../../components/texts/BodyText';
 import { IconCopy } from '../../assets/icons';
 
 const BackupWallet = ({ navigation }) => {
   const [copied, setCopied] = useState(false);
   const [words, setWords] = useState([]);
-  const { fontColor } = useTheme();
 
   useEffect(() => {
     setWords('Isolate tiny hat want latin glide already Friend exchange gap frost inner'.split(' '))

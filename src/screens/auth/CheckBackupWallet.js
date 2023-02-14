@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from 'styled-components'
-import { LayoutScreen, ButtonPrimary, LayoutBottom, Stack, StyledText, Title, StepsAuth, LayoutCenter, Paragraph } from '../../components'
+import { LayoutScreen, ButtonPrimary, LayoutBottom, Stack, StyledText, StepsAuth, LayoutCenter, Paragraph } from '../../components'
 import { ROUTES } from '../../constants'
 import { blue300, purple100, white } from '../../constants/colors'
 
 const CheckBackupWallet = ({ route, navigation }) => {
   const { words = [], firstWord = '', lastWord = '' } = route?.params
-  const { fontColor, backgroundColor, backgroundCardColor } = useTheme()
+  const { fontColor, backgroundCardColor } = useTheme()
   const [chosenWords, setChosenWords] = useState(['', ''])
 
   const handleClick = (word) => {

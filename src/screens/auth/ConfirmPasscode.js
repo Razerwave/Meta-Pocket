@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Text, TextInput, View, TouchableOpacity, Alert, Button } from 'react-native'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { Alert } from 'react-native'
 import { ROUTES } from '../../constants';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { useAuth } from '../../context/AuthContext';
-import { LayoutScreen, CardBox, KeyBoardNumeric, Screen, Stack, StyledText, Title, StepsAuth, KeyBoardPasscode, Paragraph } from '../../components';
-import { useTheme } from 'styled-components'
+import { LayoutScreen, Stack, StepsAuth, KeyBoardPasscode, Paragraph } from '../../components';
 
 const ConfirmPasscode = ({ route, navigation }) => {
   const [passcode, setPasscode] = useState('');

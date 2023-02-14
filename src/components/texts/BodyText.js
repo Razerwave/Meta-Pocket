@@ -3,7 +3,7 @@ import {BodyTextSize, BodyTextWeight, fontBody} from '../../constants/fonts';
 import {useTheme} from 'styled-components';
 import {Text, StyleSheet} from 'react-native';
 
-const BodyText = ({type = 4, children}) => {
+const BodyText = ({type = 4, style, children}) => {
   const {fontColor} = useTheme();
   return (
     <Text
@@ -13,6 +13,7 @@ const BodyText = ({type = 4, children}) => {
           color: fontColor,
           fontWeight: BodyTextWeight[type],
           fontSize: BodyTextSize[type],
+          ...style
         },
       ]}>
       {children}

@@ -3,19 +3,15 @@ export const fontBody = 'Lato'
 
 // FONT1
 export const HeadingWeight = 'regular'
-export const HeadingText = 18
-export const ButtonWeight = {
+export const HeadingSize = 18
+export const ButtonTextWeight = {
   1: '600',
   2: '600',
 }
-export const ButtonText = {
+export const ButtonTextSize = {
   1: 14,
   2: 10,
 }
-
-export const titleSize = 18
-export const button1Size = 14
-export const button2Size = 10
 
 // FONT2 - title
 export const BodyHeadingWeight = {

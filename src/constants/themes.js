@@ -1,4 +1,3 @@
-import {StyleSheet} from 'react-native';
 import {
   black,
   gray100,
@@ -8,7 +7,6 @@ import {
   white,
   neutral200,
 } from './colors';
-import {fontButton} from './fonts';
 
 const DefaultTheme = {
   // Sure
@@ -78,7 +76,7 @@ const DarkTheme = {
   backgroundCardColor: black,
 
   // not done
-  activeTintColor: black,
+  activeTintColor: primary,
   dividerColor: black,
   fonts: {
     subTitleColor: black,

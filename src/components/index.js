@@ -10,12 +10,15 @@ import Paragraph from './texts/Paragraph';
 import BodyHeading from './texts/BodyHeading';
 import BodyText from './texts/BodyText';
 
+import ButtonPrimary from './buttons/ButtonPrimary';
+import ButtonText from './buttons/ButtonText';
+
+
 import StyledText from './texts/StyledText';
 import Title from './texts/Title';
 import SubTitle from './texts/SubTitle';
 import Screen from './Screen';
 import HomeScreen from './HomeScreen';
-import ButtonPrimary from './buttons/ButtonPrimary';
 import CardBox from './CardBox';
 import TabBarBottom from './TabBarBottom';
 import Stack from './Stack';
@@ -37,6 +40,7 @@ export {
   Screen,
   HomeScreen,
   ButtonPrimary,
+  ButtonText,
   StyledText,
   CardBox,
   TabBarBottom,

@@ -15,6 +15,7 @@ import IconCopy from "./IconCopy";
 import IconExploreArrow from './IconExploreArrow';
 import IconColorDot from './IconColorDot';
 import IconDappArrow from './IconDappArrow';
+import IconCheck from "./IconCheck";
 
 export {
   IconArrowBack,
@@ -34,4 +35,5 @@ export {
   IconExploreArrow,
   IconColorDot,
   IconDappArrow,
+  IconCheck,
 }

@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { View } from 'react-native'
-import { LayoutScreen, KeyBoardPasscode, Stack, StyledText, Title, StepsAuth, Paragraph } from '../../components';
+import { LayoutScreen, KeyBoardPasscode, Stack, StepsAuth, Paragraph } from '../../components';
 import { ROUTES } from '../../constants';
-import { useTheme } from 'styled-components'
 
 const CreatePasscode = ({ navigation }) => {
   const [passcode, setPasscode] = useState('');
-  const { fontColor } = useTheme()
 
   handleChange = (num) => {
     setPasscode(s => s.length < 6 ? s + num : s)

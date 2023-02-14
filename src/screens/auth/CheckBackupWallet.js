@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from 'styled-components'
-import { LayoutScreen, ButtonPrimary, LayoutBottom, Stack, StyledText, Title, StepsAuth, LayoutCenter } from '../../components'
+import { LayoutScreen, ButtonPrimary, LayoutBottom, Stack, StyledText, StepsAuth, LayoutCenter, Paragraph } from '../../components'
 import { ROUTES } from '../../constants'
 import { blue300, purple100, white } from '../../constants/colors'
 
 const CheckBackupWallet = ({ route, navigation }) => {
   const { words = [], firstWord = '', lastWord = '' } = route?.params
-  const { fontColor, backgroundColor, backgroundCardColor } = useTheme()
+  const { fontColor, backgroundCardColor } = useTheme()
   const [chosenWords, setChosenWords] = useState(['', ''])
 
   const handleClick = (word) => {
@@ -31,12 +31,10 @@ const CheckBackupWallet = ({ route, navigation }) => {
     <LayoutScreen>
       <StepsAuth current={2} />
       <Stack marginTop={80} marginHorizontal={28} marginBottom={70} spacing={20}>
-        <Title>
-          Have you backed up?
-        </Title>
-        <StyledText>
-          Please click the first(1st) word first, then the last word(12th)
-        </StyledText>
+        <Paragraph
+          title="Have you backed up?"
+          body="Please click the first(1st) word first, then the last word(12th)"
+        />
       </Stack>
       <Stack marginHorizontal={58}>
         <View style={styles.wordsContainerOuter}>
@@ -89,7 +87,7 @@ const WordBox = ({ children, backgroundCardColor, fontColor, onPress }) => {
       style={[styles.boxOuter, { backgroundColor: backgroundCardColor }]}
       onPress={onPress}
     >
-      <View style={[styles.boxInside, {borderColor: fontColor}]}>
+      <View style={[styles.boxInside, { borderColor: fontColor }]}>
         {children}
       </View>
     </TouchableOpacity>

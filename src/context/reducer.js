@@ -27,7 +27,11 @@ const reducer = (state, action) => {
   }
 
   if (action.type === TOGGLE_THEME) {
-    return {...state, theme: action.payload.theme};
+    return {
+      ...state,
+      theme: action.payload.theme,
+      isDarkTheme: action.payload.isDarkTheme,
+    };
   }
 
   if (action.type === LOCK) {

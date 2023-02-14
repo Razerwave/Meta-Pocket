@@ -3,7 +3,7 @@ import { StyleSheet, TextInput, View, TouchableOpacity, Text } from 'react-nativ
 import { useTheme } from 'styled-components'
 import { white } from '../../constants/colors'
 
-const CustomInput = ({ value, onChange, placeholder, onPress, btnText = "ok", action, error = false }) => {
+const CustomSearch = ({ value, onChange, placeholder, onPress, btnText = "ok", action, error = false }) => {
   const [focused, setFocused] = useState(false)
   const { input: {
     backgroundColor,
@@ -41,7 +41,7 @@ const CustomInput = ({ value, onChange, placeholder, onPress, btnText = "ok", ac
   )
 }
 
-export default CustomInput
+export default CustomSearch
 
 const styles = StyleSheet.create({
   container: {

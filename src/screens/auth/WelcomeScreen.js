@@ -19,18 +19,16 @@ import {
   Stack,
   StyledText,
   LayoutCenter,
+  ButtonText,
 } from '../../components';
 import { ROUTES } from '../../constants';
-import { useTheme } from 'styled-components';
 import LogoBig from '../../assets/LogoBig';
-import ButtonText from '../../components/buttons/ButtonText';
 
 const WelcomeScreen = ({ navigation }) => {
-  const { fonts: { logoColor } } = useTheme()
   return (
     <LayoutScreen>
       <LayoutCenter>
-        <LogoBig fill={logoColor} />
+        <LogoBig />
       </LayoutCenter>
       <LayoutBottom>
         <ButtonPrimary
@@ -41,11 +39,6 @@ const WelcomeScreen = ({ navigation }) => {
         <ButtonText onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
           I already have a wallet
         </ButtonText>
-        <TouchableOpacity onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
-          <StyledText style={{ fontSize: 14, lineHeight: 21 }}>
-            I already have a wallet
-          </StyledText>
-        </TouchableOpacity>
       </LayoutBottom>
     </LayoutScreen>
   );

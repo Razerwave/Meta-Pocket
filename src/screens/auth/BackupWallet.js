@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import Clipboard from '@react-native-clipboard/clipboard';
-import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Paragraph, Screen, Stack, StepsAuth, StyledText, Title } from '../../components';
+import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Paragraph, Stack, StepsAuth, StyledText } from '../../components';
 import { ROUTES } from '../../constants'
-import { Svg, SvgXml } from 'react-native-svg';
-import { useTheme } from 'styled-components';
-import BodyHeading from '../../components/texts/BodyHeading';
-import BodyText from '../../components/texts/BodyText';
 import { IconCopy } from '../../assets/icons';
 
 const BackupWallet = ({ navigation }) => {
   const [copied, setCopied] = useState(false);
   const [words, setWords] = useState([]);
-  const { fontColor } = useTheme();
 
   useEffect(() => {
     setWords('Isolate tiny hat want latin glide already Friend exchange gap frost inner'.split(' '))
@@ -27,14 +22,13 @@ const BackupWallet = ({ navigation }) => {
     <LayoutScreen>
       <StepsAuth current={1} />
       <Stack marginTop={80} marginHorizontal={28} marginBottom={30} spacing={50}>
-        <Paragraph title="Back Up Your Wallet">
-          <BodyText>
-            The recovery phrase is the only way to recover your cryptocurrency if you lose your phone or switch to another wallet.
-          </BodyText>
-          <BodyText>
-            Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.
-          </BodyText>
-        </Paragraph>
+        <Paragraph
+          title="Back Up Your Wallet"
+          body={[
+            'The recovery phrase is the only way to recover your cryptocurrency if you lose your phone or switch to another wallet.',
+            'Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.',
+          ]}
+        />
         <Stack>
           <CardBox style={{ borderRadius: 10 }}>
             <Stack direction='row' spacing={10} style={{ flexWrap: 'wrap' }}>

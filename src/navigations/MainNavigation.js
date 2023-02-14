@@ -5,16 +5,17 @@ import {
   ConfirmResetPasscode,
   EmailVerification,
   ResetPasscode,
+  Referral,
+  NoticeList
 } from '../screens/setting';
 import {ExploreListScreen} from '../screens/Explore';
 import {EnterPasscode, WebScreen} from '../screens';
 import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
 import {LayoutHeader} from '../components';
-import Referral from '../screens/setting/Referral';
 import {PortfolioScreen} from '../screens/wallet';
 import {BuyItem} from '../screens/BuyItem/index';
-import {blackBlue2} from '../constants/colors';
+import {neutral300} from '../constants/colors';
 
 const Stack = createNativeStackNavigator();
 
@@ -65,6 +66,11 @@ const MainNavigation = () => {
         name={ROUTES.SETTING.REFERRAL}
         component={Referral}
       />
+      <Stack.Screen
+        options={{title: 'Notice'}}
+        name={ROUTES.SETTING.NOTICE_LIST}
+        component={NoticeList}
+      />
       {/* EXPLORE */}
       <Stack.Screen
         options={{headerShown: true, title: 'Explore'}}
@@ -77,7 +83,7 @@ const MainNavigation = () => {
           headerShown: true,
           title: 'Buy Item',
           headerStyle: {
-            backgroundColor: blackBlue2,
+            backgroundColor: neutral300,
           },
         }}
         name={ROUTES.BUY.BUY_SCREEN}

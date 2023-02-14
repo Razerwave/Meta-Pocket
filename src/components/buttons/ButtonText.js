@@ -1,15 +1,22 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, } from 'react-native'
 import React from 'react'
+import { Text } from 'react-native'
 import Stack from '../Stack'
-import { Text } from 'react-native-svg'
+import { ButtonTextSize, ButtonTextWeight } from '../../constants/fonts'
+import { useTheme } from 'styled-components';
 
-const ButtonText = ({type = 1, onPress, icon}) => {
+const ButtonText = ({ type = 1, onPress, icon, children, style }) => {
+  const { fontColor } = useTheme();
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} style={style}>
       <Stack direction='row' spacing={6}>
         {icon}
-        <Text style={{ fontSize: 12, lineHeight: 16 }}>
-          
+        <Text style={{
+          fontSize: ButtonTextSize[type],
+          fontWeight: ButtonTextWeight[type],
+          color: fontColor,
+        }}>
+          {children}
         </Text>
       </Stack>
     </TouchableOpacity>

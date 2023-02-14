@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { View, Text, Button, Image, TouchableOpacity, StyleSheet, Modal, Pressable, ScrollView } from 'react-native'
-import { Rect, Svg, SvgXml } from 'react-native-svg'
-import { LayoutScreen, BottomModal, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title, StepsAuth } from '../../components'
+import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { LayoutScreen, BottomModal, ButtonPrimary, LayoutBottom, Stack, StyledText, StepsAuth, Paragraph, LayoutScroll, BodyText } from '../../components'
 import { ROUTES } from '../../constants'
 import { useTheme } from 'styled-components'
-import IonIcon from 'react-native-vector-icons/Ionicons';
+import { IconCheck } from '../../assets/icons'
 
 const ImageURI = require('../../assets/ProtectWallet.png')
 
@@ -28,44 +27,31 @@ const ProtectWallet = ({ navigation }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={3} />
-      <Stack marginTop={80} marginHorizontal={28} marginBottom={76} spacing={29}>
-        <Title>
-          Protect your wallet.
-        </Title>
-        <StyledText>
-          This extra layer of security prevents​ anyone with your phone from accessing​ your funds.
-        </StyledText>
-      </Stack>
-      <Stack alignItems="center">
-        <Image source={ImageURI} />
+      <Stack marginTop={80} marginHorizontal={28} spacing={76}>
+        <Paragraph
+          title="Protect your wallet."
+          body="This extra layer of security prevents​ anyone with your phone from accessing​ your funds."
+        />
+        <Stack alignItems="center">
+          <Image source={ImageURI} />
+        </Stack>
       </Stack>
       <LayoutBottom height={224}>
         <View style={{ height: 44 }}>
           <Stack direction='row' spacing={9}>
             <TouchableOpacity onPress={() => handleToggle()}>
               <View style={[styles.checkBox, checkStyle]}>
-                {agreed && (
-                  <SvgXml width="10" height="8" viewBox="0 0 10 8" fill={fontColor} xml={`
-                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.91185 7.27273L0 3.36088L1.15702 2.20386L3.91185 4.93113L8.84298 0L10 1.18457L3.91185 7.27273Z" fill="white"/>
-                  </svg>              
-                `}
-                  />
-                )}
+                {agreed && <IconCheck />}
               </View>
             </TouchableOpacity>
             <Stack direction='row' spacing={4}>
-              <StyledText style={{ fontSize: 12, lineHeight: 14 }}>
-                I agree to the
-              </StyledText>
+              <BodyText type={5}>I agree to the</BodyText>
               <TouchableOpacity onPress={() => setModalVisible('Terms')}>
-                <StyledText style={{ fontSize: 12, lineHeight: 14, borderBottomWidth: 1, borderColor: fontColor }}>Terms</StyledText>
+                <BodyText type={5} style={{ borderBottomWidth: 1, borderColor: fontColor }}>Terms</BodyText>
               </TouchableOpacity>
-              <StyledText style={{ fontSize: 12, lineHeight: 14 }}>
-                and
-              </StyledText>
+              <BodyText type={5}>and</BodyText>
               <TouchableOpacity onPress={() => setModalVisible('Privacy Policy')}>
-                <StyledText style={{ fontSize: 12, lineHeight: 14, borderBottomWidth: 1, borderColor: fontColor }}>Privacy Policy</StyledText>
+                <BodyText type={5} style={{ borderBottomWidth: 1, borderColor: fontColor }}>Privacy Policy</BodyText>
               </TouchableOpacity>
             </Stack>
           </Stack>
@@ -74,43 +60,33 @@ const ProtectWallet = ({ navigation }) => {
       </LayoutBottom>
 
       <BottomModal
+        title={'Terms'}
         visible={modalVisible === 'Terms'}
         onClose={() => {
           setModalVisible('');
         }}
       >
-        <Stack spacing={20}>
-          <Title>Terms</Title>
-          <ScrollView style={{ height: 500 }} indicatorStyle="white">
-            <Stack spacing={20}>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
-                <StyledText key={index} style={{ fontSize: 12, lineHeight: 18 }}>
-                  Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-                </StyledText>
-              ))}
-            </Stack>
-          </ScrollView>
-        </Stack>
+        <LayoutScroll>
+          <Paragraph
+            bodyType={5}
+            body={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(() => "Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.")}
+          />
+        </LayoutScroll>
       </BottomModal>
 
       <BottomModal
+        title={'Privacy Policy'}
         visible={modalVisible === 'Privacy Policy'}
         onClose={() => {
           setModalVisible('');
         }}
       >
-        <Stack spacing={20}>
-          <Title>Privacy Policy</Title>
-          <ScrollView style={{ height: 500 }} indicatorStyle="white">
-            <Stack spacing={20}>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
-                <StyledText key={index} style={{ fontSize: 12, lineHeight: 18 }}>
-                  Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-                </StyledText>
-              ))}
-            </Stack>
-          </ScrollView>
-        </Stack>
+        <LayoutScroll>
+          <Paragraph
+            bodyType={5}
+            body={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(() => "Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.")}
+          />
+        </LayoutScroll>
       </BottomModal>
     </LayoutScreen>
   )

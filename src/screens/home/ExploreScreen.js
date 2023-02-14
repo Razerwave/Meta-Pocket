@@ -2,28 +2,20 @@ import React, {useEffect, useState} from 'react';
 import {View, Image, TouchableOpacity, ImageBackground} from 'react-native';
 import styled from 'styled-components/native';
 import {
-  CardBox,
+  BodyText,
   Divider,
-  HomeScreen,
   LayoutScreen,
   LayoutScroll,
   Stack,
-  StyledText,
 } from '../../components';
-import {useTheme} from 'styled-components';
 import {ROUTES} from '../../constants';
 
 import {testData} from '../../constants/ListData';
 import {IconColorDot, IconExploreArrow} from '../../assets/icons';
+import {yellow200, red, neutral300, neutral100} from '../../constants/colors';
 
 const ExploreScreen = ({navigation}) => {
-  const {fontColor} = useTheme();
   const WEB_LINK = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-  const [item, setItem] = useState([]);
-  const [art, setArt] = useState([]);
-  const [article, setArticle] = useState([]);
-  const [all, setAll] = useState();
-  const [website, setWebsite] = useState([]);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -37,29 +29,16 @@ const ExploreScreen = ({navigation}) => {
   return (
     <LayoutScreen>
       <LayoutScroll>
-        <Stack padding={16}>
+        <Container1>
           {data.map(({title, items, key}, index) => {
             return (
-              <Stack key={index}>
-                <Stack
-                  direction="row"
-                  style={{
-                    justifyContent: 'space-between',
-                    textAlign: 'center',
-                    alignItems: 'center',
-                    marginVertical: 20,
-                  }}>
-                  <Stack
-                    direction="row"
-                    style={{
-                      textAlign: 'center',
-                      alignItems: 'center',
-                      gap: 7,
-                    }}>
-                    {title === 'Website' && <IconColorDot color="#F7931A" />}
-                    {title === 'Art' && <IconColorDot color="#FF3D60" />}
-                    <StyledText>{title}</StyledText>
-                  </Stack>
+              <View key={index}>
+                <Container>
+                  <Title>
+                    {title === 'Website' && <IconColorDot color={yellow200} />}
+                    {title === 'Art' && <IconColorDot color={red} />}
+                    <TitleSection>{title}</TitleSection>
+                  </Title>
                   <TouchableOpacity
                     onPress={() =>
                       navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
@@ -71,60 +50,24 @@ const ExploreScreen = ({navigation}) => {
                     }>
                     <IconExploreArrow />
                   </TouchableOpacity>
-                </Stack>
+                </Container>
 
-                <Stack>
+                <View>
                   {title == 'Website' && (
-                    <Stack
-                      spacing={10}
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'center',
-                        flexWrap: 'wrap',
-                      }}>
+                    <ContainerWeb>
                       {items.map((item, index) => {
                         if (index < 4) {
                           return (
-                            <Stack
-                              key={index}
-                              style={{
-                                alignItems: 'center',
-                                height: 'auto',
-                              }}>
-                              <TouchableOpacity
+                            <View key={index}>
+                              <AllTabTouchableOpacity
                                 onPress={() =>
                                   navigation.navigate(ROUTES.EXPLORE.WEB, {
                                     uri: WEB_LINK,
                                     title: title,
                                   })
-                                }
-                                style={{
-                                  flex: 1,
-                                  height: 102,
-                                  width: 150,
-                                  alignItems: 'center',
-                                  backgroundColor: '#262637',
-                                  borderTopLeftRadius: 4,
-                                  borderTopRightRadius: 4,
-                                  borderBottomLeftRadius: 4,
-                                  borderBottomRightRadius: 20,
-                                  flexDirection: 'row',
-                                  justifyContent: 'space-around',
-                                }}>
-                                <Stack
-                                  style={{
-                                    flex: 1,
-                                    flexDirection: 'row-reverse',
-                                    justifyContent: 'space-between',
-                                    alignSelf: 'flex-end',
-                                  }}>
-                                  <TouchableOpacity
-                                    style={{
-                                      alignSelf: 'flex-end',
-                                      alignSelf: 'flex-end',
-                                      marginBottom: 10,
-                                      marginRight: 7,
-                                    }}>
+                                }>
+                                <Card>
+                                  <FavoritePress>
                                     {item.fav == true ? (
                                       <Image
                                         source={require('../../assets/icons/Vector.png')}
@@ -136,71 +79,47 @@ const ExploreScreen = ({navigation}) => {
                                         style={{width: 14, height: 14}}
                                       />
                                     )}
-                                  </TouchableOpacity>
-                                  <Stack
-                                    style={{marginBottom: 20, marginLeft: 20}}>
+                                  </FavoritePress>
+                                  <ImageContainer>
                                     <Image source={item.logo} />
-                                  </Stack>
-                                </Stack>
-                              </TouchableOpacity>
+                                  </ImageContainer>
+                                </Card>
+                              </AllTabTouchableOpacity>
 
-                              <Stack style={{alignSelf: 'flex-start'}}>
-                                <StyledText
-                                  style={{marginTop: 10, marginBottom: 6}}>
+                              <DescriptionContainer>
+                                <BodyText
+                                  type={8}
+                                  style={{
+                                    marginTop: 10,
+                                    marginBottom: 6,
+                                  }}>
                                   {item.Subject}
-                                </StyledText>
-                                <StyledText style={{color: '#777777'}}>
+                                </BodyText>
+                                <BodyText type={7} style={{color: neutral100}}>
                                   {item.Subject}
-                                </StyledText>
-                              </Stack>
-                            </Stack>
+                                </BodyText>
+                              </DescriptionContainer>
+                            </View>
                           );
                         }
                       })}
-                    </Stack>
+                    </ContainerWeb>
                   )}
+
                   {title == 'Art' && (
-                    <Stack
-                      spacing={10}
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'center',
-                        flexWrap: 'wrap',
-                      }}>
+                    <ContainerWeb>
                       {items.map((item, index) => {
                         if (index < 4) {
                           return (
-                            <Stack
-                              key={index}
-                              style={{
-                                alignItems: 'center',
-                                height: 'auto',
-                              }}>
-                              <TouchableOpacity
+                            <View key={index}>
+                              <AllTabTouchableOpacity
                                 onPress={() =>
                                   navigation.navigate(ROUTES.BUY.BUY_SCREEN, {
                                     uri: WEB_LINK,
                                     item: item,
                                   })
-                                }
-                                style={{
-                                  flex: 1,
-                                  height: 102,
-                                  width: 150,
-                                  alignItems: 'center',
-                                  backgroundColor: '#262637',
-                                  borderTopLeftRadius: 4,
-                                  borderTopRightRadius: 4,
-                                  borderBottomLeftRadius: 4,
-                                  borderBottomRightRadius: 20,
-                                  flexDirection: 'row',
-                                  justifyContent: 'space-around',
-                                }}>
-                                <Stack
-                                  style={{
-                                    height: 102,
-                                    flex: 100,
-                                  }}>
+                                }>
+                                <ArtCard>
                                   <ImageBackground
                                     source={item.image}
                                     style={{
@@ -208,17 +127,8 @@ const ExploreScreen = ({navigation}) => {
                                       justifyContent: 'center',
                                     }}
                                     resizeMode="cover">
-                                    <Stack
-                                      style={{
-                                        justifyContent: 'flex-end',
-                                        flex: 1,
-                                      }}>
-                                      <TouchableOpacity
-                                        style={{
-                                          alignSelf: 'flex-end',
-                                          marginBottom: 10,
-                                          marginRight: 10,
-                                        }}>
+                                    <FavoriteSection>
+                                      <SetArtFavorite>
                                         {item.fav == true ? (
                                           <Image
                                             source={require('../../assets/icons/Vector.png')}
@@ -230,52 +140,146 @@ const ExploreScreen = ({navigation}) => {
                                             style={{width: 14, height: 14}}
                                           />
                                         )}
-                                      </TouchableOpacity>
-                                    </Stack>
+                                      </SetArtFavorite>
+                                    </FavoriteSection>
                                   </ImageBackground>
-                                </Stack>
-                              </TouchableOpacity>
+                                </ArtCard>
+                              </AllTabTouchableOpacity>
 
-                              <Stack style={{alignSelf: 'flex-start'}}>
-                                <StyledText
+                              <View>
+                                <BodyText
+                                  type={8}
                                   style={{
                                     marginTop: 10,
                                     marginBottom: 6,
                                   }}>
                                   {item.name}
-                                </StyledText>
-                                <Stack style={{flexDirection: 'row'}}>
-                                  <StyledText style={{color: '#777777'}}>
+                                </BodyText>
+                                <ArtSubtitle>
+                                  <BodyText
+                                    type={7}
+                                    style={{color: neutral100}}>
                                     {item.total}
-                                  </StyledText>
-                                  <StyledText style={{color: '#777777'}}>
+                                  </BodyText>
+                                  <BodyText
+                                    type={7}
+                                    style={{color: neutral100}}>
                                     {item.coin}
-                                  </StyledText>
-                                </Stack>
-                              </Stack>
-                            </Stack>
+                                  </BodyText>
+                                </ArtSubtitle>
+                              </View>
+                            </View>
                           );
                         }
                       })}
-                    </Stack>
+                    </ContainerWeb>
                   )}
-                </Stack>
+                </View>
                 {title !== 'Art' && (
                   <Stack style={{marginVertical: 20}}>
                     <Divider></Divider>
                   </Stack>
                 )}
-              </Stack>
+              </View>
             );
           })}
           <View
             style={{
               alignItems: 'flex-end',
             }}></View>
-        </Stack>
+        </Container1>
       </LayoutScroll>
     </LayoutScreen>
   );
 };
 
+const AllTabTouchableOpacity = styled.TouchableOpacity`
+  flex: 1;
+  height: 102px;
+  width: 150px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 20px;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: ${neutral300};
+`;
+
+const Container1 = styled.View`
+  padding: 16px;
+`;
+
+const Container = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-color: ${props => props.theme.tabIndicatorColor};
+`;
+
+const ContainerWeb = styled.View`
+  gap: 10px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const FavoritePress = styled.TouchableOpacity`
+  align-self: flex-end;
+  margin-bottom: 10px;
+  margin-right: 7px;
+`;
+
+const FavoriteSection = styled.View`
+  justify-content: flex-end;
+  flex: 1;
+`;
+const SetArtFavorite = styled.TouchableOpacity`
+  align-self: flex-end;
+  margin-bottom: 10px;
+  margin-right: 10px;
+`;
+
+const Card = styled.View`
+  flex: 1;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-self: flex-end;
+`;
+
+const ArtCard = styled.View`
+  flex: 1;
+`;
+
+const ImageContainer = styled.View`
+  margin-bottom: 20px;
+  margin-left: 20px;
+`;
+
+const DescriptionContainer = styled.View`
+  align-self: flex-start;
+`;
+
+const Title = styled.View`
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  gap: 7px;
+`;
+
+const TitleSection = styled.Text`
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: ${props => props.theme.fontColor};
+`;
+
+const ArtSubtitle = styled.View`
+  flex-direction: row;
+`;
 export default ExploreScreen;

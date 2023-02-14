@@ -19,11 +19,14 @@ import {
 import {DarkTheme, DefaultTheme} from '../constants';
 import store from '../utils/store';
 
+const theme = 'dark';
+
 const initialState = {
   passcode: null,
   isLocked: true,
   isInitialized: false,
-  theme: 'light',
+  theme: theme,
+  isDarkTheme: theme === 'dark',
 };
 
 const AuthContext = createContext();
@@ -37,7 +40,6 @@ const AuthProvier = ({children}) => {
   const {isLocked, isInitialized} = state;
   const [favorite, setFavorite] = useState(false);
   const isLoggedIn = Boolean(state.passcode);
-  const isDarkTheme = state.theme === 'dark';
 
   useEffect(() => {
     const restoreData = async () => {
@@ -45,7 +47,7 @@ const AuthProvier = ({children}) => {
         const passcode = await store.getItem('passcode');
         const theme = await store.getItem('theme');
 
-        console.log('passcode', passcode)
+        console.log('passcode', passcode);
 
         dispatch({
           type: RESTORE_STATE,
@@ -104,10 +106,10 @@ const AuthProvier = ({children}) => {
   const checkPasscode = passcode => state.passcode === passcode;
 
   const toggleTheme = () => {
-    const newTheme = isDarkTheme ? 'light' : 'dark';
+    const newTheme = state.isDarkTheme ? 'light' : 'dark';
     dispatch({
       type: TOGGLE_THEME,
-      payload: {theme: newTheme},
+      payload: {theme: newTheme, isDarkTheme: newTheme === 'dark'},
     });
 
     store.setItem('theme', newTheme);
@@ -116,10 +118,10 @@ const AuthProvier = ({children}) => {
   return (
     <AuthContext.Provider
       value={{
+        ...state,
         isInitialized,
         isLoggedIn,
         isLocked,
-        isDarkTheme,
         login,
         logout,
         lock,
@@ -129,7 +131,7 @@ const AuthProvier = ({children}) => {
         favorite,
         setFavorite,
       }}>
-      <ThemeProvider theme={isDarkTheme ? DarkTheme : DefaultTheme}>
+      <ThemeProvider theme={state.isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}
       </ThemeProvider>
     </AuthContext.Provider>

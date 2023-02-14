@@ -7,7 +7,7 @@ const WalletTotalBalance = () => {
     <Wrapper>
       <Background source={bg}>
         <Outer>
-          <StyledText>Total value</StyledText>
+          <LabelText>Total value</LabelText>
           <StyledText>$18.254</StyledText>
         </Outer>
       </Background>
@@ -31,6 +31,10 @@ const Outer = styled.View`
   align-items: center;
   justify-content: center;
   aspect-ratio: 1;
+`;
+
+const LabelText = styled(StyledText)`
+  font-size: 12px;
 `;
 
 export default WalletTotalBalance;

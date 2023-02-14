@@ -1,7 +1,6 @@
-import {StyleSheet, StatusBar, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {
-  AppStatusBar,
   CircleAnimated,
   LayoutScreen,
   LayoutScroll,
@@ -14,10 +13,6 @@ import {DarkTheme} from '../../constants';
 const PortfolioScreen = () => {
   return (
     <LayoutScreen>
-      <AppStatusBar
-        barColor={DarkTheme.backgroundColor}
-        barStyle="light-content"
-      />
       <View style={styles.upperContainer}>
         <LayoutScroll>
           <Stack marginTop={30}>

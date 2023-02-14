@@ -1,47 +1,84 @@
-import { useState } from 'react'
-import { StyleSheet, TextInput, View, TouchableOpacity, Text } from 'react-native'
-import { useTheme } from 'styled-components'
-import { white } from '../../constants/colors'
+import {useState} from 'react';
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
+import {useTheme} from 'styled-components';
+import {white} from '../../constants/colors';
+import BodyText from '../texts/BodyText';
 
-const CustomInput = ({ value, onChange, placeholder, onPress, btnText = "ok", action, error = false }) => {
-  const [focused, setFocused] = useState(false)
-  const { input: {
-    backgroundColor,
-    borderColor,
-    borderColorFocus,
-    borderColorError,
-    placeholerColor,
-    inputColor,
-    btnColor,
-  } } = useTheme()
+const CustomInput = ({
+  value,
+  onChange,
+  placeholder,
+  onPress,
+  btnText = 'ok',
+  action,
+  error = false,
+  keyboardType,
+}) => {
+  console.log(value, ' =======');
+  const [focused, setFocused] = useState(false);
+  const {
+    input: {
+      backgroundColor,
+      borderColor,
+      borderColorFocus,
+      borderColorError,
+      placeholerColor,
+      inputColor,
+      btnColor,
+    },
+  } = useTheme();
 
   return (
-    <View style={[styles.container, { backgroundColor: backgroundColor, borderColor: error ? borderColorError : focused ? borderColorFocus : borderColor }]}>
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor: backgroundColor,
+          borderColor: error
+            ? borderColorError
+            : focused
+            ? borderColorFocus
+            : borderColor,
+        },
+      ]}>
       <TextInput
         editable
-        style={[styles.input, { color: inputColor }]}
+        style={[styles.input, {color: inputColor}]}
         placeholderTextColor={placeholerColor}
         placeholder={placeholder}
         onChangeText={onChange}
         value={value}
+        keyboardType={keyboardType}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
       />
       {onPress && (
-        <View style={{ alignItems: 'flex-end' }}>
+        <View style={{alignItems: 'flex-end'}}>
           <TouchableOpacity onPress={onPress}>
-            <View style={[styles.btn, { color: btnColor }]}>
-              <Text style={styles.btnText}>{btnText}</Text>
+            <View
+              style={[
+                styles.btn,
+                {color: btnColor, backgroundColor: btnColor},
+              ]}>
+              <BodyText type={9} style={styles.btnText}>
+                {btnText}
+              </BodyText>
             </View>
           </TouchableOpacity>
         </View>
       )}
       {action}
     </View>
-  )
-}
+  );
+};
 
-export default CustomInput
+export default CustomInput;
 
 const styles = StyleSheet.create({
   container: {
@@ -64,15 +101,14 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
   btn: {
-    backgroundColor: '#838AA5',
     borderRadius: 4,
   },
   btnText: {
     paddingVertical: 5,
     paddingHorizontal: 9,
     fontFamily: 'Poppins',
-    fontSize: 10,
-    fontWeight: '600',
     color: white,
-  }
-})
+    minWidth: 50,
+    textAlign: 'center',
+  },
+});

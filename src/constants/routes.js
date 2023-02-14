@@ -37,6 +37,9 @@ const ROUTES = {
   ENTERPASS: {
     ENTRYPASS_SCREEN: 'ENTRYPASS_SCREEN',
   },
+  SENDBTC: {
+    SENDBTC_SCREEN: 'SENDBTC_SCREEN',
+  },
 };
 
 export default ROUTES;

@@ -73,7 +73,7 @@ export default LayoutScroll
 const styles = StyleSheet.create({
   scrollTop: {
     position: 'absolute',
-    bottom: 100,
+    bottom: 16,
     right: 16,
   }
 })

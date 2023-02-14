@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { ROUTES } from '../../constants/index';
 import { useTheme } from 'styled-components';
 import {
@@ -13,6 +13,7 @@ import {
 } from '../../components';
 import { DarkTheme } from '../../constants/index';
 import NoticeCard from '../../components/NoticeCard';
+import { green200, neutral300, red, white } from '../../constants/colors';
 
 const WalletScreen = ({ navigation }) => {
   const { fontColor } = useTheme();
@@ -25,7 +26,7 @@ const WalletScreen = ({ navigation }) => {
       <Tabs />
       <LayoutScroll>
         <Stack marginTop={10} marginHorizontal={16}>
-          {[1, 2, 3].map((_, index) => (
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((_, index) => (
             <ListItem key={index} fontColor={fontColor} />
           ))}
         </Stack>
@@ -86,19 +87,23 @@ const Tabs = () => {
   );
 };
 
-const ListItem = ({ fontColor }) => {
+const ImageURI = require('../../assets/images/Bitcoin.png')
+
+const ListItem = () => {
   return (
-    <Stack direction='row'>
-      <View style={{}} />
-      <Stack direction="row" style={{ borderWidth: 1, borderColor: 'gray' }}>
-        <StyledText style={{ fontWeight: 'bold', paddingHorizontal: 8 }}>
-          BTC
-        </StyledText>
-        <View style={{ flex: 1, alignItems: 'flex-end' }}>
-          <StyledText style={{ fontWeight: 'bold', paddingHorizontal: 8 }}>
-            0.3
-          </StyledText>
-        </View>
+    <Stack direction='row' spacing={10} style={{ height: 50 }} alignItems="center">
+      {/* <View style={{ height: 30, width: 30, borderRadius: 9999, borderWidth: 1, borderColor: red }} /> */}
+      <Image source={ImageURI} />
+      <Stack>
+        <Stack direction='row' spacing={10}>
+          <BodyText style={{ fontWeight: '600' }}>BTC</BodyText>
+          <BodyText style={{ fontSize: 10, fontWeight: '400', color: neutral300 }}>Bitcoin</BodyText>
+        </Stack>
+        <BodyText>$ 18,888</BodyText>
+      </Stack>
+      <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+        <BodyText>0.3</BodyText>
+        <BodyText style={{ fontSize: 10, color: green200, fontWeight: '600' }}>+3.40%</BodyText>
       </Stack>
     </Stack>
   );

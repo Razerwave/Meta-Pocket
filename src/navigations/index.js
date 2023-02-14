@@ -1,14 +1,14 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { AppState } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { EnterPasscode, LoadingScreen } from '../screens';
+import React, {useRef, useState, useEffect} from 'react';
+import {AppState} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {EnterPasscode, LoadingScreen} from '../screens';
 import AuthNavigation from './AuthNavigation';
 import MainNavigation from './MainNavigation';
-import { useAuth } from '../context/AuthContext';
-import { SafeAreaView } from 'react-native';
+import {useAuth} from '../context/AuthContext';
+import {SafeAreaView} from 'react-native';
 
 const TheNavigation = () => {
-  const { isInitialized, isLoggedIn, isLocked, lock } = useAuth();
+  const {isInitialized, isLoggedIn, isLocked, lock} = useAuth();
   // const scheme = useColorScheme();
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
@@ -36,6 +36,7 @@ const TheNavigation = () => {
 
   return (
     <NavigationContainer>
+      <SafeAreaView />
       {isInitialized ? (
         isLoggedIn ? (
           isLocked ? (

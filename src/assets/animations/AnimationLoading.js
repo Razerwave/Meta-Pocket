@@ -183,6 +183,7 @@ const AnimationLoading = React.forwardRef((props, ref) => {
             source={{ html }}
             containerStyle={[styles.container, props.style]}
             style={[styles.style, props.style]}
+            autoManageStatusBarEnabled={false}
         />
     );
 });

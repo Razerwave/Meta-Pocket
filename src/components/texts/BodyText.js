@@ -13,7 +13,7 @@ const BodyText = ({type = 4, style, children}) => {
           color: fontColor,
           fontWeight: BodyTextWeight[type],
           fontSize: BodyTextSize[type],
-          ...style
+          ...style,
         },
       ]}>
       {children}

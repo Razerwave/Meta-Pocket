@@ -13,12 +13,10 @@ import {ROUTES} from '../../constants';
 import {testData} from '../../constants/ListData';
 import {IconColorDot, IconExploreArrow} from '../../assets/icons';
 import {yellow200, red, neutral300, neutral100} from '../../constants/colors';
-import {useTheme} from 'styled-components';
 
 const ExploreScreen = ({navigation}) => {
   const WEB_LINK = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
   const [data, setData] = useState([]);
-  const {fontColor} = useTheme();
 
   useEffect(() => {
     const getData = async () => {
@@ -89,10 +87,17 @@ const ExploreScreen = ({navigation}) => {
                               </AllTabTouchableOpacity>
 
                               <DescriptionContainer>
-                                <DescriptionContent>
+                                <BodyText
+                                  type={8}
+                                  style={{
+                                    marginTop: 10,
+                                    marginBottom: 6,
+                                  }}>
                                   {item.Subject}
-                                </DescriptionContent>
-                                <SubText type={6}>{item.Subject}</SubText>
+                                </BodyText>
+                                <BodyText type={7} style={{color: neutral100}}>
+                                  {item.Subject}
+                                </BodyText>
                               </DescriptionContainer>
                             </View>
                           );
@@ -100,6 +105,7 @@ const ExploreScreen = ({navigation}) => {
                       })}
                     </ContainerWeb>
                   )}
+
                   {title == 'Art' && (
                     <ContainerWeb>
                       {items.map((item, index) => {
@@ -141,12 +147,25 @@ const ExploreScreen = ({navigation}) => {
                               </AllTabTouchableOpacity>
 
                               <View>
-                                <DescriptionContent>
+                                <BodyText
+                                  type={8}
+                                  style={{
+                                    marginTop: 10,
+                                    marginBottom: 6,
+                                  }}>
                                   {item.name}
-                                </DescriptionContent>
+                                </BodyText>
                                 <ArtSubtitle>
-                                  <SubText>{item.total}</SubText>
-                                  <SubText>{item.coin}</SubText>
+                                  <BodyText
+                                    type={7}
+                                    style={{color: neutral100}}>
+                                    {item.total}
+                                  </BodyText>
+                                  <BodyText
+                                    type={7}
+                                    style={{color: neutral100}}>
+                                    {item.coin}
+                                  </BodyText>
                                 </ArtSubtitle>
                               </View>
                             </View>
@@ -242,26 +261,6 @@ const ImageContainer = styled.View`
 
 const DescriptionContainer = styled.View`
   align-self: flex-start;
-`;
-
-const DescriptionContent = styled.Text`
-  margin-top: 10px;
-  margin-bottom: 6px;
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  color: ${props => props.theme.fontColor};
-`;
-
-const SubText = styled.Text`
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  color: ${neutral100};
 `;
 
 const Title = styled.View`

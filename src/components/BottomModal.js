@@ -2,9 +2,10 @@ import React from 'react'
 import { useTheme } from 'styled-components'
 import { Modal, StyleSheet, TouchableOpacity, View } from 'react-native'
 import IonIcon from 'react-native-vector-icons/Ionicons';
+import BodyHeading from './texts/BodyHeading';
 
-const BottomModal = ({ children, visible = false, onClose = () => { } }) => {
-  const { card: {bgColor}, fontColor } = useTheme('')
+const BottomModal = ({ children, title, visible = false, onClose = () => { } }) => {
+  const { card: { bgColor }, fontColor } = useTheme('')
   return (
     <Modal
       animationType="slide"
@@ -15,10 +16,11 @@ const BottomModal = ({ children, visible = false, onClose = () => { } }) => {
       }}
     >
       <View style={[styles.centeredView, { backgroundColor: bgColor }]}>
-        <TouchableOpacity style={{ position: 'absolute', top: 30, right: 30, zIndex: 1 }} onPress={() => onClose()}>
+        <TouchableOpacity style={styles.btnClose} onPress={() => onClose()}>
           <IonIcon name="close-outline" size={30} color={fontColor} />
         </TouchableOpacity>
-        <View style={{ paddingHorizontal: 28, paddingVertical: 42 }}>
+        <View style={styles.body}>
+          {title && <BodyHeading style={styles.heading}>{title}</BodyHeading>}
           {children}
         </View>
       </View>
@@ -33,5 +35,18 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 94,
     borderRadius: 30,
+  },
+  btnClose: {
+    position: 'absolute',
+    top: 30,
+    right: 30,
+    zIndex: 1,
+  },
+  heading: {
+    marginBottom: 20,
+  },
+  body: { 
+    paddingHorizontal: 28, 
+    paddingVertical: 42,
   },
 })

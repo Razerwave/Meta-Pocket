@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, Button, Image, TouchableOpacity, StyleSheet, Modal, Pressable, ScrollView } from 'react-native'
 import { Rect, Svg, SvgXml } from 'react-native-svg'
-import { LayoutScreen, BottomModal, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title, StepsAuth, Paragraph } from '../../components'
+import { LayoutScreen, BottomModal, ButtonPrimary, CardBox, LayoutBottom, Screen, Stack, StyledText, Title, StepsAuth, Paragraph, LayoutScroll, BodyHeading } from '../../components'
 import { ROUTES } from '../../constants'
 import { useTheme } from 'styled-components'
 import IonIcon from 'react-native-vector-icons/Ionicons';
@@ -72,43 +72,33 @@ const ProtectWallet = ({ navigation }) => {
       </LayoutBottom>
 
       <BottomModal
+        title={'Terms'}
         visible={modalVisible === 'Terms'}
         onClose={() => {
           setModalVisible('');
         }}
       >
-        <Stack spacing={20}>
-          <Title>Terms</Title>
-          <ScrollView style={{ height: 500 }} indicatorStyle="white">
-            <Stack spacing={20}>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
-                <StyledText key={index} style={{ fontSize: 12, lineHeight: 18 }}>
-                  Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-                </StyledText>
-              ))}
-            </Stack>
-          </ScrollView>
-        </Stack>
+        <LayoutScroll>
+          <Paragraph
+            bodyType={5}
+            body={[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => "Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.")}
+          />
+        </LayoutScroll>
       </BottomModal>
 
       <BottomModal
+        title={'Privacy Policy'}
         visible={modalVisible === 'Privacy Policy'}
         onClose={() => {
           setModalVisible('');
         }}
       >
-        <Stack spacing={20}>
-          <Title>Privacy Policy</Title>
-          <ScrollView style={{ height: 500 }} indicatorStyle="white">
-            <Stack spacing={20}>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
-                <StyledText key={index} style={{ fontSize: 12, lineHeight: 18 }}>
-                  Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-                </StyledText>
-              ))}
-            </Stack>
-          </ScrollView>
-        </Stack>
+        <LayoutScroll>
+          <Paragraph
+            bodyType={5}
+            body={[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => "Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet. Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.")}
+          />
+        </LayoutScroll>
       </BottomModal>
     </LayoutScreen>
   )

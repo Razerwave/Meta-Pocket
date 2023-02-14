@@ -7,7 +7,7 @@ import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import {links, Artlinks} from '../../constants/ListData';
 import {IconColorDot} from '../../assets/icons';
 import styled from 'styled-components/native';
-import {gray300, yellow200} from '../../constants/colors';
+import {gray300, red, yellow200} from '../../constants/colors';
 
 const TabViewExample = ({navigation, route}) => {
   const layout = useWindowDimensions();
@@ -76,7 +76,7 @@ const TabViewExample = ({navigation, route}) => {
                     })
                   }>
                   <View style={{}}>
-                    <IconColorDot color="#FF3D60" />
+                    <IconColorDot color={red} />
                   </View>
                   <ContentList>
                     <Content>
@@ -106,10 +106,6 @@ const TabViewExample = ({navigation, route}) => {
                 </ListTouchableOpacity>
               </Section>
             ))}
-            <View
-              style={{
-                alignItems: 'flex-end',
-              }}></View>
           </Container>
         </LayoutScroll>
       </LayoutScreen>

@@ -22,15 +22,13 @@ import {
   ButtonText,
 } from '../../components';
 import { ROUTES } from '../../constants';
-import { useTheme } from 'styled-components';
 import LogoBig from '../../assets/LogoBig';
 
 const WelcomeScreen = ({ navigation }) => {
-  const { fonts: { logoColor } } = useTheme()
   return (
     <LayoutScreen>
       <LayoutCenter>
-        <LogoBig fill={logoColor} />
+        <LogoBig />
       </LayoutCenter>
       <LayoutBottom>
         <ButtonPrimary

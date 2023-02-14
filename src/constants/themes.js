@@ -8,6 +8,7 @@ import {
   neutral200,
   backgroundColorDark,
   backgroundColorLight,
+  LogoColorLight,
 } from './colors';
 
 const DefaultTheme = {
@@ -26,25 +27,25 @@ const DefaultTheme = {
     bgColor: white,
     border: primary,
   },
+  logoColor: LogoColorLight,
+  dividerColor: gray100,
 
   // not sure
   backgroundCardColor: white,
 
   // not done
   activeTintColor: primary,
-  dividerColor: white,
   fonts: {
     subTitleColor: white,
-    logoColor: white,
   },
   steps: {
     activeColor: white,
     inactiveColor: white,
   },
   keyboardDeleteKey: {
-    bgColor: white,
+    bgColor: gray100,
     opacity: '1',
-    stroke: white,
+    stroke: black,
   },
   input: {
     backgroundColor: white,
@@ -73,25 +74,25 @@ const DarkTheme = {
     bgColor: neutral300,
     border: neutral300,
   },
+  logoColor: white,
+  dividerColor: neutral200,
 
   // not sure
   backgroundCardColor: black,
 
   // not done
   activeTintColor: primary,
-  dividerColor: black,
   fonts: {
     subTitleColor: black,
-    logoColor: white,
   },
   steps: {
     activeColor: white,
     inactiveColor: black,
   },
   keyboardDeleteKey: {
-    bgColor: black,
-    opacity: '0.1',
-    stroke: black,
+    bgColor: gray200,
+    opacity: '0.3',
+    stroke: white,
   },
   input: {
     backgroundColor: black,

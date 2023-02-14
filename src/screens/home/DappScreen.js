@@ -1,13 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Image, useWindowDimensions} from 'react-native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import {
-  BodyText,
-  LayoutScreen,
-  LayoutScroll,
-  Stack,
-  StyledText,
-} from '../../components';
+import {BodyText, LayoutScreen, LayoutScroll} from '../../components';
 import {useTheme} from 'styled-components';
 import {ROUTES} from '../../constants';
 import {Dappdata} from '../../constants/ListData';
@@ -15,7 +9,6 @@ import {neutral100, gray300, neutral300} from '../../constants/colors';
 import {IconDappArrow} from '../../assets/icons';
 import styled from 'styled-components/native';
 import {View} from 'react-native-animatable';
-import {Text} from 'react-native-svg';
 
 const DappScreen = ({navigation}) => {
   const {backgroundColor, steps, exploreTab} = useTheme();
@@ -299,19 +292,4 @@ const DescriptionContainer = styled.View`
   align-self: flex-start;
 `;
 
-const DescriptionContent = styled.Text`
-  margin-top: 10px;
-  margin-bottom: 6px;
-  font-size: 12px;
-  line-height: 14px;
-  font-style: normal;
-  color: ${props => props.theme.fontColor};
-`;
-
-const SubText = styled.Text`
-  color: ${neutral100};
-  font-size: 10px;
-  line-height: 12px;
-  font-style: normal;
-`;
 export default DappScreen;

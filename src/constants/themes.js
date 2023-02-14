@@ -108,7 +108,7 @@ const DarkTheme = {
   activeTintColor: primary,
   steps: {
     activeColor: white,
-    inactiveColor: black,
+    inactiveColor: gray200,
   },
   keyboardDeleteKey: {
     bgColor: gray200,

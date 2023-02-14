@@ -42,6 +42,9 @@ const DefaultTheme = {
     inputColor: black,
     btnColor: neutral100,
   },
+  search: {
+    borderColor: neutral100,
+  },
 
   // not sure
   backgroundCardColor: white,
@@ -86,6 +89,11 @@ const DarkTheme = {
     placeholerColor: neutral100,
     inputColor: white,
     btnColor: neutral100,
+  },
+  search: {
+    borderColor: neutral100,
+    placeholerColor: neutral100,
+    inputColor: white,
   },
 
   // not sure

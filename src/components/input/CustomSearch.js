@@ -1,22 +1,21 @@
 import { useState } from 'react'
 import { StyleSheet, TextInput, View, TouchableOpacity, Text } from 'react-native'
 import { useTheme } from 'styled-components'
+import { IconSearch } from '../../assets/icons'
 import { white } from '../../constants/colors'
+import { BodyTextSize, BodyTextWeight, fontBody } from '../../constants/fonts'
 
-const CustomSearch = ({ value, onChange, placeholder, onPress, btnText = "ok", action, error = false }) => {
+const CustomSearch = ({ value, onChange, placeholder, onEndEditing }) => {
   const [focused, setFocused] = useState(false)
-  const { input: {
-    backgroundColor,
+  const { search: {
     borderColor,
-    borderColorFocus,
-    borderColorError,
     placeholerColor,
     inputColor,
-    btnColor,
   } } = useTheme()
 
   return (
-    <View style={[styles.container, { backgroundColor: backgroundColor, borderColor: error ? borderColorError : focused ? borderColorFocus : borderColor }]}>
+    <View style={[styles.container, { borderColor: borderColor }]}>
+      <IconSearch />
       <TextInput
         editable
         style={[styles.input, { color: inputColor }]}
@@ -26,17 +25,8 @@ const CustomSearch = ({ value, onChange, placeholder, onPress, btnText = "ok", a
         value={value}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
+        onEndEditing={onEndEditing}
       />
-      {onPress && (
-        <View style={{ alignItems: 'flex-end' }}>
-          <TouchableOpacity onPress={onPress}>
-            <View style={[styles.btn, { color: btnColor }]}>
-              <Text style={styles.btnText}>{btnText}</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-      )}
-      {action}
     </View>
   )
 }
@@ -45,23 +35,24 @@ export default CustomSearch
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 9,
-    paddingVertical: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 4,
+    borderRadius: 9999,
     borderWidth: 1,
     borderStyle: 'solid',
+    gap: 10,
   },
   input: {
     flex: 1,
     padding: 0,
-    paddingHorizontal: 9,
-    fontFamily: 'Lato',
-    fontSize: 12,
-    lineHeight: 14,
-    fontWeight: '400',
+    margin: 0,
+    fontFamily: fontBody,
+    fontSize: BodyTextSize[5],
+    fontWeight: BodyTextWeight[5],
+    // height: 14,
   },
   btn: {
     backgroundColor: '#838AA5',

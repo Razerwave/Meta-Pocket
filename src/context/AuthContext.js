@@ -79,7 +79,7 @@ const AuthProvier = ({children}) => {
         dispatch({
           type: INITIALIZE,
         });
-      }, 4000);
+      }, 3000);
     }
   }, [isInitialized]);
 

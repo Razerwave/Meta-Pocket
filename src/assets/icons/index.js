@@ -16,6 +16,7 @@ import IconExploreArrow from './IconExploreArrow';
 import IconColorDot from './IconColorDot';
 import IconDappArrow from './IconDappArrow';
 import IconCheck from "./IconCheck";
+import IconSearch from "./IconSearch";
 
 export {
   IconArrowBack,
@@ -36,4 +37,5 @@ export {
   IconColorDot,
   IconDappArrow,
   IconCheck,
+  IconSearch,
 }

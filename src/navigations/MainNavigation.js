@@ -6,7 +6,8 @@ import {
   EmailVerification,
   ResetPasscode,
   Referral,
-  NoticeList
+  NoticeList,
+  NoticeScreen
 } from '../screens/setting';
 import {ExploreListScreen} from '../screens/Explore';
 import {EnterPasscode, WebScreen} from '../screens';
@@ -70,6 +71,11 @@ const MainNavigation = () => {
         options={{title: 'Notice'}}
         name={ROUTES.SETTING.NOTICE_LIST}
         component={NoticeList}
+      />
+      <Stack.Screen
+        options={{title: 'Notice'}}
+        name={ROUTES.SETTING.NOTICE}
+        component={NoticeScreen}
       />
       {/* EXPLORE */}
       <Stack.Screen

@@ -9,10 +9,10 @@ import {
   backgroundColorDark,
   backgroundColorLight,
   LogoColorLight,
-  gray5,
   neutral100,
   red,
   gray300,
+  blue300,
 } from './colors';
 
 const DefaultTheme = {
@@ -34,7 +34,7 @@ const DefaultTheme = {
   },
   logoColor: LogoColorLight,
   dividerColor: gray100,
-  subTitleColor: gray5,
+  subTitleColor: gray100,
   input: {
     backgroundColor: white,
     borderColor: gray100,
@@ -43,6 +43,9 @@ const DefaultTheme = {
     placeholerColor: neutral100,
     inputColor: black,
     btnColor: neutral100,
+  },
+  search: {
+    borderColor: neutral100,
   },
 
   // not sure
@@ -61,7 +64,7 @@ const DefaultTheme = {
   },
   exploreTab: {
     tabInActiveColor: gray300,
-    tabActiveColor: black,
+    tabActiveColor: blue300,
   },
 };
 
@@ -84,7 +87,7 @@ const DarkTheme = {
   },
   logoColor: white,
   dividerColor: neutral200,
-  subTitleColor: gray5,
+  subTitleColor: gray100,
   input: {
     backgroundColor: neutral300,
     borderColor: black,
@@ -94,6 +97,11 @@ const DarkTheme = {
     inputColor: white,
     btnColor: neutral100,
   },
+  search: {
+    borderColor: neutral100,
+    placeholerColor: neutral100,
+    inputColor: white,
+  },
 
   // not sure
   backgroundCardColor: black,
@@ -102,7 +110,7 @@ const DarkTheme = {
   activeTintColor: primary,
   steps: {
     activeColor: white,
-    inactiveColor: black,
+    inactiveColor: gray200,
   },
   keyboardDeleteKey: {
     bgColor: gray200,

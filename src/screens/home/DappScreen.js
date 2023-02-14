@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Image, useWindowDimensions} from 'react-native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import {LayoutScreen, LayoutScroll, Stack, StyledText} from '../../components';
+import {BodyText, LayoutScreen, LayoutScroll} from '../../components';
 import {useTheme} from 'styled-components';
 import {ROUTES} from '../../constants';
 import {Dappdata} from '../../constants/ListData';
@@ -11,7 +11,7 @@ import styled from 'styled-components/native';
 import {View} from 'react-native-animatable';
 
 const DappScreen = ({navigation}) => {
-  const {backgroundColor, steps} = useTheme();
+  const {backgroundColor, steps, exploreTab} = useTheme();
   const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -51,8 +51,14 @@ const DappScreen = ({navigation}) => {
                     </AllTabTouchableOpacity>
 
                     <DescriptionContainer>
-                      <DescriptionContent>{item.title}</DescriptionContent>
-                      <SubText>{item.description}</SubText>
+                      <BodyText
+                        type={8}
+                        style={{marginTop: 10, marginBottom: 6}}>
+                        {item.title}
+                      </BodyText>
+                      <BodyText type={7} style={{color: neutral100}}>
+                        {item.description}
+                      </BodyText>
                     </DescriptionContainer>
                   </View>
                 );
@@ -96,8 +102,14 @@ const DappScreen = ({navigation}) => {
                         </AllTabTouchableOpacity>
 
                         <DescriptionContainer>
-                          <DescriptionContent>{item.title}</DescriptionContent>
-                          <SubText>{item.description}</SubText>
+                          <BodyText
+                            type={8}
+                            style={{marginTop: 10, marginBottom: 6}}>
+                            {item.title}
+                          </BodyText>
+                          <BodyText type={7} style={{color: neutral100}}>
+                            {item.description}
+                          </BodyText>
                         </DescriptionContainer>
                       </View>
                     )
@@ -145,8 +157,14 @@ const DappScreen = ({navigation}) => {
                         </AllTabTouchableOpacity>
 
                         <DescriptionContainer>
-                          <DescriptionContent>{item.title}</DescriptionContent>
-                          <SubText>{item.description}</SubText>
+                          <BodyText
+                            type={8}
+                            style={{marginTop: 10, marginBottom: 6}}>
+                            {item.title}
+                          </BodyText>
+                          <BodyText type={7} style={{color: neutral100}}>
+                            {item.description}
+                          </BodyText>
                         </DescriptionContainer>
                       </View>
                     )
@@ -196,7 +214,16 @@ const DappScreen = ({navigation}) => {
             color: 'pink',
             marginTop: 15,
           }}
-          inactiveColor={gray300}
+          TabBarItemProps
+          // renderLabel={({route, focused, color}) => {
+          //   console.log(route, color);
+          //   return (
+          //     <Text focused style={{color, margin: 8}}>
+          //       {route.title}
+          //     </Text>
+          //   );
+          // }}
+          inactiveColor={exploreTab.tabInActiveColor}
           indicatorContainerStyle={{}}
           labelStyle={{
             fontSize: 16,
@@ -204,10 +231,10 @@ const DappScreen = ({navigation}) => {
             textTransform: 'capitalize',
           }}
           sceneContainerStyle={{color: 'pink'}}
-          activeColor={steps.activeColor}
+          activeColor={exploreTab.tabActiveColor}
           indicatorStyle={[
             {
-              backgroundColor: steps.activeColor,
+              backgroundColor: exploreTab.tabActiveColor,
               height: 2,
             },
           ]}
@@ -265,19 +292,4 @@ const DescriptionContainer = styled.View`
   align-self: flex-start;
 `;
 
-const DescriptionContent = styled.Text`
-  margin-top: 10px;
-  margin-bottom: 6px;
-  font-size: 12px;
-  line-height: 14px;
-  font-style: normal;
-  color: ${props => props.theme.fontColor};
-`;
-
-const SubText = styled.Text`
-  color: ${neutral100};
-  font-size: 10px;
-  line-height: 12px;
-  font-style: normal;
-`;
 export default DappScreen;

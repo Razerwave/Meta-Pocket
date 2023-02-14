@@ -26,7 +26,7 @@ const initialState = {
   passcode: null,
   isLocked: true,
   isInitialized: false,
-  theme: theme,
+  theme: theme ? theme : 'light',
   isDarkTheme: theme === 'dark',
   statusBar: {
     backgroundColor:
@@ -75,6 +75,7 @@ const AuthProvier = ({children}) => {
 
   useEffect(() => {
     if (!isInitialized) {
+      toggleTheme({init: true});
       setTimeout(() => {
         dispatch({
           type: INITIALIZE,
@@ -114,8 +115,16 @@ const AuthProvier = ({children}) => {
 
   const checkPasscode = passcode => state.passcode === passcode;
 
-  const toggleTheme = () => {
-    const newTheme = state.isDarkTheme ? 'light' : 'dark';
+  const toggleTheme = async ({init}) => {
+    let newTheme = state.isDarkTheme ? 'light' : 'dark';
+
+    if (init) {
+      const storedTheme = await store.getItem('theme');
+      if (storedTheme) {
+        newTheme = storedTheme;
+      }
+    }
+
     const statusBar = {
       backgroundColor:
         newTheme === 'dark'

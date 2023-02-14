@@ -9,7 +9,6 @@ import {
   backgroundColorDark,
   backgroundColorLight,
   LogoColorLight,
-  gray5,
   neutral100,
   red,
   gray300,
@@ -33,7 +32,7 @@ const DefaultTheme = {
   },
   logoColor: LogoColorLight,
   dividerColor: gray100,
-  subTitleColor: gray5,
+  subTitleColor: gray100,
   input: {
     backgroundColor: white,
     borderColor: gray100,
@@ -85,7 +84,7 @@ const DarkTheme = {
   },
   logoColor: white,
   dividerColor: neutral200,
-  subTitleColor: gray5,
+  subTitleColor: gray100,
   input: {
     backgroundColor: neutral300,
     borderColor: black,

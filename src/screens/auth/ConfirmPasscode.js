@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { ROUTES } from '../../constants';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useAuth } from '../../context/AuthContext';
-import { LayoutScreen, CardBox, KeyBoardNumeric, Screen, Stack, StyledText, Title, StepsAuth, KeyBoardPasscode } from '../../components';
+import { LayoutScreen, CardBox, KeyBoardNumeric, Screen, Stack, StyledText, Title, StepsAuth, KeyBoardPasscode, Paragraph } from '../../components';
 import { useTheme } from 'styled-components'
 
 const ConfirmPasscode = ({ route, navigation }) => {
@@ -29,18 +29,16 @@ const ConfirmPasscode = ({ route, navigation }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={5} />
-      <Stack marginTop={80} marginHorizontal={28} marginBottom={62} spacing={29}>
-        <Title>
-          Confirm Passcode
-        </Title>
-        <StyledText>
-          Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-        </StyledText>
+      <Stack marginTop={80} marginHorizontal={28} spacing={62}>
+        <Paragraph
+          title="Confirm Passcode"
+          body="Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet."
+        />
+        <Stack alignItems="center">
+          <KeyBoardPasscode value={passcode} onChange={(v) => setPasscode(v)} />
+        </Stack>
       </Stack>
 
-      <Stack alignItems="center">
-        <KeyBoardPasscode value={passcode} onChange={(v) => setPasscode(v)} />
-      </Stack>
     </LayoutScreen>
   )
 }

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, Button, Alert, StyleSheet, TextInput } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, TextInput } from 'react-native'
 import { useTheme } from 'styled-components'
-import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Screen, Stack, StepsAuth, StyledText, Title } from '../../components'
+import { ButtonPrimary, LayoutBottom, LayoutScreen, Paragraph, Stack, StepsAuth } from '../../components'
 import { ROUTES } from '../../constants'
 
 const RecoverWallet = ({ navigation }) => {
@@ -15,15 +15,11 @@ const RecoverWallet = ({ navigation }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={1} />
-      <Stack marginTop={80} marginHorizontal={28} spacing={20}>
-        <Title>
-          Recover Your Wallet
-        </Title>
-        <StyledText>
-          Recover through the 12 words you kept safely.
-        </StyledText>
-      </Stack>
-      <Stack marginTop={40} marginHorizontal={28}>
+      <Stack marginTop={80} marginHorizontal={28} spacing={40}>
+        <Paragraph
+          title="Recover Your Wallet"
+          body="Recover through the 12 words you kept safely."
+        />
         <TextInput
           style={[styles.input, { color: fontColor, backgroundColor: backgroundCardColor }]}
           editable

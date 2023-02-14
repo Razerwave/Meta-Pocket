@@ -4,10 +4,11 @@ import Stack from '../Stack'
 import BodyText from './BodyText'
 import BodyHeading from './BodyHeading'
 
-const Paragraph = ({title, children}) => {
+const Paragraph = ({title, body, children}) => {
   return (
     <Stack spacing={20}>
       {title && <BodyHeading>{title}</BodyHeading>}
+      {body && body instanceof Array ? body.map((text, index) => <BodyText key={index}>{text}</BodyText>) : <BodyText>{body}</BodyText>}
       {children}
     </Stack>
   )

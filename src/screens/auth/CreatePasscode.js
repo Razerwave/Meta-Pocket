@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View } from 'react-native'
-import { LayoutScreen, KeyBoardPasscode, Stack, StyledText, Title, StepsAuth } from '../../components';
+import { LayoutScreen, KeyBoardPasscode, Stack, StyledText, Title, StepsAuth, Paragraph } from '../../components';
 import { ROUTES } from '../../constants';
 import { useTheme } from 'styled-components'
 
@@ -21,17 +21,14 @@ const CreatePasscode = ({ navigation }) => {
   return (
     <LayoutScreen>
       <StepsAuth current={4} />
-      <Stack marginTop={80} marginHorizontal={28} marginBottom={62} spacing={29}>
-        <Title>
-          Create Passcode
-        </Title>
-        <StyledText>
-          Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet.
-        </StyledText>
-      </Stack>
-
-      <Stack alignItems="center">
-        <KeyBoardPasscode value={passcode} onChange={(v) => setPasscode(v)} />
+      <Stack marginTop={80} marginHorizontal={28} spacing={62}>
+        <Paragraph
+          title="Create Passcode"
+          body="Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet."
+        />
+        <Stack alignItems="center">
+          <KeyBoardPasscode value={passcode} onChange={(v) => setPasscode(v)} />
+        </Stack>
       </Stack>
     </LayoutScreen>
   )

@@ -27,14 +27,13 @@ const BackupWallet = ({ navigation }) => {
     <LayoutScreen>
       <StepsAuth current={1} />
       <Stack marginTop={80} marginHorizontal={28} marginBottom={30} spacing={50}>
-        <Paragraph title="Back Up Your Wallet">
-          <BodyText>
-            The recovery phrase is the only way to recover your cryptocurrency if you lose your phone or switch to another wallet.
-          </BodyText>
-          <BodyText>
-            Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.
-          </BodyText>
-        </Paragraph>
+        <Paragraph
+          title="Back Up Your Wallet"
+          body={[
+            'The recovery phrase is the only way to recover your cryptocurrency if you lose your phone or switch to another wallet.',
+            'Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.',
+          ]}
+        />
         <Stack>
           <CardBox style={{ borderRadius: 10 }}>
             <Stack direction='row' spacing={10} style={{ flexWrap: 'wrap' }}>

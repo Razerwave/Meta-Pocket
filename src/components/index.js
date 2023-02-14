@@ -13,6 +13,7 @@ import BodyText from './texts/BodyText';
 import ButtonPrimary from './buttons/ButtonPrimary';
 import ButtonText from './buttons/ButtonText';
 import CustomSearch from './input/CustomSearch';
+import InvoiceSheet from './InvoiceSheet';
 
 
 import StyledText from './texts/StyledText';
@@ -69,4 +70,5 @@ export {
   BodyHeading,
   BodyText,
   CustomSearch,
+  InvoiceSheet,
 }

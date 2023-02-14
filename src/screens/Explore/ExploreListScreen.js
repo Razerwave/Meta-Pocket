@@ -153,7 +153,7 @@ const TabViewExample = ({navigation, route}) => {
           activeColor={exploreTab.tabActiveColor}
           indicatorStyle={[
             {
-              backgroundColor: steps.activeColor,
+              backgroundColor: exploreTab.tabActiveColor,
               height: 2,
             },
           ]}

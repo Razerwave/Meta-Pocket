@@ -9,36 +9,26 @@ import BodyText from './texts/BodyText'
 
 const ImagePath = require('../assets/images/Aleo.png')
 
-const NoticeCard = () => {
+const NoticeCard = ({ title }) => {
   return (
-    <Stack spacing={10}>
-      <View style={styles.card}>
-        {/* <NoticeStroke1 style={{ position: 'absolute', left: 0, bottom: 0 }} />
+    <View style={styles.card}>
+      {/* <NoticeStroke1 style={{ position: 'absolute', left: 0, bottom: 0 }} />
       <NoticeStroke2 style={{ position: 'absolute', left: 0, top: 0 }} />
       <NoticeStroke3 style={{ position: 'absolute', left: 43, top: 0 }} /> 
        <NoticeStorkStar style={{ position: 'absolute', bottom: 16, right: 17 }} /> */}
-        <View style={styles.image}>
-          <Image source={ImagePath} />
-        </View>
-        <Text style={styles.text} >
-          ALEO Metaverse Coming Soon
-        </Text>
+      <View style={styles.image}>
+        <Image source={ImagePath} />
       </View>
-      <Stack spacing={6} marginHorizontal={10}>
-        <BodyText>
-          ALEO Metaverse Coming Soon
-        </BodyText>
-        <BodyText type={5} style={{ color: gray300 }}>Feb 7, 2023   |  조회수 2,300</BodyText>
-      </Stack>
-    </Stack>
+      <Text style={styles.text} >
+        {title}
+      </Text>
+    </View>
   )
 }
 
 export default NoticeCard
 
 const styles = StyleSheet.create({
-  container: {
-  },
   card: {
     backgroundColor: neutral300,
     borderRadius: 10,

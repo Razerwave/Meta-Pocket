@@ -3,6 +3,7 @@ import ConfirmResetPasscode from './ConfirmResetPasscode';
 import EmailVerification from './EmailVerification';
 import Referral from './Referral';
 import NoticeList from './NoticeList';
+import NoticeScreen from './NoticeScreen';
 
 export {
   ResetPasscode,
@@ -10,4 +11,5 @@ export {
   EmailVerification,
   Referral,
   NoticeList,
+  NoticeScreen,
 };

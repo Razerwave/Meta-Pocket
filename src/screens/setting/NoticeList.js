@@ -1,25 +1,43 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
-import { BodyHeading, CustomInput, CustomSearch, LayoutScreen, Stack } from '../../components'
-import { NoticeBackground } from '../../assets/background'
+import { StyleSheet, TouchableOpacity } from 'react-native'
+import { BodyText, CustomSearch, LayoutScreen, LayoutScroll, Stack } from '../../components'
 import NoticeCard from '../../components/NoticeCard'
+import { ROUTES } from '../../constants'
+import { gray300 } from '../../constants/colors'
 
-const NoticeList = () => {
+const NoticeList = ({ navigation }) => {
   const handleSearch = (e) => {
     console.log("search", e.nativeEvent.text)
   }
 
   return (
     <LayoutScreen>
-      <Stack paddingHorizontal={16} marginTop={4} spacing={20}>
+      <Stack paddingHorizontal={16} marginTop={4} spacing={20} style={{ flex: 1 }}>
         <CustomSearch
           placeholder={`Search`}
           onEndEditing={(e) => handleSearch(e)}
         />
 
-        <Stack spacing={30}>
-          <NoticeCard />
-        </Stack>
+        <LayoutScroll>
+          <Stack spacing={30}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((_, index) => (
+              <TouchableOpacity key={index} onPress={() => navigation.navigate(ROUTES.SETTING.NOTICE, {
+                title: 'ALEO Metaverse Coming Soon',
+              })}>
+                <Stack spacing={10}>
+                  <NoticeCard title={'ALEO Metaverse Coming Soon'} />
+                  <Stack spacing={6} marginHorizontal={10}>
+                    <BodyText>
+                      ALEO Metaverse Coming Soon
+                    </BodyText>
+                    <BodyText type={5} style={{ color: gray300 }}>
+                      Feb 7, 2023   |  조회수 2,300
+                    </BodyText>
+                  </Stack>
+                </Stack>
+              </TouchableOpacity>
+            ))}
+          </Stack>
+        </LayoutScroll>
       </Stack>
     </LayoutScreen>
   )

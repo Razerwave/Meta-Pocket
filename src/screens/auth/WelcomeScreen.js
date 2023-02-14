@@ -36,14 +36,11 @@ const WelcomeScreen = ({ navigation }) => {
         <ButtonPrimary
           title="Create New Wallet"
           onPress={() => navigation.navigate(ROUTES.AUTH.BACKUP_WALLET)}
-          // style={{ marginBottom: 20 }}
+          style={{ marginBottom: 20 }}
         />
-        <ButtonText>sds</ButtonText>
-        <TouchableOpacity onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
-          <StyledText style={{ fontSize: 14, lineHeight: 21 }}>
-            I already have a wallet
-          </StyledText>
-        </TouchableOpacity>
+        <ButtonText onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
+          I already have a wallet
+        </ButtonText>
       </LayoutBottom>
     </LayoutScreen>
   );

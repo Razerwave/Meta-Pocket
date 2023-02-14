@@ -6,13 +6,15 @@ import {
   primary,
   white,
   neutral200,
+  backgroundColorDark,
+  backgroundColorLight,
 } from './colors';
 
 const DefaultTheme = {
   // Sure
   tabIndicatorColor: gray100,
   fontColor: black,
-  backgroundColor: gray100,
+  backgroundColor: backgroundColorLight,
   bottomTab: {
     bgColor: white,
     inactiveColor: gray200,
@@ -59,7 +61,7 @@ const DarkTheme = {
   // Sure
   tabIndicatorColor: neutral200,
   fontColor: white,
-  backgroundColor: black,
+  backgroundColor: backgroundColorDark,
   bottomTab: {
     bgColor: neutral300,
     inactiveColor: gray200,

@@ -4,7 +4,7 @@ import { ButtonTextSize, ButtonTextWeight, fontButton } from '../../constants/fo
 
 const ButtonPrimary = ({ type = 1, disabled, style, ...props }) => {
     return (
-        <TouchableOpacity {...props} style={{ flexDirection: 'row' }} disabled={disabled}>
+        <TouchableOpacity {...props} style={{ flexDirection: 'row', ...style }} disabled={disabled}>
             <View style={[styles.container, { opacity: disabled ? 0.5 : 1 }]}>
                 <Text style={[styles.text, { 
                     fontSize: ButtonTextSize[type],

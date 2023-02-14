@@ -20,13 +20,13 @@ import {
 import {DarkTheme, DefaultTheme} from '../constants';
 import store from '../utils/store';
 
-const theme = 'dark';
+const theme = store.getItem('theme');
 
 const initialState = {
   passcode: null,
   isLocked: true,
   isInitialized: false,
-  theme: theme,
+  theme: theme ? theme : 'dark',
   isDarkTheme: theme === 'dark',
   statusBar: {
     backgroundColor:

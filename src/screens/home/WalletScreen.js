@@ -1,42 +1,48 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {AppState, Text, View, TouchableOpacity, StyleSheet} from 'react-native';
-import useAuth from '../../context/AuthContext';
 import {ROUTES} from '../../constants/index';
 import {useTheme} from 'styled-components';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useNavigation} from '@react-navigation/native';
 import {
-  ButtonPrimary,
-  CardBox,
-  HomeScreen,
+  BodyText,
+  FixedThemeWrapper,
   LayoutScreen,
   LayoutScroll,
-  Screen,
   Stack,
   StyledText,
   WalletTotalBalance,
 } from '../../components';
-import styled from 'styled-components/native';
-import LinearGradient from 'react-native-linear-gradient';
-import {Shadow} from 'react-native-shadow-2';
+import {DarkTheme} from '../../constants/index';
 
 const WalletScreen = ({navigation}) => {
-  const {fontColor, activeTintColor} = useTheme();
+  const {fontColor, activeTintColor, backgroundColor} = useTheme();
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
   return (
-    <LayoutScreen>
+    <LayoutScreen
+      statusBar={{
+        backgroundColor: DarkTheme.backgroundColor,
+        colorStyle: DarkTheme.statusBarStyle,
+      }}>
+      <FixedThemeWrapper dark>
+        <View
+          style={{
+            backgroundColor: DarkTheme.backgroundCardColor,
+            justifyContent: 'center',
+            alignItems: 'center',
+            display: 'flex',
+            width: '100%',
+          }}>
+          <BodyText type={2}>Wallet</BodyText>
+          <WalletTotalBalance />
+        </View>
+      </FixedThemeWrapper>
       <LayoutScroll>
         <Stack
           spacing={16}
           padding={16}
           style={{justifyContent: 'center', alignItems: 'center'}}>
-          <StyledText
-            style={{fontSize: 20, fontWeight: 'bold', marginBottom: 10}}>
-            Wallet
-          </StyledText>
-          <WalletTotalBalance />
           <View
             style={{
               flexDirection: 'row',

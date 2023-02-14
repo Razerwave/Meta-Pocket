@@ -5,7 +5,7 @@ import LayoutCenter from './layouts/LayoutCenter';
 import LayoutScroll from './layouts/LayoutScroll';
 import LayoutTopDarkSection from './layouts/LayoutTopDarkSection';
 
-// 
+//
 import Paragraph from './texts/Paragraph';
 import BodyHeading from './texts/BodyHeading';
 import BodyText from './texts/BodyText';
@@ -14,7 +14,6 @@ import ButtonPrimary from './buttons/ButtonPrimary';
 import ButtonText from './buttons/ButtonText';
 import CustomSearch from './input/CustomSearch';
 import InvoiceSheet from './InvoiceSheet';
-
 
 import StyledText from './texts/StyledText';
 import Title from './texts/Title';
@@ -36,6 +35,7 @@ import CustomSelect from './input/CustomSelect';
 import ErrorText from './texts/ErrorText';
 import WalletTotalBalance from './WalletTotalBalance';
 import ListItem from './ListItem';
+import FixedThemeWrapper from './theme/FixedThemeWrapper';
 
 export {
   Title,
@@ -71,4 +71,5 @@ export {
   BodyText,
   CustomSearch,
   InvoiceSheet,
-}
+  FixedThemeWrapper,
+};

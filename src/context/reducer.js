@@ -7,6 +7,7 @@ import {
   RESTORE_STATE,
   INITIALIZE,
   FAVORITE,
+  SET_STATUS_BAR,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -31,6 +32,14 @@ const reducer = (state, action) => {
       ...state,
       theme: action.payload.theme,
       isDarkTheme: action.payload.isDarkTheme,
+      statusBar: action.payload.statusBar,
+    };
+  }
+
+  if (action.type === SET_STATUS_BAR) {
+    return {
+      ...state,
+      statusBar: action.payload.statusBar,
     };
   }
 

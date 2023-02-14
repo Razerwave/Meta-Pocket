@@ -17,6 +17,7 @@ import {
 
 const DefaultTheme = {
   // Sure
+  statusBarStyle: 'dark-content',
   tabIndicatorColor: gray100,
   fontColor: black,
   backgroundColor: backgroundColorLight,
@@ -69,6 +70,7 @@ const DefaultTheme = {
 
 const DarkTheme = {
   // Sure
+  statusBarStyle: 'light-content',
   tabIndicatorColor: neutral200,
   fontColor: white,
   backgroundColor: backgroundColorDark,

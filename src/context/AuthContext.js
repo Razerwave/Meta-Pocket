@@ -13,6 +13,7 @@ import {
   LOGIN_USER,
   LOGOUT_USER,
   RESTORE_STATE,
+  SET_STATUS_BAR,
   TOGGLE_THEME,
   UNLOCK,
 } from './actions';
@@ -27,6 +28,14 @@ const initialState = {
   isInitialized: false,
   theme: theme,
   isDarkTheme: theme === 'dark',
+  statusBar: {
+    backgroundColor:
+      theme === 'dark'
+        ? DarkTheme.backgroundColor
+        : DefaultTheme.backgroundCardColor,
+    colorStyle:
+      theme === 'dark' ? DarkTheme.statusBarStyle : DefaultTheme.statusBarStyle,
+  },
 };
 
 const AuthContext = createContext();
@@ -107,12 +116,29 @@ const AuthProvier = ({children}) => {
 
   const toggleTheme = () => {
     const newTheme = state.isDarkTheme ? 'light' : 'dark';
+    const statusBar = {
+      backgroundColor:
+        newTheme === 'dark'
+          ? DarkTheme.backgroundColor
+          : DefaultTheme.backgroundColor,
+      colorStyle:
+        newTheme === 'dark'
+          ? DarkTheme.statusBarStyle
+          : DefaultTheme.statusBarStyle,
+    };
     dispatch({
       type: TOGGLE_THEME,
-      payload: {theme: newTheme, isDarkTheme: newTheme === 'dark'},
+      payload: {theme: newTheme, isDarkTheme: newTheme === 'dark', statusBar},
     });
 
     store.setItem('theme', newTheme);
+  };
+
+  const setStatusBar = ({backgroundColor, colorStyle}) => {
+    dispatch({
+      type: SET_STATUS_BAR,
+      payload: {statusBar: {backgroundColor, colorStyle}},
+    });
   };
 
   return (
@@ -130,6 +156,7 @@ const AuthProvier = ({children}) => {
         toggleTheme,
         favorite,
         setFavorite,
+        setStatusBar,
       }}>
       <ThemeProvider theme={state.isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}

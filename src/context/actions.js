@@ -8,3 +8,5 @@ export const LOADING_SUCCESS = 'LOADING_SUCCESS';
 export const LOADING_ERROR = 'LOADING_ERROR';
 export const RESTORE_STATE = 'RESTORE_STATE';
 export const INITIALIZE = 'INITIALIZE';
+
+export const SET_STATUS_BAR = 'SET_STATUS_BAR';

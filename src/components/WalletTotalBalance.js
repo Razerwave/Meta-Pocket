@@ -1,14 +1,15 @@
 import styled from 'styled-components/native';
 import bg from '../assets/images/wallet-total-balance-bg.png';
-import StyledText from './texts/StyledText';
+import BodyHeading from './texts/BodyHeading';
+import BodyText from './texts/BodyText';
 
 const WalletTotalBalance = () => {
   return (
     <Wrapper>
       <Background source={bg}>
         <Outer>
-          <LabelText>Total value</LabelText>
-          <StyledText>$18.254</StyledText>
+          <BodyText type={5}>Total value</BodyText>
+          <BodyHeading type={4}>$18,254</BodyHeading>
         </Outer>
       </Background>
     </Wrapper>
@@ -31,10 +32,6 @@ const Outer = styled.View`
   align-items: center;
   justify-content: center;
   aspect-ratio: 1;
-`;
-
-const LabelText = styled(StyledText)`
-  font-size: 12px;
 `;
 
 export default WalletTotalBalance;

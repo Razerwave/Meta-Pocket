@@ -5,7 +5,6 @@ import {EnterPasscode, LoadingScreen} from '../screens';
 import AuthNavigation from './AuthNavigation';
 import MainNavigation from './MainNavigation';
 import {useAuth} from '../context/AuthContext';
-import {SafeAreaView} from 'react-native';
 
 const TheNavigation = () => {
   const {isInitialized, isLoggedIn, isLocked, lock} = useAuth();
@@ -36,7 +35,6 @@ const TheNavigation = () => {
 
   return (
     <NavigationContainer>
-      <SafeAreaView />
       {isInitialized ? (
         isLoggedIn ? (
           isLocked ? (

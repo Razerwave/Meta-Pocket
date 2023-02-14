@@ -12,6 +12,7 @@ import {
   neutral100,
   red,
   gray300,
+  blue300,
 } from './colors';
 
 const DefaultTheme = {
@@ -62,7 +63,7 @@ const DefaultTheme = {
   },
   exploreTab: {
     tabInActiveColor: gray300,
-    tabActiveColor: black,
+    tabActiveColor: blue300,
   },
 };
 

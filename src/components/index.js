@@ -36,6 +36,7 @@ import ErrorText from './texts/ErrorText';
 import WalletTotalBalance from './WalletTotalBalance';
 import ListItem from './ListItem';
 import FixedThemeWrapper from './theme/FixedThemeWrapper';
+import NoticeCard from './NoticeCard';
 
 export {
   Title,
@@ -72,4 +73,5 @@ export {
   CustomSearch,
   InvoiceSheet,
   FixedThemeWrapper,
+  NoticeCard,
 };

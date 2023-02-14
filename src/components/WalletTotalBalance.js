@@ -2,16 +2,19 @@ import styled from 'styled-components/native';
 import bg from '../assets/images/wallet-total-balance-bg.png';
 import BodyHeading from './texts/BodyHeading';
 import BodyText from './texts/BodyText';
+import { TouchableOpacity } from 'react-native'
 
-const WalletTotalBalance = () => {
+const WalletTotalBalance = ({onPress}) => {
   return (
     <Wrapper>
-      <Background source={bg}>
-        <Outer>
-          <BodyText type={5}>Total value</BodyText>
-          <BodyHeading type={4}>$18,254</BodyHeading>
-        </Outer>
-      </Background>
+      <TouchableOpacity onPress={onPress} disabled={!onPress}>
+        <Background source={bg}>
+          <Outer>
+            <BodyText type={5}>Total value</BodyText>
+            <BodyHeading type={4}>$18,254</BodyHeading>
+          </Outer>
+        </Background>
+      </TouchableOpacity>
     </Wrapper>
   );
 };

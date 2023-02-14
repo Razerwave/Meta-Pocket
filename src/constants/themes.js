@@ -13,6 +13,7 @@ import {
   red,
   gray300,
   blue300,
+  purple200,
 } from './colors';
 
 const DefaultTheme = {
@@ -46,6 +47,13 @@ const DefaultTheme = {
   },
   search: {
     borderColor: neutral100,
+    placeholerColor: neutral100,
+    inputColor: white,
+  },
+  walletTab: {
+    borderColor: gray100,
+    activeColor: purple200,
+    inactiveColor: gray300,
   },
 
   // not sure
@@ -101,6 +109,11 @@ const DarkTheme = {
     borderColor: neutral100,
     placeholerColor: neutral100,
     inputColor: white,
+  },
+  walletTab: {
+    borderColor: neutral200,
+    activeColor: white,
+    inactiveColor: gray300,
   },
 
   // not sure

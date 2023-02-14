@@ -1,22 +1,49 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { useTheme } from 'styled-components'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {useTheme} from 'styled-components';
 
-const StepsAuth = ({ current }) => {
-  const { steps: { activeColor, inactiveColor } } = useTheme()
+const StepsAuth = ({current}) => {
+  const {
+    steps: {activeColor, inactiveColor},
+  } = useTheme();
 
   return (
     <View style={styles.container}>
-      <View style={[styles.line, { borderColor: 0 < current ? activeColor : inactiveColor }]} />
-      <View style={[styles.line, { borderColor: 1 < current ? activeColor : inactiveColor }]} />
-      <View style={[styles.line, { borderColor: 2 < current ? activeColor : inactiveColor }]} />
-      <View style={[styles.line, { borderColor: 3 < current ? activeColor : inactiveColor }]} />
-      <View style={[styles.line, { borderColor: 4 < current ? activeColor : inactiveColor }]} />
+      <View
+        style={[
+          styles.line,
+          {borderColor: 0 < current ? activeColor : inactiveColor},
+        ]}
+      />
+      <View
+        style={[
+          styles.line,
+          {borderColor: 1 < current ? activeColor : inactiveColor},
+        ]}
+      />
+      <View
+        style={[
+          styles.line,
+          {borderColor: 2 < current ? activeColor : inactiveColor},
+        ]}
+      />
+      <View
+        style={[
+          styles.line,
+          {borderColor: 3 < current ? activeColor : inactiveColor},
+        ]}
+      />
+      <View
+        style={[
+          styles.line,
+          {borderColor: 4 < current ? activeColor : inactiveColor},
+        ]}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default StepsAuth
+export default StepsAuth;
 
 const styles = StyleSheet.create({
   container: {
@@ -29,5 +56,5 @@ const styles = StyleSheet.create({
   line: {
     flex: 1,
     borderWidth: 1,
-  }
-})
+  },
+});

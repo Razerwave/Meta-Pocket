@@ -12,6 +12,7 @@ import {
   gray5,
   neutral100,
   red,
+  gray300,
 } from './colors';
 
 const DefaultTheme = {
@@ -57,6 +58,10 @@ const DefaultTheme = {
     opacity: '1',
     stroke: black,
   },
+  exploreTab: {
+    tabInActiveColor: gray300,
+    tabActiveColor: black,
+  },
 };
 
 const DarkTheme = {
@@ -101,6 +106,10 @@ const DarkTheme = {
     bgColor: gray200,
     opacity: '0.3',
     stroke: white,
+  },
+  exploreTab: {
+    tabInActiveColor: gray300,
+    tabActiveColor: white,
   },
 };
 

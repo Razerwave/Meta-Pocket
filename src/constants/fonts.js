@@ -1,17 +1,17 @@
-export const fontButton = 'Poppins'
-export const fontBody = 'Lato'
+export const fontButton = 'Poppins';
+export const fontBody = 'Lato';
 
 // FONT1
-export const HeadingWeight = 'regular'
-export const HeadingSize = 18
+export const HeadingWeight = 'regular';
+export const HeadingSize = 18;
 export const ButtonTextWeight = {
   1: '600',
   2: '600',
-}
+};
 export const ButtonTextSize = {
   1: 14,
   2: 10,
-}
+};
 
 // FONT2 - title
 export const BodyHeadingWeight = {
@@ -21,7 +21,7 @@ export const BodyHeadingWeight = {
   4: '600',
   5: '600',
   6: '600',
-}
+};
 export const BodyHeadingSize = {
   1: 64,
   2: 48,
@@ -29,7 +29,7 @@ export const BodyHeadingSize = {
   4: 34,
   5: 32,
   6: 24,
-}
+};
 
 // FONT2 - title
 export const BodyTextWeight = {
@@ -38,14 +38,18 @@ export const BodyTextWeight = {
   3: '400',
   4: '400',
   5: '400',
-}
+  6: '600',
+  7: '400',
+};
 export const BodyTextSize = {
   1: 20,
   2: 18,
   3: 16,
   4: 14,
   5: 12,
-}
+  6: 14,
+  7: 10,
+};
 
 // export const BodyTextWeight1 = '600'
 // export const BodyTextWeight2 = '600'

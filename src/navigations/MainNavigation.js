@@ -15,7 +15,7 @@ import HomeNavigation from './HomeNavigation';
 import {LayoutHeader} from '../components';
 import {PortfolioScreen} from '../screens/wallet';
 import {BuyItem} from '../screens/BuyItem/index';
-import {blackBlue2} from '../constants/colors';
+import {neutral300} from '../constants/colors';
 
 const Stack = createNativeStackNavigator();
 
@@ -83,7 +83,7 @@ const MainNavigation = () => {
           headerShown: true,
           title: 'Buy Item',
           headerStyle: {
-            backgroundColor: blackBlue2,
+            backgroundColor: neutral300,
           },
         }}
         name={ROUTES.BUY.BUY_SCREEN}

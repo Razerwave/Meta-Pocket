@@ -56,11 +56,10 @@ export const gray300 = '#777777';
 export const gray200 = '#7F7F7F';
 export const gray100 = '#D9D9D9';
 export const white = '#FFFFFF';
-export const gray5 = '#C2C2C2';
 
 // BG
-export const backgroundColorDark = "#1C1C28"
-export const backgroundColorLight = "#F7F8F9"
+export const backgroundColorDark = '#1C1C28';
+export const backgroundColorLight = '#F7F8F9';
 
 // Logo
-export const LogoColorLight = "#001E70"
+export const LogoColorLight = '#001E70';

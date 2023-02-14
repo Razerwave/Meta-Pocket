@@ -1,215 +1,63 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  Pressable,
-  useWindowDimensions,
-  StyleSheet,
-} from 'react-native';
-import {
-  HomeScreen,
-  LayoutScreen,
-  LayoutScroll,
-  Stack,
-  StyledText,
-} from '../../components';
+import {View, TouchableOpacity, Image, useWindowDimensions} from 'react-native';
+import {BodyText, LayoutScreen, LayoutScroll} from '../../components';
 import {useTheme} from 'styled-components';
-import IonIcon from 'react-native-vector-icons/Ionicons';
 import {ROUTES} from '../../constants';
-import {useAuth} from '../../context/AuthContext';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import {links, Artlinks} from '../../constants/ListData';
 import {IconColorDot} from '../../assets/icons';
-// const ExploreListScreen = ({navigation, route}) => {
-//   const {fontColor, activeTintColor} = useTheme();
-//   const data = route.params.data;
-//   const title = route.params.title;
-//   const favorite = route.params.favorite;
-//   const setFavorite = route.params.setFavorite;
-//   // const {favorite, setFavorite} = useAuth();
-//   const WEB_LINK = 'https://www.youtube.com/';
-//   const [tab, setTab] = useState(0);
-
-//   return (
-//     <HomeScreen>
-//       <Stack spacing={20} padding={16}>
-//         <Stack direction="row" style={{justifyContent: 'space-between'}}>
-//           {title.map((sceenTitle, key) => {
-//             const isActive = tab === key;
-//             return (
-//               <Stack
-//                 key={key}
-//                 style={[
-//                   {
-//                     paddingHorizontal: 12,
-//                   },
-//                   isActive && {
-//                     borderBottomWidth: 3,
-//                     borderBottomColor: 'white',
-//                   },
-//                 ]}>
-//                 <TouchableOpacity
-//                   key={sceenTitle.id}
-//                   style={{}}
-//                   onPress={() => setTab(key)}>
-//                   <StyledText
-//                     style={[
-//                       {fontWeight: 'bold'},
-//                       isActive ? {color: 'white'} : {color: '#777777'},
-//                     ]}>
-//                     {sceenTitle.title}
-//                   </StyledText>
-//                 </TouchableOpacity>
-//               </Stack>
-//             );
-//           })}
-//         </Stack>
-//         {data.map((index, key) => (
-//           <View key={key}>
-//             <TouchableOpacity
-//               onPress={() =>
-//                 navigation.navigate(ROUTES.EXPLORE.WEB, {uri: WEB_LINK})
-//               }
-//               fontColor={fontColor}
-//               style={{
-//                 flexDirection: 'row',
-//                 gap: 16,
-//                 justifyContent: 'center',
-//                 alignItems: 'center',
-//               }}>
-//               <View
-//                 style={{
-//                   borderColor: fontColor,
-//                 }}>
-//                 <Image
-//                   source={require('../../assets/icons/Ellipse93.png')}
-//                   style={{width: 14, height: 14}}
-//                 />
-//               </View>
-//               <Stack spacing={20} direction="row" style={{flex: 1}}>
-//                 <Stack style={{flex: 1}}>
-//                   <Stack style={{borderColor: 'gray'}}>
-//                     <StyledText
-//                       style={{fontWeight: 'bold', paddingHorizontal: 8}}>
-//                       {index.Subject}
-//                     </StyledText>
-//                   </Stack>
-
-//                   <Stack>
-//                     <StyledText
-//                       style={{
-//                         borderColor: 'gray',
-//                         paddingHorizontal: 8,
-//                         color: '#777777',
-//                       }}>
-//                       {index.Description}
-//                     </StyledText>
-//                   </Stack>
-//                 </Stack>
-//                 <View>
-//                   <Pressable>
-//                     {index.fav == true ? (
-//                       <Image
-//                         source={require('../../assets/icons/Vector.png')}
-//                         style={{width: 14, height: 14}}
-//                       />
-//                     ) : (
-//                       <Image
-//                         source={require('../../assets/icons/favorite.png')}
-//                         style={{width: 14, height: 14}}
-//                       />
-//                     )}
-//                   </Pressable>
-//                 </View>
-//               </Stack>
-//             </TouchableOpacity>
-//           </View>
-//         ))}
-//       </Stack>
-//     </HomeScreen>
-//   );
-// };
+import styled from 'styled-components/native';
+import {gray300, yellow200} from '../../constants/colors';
 
 const TabViewExample = ({navigation, route}) => {
   const layout = useWindowDimensions();
-  const {logout, isDarkTheme, toggleTheme} = useAuth();
   const [index, setIndex] = React.useState(route.params.tabIndex || 0);
 
-  const {
-    backgroundColor,
-    bottomTab,
-    fontColor,
-    steps,
-    fonts,
-    tabIndicatorColor,
-  } = useTheme();
-  const WEB_LINK = 'https://www.youtube.com/';
+  const {backgroundColor, steps, exploreTab} = useTheme();
 
   const WebsiteTab = () => {
     return (
       <LayoutScreen>
         <LayoutScroll>
-          <Stack
-            spacing={20}
-            padding={16}
-            style={{borderTopWidth: 1, borderColor: tabIndicatorColor}}>
+          <Container>
             {links.map((index, key) => (
-              <Stack key={key} style={{gap: 20}}>
-                <TouchableOpacity
+              <Section key={key}>
+                <ListTouchableOpacity
                   onPress={() =>
                     navigation.navigate(ROUTES.EXPLORE.WEB, {uri: index.url})
-                  }
-                  style={{
-                    flexDirection: 'row',
-                    gap: 16,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  <View style={{}}>
-                    <IconColorDot color="#F7931A" />
+                  }>
+                  <View>
+                    <IconColorDot color={yellow200} />
                   </View>
-                  <Stack spacing={20} direction="row" style={{flex: 1}}>
-                    <Stack style={{flex: 1}}>
-                      <Stack style={{borderColor: 'gray'}}>
-                        <StyledText
-                          style={{fontWeight: 'bold', paddingHorizontal: 8}}>
-                          {index.Subject}
-                        </StyledText>
-                      </Stack>
-
-                      <Stack>
-                        <StyledText
-                          style={{
-                            borderColor: 'gray',
-                            paddingHorizontal: 8,
-                            color: '#777777',
-                          }}>
-                          {index.url}
-                        </StyledText>
-                      </Stack>
-                    </Stack>
-                    <View>
-                      <Pressable>
-                        {index.fav == true ? (
-                          <Image
-                            source={require('../../assets/icons/Vector.png')}
-                            style={{width: 14, height: 14}}
-                          />
-                        ) : (
-                          <Image
-                            source={require('../../assets/icons/favorite.png')}
-                            style={{width: 14, height: 14}}
-                          />
-                        )}
-                      </Pressable>
-                    </View>
-                  </Stack>
-                </TouchableOpacity>
-              </Stack>
+                  <ContentList>
+                    <Content>
+                      <BodyText type={5}>{index.Subject}</BodyText>
+                      <BodyText
+                        type={7}
+                        style={{
+                          color: gray300,
+                        }}>
+                        {index.url}
+                      </BodyText>
+                    </Content>
+                    <TouchableOpacity>
+                      {index.fav == true ? (
+                        <Image
+                          source={require('../../assets/icons/Vector.png')}
+                          style={{width: 14, height: 14}}
+                        />
+                      ) : (
+                        <Image
+                          source={require('../../assets/icons/favorite.png')}
+                          style={{width: 14, height: 14}}
+                        />
+                      )}
+                    </TouchableOpacity>
+                  </ContentList>
+                </ListTouchableOpacity>
+              </Section>
             ))}
-          </Stack>
+          </Container>
         </LayoutScroll>
       </LayoutScreen>
     );
@@ -218,71 +66,51 @@ const TabViewExample = ({navigation, route}) => {
     return (
       <LayoutScreen>
         <LayoutScroll>
-          <Stack
-            spacing={20}
-            padding={16}
-            style={{borderTopWidth: 1, borderColor: tabIndicatorColor}}>
+          <Container>
             {Artlinks.map((index, key) => (
-              <Stack key={key} style={{gap: 20}}>
-                <TouchableOpacity
+              <Section key={key}>
+                <ListTouchableOpacity
                   onPress={() =>
                     navigation.navigate(ROUTES.BUY.BUY_SCREEN, {
                       item: index,
                     })
-                  }
-                  style={{
-                    flexDirection: 'row',
-                    gap: 16,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
+                  }>
                   <View style={{}}>
                     <IconColorDot color="#FF3D60" />
                   </View>
-                  <Stack spacing={20} direction="row" style={{flex: 1}}>
-                    <Stack style={{flex: 1}}>
-                      <Stack style={{borderColor: 'gray'}}>
-                        <StyledText
-                          style={{fontWeight: 'bold', paddingHorizontal: 8}}>
-                          {index.name}
-                        </StyledText>
-                      </Stack>
-
-                      <Stack>
-                        <StyledText
-                          style={{
-                            borderColor: 'gray',
-                            paddingHorizontal: 8,
-                            color: '#777777',
-                          }}>
-                          {index.author}
-                        </StyledText>
-                      </Stack>
-                    </Stack>
-                    <View>
-                      <Pressable>
-                        {index.fav == true ? (
-                          <Image
-                            source={require('../../assets/icons/Vector.png')}
-                            style={{width: 14, height: 14}}
-                          />
-                        ) : (
-                          <Image
-                            source={require('../../assets/icons/favorite.png')}
-                            style={{width: 14, height: 14}}
-                          />
-                        )}
-                      </Pressable>
-                    </View>
-                  </Stack>
-                </TouchableOpacity>
-              </Stack>
+                  <ContentList>
+                    <Content>
+                      <BodyText type={5}>{index.name}</BodyText>
+                      <BodyText
+                        type={7}
+                        style={{
+                          color: gray300,
+                        }}>
+                        {index.author}
+                      </BodyText>
+                    </Content>
+                    <TouchableOpacity>
+                      {index.fav == true ? (
+                        <Image
+                          source={require('../../assets/icons/Vector.png')}
+                          style={{width: 14, height: 14}}
+                        />
+                      ) : (
+                        <Image
+                          source={require('../../assets/icons/favorite.png')}
+                          style={{width: 14, height: 14}}
+                        />
+                      )}
+                    </TouchableOpacity>
+                  </ContentList>
+                </ListTouchableOpacity>
+              </Section>
             ))}
             <View
               style={{
                 alignItems: 'flex-end',
               }}></View>
-          </Stack>
+          </Container>
         </LayoutScroll>
       </LayoutScreen>
     );
@@ -292,7 +120,7 @@ const TabViewExample = ({navigation, route}) => {
     websiteTab: WebsiteTab,
     artTab: ArtTabRoute,
   });
-  const [routes, setRoutes] = React.useState([
+  const [routes] = React.useState([
     {key: 'websiteTab', title: 'Website'},
     {key: 'artTab', title: 'Art'},
   ]);
@@ -317,7 +145,7 @@ const TabViewExample = ({navigation, route}) => {
             color: 'pink',
             marginTop: 15,
           }}
-          inactiveColor={fonts.subTitleColor}
+          inactiveColor={exploreTab.tabInActiveColor}
           indicatorContainerStyle={{}}
           labelStyle={{
             fontSize: 16,
@@ -326,7 +154,7 @@ const TabViewExample = ({navigation, route}) => {
             textTransform: 'capitalize',
           }}
           sceneContainerStyle={{color: 'pink'}}
-          activeColor={steps.activeColor}
+          activeColor={exploreTab.tabActiveColor}
           indicatorStyle={[
             {
               backgroundColor: steps.activeColor,
@@ -338,4 +166,32 @@ const TabViewExample = ({navigation, route}) => {
     />
   );
 };
+
+const Container = styled.View`
+  gap: 20px;
+  padding: 16px;
+  border-top-width: 1px;
+  border-color: ${props => props.theme.tabIndicatorColor};
+`;
+
+const Section = styled.View`
+  gap: 20px;
+`;
+
+const ListTouchableOpacity = styled.TouchableOpacity`
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+  align-self: flex-start;
+`;
+
+const ContentList = styled.View`
+  gap: 20px;
+  flex-direction: row;
+  flex: 1;
+`;
+
+const Content = styled.View`
+  flex: 1;
+`;
 export default TabViewExample;

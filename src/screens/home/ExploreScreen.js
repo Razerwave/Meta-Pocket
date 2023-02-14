@@ -14,6 +14,7 @@ import {testData} from '../../constants/ListData';
 import {IconColorDot, IconExploreArrow} from '../../assets/icons';
 import {yellow200, red, neutral300, neutral100} from '../../constants/colors';
 import {useTheme} from 'styled-components';
+import {Text} from 'react-native-svg';
 
 const ExploreScreen = ({navigation}) => {
   const WEB_LINK = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
@@ -100,6 +101,7 @@ const ExploreScreen = ({navigation}) => {
                       })}
                     </ContainerWeb>
                   )}
+
                   {title == 'Art' && (
                     <ContainerWeb>
                       {items.map((item, index) => {

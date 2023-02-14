@@ -9,6 +9,7 @@ import {
   backgroundColorDark,
   backgroundColorLight,
   LogoColorLight,
+  gray5,
 } from './colors';
 
 const DefaultTheme = {
@@ -29,15 +30,13 @@ const DefaultTheme = {
   },
   logoColor: LogoColorLight,
   dividerColor: gray100,
+  subTitleColor: gray5,
 
   // not sure
   backgroundCardColor: white,
 
   // not done
   activeTintColor: primary,
-  fonts: {
-    subTitleColor: white,
-  },
   steps: {
     activeColor: white,
     inactiveColor: white,
@@ -76,15 +75,13 @@ const DarkTheme = {
   },
   logoColor: white,
   dividerColor: neutral200,
+  subTitleColor: gray5,
 
   // not sure
   backgroundCardColor: black,
 
   // not done
   activeTintColor: primary,
-  fonts: {
-    subTitleColor: black,
-  },
   steps: {
     activeColor: white,
     inactiveColor: black,

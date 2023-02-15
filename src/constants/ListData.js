@@ -45,6 +45,57 @@ const Dappdata = [
   },
 ];
 
+const ExploreData = {
+  website: [
+    {
+      text: 'Two gils ...',
+      url: 'https://www.youtube.com/',
+      description: 'https://www.youtube.com/',
+      star: true,
+    },
+    {
+      text: 'Two gils ...',
+      url: 'https://www.youtube.com/',
+      description: 'https://www.youtube.com/',
+      star: true,
+    },
+    {
+      text: 'Two gils ...',
+      url: 'https://www.youtube.com/',
+      description: 'https://www.youtube.com/',
+      star: false,
+    },
+    {
+      text: 'Two gils ...',
+      url: 'https://www.youtube.com/',
+      description: 'https://www.youtube.com/',
+      star: false,
+    },
+  ],
+  art: [
+    {
+      text: 'Two gils ...',
+      description: 'Pierre-Auguste Renoir (1881)',
+      star: true,
+    },
+    {
+      text: 'Flowers ...',
+      description: 'Edgar Degas (1873)',
+      star: true,
+    },
+    {
+      text: 'Steamboats in the Port ...',
+      description: 'Pierre-Auguste Renoir (1881)',
+      star: false,
+    },
+    {
+      text: 'Two gils ...',
+      description: 'Pierre-Auguste Renoir (1881)',
+      star: true,
+    },
+  ]
+};
+
 const Artlinks = [
   {
     name: 'Two gils ...',
@@ -250,4 +301,5 @@ export {
   Dappdata,
   PortfolioData,
   WalletHomeData,
+  ExploreData,
 };

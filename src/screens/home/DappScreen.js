@@ -23,6 +23,11 @@ const TAB_ROUTES = [
 const DappScreen = () => {
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setData(Dappdata);
+  }, []);
+  
   const renderScene = ({ route }) => {
     switch (route.key) {
       case 'AllTab':
@@ -33,10 +38,6 @@ const DappScreen = () => {
         return <DappTab data={data.filter(({ type }) => 'Mining' ? type === 'Mining' : true)} />;
     }
   };
-
-  useEffect(() => {
-    setData(Dappdata);
-  }, []);
 
   return (
     <CustomTabs

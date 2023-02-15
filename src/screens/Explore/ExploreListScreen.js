@@ -10,6 +10,7 @@ import {
   CustomTabs,
   LayoutScreen,
   LayoutScroll,
+  Stack,
 } from '../../components';
 
 const TAB_ROUTES = [
@@ -111,6 +112,7 @@ const ListTouchableOpacity = styled.TouchableOpacity`
   gap: 16px;
   justify-content: center;
   align-self: flex-start;
+  align-items: center
 `;
 
 const ContentList = styled.View`

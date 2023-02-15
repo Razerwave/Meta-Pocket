@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {View, Image, TouchableOpacity, ImageBackground} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Image, TouchableOpacity, ImageBackground } from 'react-native';
 import styled from 'styled-components/native';
 import {
   BodyText,
@@ -8,13 +8,13 @@ import {
   LayoutScroll,
   Stack,
 } from '../../components';
-import {ROUTES} from '../../constants';
+import { ROUTES } from '../../constants';
 
-import {testData} from '../../constants/ListData';
-import {IconColorDot, IconExploreArrow} from '../../assets/icons';
-import {yellow200, red, neutral300, neutral100} from '../../constants/colors';
+import { testData } from '../../constants/ListData';
+import { IconColorDot, IconExploreArrow } from '../../assets/icons';
+import { yellow200, red, neutral300, neutral100 } from '../../constants/colors';
 
-const ExploreScreen = ({navigation}) => {
+const ExploreScreen = ({ navigation }) => {
   const WEB_LINK = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
   const [data, setData] = useState([]);
 
@@ -30,153 +30,91 @@ const ExploreScreen = ({navigation}) => {
     <LayoutScreen>
       <LayoutScroll>
         <Container1>
-          {data.map(({title, items, key}, index) => {
+          {data.map(({ title, items, key, ...item }, index) => {
             return (
               <View key={index}>
                 <Container>
                   <Title>
-                    {title === 'Website' && <IconColorDot color={yellow200} />}
-                    {title === 'Art' && <IconColorDot color={red} />}
+                    <IconColorDot color={item.dotColor} />
                     <TitleSection>{title}</TitleSection>
                   </Title>
-                  <TouchableOpacity
-                    onPress={() =>
-                      navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
-                        data: items,
-                        key: key,
-                        title: title,
-                        tabIndex: index,
-                      })
-                    }>
+                  <TouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, { tabIndex: index, })}>
                     <IconExploreArrow />
                   </TouchableOpacity>
                 </Container>
 
                 <View>
-                  {title == 'Website' && (
-                    <ContainerWeb>
-                      {items.map((item, index) => {
-                        if (index < 4) {
-                          return (
-                            <View key={index}>
-                              <AllTabTouchableOpacity
-                                onPress={() =>
-                                  navigation.navigate(ROUTES.EXPLORE.WEB, {
-                                    uri: WEB_LINK,
-                                    title: title,
-                                  })
-                                }>
-                                <Card>
-                                  <FavoritePress>
-                                    {item.fav == true ? (
-                                      <Image
-                                        source={require('../../assets/icons/Vector.png')}
-                                        style={{width: 14, height: 14}}
-                                      />
-                                    ) : (
-                                      <Image
-                                        source={require('../../assets/icons/favorite.png')}
-                                        style={{width: 14, height: 14}}
-                                      />
-                                    )}
-                                  </FavoritePress>
-                                  <ImageContainer>
-                                    <Image source={item.logo} />
-                                  </ImageContainer>
-                                </Card>
-                              </AllTabTouchableOpacity>
+                  <ContainerWeb>
+                    {items.slice(0, 4).map((item, index) => title == 'Website' ? (
+                      <View key={index}>
+                        <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.WEB, { uri: WEB_LINK, title: title })}>
+                          <Card>
+                            <FavoritePress>
+                              <Image
+                                source={item.star ? require('../../assets/icons/Vector.png') : require('../../assets/icons/favorite.png')}
+                                style={{ width: 14, height: 14 }}
+                              />
+                            </FavoritePress>
+                            <ImageContainer>
+                              <Image source={item.logo} />
+                            </ImageContainer>
+                          </Card>
+                        </AllTabTouchableOpacity>
 
-                              <DescriptionContainer>
-                                <BodyText
-                                  type={8}
-                                  style={{
-                                    marginTop: 10,
-                                    marginBottom: 6,
-                                  }}>
-                                  {item.Subject}
-                                </BodyText>
-                                <BodyText type={7} style={{color: neutral100}}>
-                                  {item.Subject}
-                                </BodyText>
-                              </DescriptionContainer>
-                            </View>
-                          );
-                        }
-                      })}
-                    </ContainerWeb>
-                  )}
+                        <DescriptionContainer>
+                          <BodyText type={8} style={{ marginTop: 10, marginBottom: 6, }}>
+                            {item.title}
+                          </BodyText>
+                          <BodyText type={7} style={{ color: neutral100 }}>
+                            {item.description}
+                          </BodyText>
+                        </DescriptionContainer>
+                      </View>
+                    ) : title == 'Art' && (
+                      <View key={index}>
+                        <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.BUY.BUY_SCREEN, { uri: WEB_LINK, item: item })}>
+                          <ArtCard>
+                            <ImageBackground source={item.image} style={{ flex: 1, justifyContent: 'center' }} resizeMode="cover">
+                              <FavoriteSection>
+                                <SetArtFavorite>
+                                  <Image
+                                    source={item.star ? require('../../assets/icons/Vector.png') : require('../../assets/icons/favorite.png')}
+                                    style={{ width: 14, height: 14 }}
+                                  />
+                                </SetArtFavorite>
+                              </FavoriteSection>
+                            </ImageBackground>
+                          </ArtCard>
+                        </AllTabTouchableOpacity>
 
-                  {title == 'Art' && (
-                    <ContainerWeb>
-                      {items.map((item, index) => {
-                        if (index < 4) {
-                          return (
-                            <View key={index}>
-                              <AllTabTouchableOpacity
-                                onPress={() =>
-                                  navigation.navigate(ROUTES.BUY.BUY_SCREEN, {
-                                    uri: WEB_LINK,
-                                    item: item,
-                                  })
-                                }>
-                                <ArtCard>
-                                  <ImageBackground
-                                    source={item.image}
-                                    style={{
-                                      flex: 1,
-                                      justifyContent: 'center',
-                                    }}
-                                    resizeMode="cover">
-                                    <FavoriteSection>
-                                      <SetArtFavorite>
-                                        {item.fav == true ? (
-                                          <Image
-                                            source={require('../../assets/icons/Vector.png')}
-                                            style={{width: 14, height: 14}}
-                                          />
-                                        ) : (
-                                          <Image
-                                            source={require('../../assets/icons/favorite.png')}
-                                            style={{width: 14, height: 14}}
-                                          />
-                                        )}
-                                      </SetArtFavorite>
-                                    </FavoriteSection>
-                                  </ImageBackground>
-                                </ArtCard>
-                              </AllTabTouchableOpacity>
-
-                              <View>
-                                <BodyText
-                                  type={8}
-                                  style={{
-                                    marginTop: 10,
-                                    marginBottom: 6,
-                                  }}>
-                                  {item.name}
-                                </BodyText>
-                                <ArtSubtitle>
-                                  <BodyText
-                                    type={7}
-                                    style={{color: neutral100}}>
-                                    {item.total}
-                                  </BodyText>
-                                  <BodyText
-                                    type={7}
-                                    style={{color: neutral100}}>
-                                    {item.coin}
-                                  </BodyText>
-                                </ArtSubtitle>
-                              </View>
-                            </View>
-                          );
-                        }
-                      })}
-                    </ContainerWeb>
-                  )}
+                        <View>
+                          <BodyText
+                            type={8}
+                            style={{
+                              marginTop: 10,
+                              marginBottom: 6,
+                            }}>
+                            {item.title}
+                          </BodyText>
+                          <ArtSubtitle>
+                            <BodyText
+                              type={7}
+                              style={{ color: neutral100 }}>
+                              {item.total}
+                            </BodyText>
+                            <BodyText
+                              type={7}
+                              style={{ color: neutral100 }}>
+                              {item.coin}
+                            </BodyText>
+                          </ArtSubtitle>
+                        </View>
+                      </View>
+                    ))}
+                  </ContainerWeb>
                 </View>
                 {title !== 'Art' && (
-                  <Stack style={{marginVertical: 20}}>
+                  <Stack style={{ marginVertical: 20 }}>
                     <Divider></Divider>
                   </Stack>
                 )}

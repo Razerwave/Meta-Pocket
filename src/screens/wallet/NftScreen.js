@@ -27,21 +27,31 @@ const NftScreen = ({ route, navigation }) => {
             </BodyText>
           </Stack>
         </FixedThemeWrapper>
-        <Stack spacing={20} marginTop={30}>
-          <Stack>
-            <Stack>
-              <BodyText></BodyText>
-            </Stack>
-            <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
-              <BodyText></BodyText>
-            </Stack>
-          </Stack>
+        <Stack gap={20} marginTop={30} marginBottom={30} marginHorizontal={27}>
+          {[
+            { label: 'description', value: item.name },
+            { label: 'standard', value: 'ERC7021' },
+            { label: 'contract', value: '0xdcdcd...sdsdsdsd' },
+          ].map((item, index) => <ListItem key={index} {...item} />)}
         </Stack>
-
-        <ButtonPrimary title="Buy" onPress={() => navigation.navigate(ROUTES.SENDNFT.SENDNFT_SCREEN)} />
-
+        <View alignItems="center">
+          <ButtonPrimary title="Send" onPress={() => navigation.navigate(ROUTES.SENDNFT.SENDNFT_SCREEN)} />
+        </View>
       </LayoutScroll>
     </LayoutScreen>
+  )
+}
+
+const ListItem = ({ label, value }) => {
+  return (
+    <Stack direction='row'>
+      <Stack>
+        <BodyText style={{ textTransform: 'capitalize' }}>{label}</BodyText>
+      </Stack>
+      <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+        <BodyText>{value}</BodyText>
+      </Stack>
+    </Stack>
   )
 }
 

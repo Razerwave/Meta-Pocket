@@ -3,12 +3,14 @@ import {ButtonPrimary, CustomInput, LayoutScreen} from '../../components';
 import styled from 'styled-components/native';
 import {ROUTES} from '../../constants';
 
-const SendNftScreen = ({navigation}) => {
+const SendNftScreen = ({navigation, route}) => {
   const [uid, setUid] = useState('');
   const [error, setError] = useState(false);
-
+  const data = route.params.Nftdata;
+  console.log(data, ' 0000');
   const handleChangeContact = event => {
     console.log('handleChangeContact', event);
+    setUid(event);
   };
 
   return (
@@ -30,7 +32,10 @@ const SendNftScreen = ({navigation}) => {
           <ButtonPrimary
             title="Next"
             onPress={() =>
-              navigation.navigate(ROUTES.SENDNFT_AUTH.SENDNFT_AUTH_SCREEN)
+              navigation.navigate(ROUTES.SENDNFT_AUTH.SENDNFT_AUTH_SCREEN, {
+                to: uid,
+                nft: data,
+              })
             }
           />
         </ButtonContainer>

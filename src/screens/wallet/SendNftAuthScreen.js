@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {View, Image} from 'react-native';
 import styled from 'styled-components/native';
 
 import {
@@ -17,11 +17,13 @@ import {
 import {ROUTES} from '../../constants';
 import {neutral100} from '../../constants/colors';
 
-const SendNftAuthScreen = ({navigation}) => {
+const SendNftAuthScreen = ({navigation, route}) => {
   const [uid, setUid] = useState('');
   const [quantity, setQuantity] = useState(0);
   const [memo, setMemo] = useState('');
   const [error, setError] = useState(false);
+  const data = route.params.to;
+  const nft = route.params.nft;
   let pattern = /[^0-9]/g;
 
   const handleChangeUid = event => {
@@ -43,18 +45,20 @@ const SendNftAuthScreen = ({navigation}) => {
     <LayoutScreen>
       <Container>
         <ActionInfoBorder style={{flex: 0.8, justifyContent: 'space-evenly'}}>
-          <Stack style={{alignItems: 'center'}}>
-            <BodyHeading type={7}>0.3 BTC</BodyHeading>
-            <BodyText type={3}>≈ $12,345</BodyText>
+          <Stack
+            direction="row"
+            spacing={27}
+            style={{justifyContent: 'space-evenly'}}>
+            <Image source={nft.image} style={{width: 110, height: 110}} />
+            <View style={{alignItems: 'center'}}>
+              <BodyHeading type={4}>{nft.type}</BodyHeading>
+              <BodyText type={3}>#{nft.code}</BodyText>
+            </View>
           </Stack>
           <Wrapper>
             <View style={{gap: 30, justifyContent: 'space-around'}}>
               <Section>
                 <DividerDotted />
-                {/* <Content>
-                <BodyText type={6}>Name</BodyText>
-                <BodyText type={4}>Shoes #748</BodyText>
-              </Content> */}
                 <View style={{gap: 10}}>
                   <Content>
                     <BodyText type={6}>From</BodyText>
@@ -62,12 +66,11 @@ const SendNftAuthScreen = ({navigation}) => {
                   </Content>
                   <Content>
                     <BodyText type={6}>To</BodyText>
-                    <BodyText type={4}>0x333lksdf..sdflEDFWe</BodyText>
+                    <BodyText type={4}>{data}</BodyText>
                   </Content>
                 </View>
+                <DividerDotted />
               </Section>
-
-              <DividerDotted />
 
               <Section>
                 <Content>
@@ -76,9 +79,8 @@ const SendNftAuthScreen = ({navigation}) => {
                 </Content>
               </Section>
 
-              <DividerDotted />
-
               <Section>
+                <DividerDotted />
                 <Content>
                   <BodyText type={6}>Total</BodyText>
                   <BodyText type={4}>$200.1</BodyText>
@@ -89,7 +91,7 @@ const SendNftAuthScreen = ({navigation}) => {
         </ActionInfoBorder>
         <ButtonContainer>
           <ButtonPrimary
-            title="Next"
+            title="Send"
             onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
           />
         </ButtonContainer>
@@ -104,40 +106,36 @@ const ButtonContainer = styled.View`
 `;
 
 const Container = styled.View`
-  gap: 30px;
   height: auto;
   margin-left: 23px;
   margin-right: 23px;
   justify-content: space-around;
-  border-width: 2px;
   flex: 1;
 `;
 
-// const Content = styled.View`
-//   flex: 1;
-//   justify-content: space-between;
-//   margin-bottom: 50px;
-// `;
-
 const Wrapper = styled.View`
-  gap: 16px;
+  gap: 18px;
 `;
 
 const Content = styled.View`
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 7px;
+  padding-right: 7px;
 `;
 
 const Section = styled.View`
   gap: 20px;
-  padding-left: 7px;
-  padding-right: 7px;
+  padding-left: 23px;
+  padding-right: 23px;
   justify-content: center;
 `;
+
 const DividerDotted = styled.View`
   border-color: ${neutral100};
   border-style: dashed;
-  border-width: 0.8px;
+  border-width: 1px;
   flex: 1;
 `;
+
 export default SendNftAuthScreen;

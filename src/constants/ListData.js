@@ -1,4 +1,16 @@
-import { gray100, gray200, gray300, green400, magenta, neutral100, primary, purple100, red, yellow200, yellow300 } from './colors';
+import {
+  gray100,
+  gray200,
+  gray300,
+  green400,
+  magenta,
+  neutral100,
+  primary,
+  purple100,
+  red,
+  yellow200,
+  yellow300,
+} from './colors';
 
 const Dappdata = [
   {
@@ -113,7 +125,7 @@ const ExploreData = {
       coin: 'ETH',
       total: '0.2',
     },
-  ]
+  ],
 };
 
 // const Artlinks = [
@@ -262,17 +274,20 @@ const testData = [
 const PortfolioData = {
   total: 57784,
   list: [
-    { color: magenta, coin: 'BTC', percentage: 30, amount: 20224 },
-    { color: gray100, coin: 'ETH', percentage: 10, amount: 17335 },
-    { color: purple100, coin: 'USDT', percentage: 20, amount: 11557 },
-    { color: primary, coin: 'FIL', percentage: 40, amount: 8668 },
-  ]
-}
+    {color: magenta, coin: 'BTC', percentage: 30, amount: 20224},
+    {color: gray100, coin: 'ETH', percentage: 10, amount: 17335},
+    {color: purple100, coin: 'USDT', percentage: 20, amount: 11557},
+    {color: primary, coin: 'FIL', percentage: 40, amount: 8668},
+  ],
+};
 
 const WalletHomeData = {
   total: 18254,
   notice: [
-    { title: 'ALEO Metaverse Coming Soon', imagePath: require('../assets/images/Aleo.png') }
+    {
+      title: 'ALEO Metaverse Coming Soon',
+      imagePath: require('../assets/images/Aleo.png'),
+    },
   ],
   tokens: [
     {
@@ -280,7 +295,7 @@ const WalletHomeData = {
       description: 'Bitcoin',
       amount: 18888,
       percent: 0.3,
-      change: 3.40,
+      change: 3.4,
       image: require('../assets/images/Bitcoin.png'),
     },
     {
@@ -288,7 +303,7 @@ const WalletHomeData = {
       description: 'Bitcoin',
       amount: 18888,
       percent: 0.3,
-      change: 3.40,
+      change: 3.4,
       image: require('../assets/images/Bitcoin.png'),
     },
     {
@@ -296,7 +311,7 @@ const WalletHomeData = {
       description: 'Bitcoin',
       amount: 18888,
       percent: 0.3,
-      change: 3.40,
+      change: 3.4,
       image: require('../assets/images/Bitcoin.png'),
     },
     {
@@ -304,7 +319,7 @@ const WalletHomeData = {
       description: 'Bitcoin',
       amount: 18888,
       percent: 0.3,
-      change: 3.40,
+      change: 3.4,
       image: require('../assets/images/Bitcoin.png'),
     },
     {
@@ -312,7 +327,7 @@ const WalletHomeData = {
       description: 'Bitcoin',
       amount: 18888,
       percent: 0.3,
-      change: 3.40,
+      change: 3.4,
       image: require('../assets/images/Bitcoin.png'),
     },
     {
@@ -320,7 +335,7 @@ const WalletHomeData = {
       description: 'Bitcoin',
       amount: 18888,
       percent: 0.3,
-      change: 3.40,
+      change: 3.4,
       image: require('../assets/images/Bitcoin.png'),
     },
   ],
@@ -332,6 +347,7 @@ const WalletHomeData = {
       memberType: 'Membership',
       code: 748,
       image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+      myAddres: '0xe34lkjds....7BEsdlkfjls',
     },
     {
       name: 'Daily Art Story',
@@ -340,6 +356,7 @@ const WalletHomeData = {
       memberType: 'Membership',
       code: 748,
       image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+      myAddres: '0xe34lkjds....7BEsdlkfjls',
     },
     {
       name: 'Daily Art Story',
@@ -348,9 +365,10 @@ const WalletHomeData = {
       memberType: 'Membership',
       code: 748,
       image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+      myAddres: '0xe34lkjds....7BEsdlkfjls',
     },
-  ]
-}
+  ],
+};
 
 const BTC_INFO_DATA = [
   {

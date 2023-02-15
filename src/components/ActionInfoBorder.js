@@ -17,7 +17,7 @@ const ActionInfoBorder = ({children, style}) => {
         marginHorizontal: 17,
         borderTopWidth: 5,
         borderBottomWidth: 5,
-        bordeStyle: 'dashed',
+        borderStyle: 'dotted',
         ...style,
       }}>
       {children}

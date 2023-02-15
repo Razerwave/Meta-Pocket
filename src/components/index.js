@@ -39,6 +39,7 @@ import WalletTotalBalance from './WalletTotalBalance';
 import ListItem from './ListItem';
 import FixedThemeWrapper from './theme/FixedThemeWrapper';
 import NoticeCard from './NoticeCard';
+import CustomTouchableOpacity from './CustomTouchableOpacity';
 import ActionInfoBorder from './ActionInfoBorder';
 import Precautions from './Precautions';
 
@@ -78,6 +79,7 @@ export {
   InvoiceSheet,
   FixedThemeWrapper,
   NoticeCard,
+  CustomTouchableOpacity,
   ActionInfoBorder,
   Precautions,
   CustomTabs,

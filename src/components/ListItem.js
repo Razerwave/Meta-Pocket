@@ -1,20 +1,21 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import React from 'react';
 import Stack from './Stack';
 import StyledText from './texts/StyledText';
+import CustomTouchableOpacity from './CustomTouchableOpacity';
 
-const ListItem = ({ label, icon, children, onPress }) => {
+const ListItem = ({label, icon, children, onPress, style}) => {
   return (
-    <TouchableOpacity disabled={!onPress} onPress={onPress}>
-      <Stack direction='row' spacing={11} style={{ alignItems: 'center' }}>
+    <CustomTouchableOpacity disabled={!onPress} onPress={onPress} style={style}>
+      <Stack direction="row" spacing={11} style={{alignItems: 'center'}}>
         {icon}
         <StyledText>{label}</StyledText>
-        <View style={{ flex: 1, alignItems: 'flex-end' }}>{children}</View>
+        <View style={{flex: 1, alignItems: 'flex-end'}}>{children}</View>
       </Stack>
-    </TouchableOpacity>
+    </CustomTouchableOpacity>
   );
 };
 
-export default ListItem
+export default ListItem;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

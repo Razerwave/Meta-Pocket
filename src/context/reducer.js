@@ -8,6 +8,7 @@ import {
   INITIALIZE,
   FAVORITE,
   SET_STATUS_BAR,
+  SET_MAIN_PRESS_EVENT,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -40,6 +41,13 @@ const reducer = (state, action) => {
     return {
       ...state,
       statusBar: action.payload.statusBar,
+    };
+  }
+
+  if (action.type === SET_MAIN_PRESS_EVENT) {
+    return {
+      ...state,
+      mainOnPressEvent: action.payload.onPress,
     };
   }
 

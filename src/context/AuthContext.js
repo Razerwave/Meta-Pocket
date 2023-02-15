@@ -13,6 +13,7 @@ import {
   LOGIN_USER,
   LOGOUT_USER,
   RESTORE_STATE,
+  SET_MAIN_PRESS_EVENT,
   SET_STATUS_BAR,
   TOGGLE_THEME,
   UNLOCK,
@@ -36,6 +37,7 @@ const initialState = {
     colorStyle:
       theme === 'dark' ? DarkTheme.statusBarStyle : DefaultTheme.statusBarStyle,
   },
+  mainOnPressEvent: null,
 };
 
 const AuthContext = createContext();
@@ -150,6 +152,13 @@ const AuthProvier = ({children}) => {
     });
   };
 
+  const setMainPressEvent = ({event}) => {
+    dispatch({
+      type: SET_MAIN_PRESS_EVENT,
+      payload: {onPress: event},
+    });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -166,6 +175,7 @@ const AuthProvier = ({children}) => {
         favorite,
         setFavorite,
         setStatusBar,
+        setMainPressEvent,
       }}>
       <ThemeProvider theme={state.isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}

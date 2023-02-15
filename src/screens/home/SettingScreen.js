@@ -75,7 +75,7 @@ const SettingScreen = ({navigation}) => {
             <IconArrowForward />
           </ListItem>
           <Divider />
-          <ListItem label="Language" icon={<IconPerson />}>
+          <ListItem label="Language" icon={<IconPerson />} style={{zIndex: 1}}>
             <CustomSelect value={language} onChange={v => setLanguage(v)} />
           </ListItem>
           <ListItem label="Dark Mode" icon={<IconPerson />}>

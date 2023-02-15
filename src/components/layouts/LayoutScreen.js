@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
-import {SafeAreaView} from 'react-native';
+import {
+  SafeAreaView,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+} from 'react-native';
 import {useIsFocused} from '@react-navigation/native';
 import {useAuth} from '../../context/AuthContext';
 import {useEffect} from 'react';
@@ -7,7 +11,7 @@ import {useTheme} from 'styled-components';
 
 const LayoutScreen = ({children, statusBar}) => {
   const {backgroundColor, statusBarStyle} = useTheme();
-  const {setStatusBar} = useAuth();
+  const {setStatusBar, mainOnPressEvent} = useAuth();
   const isFocused = useIsFocused();
 
   useEffect(() => {
@@ -21,9 +25,21 @@ const LayoutScreen = ({children, statusBar}) => {
     }
   }, [isFocused]);
 
+  const handleOnPress = () => {
+    if (mainOnPressEvent) {
+      try {
+        mainOnPressEvent();
+      } catch (ex) {
+        console.log('Main Press Event error');
+      }
+    }
+  };
+
   return (
     <SafeAreaView>
-      <StyledViewContainer>{children}</StyledViewContainer>
+      <TouchableWithoutFeedback onPress={handleOnPress}>
+        <StyledViewContainer>{children}</StyledViewContainer>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   );
 };

@@ -1,35 +1,71 @@
-import { useState } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
-import { SelectList } from 'react-native-dropdown-select-list'
-import { IconArrowDown } from '../../assets/icons';
-import StyledText from '../texts/StyledText';
+import {useEffect, useRef, useState} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native';
+import {useAuth} from '../../context/AuthContext';
 
-const CustomSelect = ({ value, onChange}) => {
-  const [focused, setFocused] = useState(false);
+const CustomSelect = () => {
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const dropDownRef = useRef(null);
+  const {setMainPressEvent} = useAuth();
 
-  return (
-    <TouchableOpacity>
-      <View style={styles.container}>
-        <StyledText style={styles.text}>{value}</StyledText>
-        <IconArrowDown />
+  const data = [
+    {label: 'Option 1', value: 'option1'},
+    {label: 'Option 2', value: 'option2'},
+    {label: 'Option 3', value: 'option3'},
+  ];
+
+  const renderItem = ({item, index}) => (
+    <TouchableOpacity
+      onPress={() => {
+        setSelectedValue(item.value);
+        setDropdownVisible(false);
+      }}
+      key={index}>
+      <View style={{padding: 10}}>
+        <Text>{item.label}</Text>
       </View>
     </TouchableOpacity>
-  )
-}
+  );
 
-export default CustomSelect
+  useEffect(() => {
+    if (dropdownVisible) {
+      setMainPressEvent({event: () => setDropdownVisible(false)});
+    }
+  }, [dropdownVisible]);
 
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 6,
-    alignItems: 'center'
-  },
-  text: {
-    fontFamily: 'Noto Sans',
-    fontWeight: 600,
-    fontSize: 12,
-    lineHeight: 16,
-  },
-})
+  return (
+    <View
+      ref={dropDownRef}
+      style={{
+        borderWidth: 1,
+        borderColor: 'gray',
+      }}>
+      <TouchableOpacity onPress={() => setDropdownVisible(!dropdownVisible)}>
+        <View style={{padding: 10}}>
+          <Text>{selectedValue || 'Select an option'}</Text>
+        </View>
+      </TouchableOpacity>
+      {dropdownVisible && (
+        <View
+          style={{
+            backgroundColor: 'white',
+            position: 'absolute',
+            top: '100%',
+            right: 0,
+            zIndex: 2,
+          }}>
+          {data.map((item, index) => {
+            return renderItem({item, index});
+          })}
+        </View>
+      )}
+    </View>
+  );
+};
+
+export default CustomSelect;

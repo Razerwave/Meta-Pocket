@@ -7,6 +7,7 @@ const CustomTabs = ({
   onTabChange = () => { },
   tabRoutes = [],
   renderScene = () => { },
+  renderTabBar,
 }) => {
   const { backgroundColor, exploreTab } = useTheme();
   const layout = useWindowDimensions();
@@ -17,7 +18,7 @@ const CustomTabs = ({
       renderScene={renderScene}
       onIndexChange={onTabChange}
       initialLayout={{ width: layout.width }}
-      renderTabBar={props => (
+      renderTabBar={props => renderTabBar ? renderTabBar(props) : (
         <TabBar
           {...props}
           style={[{ backgroundColor: backgroundColor }]}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View, Text, Animated, Easing } from 'react-native';
 import Svg, { G, Circle } from 'react-native-svg';
+import { gray100, magenta, neutral100, primary, purple100 } from '../constants/colors';
 
 const CircleAnimated = ({ children, size = 186 }) => {
   const [spin, setSpin] = useState(false)
@@ -13,22 +14,22 @@ const CircleAnimated = ({ children, size = 186 }) => {
         </View>
         <View style={{ position: 'absolute' }}>
           <SpinningView toValue={-360} durationMs={1500} spin={spin}>
-            <CircleView stroke="#FF567F" percentage={30} rotation={-90} size={size} />
+            <CircleView stroke={magenta} percentage={30} rotation={-90} size={size} />
           </SpinningView>
         </View>
         <View style={{ position: 'absolute' }}>
           <SpinningView toValue={360} durationMs={1500} spin={spin}>
-            <CircleView stroke="#BDCBFF" percentage={10} rotation={18} size={size} />
+            <CircleView stroke={gray100} percentage={10} rotation={18} size={size} />
           </SpinningView>
         </View>
         <View style={{ position: 'absolute' }}>
           <SpinningView toValue={-360} durationMs={1500} spin={spin}>
-            <CircleView stroke="#A35AFF" percentage={20} rotation={54} size={size} />
+            <CircleView stroke={purple100} percentage={20} rotation={54} size={size} />
           </SpinningView>
         </View>
         <View style={{ position: 'absolute' }}>
           <SpinningView toValue={360} durationMs={1500} spin={spin}>
-            <CircleView stroke="#0090FF" percentage={40} rotation={126} size={size} />
+            <CircleView stroke={primary} percentage={40} rotation={126} size={size} />
           </SpinningView>
         </View>
       </View>

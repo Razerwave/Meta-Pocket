@@ -42,7 +42,7 @@ const MainNavigation = () => {
       />
       {/* WALLET */}
       <Stack.Screen
-        options={{title: ''}}
+        options={{headerShown: false}}
         name={ROUTES.WALLET.PORTFOLIO}
         component={PortfolioScreen}
       />

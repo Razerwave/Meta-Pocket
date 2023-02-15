@@ -43,10 +43,12 @@ const TopSection = ({ navigate }) => {
         <WalletTotalBalance onPress={() => navigate(ROUTES.WALLET.PORTFOLIO)} />
       </View>
 
-      <NoticeCard title={'ALEO Metaverse Coming Soon'} />
+      <TouchableOpacity onPress={() => navigate(ROUTES.SETTING.NOTICE, { title: 'ALEO Metaverse Coming Soon' })} >
+        <NoticeCard title={'ALEO Metaverse Coming Soon'} />
+      </TouchableOpacity>
     </Stack>
-  )
-}
+  );
+};
 
 const Tabs = () => {
   const { walletTab: { borderColor, activeColor, inactiveColor } } = useTheme();
@@ -92,13 +94,12 @@ const ImageURI = require('../../assets/images/Bitcoin.png')
 const ListItem = () => {
   return (
     <Stack direction='row' spacing={10} style={{ height: 50 }} alignItems="center">
-      {/* <View style={{ height: 30, width: 30, borderRadius: 9999, borderWidth: 1, borderColor: red }} /> */}
       <Image source={ImageURI} />
       <Stack>
-        <Stack direction='row' spacing={10}>
-          <BodyText style={{ fontWeight: '600' }}>BTC</BodyText>
-          <BodyText style={{ fontSize: 10, fontWeight: '400', color: neutral300 }}>Bitcoin</BodyText>
-        </Stack>
+        <BodyText style={{ fontWeight: '600' }}>
+          BTC
+          <BodyText style={{ fontSize: 10, fontWeight: '400', color: neutral300, marginLeft: 10 }}>   Bitcoin</BodyText>
+        </BodyText>
         <BodyText>$ 18,888</BodyText>
       </Stack>
       <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
@@ -108,4 +109,5 @@ const ListItem = () => {
     </Stack>
   );
 };
+
 export default WalletScreen;

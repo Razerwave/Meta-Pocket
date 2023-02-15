@@ -1,261 +1,115 @@
 import React, {useState, useEffect} from 'react';
-import {Image, useWindowDimensions} from 'react-native';
-import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import {
-  BodyText,
-  ButtonPrimary,
-  LayoutScreen,
-  LayoutScroll,
-} from '../../components';
-import {useTheme} from 'styled-components';
+import {Image} from 'react-native';
+import {View} from 'react-native-animatable';
+import {useNavigation} from '@react-navigation/native';
+import styled from 'styled-components/native';
 import {ROUTES} from '../../constants';
 import {Dappdata} from '../../constants/ListData';
 import {neutral100, neutral300} from '../../constants/colors';
 import {IconDappArrow} from '../../assets/icons';
-import styled from 'styled-components/native';
-import {View} from 'react-native-animatable';
+import {
+  BodyText,
+  LayoutScreen,
+  LayoutScroll,
+  CustomTabs,
+} from '../../components';
+
+const TAB_ROUTES = [
+  {key: 'AllTab', title: 'All'},
+  {key: 'PopularTab', title: 'Popular'},
+  {key: 'MiningTab', title: 'Mining'},
+];
 
 const DappScreen = ({navigation}) => {
-  const {backgroundColor, steps, exploreTab} = useTheme();
   const [data, setData] = useState([]);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const getData = async () => {
-      setData(Dappdata);
-    };
-
-    getData();
+    setData(Dappdata);
   }, []);
-  const layout = useWindowDimensions();
 
-  const AllTab = () => {
-    return (
-      <LayoutScreen>
-        <LayoutScroll>
-          <Container>
-            <Content>
-              {data.map((item, index) => {
-                return (
-                  <View key={index}>
-                    <AllTabTouchableOpacity
-                      onPress={() =>
-                        navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
-                      }>
-                      <Card>
-                        <ArrowIcon
-                          onPress={() =>
-                            navigation.navigate(
-                              ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
-                            )
-                          }>
-                          <IconDappArrow />
-                        </ArrowIcon>
-                        <ImageContainer>
-                          <Image source={item.image} />
-                        </ImageContainer>
-                      </Card>
-                    </AllTabTouchableOpacity>
-
-                    <DescriptionContainer>
-                      <BodyText
-                        type={8}
-                        style={{marginTop: 10, marginBottom: 6}}>
-                        {item.title}
-                      </BodyText>
-                      <BodyText type={7} style={{color: neutral100}}>
-                        {item.description}
-                      </BodyText>
-                    </DescriptionContainer>
-                  </View>
-                );
-              })}
-
-              <ButtonPrimary
-                title="send BTC"
-                onPress={() => {
-                  navigation.navigate(ROUTES.SENDBTC.SENDBTC_SCREEN);
-                }}
-              />
-            </Content>
-          </Container>
-        </LayoutScroll>
-      </LayoutScreen>
-    );
+  const renderScene = ({route}) => {
+    switch (route.key) {
+      case 'AllTab':
+        return (
+          <DappTab
+            data={data}
+            onPress={() =>
+              navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+            }
+          />
+        );
+      case 'PopularTab':
+        return (
+          <DappTab
+            data={data.filter(({type}) =>
+              'Popular' ? type === 'Popular' : true,
+            )}
+            onPress={() =>
+              navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+            }
+          />
+        );
+      case 'MiningTab':
+        return (
+          <DappTab
+            data={data.filter(({type}) =>
+              'Mining' ? type === 'Mining' : true,
+            )}
+            onPress={() =>
+              navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+            }
+          />
+        );
+    }
   };
-  const PopularTab = () => {
-    return (
-      <LayoutScreen>
-        <LayoutScroll>
-          <Container>
-            <Content>
-              {data.map((item, index) => {
-                if (index < 8) {
-                  return (
-                    item.type === 'Popular' && (
-                      <View key={index}>
-                        <AllTabTouchableOpacity
-                          onPress={() =>
-                            navigation.navigate(
-                              ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
-                            )
-                          }>
-                          <Card>
-                            <ArrowIcon
-                              onPress={() =>
-                                navigation.navigate(
-                                  ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
-                                )
-                              }>
-                              <IconDappArrow />
-                            </ArrowIcon>
-                            <ImageContainer>
-                              <Image source={item.image} />
-                            </ImageContainer>
-                          </Card>
-                        </AllTabTouchableOpacity>
-
-                        <DescriptionContainer>
-                          <BodyText
-                            type={8}
-                            style={{marginTop: 10, marginBottom: 6}}>
-                            {item.title}
-                          </BodyText>
-                          <BodyText type={7} style={{color: neutral100}}>
-                            {item.description}
-                          </BodyText>
-                        </DescriptionContainer>
-                      </View>
-                    )
-                  );
-                }
-              })}
-            </Content>
-          </Container>
-        </LayoutScroll>
-      </LayoutScreen>
-    );
-  };
-
-  const MiningTab = () => {
-    return (
-      <LayoutScreen>
-        <LayoutScroll>
-          <Container>
-            <Content>
-              {data.map((item, index) => {
-                if (index < 6) {
-                  return (
-                    item.type === 'Mining' && (
-                      <View key={index}>
-                        <AllTabTouchableOpacity
-                          onPress={() =>
-                            navigation.navigate(
-                              ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
-                            )
-                          }>
-                          <Card>
-                            <ArrowIcon
-                              onPress={() =>
-                                navigation.navigate(
-                                  ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
-                                )
-                              }>
-                              <IconDappArrow />
-                            </ArrowIcon>
-                            <ImageContainer
-                              style={{marginBottom: 20, marginLeft: 20}}>
-                              <Image source={item.image} />
-                            </ImageContainer>
-                          </Card>
-                        </AllTabTouchableOpacity>
-
-                        <DescriptionContainer>
-                          <BodyText
-                            type={8}
-                            style={{marginTop: 10, marginBottom: 6}}>
-                            {item.title}
-                          </BodyText>
-                          <BodyText type={7} style={{color: neutral100}}>
-                            {item.description}
-                          </BodyText>
-                        </DescriptionContainer>
-                      </View>
-                    )
-                  );
-                }
-              })}
-            </Content>
-          </Container>
-        </LayoutScroll>
-      </LayoutScreen>
-    );
-  };
-
-  const renderScene = SceneMap({
-    AllTab: AllTab,
-    PopularTab: PopularTab,
-    MiningTab: MiningTab,
-  });
-
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    {key: 'AllTab', title: 'All'},
-    {key: 'PopularTab', title: 'Popular'},
-    {key: 'MiningTab', title: 'Mining'},
-  ]);
 
   return (
-    <TabView
-      navigationState={{index, routes}}
+    <CustomTabs
+      tabIndex={index}
+      onTabChange={setIndex}
+      tabRoutes={TAB_ROUTES}
       renderScene={renderScene}
-      onIndexChange={setIndex}
-      initialLayout={{width: layout.width}}
-      renderTabBar={props => (
-        <TabBar
-          {...props}
-          style={[{backgroundColor: backgroundColor}]}
-          contentContainerStyle={{
-            color: 'pink',
-            fontSize: 10,
-          }}
-          pressColor={'inherit'}
-          tabStyle={{
-            width: 70,
-            padding: 0,
-          }}
-          pagerStyle={{
-            color: 'pink',
-            marginTop: 15,
-          }}
-          TabBarItemProps
-          // renderLabel={({route, focused, color}) => {
-          //   console.log(route, color);
-          //   return (
-          //     <Text focused style={{color, margin: 8}}>
-          //       {route.title}
-          //     </Text>
-          //   );
-          // }}
-          inactiveColor={exploreTab.tabInActiveColor}
-          indicatorContainerStyle={{}}
-          labelStyle={{
-            fontSize: 16,
-            fontWeight: 400,
-            textTransform: 'capitalize',
-          }}
-          sceneContainerStyle={{color: 'pink'}}
-          activeColor={exploreTab.tabActiveColor}
-          indicatorStyle={[
-            {
-              backgroundColor: exploreTab.tabActiveColor,
-              height: 2,
-            },
-          ]}
-        />
-      )}
     />
   );
 };
+
+const DappTab = ({data = [], onPress}) => {
+  return (
+    <LayoutScreen>
+      <LayoutScroll>
+        <Container>
+          <Content>
+            {data.map((item, index) => (
+              <View key={index}>
+                <AllTabTouchableOpacity onPress={() => onPress(item)}>
+                  <Card>
+                    <ArrowIcon>
+                      <IconDappArrow />
+                    </ArrowIcon>
+                    <ImageContainer style={{marginBottom: 20, marginLeft: 20}}>
+                      <Image source={item.image} />
+                    </ImageContainer>
+                  </Card>
+                </AllTabTouchableOpacity>
+
+                <DescriptionContainer>
+                  <BodyText type={8} style={{marginTop: 10, marginBottom: 6}}>
+                    {item.title}
+                  </BodyText>
+                  <BodyText type={7} style={{color: neutral100}}>
+                    {item.description}
+                  </BodyText>
+                </DescriptionContainer>
+              </View>
+            ))}
+          </Content>
+        </Container>
+      </LayoutScroll>
+    </LayoutScreen>
+  );
+};
+
 const AllTabTouchableOpacity = styled.TouchableOpacity`
   flex: 1;
   height: 102px;

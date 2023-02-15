@@ -12,8 +12,10 @@ import BodyText from './texts/BodyText';
 
 import ButtonPrimary from './buttons/ButtonPrimary';
 import ButtonText from './buttons/ButtonText';
+import ButtonScroll from './buttons/ButtonScroll';
 import CustomSearch from './input/CustomSearch';
 import InvoiceSheet from './InvoiceSheet';
+import CustomTabs from './tabs/CustomTabs';
 
 import StyledText from './texts/StyledText';
 import Title from './texts/Title';
@@ -37,8 +39,9 @@ import WalletTotalBalance from './WalletTotalBalance';
 import ListItem from './ListItem';
 import FixedThemeWrapper from './theme/FixedThemeWrapper';
 import NoticeCard from './NoticeCard';
-import ActionInfo from './ActionInfo';
 import CustomTouchableOpacity from './CustomTouchableOpacity';
+import ActionInfoBorder from './ActionInfoBorder';
+import Precautions from './Precautions';
 
 export {
   Title,
@@ -76,6 +79,9 @@ export {
   InvoiceSheet,
   FixedThemeWrapper,
   NoticeCard,
-  ActionInfo,
   CustomTouchableOpacity,
+  ActionInfoBorder,
+  Precautions,
+  CustomTabs,
+  ButtonScroll,
 };

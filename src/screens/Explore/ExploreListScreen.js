@@ -1,165 +1,98 @@
-import React from 'react';
-import {View, TouchableOpacity, Image, useWindowDimensions} from 'react-native';
-import {BodyText, LayoutScreen, LayoutScroll} from '../../components';
-import {useTheme} from 'styled-components';
-import {ROUTES} from '../../constants';
-import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import {links, Artlinks} from '../../constants/ListData';
-import {IconColorDot} from '../../assets/icons';
+import React, { useEffect, useState } from 'react';
+import { View, TouchableOpacity, Image } from 'react-native';
 import styled from 'styled-components/native';
-import {gray300, red, yellow200} from '../../constants/colors';
+import { ROUTES } from '../../constants';
+import { ExploreData } from '../../constants/ListData';
+import { gray300, red, yellow200 } from '../../constants/colors';
+import { IconColorDot } from '../../assets/icons';
+import {
+  BodyText,
+  CustomTabs,
+  LayoutScreen,
+  LayoutScroll,
+  Stack,
+} from '../../components';
 
-const TabViewExample = ({navigation, route}) => {
-  const layout = useWindowDimensions();
-  const [index, setIndex] = React.useState(route.params.tabIndex || 0);
+const TAB_ROUTES = [
+  { key: 'websiteTab', title: 'Website' },
+  { key: 'artTab', title: 'Art' },
+]
 
-  const {backgroundColor, steps, exploreTab} = useTheme();
+const TabViewExample = ({ navigation, route }) => {
+  const [index, setIndex] = useState(route.params.tabIndex || 0);
+  const [data, setData] = useState({})
 
-  const WebsiteTab = () => {
-    return (
-      <LayoutScreen>
-        <LayoutScroll>
-          <Container>
-            {links.map((index, key) => (
-              <Section key={key}>
-                <ListTouchableOpacity
-                  onPress={() =>
-                    navigation.navigate(ROUTES.EXPLORE.WEB, {uri: index.url})
-                  }>
-                  <View>
-                    <IconColorDot color={yellow200} />
-                  </View>
-                  <ContentList>
-                    <Content>
-                      <BodyText type={5}>{index.Subject}</BodyText>
-                      <BodyText
-                        type={7}
-                        style={{
-                          color: gray300,
-                        }}>
-                        {index.url}
-                      </BodyText>
-                    </Content>
-                    <TouchableOpacity>
-                      {index.fav == true ? (
-                        <Image
-                          source={require('../../assets/icons/Vector.png')}
-                          style={{width: 14, height: 14}}
-                        />
-                      ) : (
-                        <Image
-                          source={require('../../assets/icons/favorite.png')}
-                          style={{width: 14, height: 14}}
-                        />
-                      )}
-                    </TouchableOpacity>
-                  </ContentList>
-                </ListTouchableOpacity>
-              </Section>
-            ))}
-          </Container>
-        </LayoutScroll>
-      </LayoutScreen>
-    );
+  useEffect(() => {
+    setData(ExploreData)
+  }, [])
+
+  const handlePressStar = (item) => {
+    console.log('star', item)
+  }
+
+  const renderScene = ({ route }) => {
+    switch (route.key) {
+      case 'websiteTab':
+        return <ExploreTab
+          data={data.website}
+          dotColor={yellow200}
+          onPress={(item) => navigation.navigate(ROUTES.EXPLORE.WEB, { title: item.title, uri: item.url })}
+          onPressStar={handlePressStar}
+        />;
+      case 'artTab':
+        return <ExploreTab
+          data={data.art}
+          dotColor={red}
+          onPress={(item) => navigation.navigate(ROUTES.BUY.BUY_SCREEN, { item: item })}
+          onPressStar={handlePressStar}
+        />;
+    }
   };
-  const ArtTabRoute = () => {
-    return (
-      <LayoutScreen>
-        <LayoutScroll>
-          <Container>
-            {Artlinks.map((index, key) => (
-              <Section key={key}>
-                <ListTouchableOpacity
-                  onPress={() =>
-                    navigation.navigate(ROUTES.BUY.BUY_SCREEN, {
-                      item: index,
-                    })
-                  }>
-                  <View style={{}}>
-                    <IconColorDot color={red} />
-                  </View>
-                  <ContentList>
-                    <Content>
-                      <BodyText type={5}>{index.name}</BodyText>
-                      <BodyText
-                        type={7}
-                        style={{
-                          color: gray300,
-                        }}>
-                        {index.author}
-                      </BodyText>
-                    </Content>
-                    <TouchableOpacity>
-                      {index.fav == true ? (
-                        <Image
-                          source={require('../../assets/icons/Vector.png')}
-                          style={{width: 14, height: 14}}
-                        />
-                      ) : (
-                        <Image
-                          source={require('../../assets/icons/favorite.png')}
-                          style={{width: 14, height: 14}}
-                        />
-                      )}
-                    </TouchableOpacity>
-                  </ContentList>
-                </ListTouchableOpacity>
-              </Section>
-            ))}
-          </Container>
-        </LayoutScroll>
-      </LayoutScreen>
-    );
-  };
-
-  const renderScene = SceneMap({
-    websiteTab: WebsiteTab,
-    artTab: ArtTabRoute,
-  });
-  const [routes] = React.useState([
-    {key: 'websiteTab', title: 'Website'},
-    {key: 'artTab', title: 'Art'},
-  ]);
 
   return (
-    <TabView
-      navigationState={{index, routes}}
+    <CustomTabs
+      tabIndex={index}
+      onTabChange={setIndex}
+      tabRoutes={TAB_ROUTES}
       renderScene={renderScene}
-      onIndexChange={setIndex}
-      initialLayout={{width: layout.width}}
-      renderTabBar={props => (
-        <TabBar
-          {...props}
-          style={[{backgroundColor: backgroundColor}]}
-          contentContainerStyle={{
-            color: 'pink',
-            fontSize: 10,
-          }}
-          pressColor={'inherit'}
-          tabStyle={{width: 70, padding: 0}}
-          pagerStyle={{
-            color: 'pink',
-            marginTop: 15,
-          }}
-          inactiveColor={exploreTab.tabInActiveColor}
-          indicatorContainerStyle={{}}
-          labelStyle={{
-            fontSize: 16,
-            fontWeight: 400,
-            lineHeight: 19,
-            textTransform: 'capitalize',
-          }}
-          sceneContainerStyle={{color: 'pink'}}
-          activeColor={exploreTab.tabActiveColor}
-          indicatorStyle={[
-            {
-              backgroundColor: exploreTab.tabActiveColor,
-              height: 2,
-            },
-          ]}
-        />
-      )}
     />
+  );
+};
+
+const ExploreTab = ({
+  data = [],
+  dotColor,
+  onPress = () => { },
+  onPressStar = () => { },
+}) => {
+  return (
+    <LayoutScreen>
+      <LayoutScroll>
+        <Container>
+          {data.map((item, index) => (
+            <Section key={index}>
+              <ListTouchableOpacity onPress={() => onPress(item)}>
+                <View style={{}}>
+                  <IconColorDot color={dotColor} />
+                </View>
+                <ContentList>
+                  <Content>
+                    <BodyText type={5}>{item.title}</BodyText>
+                    <BodyText type={7} style={{ color: gray300 }}>{item.description}</BodyText>
+                  </Content>
+                  <TouchableOpacity onPress={() => onPressStar(item)}>
+                    <Image
+                      source={item.star ? require('../../assets/icons/Vector.png') : require('../../assets/icons/favorite.png')}
+                      style={{ width: 14, height: 14 }}
+                    />
+                  </TouchableOpacity>
+                </ContentList>
+              </ListTouchableOpacity>
+            </Section>
+          ))}
+        </Container>
+      </LayoutScroll>
+    </LayoutScreen>
   );
 };
 
@@ -179,6 +112,7 @@ const ListTouchableOpacity = styled.TouchableOpacity`
   gap: 16px;
   justify-content: center;
   align-self: flex-start;
+  align-items: center
 `;
 
 const ContentList = styled.View`

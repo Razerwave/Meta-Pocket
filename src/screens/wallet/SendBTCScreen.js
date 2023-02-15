@@ -1,20 +1,18 @@
 import React, {useState} from 'react';
-import {View} from 'react-native-animatable';
-import {IconSendBTCScreen} from '../../assets/icons';
-import {neutral100} from '../../constants/colors';
+import {View} from 'react-native';
 import styled from 'styled-components/native';
 
 import {
   CustomInput,
   LayoutScreen,
   BodyText,
-  Stack,
-  Divider,
   ButtonPrimary,
   ErrorText,
+  Precautions,
 } from '../../components';
+import {ROUTES} from '../../constants';
 
-const SendBTCScreen = () => {
+const SendBTCScreen = ({navigation}) => {
   const [uid, setUid] = useState('');
   const [quantity, setQuantity] = useState(0);
   const [memo, setMemo] = useState('');
@@ -40,7 +38,7 @@ const SendBTCScreen = () => {
     <LayoutScreen>
       <Container>
         <Content>
-          <Stack spacing={16}>
+          <Wrapper>
             <CustomInput
               value={uid}
               onChange={event => handleChangeUid(event)}
@@ -70,47 +68,24 @@ const SendBTCScreen = () => {
                 error={true}
               />
             </View>
-          </Stack>
+          </Wrapper>
 
-          <Stack padding={11}>
-            <Section>
-              <View>
-                <IconSendBTCScreen />
-              </View>
-              <BodyText>Precautions</BodyText>
-              <DividerContainer>
-                <Divider></Divider>
-              </DividerContainer>
-            </Section>
-            <BodyText style={{color: neutral100}}>
-              When the withdrawal request is submitted, the assets to be
-              transferred will be frozen during processing. Deduction of the
-              assets from your balance will occur after the transaction have
-              been completed.
-            </BodyText>
-          </Stack>
+          <Precautions />
         </Content>
         <ButtonContainer>
-          <ButtonPrimary title="Next" />
+          <ButtonPrimary
+            title="Next"
+            onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
+          />
         </ButtonContainer>
       </Container>
     </LayoutScreen>
   );
 };
 
-const DividerContainer = styled.View`
-  flex: 1;
-`;
-const Section = styled.View`
-  flex-direction: row;
-  width: 100%;
-  gap: 8px;
-  margin-bottom: 10px;
-  align-items: center;
-`;
-
 const ButtonContainer = styled.View`
   align-items: center;
+  margin-bottom: 37px;
 `;
 
 const Container = styled.View`
@@ -122,5 +97,9 @@ const Content = styled.View`
   flex: 1;
   justify-content: space-between;
   margin-bottom: 50px;
+`;
+
+const Wrapper = styled.View`
+  gap: 16px;
 `;
 export default SendBTCScreen;

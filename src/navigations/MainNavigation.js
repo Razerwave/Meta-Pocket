@@ -13,8 +13,13 @@ import {ExploreListScreen} from '../screens/Explore';
 import {EnterPasscode, WebScreen} from '../screens';
 import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
-import {LayoutHeader} from '../components';
-import {PortfolioScreen, SendBTCScreen} from '../screens/wallet';
+import {ActionInfoBorder, LayoutHeader} from '../components';
+import {
+  LoadNftScreen,
+  PortfolioScreen,
+  SendBTCScreen,
+  SendNftScreen,
+} from '../screens/wallet';
 import {BuyItem} from '../screens/BuyItem/index';
 import {neutral300} from '../constants/colors';
 
@@ -85,13 +90,7 @@ const MainNavigation = () => {
       />
       {/* Buy Item */}
       <Stack.Screen
-        options={{
-          headerShown: true,
-          title: 'Buy Item',
-          headerStyle: {
-            backgroundColor: neutral300,
-          },
-        }}
+        options={{headerShown: false}}
         name={ROUTES.BUY.BUY_SCREEN}
         component={BuyItem}
       />
@@ -119,6 +118,36 @@ const MainNavigation = () => {
         }}
         name={ROUTES.SENDBTC.SENDBTC_SCREEN}
         component={SendBTCScreen}
+      />
+
+      {/* Send NFT screen */}
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: 'Send NFT',
+        }}
+        name={ROUTES.ACTION.ACTION_SCREEN}
+        component={ActionInfoBorder}
+      />
+
+      {/* Load NFT screen */}
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: 'Load NFTs',
+        }}
+        name={ROUTES.LOADNFT.LOADNFT_SCREEN}
+        component={LoadNftScreen}
+      />
+
+      {/* Send NFT screen */}
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: 'Send NFT',
+        }}
+        name={ROUTES.SENDNFT.SENDNFT_SCREEN}
+        component={SendNftScreen}
       />
     </Stack.Navigator>
   );

@@ -1,3 +1,5 @@
+import { gray100, gray200, gray300, green400, magenta, neutral100, primary, purple100, red, yellow200, yellow300 } from './colors';
+
 const Dappdata = [
   {
     title: 'Aleo Meta Pocket',
@@ -43,103 +45,174 @@ const Dappdata = [
   },
 ];
 
-const Artlinks = [
-  {
-    name: 'Two gils ...',
-    author: 'Pierre-Auguste Renoir (1881)',
-    coin: 'ETH',
-    total: '0.1',
-    image: require('../assets//icons/MaskGroup.png'),
-    fav: true,
-  },
-  {
-    name: 'Flowers ...',
-    author: 'Edgar Degas (1873)',
-    coin: 'ETH',
-    total: '0.3',
-    image: require('../assets//icons/flowers.png'),
-    fav: true,
-  },
-  {
-    name: 'Steamboats in the Port ...',
-    author: 'Vladimir Kush (1111)',
-    coin: 'ETH',
-    total: '0.2',
-    image: require('../assets//icons/SteamBoats.png'),
-    fav: true,
-  },
-  {
-    name: 'Ancient Winter city ...',
-    author: 'Paul Jackson Pollock (1912)',
-    coin: 'ETH',
-    total: '0.2',
-    image: require('../assets//icons/Rectangle229.png'),
-    fav: true,
-  },
-];
+const ExploreData = {
+  website: [
+    {
+      title: 'Two gils ...',
+      url: 'https://www.youtube.com/',
+      description: 'https://www.youtube.com/',
+      star: true,
+      Image: require('../assets/icons/all.png'),
+      logo: require('../assets/icons/Group6679.png'),
+    },
+    {
+      title: 'Two gils ...',
+      url: 'https://www.youtube.com/',
+      description: 'https://www.youtube.com/',
+      star: true,
+      Image: require('../assets/icons/all.png'),
+      logo: require('../assets/icons/bitcoin.png'),
+    },
+    {
+      title: 'Two gils ...',
+      url: 'https://www.youtube.com/',
+      description: 'https://www.youtube.com/',
+      star: false,
+      Image: require('../assets/icons/all.png'),
+      logo: require('../assets/icons/fx.png'),
+    },
+    {
+      title: 'Two gils ...',
+      url: 'https://www.youtube.com/',
+      description: 'https://www.youtube.com/',
+      star: false,
+      Image: require('../assets/icons/all.png'),
+      logo: require('../assets/icons/Layer_1.png'),
+    },
+  ],
+  art: [
+    {
+      title: 'Two gils ...',
+      description: 'Pierre-Auguste Renoir (1881)',
+      star: true,
+      image: require('../assets/icons/MaskGroup.png'),
+      coin: 'ETH',
+      total: '0.2',
+    },
+    {
+      title: 'Flowers ...',
+      description: 'Edgar Degas (1873)',
+      star: true,
+      image: require('../assets/icons/SteamBoats.png'),
+      coin: 'ETH',
+      total: '0.2',
+    },
+    {
+      title: 'Steamboats in the Port ...',
+      description: 'Pierre-Auguste Renoir (1881)',
+      star: false,
+      image: require('../assets/icons/SteamBoats.png'),
+      coin: 'ETH',
+      total: '0.2',
+    },
+    {
+      title: 'Two gils ...',
+      description: 'Pierre-Auguste Renoir (1881)',
+      star: true,
+      image: require('../assets/icons/flowers.png'),
+      coin: 'ETH',
+      total: '0.2',
+    },
+  ]
+};
 
-const links = [
-  {
-    id: 2,
-    Subject: 'Aleo',
-    url: 'Aleo.org',
-    Image: require('../assets/icons/all.png'),
-    logo: require('../assets/icons/Group6679.png'),
-    fav: false,
-  },
-  {
-    id: 1,
-    Subject: 'Bitcoin',
-    url: 'bitcoin.org/ko',
-    Image: require('../assets/icons/Vector.png'),
-    logo: require('../assets/icons/bitcoin.png'),
-    fav: true,
-  },
-  {
-    id: 3,
-    Subject: 'Filecoin',
-    url: 'filecoin.io',
-    Image: require('../assets/icons/Ellipse93.png'),
-    logo: require('../assets/icons/fx.png'),
-    fav: true,
-  },
-  {
-    id: 4,
-    Subject: 'Plenty',
-    url: 'www.plenty.com',
-    Image: require('../assets/icons/Ellipse94.png'),
-    logo: require('../assets/icons/Layer_1.png'),
-    fav: true,
-  },
-  {
-    id: 5,
-    Subject: 'Ethererium',
-    url: 'www.etherium.com',
-    Image: require('../assets/icons/Ellipse95.png'),
-    fav: false,
-  },
-  {
-    id: 6,
-    Subject: 'Sol',
-    url: 'www.sol.io',
-    Image: require('../assets/icons/Ellipse96.png'),
-    fav: false,
-  },
-  {
-    id: 7,
-    Subject: 'Tether',
-    url: 'www.Tether.org',
-    Image: require('../assets/icons/favorite.png'),
-    fav: true,
-  },
-  {
-    id: 6,
-    Subject: 'Ethererium1',
-    url: 'www.etherium.com',
-    Image: require('../assets/icons/Ellipse95.png'),
-    fav: false,
-  },
-];
+// const Artlinks = [
+//   {
+//     name: 'Two gils ...',
+//     author: 'Pierre-Auguste Renoir (1881)',
+//     coin: 'ETH',
+//     total: '0.1',
+//     image: require('../assets//icons/MaskGroup.png'),
+//     fav: true,
+//   },
+//   {
+//     name: 'Flowers ...',
+//     author: 'Edgar Degas (1873)',
+//     coin: 'ETH',
+//     total: '0.3',
+//     image: require('../assets//icons/flowers.png'),
+//     fav: true,
+//   },
+//   {
+//     name: 'Steamboats in the Port ...',
+//     author: 'Vladimir Kush (1111)',
+//     coin: 'ETH',
+//     total: '0.2',
+//     image: require('../assets//icons/SteamBoats.png'),
+//     fav: true,
+//   },
+//   {
+//     name: 'Ancient Winter city ...',
+//     author: 'Paul Jackson Pollock (1912)',
+//     coin: 'ETH',
+//     total: '0.2',
+//     image: require('../assets//icons/Rectangle229.png'),
+//     fav: true,
+//   },
+// ];
+
+// const links = [
+//   {
+//     id: 2,
+//     Subject: 'Aleo',
+//     url: 'Aleo.org',
+//     Image: require('../assets/icons/all.png'),
+//     logo: require('../assets/icons/Group6679.png'),
+//     fav: false,
+//   },
+//   {
+//     id: 1,
+//     Subject: 'Bitcoin',
+//     url: 'bitcoin.org/ko',
+//     Image: require('../assets/icons/Vector.png'),
+//     logo: require('../assets/icons/bitcoin.png'),
+//     fav: true,
+//   },
+//   {
+//     id: 3,
+//     Subject: 'Filecoin',
+//     url: 'filecoin.io',
+//     Image: require('../assets/icons/Ellipse93.png'),
+//     logo: require('../assets/icons/fx.png'),
+//     fav: true,
+//   },
+//   {
+//     id: 4,
+//     Subject: 'Plenty',
+//     url: 'www.plenty.com',
+//     Image: require('../assets/icons/Ellipse94.png'),
+//     logo: require('../assets/icons/Layer_1.png'),
+//     fav: true,
+//   },
+//   {
+//     id: 5,
+//     Subject: 'Ethererium',
+//     url: 'www.etherium.com',
+//     Image: require('../assets/icons/Ellipse95.png'),
+//     fav: false,
+//   },
+//   {
+//     id: 6,
+//     Subject: 'Sol',
+//     url: 'www.sol.io',
+//     Image: require('../assets/icons/Ellipse96.png'),
+//     fav: false,
+//   },
+//   {
+//     id: 7,
+//     Subject: 'Tether',
+//     url: 'www.Tether.org',
+//     Image: require('../assets/icons/favorite.png'),
+//     fav: true,
+//   },
+//   {
+//     id: 6,
+//     Subject: 'Ethererium1',
+//     url: 'www.etherium.com',
+//     Image: require('../assets/icons/Ellipse95.png'),
+//     fav: false,
+//   },
+// ];
 
 const items = [
   {
@@ -172,51 +245,119 @@ const Tabs = [
 ];
 
 const testData = [
-  // {
-  //   key: 'All',
-  //   title: 'All',
-  //   items: links,
-  //   icons: require('../assets/icons/all.png'),
-  // },
-
-  // {
-  //   key: 'Favorite',
-  //   title: 'Favorite',
-  //   items: links,
-  //   icons: require('../assets/icons/Vector.png'),
-  // },
-
   {
     key: 'Website',
     title: 'Website',
-    items: links,
-    icons: require('../assets/icons/Ellipse93.png'),
-    fav: true,
+    dotColor: yellow200,
+    items: ExploreData.website,
   },
-
-  // {
-  //   key: 'Item',
-  //   title: 'Item',
-  //   items: links,
-  //   icons: require('../assets/icons/Ellipse94.png'),
-  //   fav: true,
-  // },
-
   {
     key: 'Art',
     title: 'Art',
-    items: Artlinks,
-    icons: require('../assets/icons/Ellipse95.png'),
-    fav: true,
+    dotColor: red,
+    items: ExploreData.art,
   },
-
-  // {
-  //   key: 'Article',
-  //   title: 'Article',
-  //   items: links,
-  //   icons: require('../assets/icons/Ellipse96.png'),
-  //   fav: false,
-  // },
 ];
 
-export {links, testData, items, Tabs, Artlinks, Dappdata};
+const PortfolioData = {
+  total: 57784,
+  list: [
+    { color: magenta, coin: 'BTC', percentage: 30, amount: 20224 },
+    { color: gray100, coin: 'ETH', percentage: 10, amount: 17335 },
+    { color: purple100, coin: 'USDT', percentage: 20, amount: 11557 },
+    { color: primary, coin: 'FIL', percentage: 40, amount: 8668 },
+  ]
+}
+
+const WalletHomeData = {
+  total: 18254,
+  notice: [
+    { title: 'ALEO Metaverse Coming Soon', imagePath: require('../assets/images/Aleo.png') }
+  ],
+  tokens: [
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+  ],
+  nfts: [
+    {
+      name: 'Daily Art Story',
+      type: 'gold',
+      typeColor: yellow300,
+      memberType: 'Membership',
+      code: 748,
+      image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+    },
+    {
+      name: 'Daily Art Story',
+      type: 'Platinium',
+      typeColor: green400,
+      memberType: 'Membership',
+      code: 748,
+      image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+    },
+    {
+      name: 'Daily Art Story',
+      type: 'gold',
+      typeColor: yellow300,
+      memberType: 'Membership',
+      code: 748,
+      image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+    },
+  ]
+}
+
+export {
+  testData,
+  items,
+  Tabs,
+  Dappdata,
+  PortfolioData,
+  WalletHomeData,
+  ExploreData,
+};

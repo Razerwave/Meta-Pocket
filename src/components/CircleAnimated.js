@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { StyleSheet, TouchableOpacity, View, Text, Animated, Easing } from 'react-native';
+import { TouchableOpacity, View, Animated, Easing } from 'react-native';
 import Svg, { G, Circle } from 'react-native-svg';
-import { gray100, magenta, neutral100, primary, purple100 } from '../constants/colors';
 
-const CircleAnimated = ({ children, size = 186 }) => {
+const CircleAnimated = ({ children, size = 186, data = [] }) => {
   const [spin, setSpin] = useState(false)
+
+  const percentages = data?.map(i => i.percentage)
 
   return (
     <TouchableOpacity onPress={() => setSpin(v => !v)}>
@@ -12,26 +13,20 @@ const CircleAnimated = ({ children, size = 186 }) => {
         <View style={{ height: size, width: size, alignItems: 'center', justifyContent: 'center' }}>
           {children}
         </View>
-        <View style={{ position: 'absolute' }}>
-          <SpinningView toValue={-360} durationMs={1500} spin={spin}>
-            <CircleView stroke={magenta} percentage={30} rotation={-90} size={size} />
-          </SpinningView>
-        </View>
-        <View style={{ position: 'absolute' }}>
-          <SpinningView toValue={360} durationMs={1500} spin={spin}>
-            <CircleView stroke={gray100} percentage={10} rotation={18} size={size} />
-          </SpinningView>
-        </View>
-        <View style={{ position: 'absolute' }}>
-          <SpinningView toValue={-360} durationMs={1500} spin={spin}>
-            <CircleView stroke={purple100} percentage={20} rotation={54} size={size} />
-          </SpinningView>
-        </View>
-        <View style={{ position: 'absolute' }}>
-          <SpinningView toValue={360} durationMs={1500} spin={spin}>
-            <CircleView stroke={primary} percentage={40} rotation={126} size={size} />
-          </SpinningView>
-        </View>
+        {data?.map(({ color, percentage }, index) => {
+          return (
+            <View key={index} style={{ position: 'absolute' }}>
+              <SpinningView toValue={index % 2 === 0 ? -360 : 360} durationMs={1500} spin={spin}>
+                <CircleView
+                  stroke={color}
+                  percentage={percentage}
+                  rotation={3.6 * percentages.slice(0, index).reduce((partialSum, a) => partialSum + a, 0) - 90}
+                  size={size}
+                />
+              </SpinningView>
+            </View>
+          )
+        })}
       </View>
     </TouchableOpacity>
   )
@@ -47,33 +42,6 @@ const CircleView = ({
   const center = size / 2;
   const radius = size / 2 - strokeWidth / 2;
   const circumference = 2 * Math.PI * radius;
-
-  // const progressAnimation = useRef(new Animated.Value(0)).current;
-  // const progressRef = useRef(null);
-
-  // const animation = (toValue) => {
-  //   return Animated.timing(progressAnimation, {
-  //     toValue,
-  //     duration: 250,
-  //     useNativeDriver: true
-  //   }).start()
-  // }
-
-  // useEffect(() => {
-  //   animation(percentage)
-  // }, [percentage])
-
-  // useEffect(() => {
-  //   progressAnimation.addListener((value) => {
-  //     const strokeDashoffset = circumference - (circumference * value.value) / 100
-
-  //     if (progressRef?.current) {
-  //       progressRef.current.setNativeProps({
-  //         strokeDashoffset
-  //       })
-  //     }
-  //   }, [percentage]);
-  // })
 
   return (
     <Svg width={size} height={size}>

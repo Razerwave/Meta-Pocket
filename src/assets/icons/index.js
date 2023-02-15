@@ -19,6 +19,7 @@ import IconCheck from "./IconCheck";
 import IconSearch from "./IconSearch";
 import IconDottRec from "./IconDottRec";
 import IconSendBTCScreen from './IconSendBTCScreen';
+import IconArrowScroll from './IconArrowScroll';
 
 export {
   IconArrowBack,
@@ -42,4 +43,5 @@ export {
   IconSearch,
   IconDottRec,
   IconSendBTCScreen,
+  IconArrowScroll,
 };

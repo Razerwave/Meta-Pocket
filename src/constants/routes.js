@@ -46,6 +46,9 @@ const ROUTES = {
   LOADNFT: {
     LOADNFT_SCREEN: 'LOADNFT_SCREEN',
   },
+  SENDNFT: {
+    SENDNFT_SCREEN: 'SENDNFT_SCREEN',
+  },
 };
 
 export default ROUTES;

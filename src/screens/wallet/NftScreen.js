@@ -27,13 +27,13 @@ const NftScreen = ({ route, navigation }) => {
             </BodyText>
           </Stack>
         </FixedThemeWrapper>
-        <Stack gap={20} marginTop={30} marginBottom={30} marginHorizontal={27}>
+        <View gap={20} marginTop={30} marginBottom={30} marginHorizontal={27}>
           {[
             { label: 'description', value: item.name },
             { label: 'standard', value: 'ERC7021' },
             { label: 'contract', value: '0xdcdcd...sdsdsdsd' },
           ].map((item, index) => <ListItem key={index} {...item} />)}
-        </Stack>
+        </View>
         <View alignItems="center">
           <ButtonPrimary title="Send" onPress={() => navigation.navigate(ROUTES.SENDNFT.SENDNFT_SCREEN)} />
         </View>

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Image } from 'react-native';
-import { View } from 'react-native-animatable';
-import { useNavigation } from '@react-navigation/native';
+import React, {useState, useEffect} from 'react';
+import {Image} from 'react-native';
+import {View} from 'react-native-animatable';
+import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
-import { ROUTES } from '../../constants';
-import { Dappdata } from '../../constants/ListData';
-import { neutral100, neutral300 } from '../../constants/colors';
-import { IconDappArrow } from '../../assets/icons';
+import {ROUTES} from '../../constants';
+import {Dappdata} from '../../constants/ListData';
+import {neutral100, neutral300} from '../../constants/colors';
+import {IconDappArrow} from '../../assets/icons';
 import {
   BodyText,
   LayoutScreen,
@@ -15,12 +15,12 @@ import {
 } from '../../components';
 
 const TAB_ROUTES = [
-  { key: 'AllTab', title: 'All' },
-  { key: 'PopularTab', title: 'Popular' },
-  { key: 'MiningTab', title: 'Mining' },
+  {key: 'AllTab', title: 'All'},
+  {key: 'PopularTab', title: 'Popular'},
+  {key: 'MiningTab', title: 'Mining'},
 ];
 
-const DappScreen = ({ navigation }) => {
+const DappScreen = ({navigation}) => {
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
 
@@ -28,14 +28,39 @@ const DappScreen = ({ navigation }) => {
     setData(Dappdata);
   }, []);
 
-  const renderScene = ({ route }) => {
+  const renderScene = ({route}) => {
     switch (route.key) {
       case 'AllTab':
-        return <DappTab data={data} onPress={() => navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)} />;
+        return (
+          <DappTab
+            data={data}
+            onPress={() =>
+              navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+            }
+          />
+        );
       case 'PopularTab':
-        return <DappTab data={data.filter(({ type }) => 'Popular' ? type === 'Popular' : true)} onPress={() => navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)}  />;
+        return (
+          <DappTab
+            data={data.filter(({type}) =>
+              'Popular' ? type === 'Popular' : true,
+            )}
+            onPress={() =>
+              navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+            }
+          />
+        );
       case 'MiningTab':
-        return <DappTab data={data.filter(({ type }) => 'Mining' ? type === 'Mining' : true)} onPress={() => navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)}  />;
+        return (
+          <DappTab
+            data={data.filter(({type}) =>
+              'Mining' ? type === 'Mining' : true,
+            )}
+            onPress={() =>
+              navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+            }
+          />
+        );
     }
   };
 
@@ -49,7 +74,7 @@ const DappScreen = ({ navigation }) => {
   );
 };
 
-const DappTab = ({ data = [], onPress }) => {
+const DappTab = ({data = [], onPress}) => {
   return (
     <LayoutScreen>
       <LayoutScroll>
@@ -62,20 +87,17 @@ const DappTab = ({ data = [], onPress }) => {
                     <ArrowIcon>
                       <IconDappArrow />
                     </ArrowIcon>
-                    <ImageContainer
-                      style={{ marginBottom: 20, marginLeft: 20 }}>
+                    <ImageContainer style={{marginBottom: 20, marginLeft: 20}}>
                       <Image source={item.image} />
                     </ImageContainer>
                   </Card>
                 </AllTabTouchableOpacity>
 
                 <DescriptionContainer>
-                  <BodyText
-                    type={8}
-                    style={{ marginTop: 10, marginBottom: 6 }}>
+                  <BodyText type={8} style={{marginTop: 10, marginBottom: 6}}>
                     {item.title}
                   </BodyText>
-                  <BodyText type={7} style={{ color: neutral100 }}>
+                  <BodyText type={7} style={{color: neutral100}}>
                     {item.description}
                   </BodyText>
                 </DescriptionContainer>

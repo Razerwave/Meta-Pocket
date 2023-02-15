@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
-import { ROUTES } from '../../constants/index';
-import { useTheme } from 'styled-components';
+import React, {useEffect, useState} from 'react';
+import {Text, View, TouchableOpacity, Image} from 'react-native';
+import {ROUTES} from '../../constants/index';
+import {useTheme} from 'styled-components';
 import {
   BodyText,
   ButtonScroll,
   CustomTabs,
+  ButtonPrimary,
   FixedThemeWrapper,
   LayoutScreen,
   LayoutScroll,
   Stack,
   WalletTotalBalance,
 } from '../../components';
-import { DarkTheme } from '../../constants/index';
+import {DarkTheme} from '../../constants/index';
 import NoticeCard from '../../components/NoticeCard';
 import { green200, neutral100, neutral300, red, white, yellow200, yellow300 } from '../../constants/colors';
 
@@ -27,6 +28,13 @@ const TAB_ROUTES = [
 
 const WalletScreen = ({ navigation }) => {
   const [tab, setTab] = useState(0);
+import {green200, neutral300, red, white} from '../../constants/colors';
+
+// TEST DATA
+import {WalletHomeData} from '../../constants/ListData';
+
+const WalletScreen = ({navigation}) => {
+  const {fontColor} = useTheme();
   const [total, setTotal] = useState(0);
   const [notice, setNoticeList] = useState([]);
   const [tokens, setTokens] = useState([]);
@@ -53,10 +61,14 @@ const WalletScreen = ({ navigation }) => {
   };
 
   return (
-    <LayoutScreen statusBar={{ backgroundColor: DarkTheme.backgroundColor, colorStyle: DarkTheme.statusBarStyle }}>
+    <LayoutScreen
+      statusBar={{
+        backgroundColor: DarkTheme.backgroundColor,
+        colorStyle: DarkTheme.statusBarStyle,
+      }}>
       <FixedThemeWrapper dark>
         <Stack marginBottom={20}>
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <BodyText type={2}>Wallet</BodyText>
             <WalletTotalBalance
               total={total}
@@ -64,11 +76,20 @@ const WalletScreen = ({ navigation }) => {
             />
           </View>
 
-          {notice.map(({ imagePath, title }, index) => (
-            <TouchableOpacity key={index} onPress={() => navigation.navigate(ROUTES.SETTING.NOTICE, { title })} >
+          {notice.map(({imagePath, title}, index) => (
+            <TouchableOpacity
+              key={index}
+              onPress={() =>
+                navigation.navigate(ROUTES.SETTING.NOTICE, {title})
+              }>
               <NoticeCard imagePath={imagePath} title={title} />
             </TouchableOpacity>
           ))}
+
+          <ButtonPrimary
+            title="load ntf"
+            onPress={() => navigation.navigate(ROUTES.LOADNFT.LOADNFT_SCREEN)}
+          />
         </Stack>
       </FixedThemeWrapper>
       <CustomTabs

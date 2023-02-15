@@ -13,8 +13,8 @@ import {ExploreListScreen} from '../screens/Explore';
 import {EnterPasscode, WebScreen} from '../screens';
 import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
-import {LayoutHeader} from '../components';
-import {PortfolioScreen, SendBTCScreen} from '../screens/wallet';
+import {ActionInfoBorder, LayoutHeader} from '../components';
+import {LoadNftScreen, PortfolioScreen, SendBTCScreen} from '../screens/wallet';
 import {BuyItem} from '../screens/BuyItem/index';
 import {neutral300} from '../constants/colors';
 
@@ -119,6 +119,26 @@ const MainNavigation = () => {
         }}
         name={ROUTES.SENDBTC.SENDBTC_SCREEN}
         component={SendBTCScreen}
+      />
+
+      {/* Send NFT screen */}
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: 'Send NFT',
+        }}
+        name={ROUTES.ACTION.ACTION_SCREEN}
+        component={ActionInfoBorder}
+      />
+
+      {/* Load NFT screen */}
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: 'Load NFTs',
+        }}
+        name={ROUTES.LOADNFT.LOADNFT_SCREEN}
+        component={LoadNftScreen}
       />
     </Stack.Navigator>
   );

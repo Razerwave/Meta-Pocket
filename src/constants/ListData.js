@@ -1,3 +1,5 @@
+import { gray100, gray200, gray300, magenta, neutral100, primary, purple100 } from './colors';
+
 const Dappdata = [
   {
     title: 'Aleo Meta Pocket',
@@ -219,4 +221,19 @@ const testData = [
   // },
 ];
 
-export {links, testData, items, Tabs, Artlinks, Dappdata};
+const PortfolioData = [
+  { color: magenta, coin: 'BTC', percentage: 30, amount: 20224 },
+  { color: gray100, coin: 'ETH', percentage: 10, amount: 17335 },
+  { color: purple100, coin: 'USDT', percentage: 20, amount: 11557 },
+  { color: primary, coin: 'FIL', percentage: 40, amount: 8668 },
+]
+
+export {
+  links,
+  testData,
+  items,
+  Tabs,
+  Artlinks,
+  Dappdata,
+  PortfolioData,
+};

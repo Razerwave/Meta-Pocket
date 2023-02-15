@@ -49,7 +49,7 @@ const WalletScreen = ({ navigation }) => {
       case 'NFTs':
         return <NFTTab
           data={nfts}
-          onPress={(item) => navigation.navigate(ROUTES.HOME.WALLET)}
+          onPress={(item) => navigation.navigate(ROUTES.WALLET.NFT_INFO, { item })}
           onPressScroll={() => navigation.navigate(ROUTES.LOADNFT.LOADNFT_SCREEN)}
         />;
     }

@@ -20,7 +20,6 @@ const CustomInput = ({
   error = false,
   keyboardType,
 }) => {
-  console.log(value, ' =======');
   const [focused, setFocused] = useState(false);
   const {
     input: {

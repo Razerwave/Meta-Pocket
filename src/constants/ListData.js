@@ -235,6 +235,9 @@ const WalletHomeData = {
   total: 18254,
   notice: [
     { title: 'ALEO Metaverse Coming Soon', imagePath: require('../assets/images/Aleo.png') }
+  ],
+  tokens: [
+    {}
   ]
 }
 

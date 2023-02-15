@@ -14,6 +14,7 @@ import ButtonPrimary from './buttons/ButtonPrimary';
 import ButtonText from './buttons/ButtonText';
 import CustomSearch from './input/CustomSearch';
 import InvoiceSheet from './InvoiceSheet';
+import CustomTabs from './tabs/CustomTabs';
 
 import StyledText from './texts/StyledText';
 import Title from './texts/Title';
@@ -76,4 +77,5 @@ export {
   FixedThemeWrapper,
   NoticeCard,
   ActionInfo,
+  CustomTabs,
 };

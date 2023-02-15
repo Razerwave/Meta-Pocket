@@ -52,7 +52,7 @@ const WalletScreen = ({ navigation }) => {
       <LayoutScroll>
         <Stack marginTop={10} marginHorizontal={16}>
           {[1, 2, 3, 4, 5, 6, 7, 8].map((_, index) => (
-            <ListItem key={index} fontColor={fontColor} />
+            <ListItemToken key={index} fontColor={fontColor} />
           ))}
         </Stack>
       </LayoutScroll>
@@ -101,7 +101,26 @@ const Tabs = () => {
 
 const ImageURI = require('../../assets/images/Bitcoin.png')
 
-const ListItem = () => {
+const ListItemToken = () => {
+  return (
+    <Stack direction='row' spacing={10} style={{ height: 50 }} alignItems="center">
+      <Image source={ImageURI} />
+      <Stack>
+        <BodyText style={{ fontWeight: '600' }}>
+          BTC
+          <BodyText style={{ fontSize: 10, fontWeight: '400', color: neutral300, marginLeft: 10 }}>   Bitcoin</BodyText>
+        </BodyText>
+        <BodyText>$ 18,888</BodyText>
+      </Stack>
+      <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+        <BodyText>0.3</BodyText>
+        <BodyText style={{ fontSize: 10, color: green200, fontWeight: '600' }}>+3.40%</BodyText>
+      </Stack>
+    </Stack>
+  );
+};
+
+const ListItemNFT = () => {
   return (
     <Stack direction='row' spacing={10} style={{ height: 50 }} alignItems="center">
       <Image source={ImageURI} />

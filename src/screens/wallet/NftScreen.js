@@ -29,7 +29,7 @@ const NftScreen = ({ route, navigation }) => {
         </FixedThemeWrapper>
 
         
-        {/* <ButtonPrimary title="Buy" onPress={() => navigation.navigate(ROUTES.)} /> */}
+        <ButtonPrimary title="Buy" onPress={() => navigation.navigate(ROUTES.SENDNFT.SENDNFT_SCREEN)} />
         
       </LayoutScroll>
     </LayoutScreen>

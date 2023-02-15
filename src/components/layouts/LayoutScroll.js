@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { ScrollView, TouchableOpacity, Animated } from 'react-native';
 import { IconScrollTop } from '../../assets/icons';
 
-const CONTENT_OFFSET_THRESHOLD = 150;
+const CONTENT_OFFSET_THRESHOLD = 10;
 
 const LayoutScroll = ({ children, bottomGap = 30 }) => {
   const scrollRef = useRef()

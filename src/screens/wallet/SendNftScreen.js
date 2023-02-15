@@ -28,8 +28,10 @@ const SendNftScreen = ({navigation}) => {
         </Content>
         <ButtonContainer>
           <ButtonPrimary
-            title="Load"
-            onPress={() => navigation.navigate(ROUTES.SENDBTC.SENDBTC_SCREEN)}
+            title="Next"
+            onPress={() =>
+              navigation.navigate(ROUTES.SENDNFT_AUTH.SENDNFT_AUTH_SCREEN)
+            }
           />
         </ButtonContainer>
       </Container>

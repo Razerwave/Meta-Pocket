@@ -352,6 +352,39 @@ const WalletHomeData = {
   ]
 }
 
+const BTC_INFO_DATA = [
+  {
+    date: 'Jan 2, 2023 PM 12:00',
+    transactions: [
+      {
+        type: 'Received',
+        amount: 0.1,
+      },
+      {
+        type: 'Send',
+        amount: -0.1,
+      },
+      {
+        type: 'Received',
+        amount: 0.1,
+      },
+    ]
+  },
+  {
+    date: 'Jan 2, 2023 PM 12:00',
+    transactions: [
+      {
+        type: 'Send',
+        amount: -0.1,
+      },
+      {
+        type: 'Send',
+        amount: -0.1,
+      },
+    ]
+  }
+]
+
 export {
   testData,
   items,
@@ -360,4 +393,5 @@ export {
   PortfolioData,
   WalletHomeData,
   ExploreData,
+  BTC_INFO_DATA,
 };

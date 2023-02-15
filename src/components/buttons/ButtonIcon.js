@@ -4,12 +4,12 @@ import { neutral100, primary, white } from '../../constants/colors'
 import BodyText from '../texts/BodyText'
 import Stack from '../Stack'
 
-const ButtonIcon = ({ icon, children, onPress = () => { } }) => {
+const ButtonIcon = ({ icon, children, onPress = () => { }, borderColor = primary, size = 50, }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <Stack spacing={10} alignItems="center">
-        <View style={styles.outer}>
-          <View style={styles.inner}>
+        <View style={[styles.outer, { width: size, height: size }]}>
+          <View style={[styles.inner, { borderColor }]}>
             {icon}
           </View>
         </View>
@@ -25,8 +25,6 @@ export default ButtonIcon
 
 const styles = StyleSheet.create({
   outer: {
-    width: 50,
-    height: 50,
     borderRadius: 9999,
   },
   inner: {
@@ -37,7 +35,6 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: neutral100,
     backgroundColor: primary,
   },
 })

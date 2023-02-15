@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Image } from 'react-native';
 import styled from 'styled-components/native';
 import {
-  AppStatusBar,
   BodyHeading,
   BodyText,
   ButtonPrimary,
@@ -11,14 +10,12 @@ import {
   LayoutScreen,
   LayoutScroll,
   Stack,
-  StyledText,
 } from '../../components';
-import { useTheme } from 'styled-components';
-import { neutral100, neutral300, white } from '../../constants/colors';
+import { neutral100, neutral300 } from '../../constants/colors';
 import { DarkTheme } from '../../constants';
 
 const BuyItem = ({ route }) => {
-  const { statusBarStyle, fontColor } = DarkTheme
+  const { statusBarStyle, fontColor } = DarkTheme;
   const item = route.params.item;
 
   return (
@@ -30,9 +27,9 @@ const BuyItem = ({ route }) => {
             headerStyle={{ backgroundColor: neutral300 }}
             headerTitleStyle={{ color: fontColor }}
           />
-          <Stack alignItems="center" marginTop={14} marginBottom={33} style={{ backgroundColor: neutral300 }}>
+          <Stack alignItems="center" marginTop={20} marginBottom={33} style={{ backgroundColor: neutral300 }}>
             <Image style={{ width: 160, height: 160 }} source={item.image} />
-            <BodyHeading type={5} style={{ marginTop: 20, color: white }}>
+            <BodyHeading type={5} style={{ marginTop: 20, color: fontColor }}>
               {item.title}
             </BodyHeading>
             <BodyText type={3} style={{ marginTop: 10, color: neutral100 }}>

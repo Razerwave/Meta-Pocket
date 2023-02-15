@@ -22,6 +22,7 @@ import {
 } from '../screens/wallet';
 import {BuyItem} from '../screens/BuyItem/index';
 import {neutral300} from '../constants/colors';
+import NftScreen from '../screens/wallet/NftScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +51,11 @@ const MainNavigation = () => {
         options={{headerShown: false}}
         name={ROUTES.WALLET.PORTFOLIO}
         component={PortfolioScreen}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name={ROUTES.WALLET.NFT_INFO}
+        component={NftScreen}
       />
       {/* SETTING */}
       <Stack.Screen

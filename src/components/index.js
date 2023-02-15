@@ -38,6 +38,7 @@ import ListItem from './ListItem';
 import FixedThemeWrapper from './theme/FixedThemeWrapper';
 import NoticeCard from './NoticeCard';
 import ActionInfo from './ActionInfo';
+import CustomTouchableOpacity from './CustomTouchableOpacity';
 
 export {
   Title,
@@ -76,4 +77,5 @@ export {
   FixedThemeWrapper,
   NoticeCard,
   ActionInfo,
+  CustomTouchableOpacity,
 };

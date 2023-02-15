@@ -1,22 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useRef, useState } from 'react'
-import { ScrollView, TouchableOpacity, Animated } from 'react-native';
-import { IconScrollTop } from '../../assets/icons';
+import {StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {ScrollView, TouchableOpacity, Animated} from 'react-native';
+import {IconScrollTop} from '../../assets/icons';
 
 const CONTENT_OFFSET_THRESHOLD = 10;
 
-const LayoutScroll = ({ children, bottomGap = 30 }) => {
-  const scrollRef = useRef()
+const LayoutScroll = ({children, bottomGap = 30}) => {
+  const scrollRef = useRef();
   const [contentVerticalOffset, setContentVerticalOffset] = useState(0);
   const [visible, setVisible] = useState(false);
 
   const onPressTouch = () => {
-    setVisible(false)
+    setVisible(false);
     scrollRef.current?.scrollTo({
       y: 0,
       animated: true,
-    })
-  }
+    });
+  };
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
@@ -25,18 +25,18 @@ const LayoutScroll = ({ children, bottomGap = 30 }) => {
         toValue: 1,
         duration: 500,
         useNativeDriver: true,
-      }).start(({ finished }) => {
-        if (finished) return
-        setVisible(true)
+      }).start(({finished}) => {
+        if (finished) return;
+        setVisible(true);
       });
     } else if (visible) {
       Animated.timing(fadeAnim, {
         toValue: 0,
         duration: 500,
         useNativeDriver: true,
-      }).start(({ finished }) => {
-        if (!finished) return
-        setVisible(false)
+      }).start(({finished}) => {
+        if (!finished) return;
+        setVisible(false);
       });
     }
   }, [contentVerticalOffset, CONTENT_OFFSET_THRESHOLD]);
@@ -47,11 +47,12 @@ const LayoutScroll = ({ children, bottomGap = 30 }) => {
       <ScrollView
         ref={scrollRef}
         onScroll={event => {
-          setContentVerticalOffset(event.nativeEvent.contentOffset.y)
-        }}
-      >
-        {children}
-        <View style={{ height: bottomGap }} />
+          setContentVerticalOffset(event.nativeEvent.contentOffset.y);
+        }}>
+        <TouchableOpacity activeOpacity={1}>
+          {children}
+          <View style={{height: bottomGap}} />
+        </TouchableOpacity>
       </ScrollView>
 
       <Animated.View
@@ -65,15 +66,15 @@ const LayoutScroll = ({ children, bottomGap = 30 }) => {
         )}
       </Animated.View>
     </>
-  )
-}
+  );
+};
 
-export default LayoutScroll
+export default LayoutScroll;
 
 const styles = StyleSheet.create({
   scrollTop: {
     position: 'absolute',
     bottom: 16,
     right: 16,
-  }
-})
+  },
+});

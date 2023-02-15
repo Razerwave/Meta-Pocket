@@ -10,3 +10,4 @@ export const RESTORE_STATE = 'RESTORE_STATE';
 export const INITIALIZE = 'INITIALIZE';
 
 export const SET_STATUS_BAR = 'SET_STATUS_BAR';
+export const SET_MAIN_PRESS_EVENT = 'SET_MAIN_PRESS_EVENT';

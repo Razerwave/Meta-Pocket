@@ -1,39 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
-import { ROUTES } from '../../constants/index';
-import { useTheme } from 'styled-components';
+import React, {useEffect, useState} from 'react';
+import {Text, View, TouchableOpacity, Image} from 'react-native';
+import {ROUTES} from '../../constants/index';
+import {useTheme} from 'styled-components';
 import {
   BodyText,
+  ButtonPrimary,
   FixedThemeWrapper,
   LayoutScreen,
   LayoutScroll,
   Stack,
   WalletTotalBalance,
 } from '../../components';
-import { DarkTheme } from '../../constants/index';
+import {DarkTheme} from '../../constants/index';
 import NoticeCard from '../../components/NoticeCard';
-import { green200, neutral300, red, white } from '../../constants/colors';
+import {green200, neutral300, red, white} from '../../constants/colors';
 
 // TEST DATA
-import { WalletHomeData } from '../../constants/ListData';
+import {WalletHomeData} from '../../constants/ListData';
 
-const WalletScreen = ({ navigation }) => {
-  const { fontColor } = useTheme();
+const WalletScreen = ({navigation}) => {
+  const {fontColor} = useTheme();
   const [total, setTotal] = useState(0);
   const [notice, setNoticeList] = useState([]);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setTotal(WalletHomeData.total)
-    setNoticeList(WalletHomeData.notice)
-    setData()
-  }, [])
+    setTotal(WalletHomeData.total);
+    setNoticeList(WalletHomeData.notice);
+    setData();
+  }, []);
 
   return (
-    <LayoutScreen statusBar={{ backgroundColor: DarkTheme.backgroundColor, colorStyle: DarkTheme.statusBarStyle }}>
+    <LayoutScreen
+      statusBar={{
+        backgroundColor: DarkTheme.backgroundColor,
+        colorStyle: DarkTheme.statusBarStyle,
+      }}>
       <FixedThemeWrapper dark>
         <Stack marginBottom={20}>
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <BodyText type={2}>Wallet</BodyText>
             <WalletTotalBalance
               total={total}
@@ -41,11 +46,20 @@ const WalletScreen = ({ navigation }) => {
             />
           </View>
 
-          {notice.map(({ imagePath, title }, index) => (
-            <TouchableOpacity key={index} onPress={() => navigation.navigate(ROUTES.SETTING.NOTICE, { title })} >
+          {notice.map(({imagePath, title}, index) => (
+            <TouchableOpacity
+              key={index}
+              onPress={() =>
+                navigation.navigate(ROUTES.SETTING.NOTICE, {title})
+              }>
               <NoticeCard imagePath={imagePath} title={title} />
             </TouchableOpacity>
           ))}
+
+          <ButtonPrimary
+            title="load ntf"
+            onPress={() => navigation.navigate(ROUTES.LOADNFT.LOADNFT_SCREEN)}
+          />
         </Stack>
       </FixedThemeWrapper>
       <Tabs />
@@ -61,36 +75,45 @@ const WalletScreen = ({ navigation }) => {
 };
 
 const Tabs = () => {
-  const { walletTab: { borderColor, activeColor, inactiveColor } } = useTheme();
+  const {
+    walletTab: {borderColor, activeColor, inactiveColor},
+  } = useTheme();
   const [tab, setTab] = useState(0);
 
   return (
-    <View style={{
-      display: 'flex',
-      flexDirection: 'column-reverse',
-      height: 57,
-      borderBottomWidth: 1,
-      borderColor: borderColor,
-    }}>
+    <View
+      style={{
+        display: 'flex',
+        flexDirection: 'column-reverse',
+        height: 57,
+        borderBottomWidth: 1,
+        borderColor: borderColor,
+      }}>
       <Stack direction="row" marginHorizontal={16}>
         {['Tokens', 'NFTs'].map((text, index) => {
           const isActive = tab === index;
           return (
             <TouchableOpacity key={index} onPress={() => setTab(index)}>
-              <BodyText type={3} style={{
-                fontWeight: '600',
-                minWidth: 66,
-                textAlign: 'center',
-                paddingBottom: 5,
-                color: isActive ? activeColor : inactiveColor,
-              }}>
+              <BodyText
+                type={3}
+                style={{
+                  fontWeight: '600',
+                  minWidth: 66,
+                  textAlign: 'center',
+                  paddingBottom: 5,
+                  color: isActive ? activeColor : inactiveColor,
+                }}>
                 {text}
               </BodyText>
-              <View style={isActive && {
-                borderRadius: 9999,
-                borderWidth: 1,
-                borderColor: activeColor,
-              }} />
+              <View
+                style={
+                  isActive && {
+                    borderRadius: 9999,
+                    borderWidth: 1,
+                    borderColor: activeColor,
+                  }
+                }
+              />
             </TouchableOpacity>
           );
         })}
@@ -99,22 +122,37 @@ const Tabs = () => {
   );
 };
 
-const ImageURI = require('../../assets/images/Bitcoin.png')
+const ImageURI = require('../../assets/images/Bitcoin.png');
 
 const ListItemToken = () => {
   return (
-    <Stack direction='row' spacing={10} style={{ height: 50 }} alignItems="center">
+    <Stack
+      direction="row"
+      spacing={10}
+      style={{height: 50}}
+      alignItems="center">
       <Image source={ImageURI} />
       <Stack>
-        <BodyText style={{ fontWeight: '600' }}>
+        <BodyText style={{fontWeight: '600'}}>
           BTC
-          <BodyText style={{ fontSize: 10, fontWeight: '400', color: neutral300, marginLeft: 10 }}>   Bitcoin</BodyText>
+          <BodyText
+            style={{
+              fontSize: 10,
+              fontWeight: '400',
+              color: neutral300,
+              marginLeft: 10,
+            }}>
+            {' '}
+            Bitcoin
+          </BodyText>
         </BodyText>
         <BodyText>$ 18,888</BodyText>
       </Stack>
-      <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+      <Stack style={{flex: 1, alignItems: 'flex-end'}}>
         <BodyText>0.3</BodyText>
-        <BodyText style={{ fontSize: 10, color: green200, fontWeight: '600' }}>+3.40%</BodyText>
+        <BodyText style={{fontSize: 10, color: green200, fontWeight: '600'}}>
+          +3.40%
+        </BodyText>
       </Stack>
     </Stack>
   );
@@ -122,18 +160,33 @@ const ListItemToken = () => {
 
 const ListItemNFT = () => {
   return (
-    <Stack direction='row' spacing={10} style={{ height: 50 }} alignItems="center">
+    <Stack
+      direction="row"
+      spacing={10}
+      style={{height: 50}}
+      alignItems="center">
       <Image source={ImageURI} />
       <Stack>
-        <BodyText style={{ fontWeight: '600' }}>
+        <BodyText style={{fontWeight: '600'}}>
           BTC
-          <BodyText style={{ fontSize: 10, fontWeight: '400', color: neutral300, marginLeft: 10 }}>   Bitcoin</BodyText>
+          <BodyText
+            style={{
+              fontSize: 10,
+              fontWeight: '400',
+              color: neutral300,
+              marginLeft: 10,
+            }}>
+            {' '}
+            Bitcoin
+          </BodyText>
         </BodyText>
         <BodyText>$ 18,888</BodyText>
       </Stack>
-      <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+      <Stack style={{flex: 1, alignItems: 'flex-end'}}>
         <BodyText>0.3</BodyText>
-        <BodyText style={{ fontSize: 10, color: green200, fontWeight: '600' }}>+3.40%</BodyText>
+        <BodyText style={{fontSize: 10, color: green200, fontWeight: '600'}}>
+          +3.40%
+        </BodyText>
       </Stack>
     </Stack>
   );

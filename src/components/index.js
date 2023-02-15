@@ -38,7 +38,8 @@ import WalletTotalBalance from './WalletTotalBalance';
 import ListItem from './ListItem';
 import FixedThemeWrapper from './theme/FixedThemeWrapper';
 import NoticeCard from './NoticeCard';
-import ActionInfo from './ActionInfo';
+import ActionInfoBorder from './ActionInfoBorder';
+import Precautions from './Precautions';
 
 export {
   Title,
@@ -76,6 +77,7 @@ export {
   InvoiceSheet,
   FixedThemeWrapper,
   NoticeCard,
-  ActionInfo,
+  ActionInfoBorder,
+  Precautions,
   CustomTabs,
 };

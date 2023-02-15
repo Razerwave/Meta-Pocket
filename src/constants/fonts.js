@@ -21,6 +21,7 @@ export const BodyHeadingWeight = {
   4: '600',
   5: '600',
   6: '600',
+  7: '500',
 };
 export const BodyHeadingSize = {
   1: 64,
@@ -29,6 +30,7 @@ export const BodyHeadingSize = {
   4: 34,
   5: 32,
   6: 24,
+  7: 34,
 };
 
 // FONT2 - title

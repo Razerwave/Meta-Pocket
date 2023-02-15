@@ -40,6 +40,12 @@ const ROUTES = {
   SENDBTC: {
     SENDBTC_SCREEN: 'SENDBTC_SCREEN',
   },
+  ACTION: {
+    ACTION_SCREEN: 'ACTION_SCREEN',
+  },
+  LOADNFT: {
+    LOADNFT_SCREEN: 'LOADNFT_SCREEN',
+  },
 };
 
 export default ROUTES;

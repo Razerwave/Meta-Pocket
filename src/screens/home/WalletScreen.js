@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {Text, View, TouchableOpacity, Image} from 'react-native';
-import {ROUTES} from '../../constants/index';
-import {useTheme} from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { ROUTES } from '../../constants/index';
+import { useTheme } from 'styled-components';
 import {
   BodyText,
   ButtonScroll,
@@ -13,12 +13,12 @@ import {
   Stack,
   WalletTotalBalance,
 } from '../../components';
-import {DarkTheme} from '../../constants/index';
+import { DarkTheme } from '../../constants/index';
 import NoticeCard from '../../components/NoticeCard';
-import { green200, neutral100, neutral300, red, white, yellow200, yellow300 } from '../../constants/colors';
 
 // TEST DATA
 import { WalletHomeData } from '../../constants/ListData';
+import { green200, neutral100, red, white } from '../../constants/colors';
 import { currency } from '../../utils/formats';
 
 const TAB_ROUTES = [
@@ -26,15 +26,10 @@ const TAB_ROUTES = [
   { key: 'NFTs', title: 'NFTs' },
 ]
 
+
+
 const WalletScreen = ({ navigation }) => {
-  const [tab, setTab] = useState(0);
-import {green200, neutral300, red, white} from '../../constants/colors';
-
-// TEST DATA
-import {WalletHomeData} from '../../constants/ListData';
-
-const WalletScreen = ({navigation}) => {
-  const {fontColor} = useTheme();
+  const [tab, setTab] = useState(0)
   const [total, setTotal] = useState(0);
   const [notice, setNoticeList] = useState([]);
   const [tokens, setTokens] = useState([]);
@@ -55,7 +50,7 @@ const WalletScreen = ({navigation}) => {
         return <NFTTab
           data={nfts}
           onPress={(item) => navigation.navigate(ROUTES.HOME.WALLET)}
-          onPressScroll={() => navigation.navigate()}
+          onPressScroll={() => navigation.navigate(ROUTES.LOADNFT.LOADNFT_SCREEN)}
         />;
     }
   };
@@ -68,7 +63,7 @@ const WalletScreen = ({navigation}) => {
       }}>
       <FixedThemeWrapper dark>
         <Stack marginBottom={20}>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
             <BodyText type={2}>Wallet</BodyText>
             <WalletTotalBalance
               total={total}
@@ -76,20 +71,15 @@ const WalletScreen = ({navigation}) => {
             />
           </View>
 
-          {notice.map(({imagePath, title}, index) => (
+          {notice.map(({ imagePath, title }, index) => (
             <TouchableOpacity
               key={index}
               onPress={() =>
-                navigation.navigate(ROUTES.SETTING.NOTICE, {title})
+                navigation.navigate(ROUTES.SETTING.NOTICE, { title })
               }>
               <NoticeCard imagePath={imagePath} title={title} />
             </TouchableOpacity>
           ))}
-
-          <ButtonPrimary
-            title="load ntf"
-            onPress={() => navigation.navigate(ROUTES.LOADNFT.LOADNFT_SCREEN)}
-          />
         </Stack>
       </FixedThemeWrapper>
       <CustomTabs
@@ -97,27 +87,27 @@ const WalletScreen = ({navigation}) => {
         onTabChange={setTab}
         tabRoutes={TAB_ROUTES}
         renderScene={renderScene}
-        // renderTabBar={(props) => {
-        //   console.log("props", props)
-        //   return (
-        //     <TouchableOpacity key={index} onPress={() => setTab(index)}>
-        //       <BodyText type={3} style={{
-        //         fontWeight: '600',
-        //         minWidth: 66,
-        //         textAlign: 'center',
-        //         paddingBottom: 5,
-        //         color: isActive ? activeColor : inactiveColor,
-        //       }}>
-        //         {text}
-        //       </BodyText>
-        //       <View style={isActive && {
-        //         borderRadius: 9999,
-        //         borderWidth: 1,
-        //         borderColor: activeColor,
-        //       }} />
-        //     </TouchableOpacity>
-        //   )
-        // }}
+      // renderTabBar={(props) => {
+      //   console.log("props", props)
+      //   return (
+      //     <TouchableOpacity key={index} onPress={() => setTab(index)}>
+      //       <BodyText type={3} style={{
+      //         fontWeight: '600',
+      //         minWidth: 66,
+      //         textAlign: 'center',
+      //         paddingBottom: 5,
+      //         color: isActive ? activeColor : inactiveColor,
+      //       }}>
+      //         {text}
+      //       </BodyText>
+      //       <View style={isActive && {
+      //         borderRadius: 9999,
+      //         borderWidth: 1,
+      //         borderColor: activeColor,
+      //       }} />
+      //     </TouchableOpacity>
+      //   )
+      // }}
       />
     </LayoutScreen>
   );

@@ -1,4 +1,4 @@
-import { gray100, gray200, gray300, magenta, neutral100, primary, purple100 } from './colors';
+import { gray100, gray200, gray300, green400, magenta, neutral100, primary, purple100, yellow300 } from './colors';
 
 const Dappdata = [
   {
@@ -288,7 +288,80 @@ const WalletHomeData = {
     { title: 'ALEO Metaverse Coming Soon', imagePath: require('../assets/images/Aleo.png') }
   ],
   tokens: [
-    {}
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+    {
+      name: 'BTC',
+      description: 'Bitcoin',
+      amount: 18888,
+      percent: 0.3,
+      change: 3.40,
+      image: require('../assets/images/Bitcoin.png'),
+    },
+  ],
+  nfts: [
+    {
+      name: 'Daily Art Story',
+      type: 'gold',
+      typeColor: yellow300,
+      memberType: 'Membership',
+      code: 748,
+      image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+    },
+    {
+      name: 'Daily Art Story',
+      type: 'Platinium',
+      typeColor: green400,
+      memberType: 'Membership',
+      code: 748,
+      image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+    },
+    {
+      name: 'Daily Art Story',
+      type: 'gold',
+      typeColor: yellow300,
+      memberType: 'Membership',
+      code: 748,
+      image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+    },
   ]
 }
 

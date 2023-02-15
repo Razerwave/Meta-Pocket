@@ -12,6 +12,7 @@ import BodyText from './texts/BodyText';
 
 import ButtonPrimary from './buttons/ButtonPrimary';
 import ButtonText from './buttons/ButtonText';
+import ButtonScroll from './buttons/ButtonScroll';
 import CustomSearch from './input/CustomSearch';
 import InvoiceSheet from './InvoiceSheet';
 import CustomTabs from './tabs/CustomTabs';
@@ -78,4 +79,5 @@ export {
   NoticeCard,
   ActionInfo,
   CustomTabs,
+  ButtonScroll,
 };

@@ -1,5 +1,5 @@
-import PortfolioScreen from "./PortfolioScreen";
+import PortfolioScreen from './PortfolioScreen';
+import SendBTCScreen from './SendBTCScreen';
+import SendInfoScreen from './SendInfoScreen';
 
-export {
-  PortfolioScreen,
-}
+export {PortfolioScreen, SendBTCScreen, SendInfoScreen};

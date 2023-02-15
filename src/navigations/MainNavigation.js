@@ -7,14 +7,14 @@ import {
   ResetPasscode,
   Referral,
   NoticeList,
-  NoticeScreen
+  NoticeScreen,
 } from '../screens/setting';
 import {ExploreListScreen} from '../screens/Explore';
 import {EnterPasscode, WebScreen} from '../screens';
 import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
 import {LayoutHeader} from '../components';
-import {PortfolioScreen} from '../screens/wallet';
+import {PortfolioScreen, SendBTCScreen} from '../screens/wallet';
 import {BuyItem} from '../screens/BuyItem/index';
 import {neutral300} from '../constants/colors';
 
@@ -95,6 +95,7 @@ const MainNavigation = () => {
         name={ROUTES.BUY.BUY_SCREEN}
         component={BuyItem}
       />
+
       {/* Enter password */}
       <Stack.Screen
         name={ROUTES.ENTERPASS.ENTRYPASS_SCREEN}
@@ -108,6 +109,16 @@ const MainNavigation = () => {
         }) => ({title: title || uri})}
         name={ROUTES.EXPLORE.WEB}
         component={WebScreen}
+      />
+
+      {/* Send BTC Screen */}
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: 'Send BTC',
+        }}
+        name={ROUTES.SENDBTC.SENDBTC_SCREEN}
+        component={SendBTCScreen}
       />
     </Stack.Navigator>
   );

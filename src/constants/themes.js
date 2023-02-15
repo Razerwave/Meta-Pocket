@@ -43,7 +43,7 @@ const DefaultTheme = {
     borderColorError: red,
     placeholerColor: neutral100,
     inputColor: black,
-    btnColor: neutral100,
+    btnColor: neutral200,
   },
   search: {
     borderColor: neutral100,

@@ -41,6 +41,7 @@ export const BodyTextWeight = {
   6: '600',
   7: '400',
   8: '500',
+  9: '600',
 };
 export const BodyTextSize = {
   1: 20,
@@ -51,6 +52,7 @@ export const BodyTextSize = {
   6: 14,
   7: 10,
   8: 12,
+  9: 10,
 };
 
 // export const BodyTextWeight1 = '600'

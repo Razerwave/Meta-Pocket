@@ -49,6 +49,9 @@ const ROUTES = {
   SENDNFT: {
     SENDNFT_SCREEN: 'SENDNFT_SCREEN',
   },
+  SENDNFT_AUTH: {
+    SENDNFT_AUTH_SCREEN: 'SENDNFT_AUTH_SCREEN',
+  },
 };
 
 export default ROUTES;

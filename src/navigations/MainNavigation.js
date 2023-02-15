@@ -18,6 +18,7 @@ import {
   LoadNftScreen,
   PortfolioScreen,
   SendBTCScreen,
+  SendNftAuthScreen,
   SendNftScreen,
 } from '../screens/wallet';
 import {BuyItem} from '../screens/BuyItem/index';
@@ -148,6 +149,16 @@ const MainNavigation = () => {
         }}
         name={ROUTES.SENDNFT.SENDNFT_SCREEN}
         component={SendNftScreen}
+      />
+
+      {/* Send NFT AUTH screen */}
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: 'Send NFT',
+        }}
+        name={ROUTES.SENDNFT_AUTH.SENDNFT_AUTH_SCREEN}
+        component={SendNftAuthScreen}
       />
     </Stack.Navigator>
   );

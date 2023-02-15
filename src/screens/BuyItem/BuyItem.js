@@ -1,46 +1,46 @@
-import React, {useState} from 'react';
-import {Image} from 'react-native';
+import React, { useState } from 'react';
+import { Image } from 'react-native';
 import styled from 'styled-components/native';
 import {
   AppStatusBar,
   BodyHeading,
   BodyText,
   ButtonPrimary,
+  FixedThemeWrapper,
+  LayoutHeader,
   LayoutScreen,
   LayoutScroll,
   Stack,
   StyledText,
 } from '../../components';
-import {useTheme} from 'styled-components';
-import {neutral300, white} from '../../constants/colors';
+import { useTheme } from 'styled-components';
+import { neutral100, neutral300, white } from '../../constants/colors';
+import { DarkTheme } from '../../constants';
 
-const BuyItem = ({route}) => {
-  const {fontColor} = useTheme();
+const BuyItem = ({ route }) => {
+  const { statusBarStyle, fontColor } = DarkTheme
   const item = route.params.item;
 
   return (
-    <LayoutScreen>
-      <AppStatusBar barColor={neutral300} barStyle="light-content" />
+    <LayoutScreen statusBar={{ backgroundColor: neutral300, colorStyle: statusBarStyle }}>
       <LayoutScroll>
-        <Stack
-          padding={16}
-          style={{
-            backgroundColor: neutral300,
-            marginBottom: 31,
-          }}>
-          <Stack style={{alignItems: 'center'}}>
-            <Image style={{width: 160, height: 160}} source={item.image} />
-            <BodyHeading
-              type={5}
-              style={{marginTop: 20, marginBottom: 10, color: white}}>
-              {item.name}
+        <FixedThemeWrapper dark style={{ backgroundColor: neutral300 }}>
+          <LayoutHeader
+            title="Buy Item"
+            headerStyle={{ backgroundColor: neutral300 }}
+            headerTitleStyle={{ color: fontColor }}
+          />
+          <Stack alignItems="center" marginTop={14} marginBottom={33} style={{ backgroundColor: neutral300 }}>
+            <Image style={{ width: 160, height: 160 }} source={item.image} />
+            <BodyHeading type={5} style={{ marginTop: 20, color: white }}>
+              {item.title}
             </BodyHeading>
-            <BodyText type={3} style={{marginBottom: 33}}>
-              {item.author}
+            <BodyText type={3} style={{ marginTop: 10, color: neutral100 }}>
+              {item.description}
             </BodyText>
           </Stack>
-        </Stack>
-        <Container>
+        </FixedThemeWrapper>
+        <Stack spacing={20} marginTop={31}>
           <DividerDotted />
           <Section>
             <Content>
@@ -71,7 +71,7 @@ const BuyItem = ({route}) => {
             </Content>
           </Section>
           <DividerDotted />
-        </Container>
+        </Stack>
         <ButtonContainer>
           <ButtonPrimary title="Buy" />
         </ButtonContainer>
@@ -80,7 +80,7 @@ const BuyItem = ({route}) => {
   );
 };
 const DividerDotted = styled.View`
-  border-color: ${white};
+  border-color: ${props => props.theme.dividerColor};
   border-style: dashed;
   border-width: 0.8px;
   margin-left: 41px;
@@ -106,8 +106,4 @@ const Section = styled.View`
   justify-content: center;
 `;
 
-const Container = styled.View`
-  gap: 20px;
-  height: auto;
-`;
 export default BuyItem;

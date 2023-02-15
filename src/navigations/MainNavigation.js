@@ -90,13 +90,7 @@ const MainNavigation = () => {
       />
       {/* Buy Item */}
       <Stack.Screen
-        options={{
-          headerShown: true,
-          title: 'Buy Item',
-          headerStyle: {
-            backgroundColor: neutral300,
-          },
-        }}
+        options={{headerShown: false}}
         name={ROUTES.BUY.BUY_SCREEN}
         component={BuyItem}
       />

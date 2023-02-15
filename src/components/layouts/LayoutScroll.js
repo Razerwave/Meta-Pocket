@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import {ScrollView, TouchableOpacity, Animated} from 'react-native';
 import {IconScrollTop} from '../../assets/icons';
+import {useAuth} from '../../context/AuthContext';
 
 const CONTENT_OFFSET_THRESHOLD = 10;
 
@@ -9,6 +10,7 @@ const LayoutScroll = ({children, bottomGap = 30}) => {
   const scrollRef = useRef();
   const [contentVerticalOffset, setContentVerticalOffset] = useState(0);
   const [visible, setVisible] = useState(false);
+  const {mainOnPressEvent} = useAuth();
 
   const onPressTouch = () => {
     setVisible(false);
@@ -41,6 +43,16 @@ const LayoutScroll = ({children, bottomGap = 30}) => {
     }
   }, [contentVerticalOffset, CONTENT_OFFSET_THRESHOLD]);
 
+  const handleOnPress = () => {
+    if (mainOnPressEvent) {
+      try {
+        mainOnPressEvent();
+      } catch (ex) {
+        console.log('Main Press Event error from Scroll Layout');
+      }
+    }
+  };
+
   // console.log('fadeAnim', fadeAnim, fadeAnim !== 0, fadeAnim === 0)
   return (
     <>
@@ -49,7 +61,7 @@ const LayoutScroll = ({children, bottomGap = 30}) => {
         onScroll={event => {
           setContentVerticalOffset(event.nativeEvent.contentOffset.y);
         }}>
-        <TouchableOpacity activeOpacity={1}>
+        <TouchableOpacity activeOpacity={1} onPressOut={handleOnPress}>
           {children}
           <View style={{height: bottomGap}} />
         </TouchableOpacity>

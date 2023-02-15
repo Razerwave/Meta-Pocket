@@ -3,17 +3,12 @@ import {ButtonPrimary, CustomInput, LayoutScreen} from '../../components';
 import styled from 'styled-components/native';
 import {ROUTES} from '../../constants';
 
-const LoadNftScreen = ({navigation}) => {
-  const [contact, setContact] = useState('');
-  const [tokenId, setTokenId] = useState('');
+const SendNftScreen = ({navigation}) => {
+  const [uid, setUid] = useState('');
   const [error, setError] = useState(false);
 
   const handleChangeContact = event => {
     console.log('handleChangeContact', event);
-  };
-
-  const handleChangeQuantity = event => {
-    console.log('handleChangeQuantity', event);
   };
 
   return (
@@ -22,22 +17,12 @@ const LoadNftScreen = ({navigation}) => {
         <Content>
           <Wrapper>
             <CustomInput
-              value={contact}
+              value={uid}
               onChange={event => handleChangeContact(event)}
-              placeholder="Contract Address"
+              placeholder="Address or UID"
               onPress
               btnText="Paste"
               action
-            />
-            <CustomInput
-              value={tokenId}
-              onChange={event => handleChangeQuantity(event)}
-              placeholder="Token ID"
-              keyboardType="numeric"
-              onPress
-              btnText="Max"
-              action
-              error={false}
             />
           </Wrapper>
         </Content>
@@ -71,4 +56,4 @@ const Content = styled.View`
 const Wrapper = styled.View`
   gap: 16px;
 `;
-export default LoadNftScreen;
+export default SendNftScreen;

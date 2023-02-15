@@ -1,15 +1,8 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
-import React from 'react'
-import { NoticeBackground, NoticeStorkStar, NoticeStroke1, NoticeStroke2, NoticeStroke3 } from '../assets/background'
-import { gray300, neutral300, red, white } from '../constants/colors'
-import LayoutCenter from './layouts/LayoutCenter'
-import Stack from './Stack'
-import { BodyTextSize, BodyTextWeight, fontBody } from '../constants/fonts'
-import BodyText from './texts/BodyText'
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { neutral300, white } from '../constants/colors';
+import { BodyTextSize, BodyTextWeight, fontBody } from '../constants/fonts';
 
-const ImagePath = require('../assets/images/Aleo.png')
-
-const NoticeCard = ({ title }) => {
+const NoticeCard = ({ imagePath, title }) => {
   return (
     <View style={styles.card}>
       {/* <NoticeStroke1 style={{ position: 'absolute', left: 0, bottom: 0 }} />
@@ -17,7 +10,7 @@ const NoticeCard = ({ title }) => {
       <NoticeStroke3 style={{ position: 'absolute', left: 43, top: 0 }} /> 
        <NoticeStorkStar style={{ position: 'absolute', bottom: 16, right: 17 }} /> */}
       <View style={styles.image}>
-        <Image source={ImagePath} />
+        {imagePath && <Image source={imagePath} />}
       </View>
       <Text style={styles.text} >
         {title}

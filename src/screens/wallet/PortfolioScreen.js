@@ -11,16 +11,19 @@ import {
 import { DarkTheme } from '../../constants';
 import { IconDottRec } from '../../assets/icons';
 import { neutral100 } from '../../constants/colors';
+import { currency } from '../../utils/formats';
 
 // TEST DATA
 import {PortfolioData} from '../../constants/ListData';
 
 const PortfolioScreen = () => {
   const { backgroundColor, statusBarStyle, fontColor } = DarkTheme
+  const [total, setTotal] = useState(0);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setData(PortfolioData)
+    setTotal(PortfolioData.total)
+    setData(PortfolioData.list)
   }, [])
 
   return (
@@ -35,7 +38,7 @@ const PortfolioScreen = () => {
           <Stack alignItems="center" marginBottom={25}>
             <CircleAnimated data={data}>
               <BodyText type={5}>Total value</BodyText>
-              <BodyHeading type={4}>$57,784</BodyHeading>
+              <BodyHeading type={4}>${currency(total)}</BodyHeading>
             </CircleAnimated>
           </Stack>
           <Stack spacing={10}>
@@ -58,7 +61,7 @@ const LisItem = ({ color, coin, percentage, amount }) => {
           <BodyText type={5} style={{ color: neutral100 }}> %</BodyText>
         </BodyText>
       </Stack>
-      <BodyText type={3} style={{ marginLeft: 10 }}>${amount}</BodyText>
+      <BodyText type={3} style={{ marginLeft: 10 }}>${currency(amount)}</BodyText>
     </Stack>
   );
 };

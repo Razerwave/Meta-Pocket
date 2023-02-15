@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { ROUTES } from '../../constants/index';
 import { useTheme } from 'styled-components';
@@ -8,20 +8,45 @@ import {
   LayoutScreen,
   LayoutScroll,
   Stack,
-  StyledText,
   WalletTotalBalance,
 } from '../../components';
 import { DarkTheme } from '../../constants/index';
 import NoticeCard from '../../components/NoticeCard';
 import { green200, neutral300, red, white } from '../../constants/colors';
 
+// TEST DATA
+import { WalletHomeData } from '../../constants/ListData';
+
 const WalletScreen = ({ navigation }) => {
   const { fontColor } = useTheme();
+  const [total, setTotal] = useState(0);
+  const [notice, setNoticeList] = useState([]);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setTotal(WalletHomeData.total)
+    setNoticeList(WalletHomeData.notice)
+    setData()
+  }, [])
 
   return (
     <LayoutScreen statusBar={{ backgroundColor: DarkTheme.backgroundColor, colorStyle: DarkTheme.statusBarStyle }}>
       <FixedThemeWrapper dark>
-        <TopSection navigate={(route, props) => navigation.navigate(route, props)} />
+        <Stack marginBottom={20}>
+          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <BodyText type={2}>Wallet</BodyText>
+            <WalletTotalBalance
+              total={total}
+              onPress={() => navigation.navigate(ROUTES.WALLET.PORTFOLIO)}
+            />
+          </View>
+
+          {notice.map(({ imagePath, title }, index) => (
+            <TouchableOpacity key={index} onPress={() => navigation.navigate(ROUTES.SETTING.NOTICE, { title })} >
+              <NoticeCard imagePath={imagePath} title={title} />
+            </TouchableOpacity>
+          ))}
+        </Stack>
       </FixedThemeWrapper>
       <Tabs />
       <LayoutScroll>
@@ -32,21 +57,6 @@ const WalletScreen = ({ navigation }) => {
         </Stack>
       </LayoutScroll>
     </LayoutScreen>
-  );
-};
-
-const TopSection = ({ navigate }) => {
-  return (
-    <Stack marginBottom={20}>
-      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <BodyText type={2}>Wallet</BodyText>
-        <WalletTotalBalance onPress={() => navigate(ROUTES.WALLET.PORTFOLIO)} />
-      </View>
-
-      <TouchableOpacity onPress={() => navigate(ROUTES.SETTING.NOTICE, { title: 'ALEO Metaverse Coming Soon' })} >
-        <NoticeCard title={'ALEO Metaverse Coming Soon'} />
-      </TouchableOpacity>
-    </Stack>
   );
 };
 

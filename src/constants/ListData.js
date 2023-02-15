@@ -221,12 +221,22 @@ const testData = [
   // },
 ];
 
-const PortfolioData = [
-  { color: magenta, coin: 'BTC', percentage: 30, amount: 20224 },
-  { color: gray100, coin: 'ETH', percentage: 10, amount: 17335 },
-  { color: purple100, coin: 'USDT', percentage: 20, amount: 11557 },
-  { color: primary, coin: 'FIL', percentage: 40, amount: 8668 },
-]
+const PortfolioData = {
+  total: 57784,
+  list: [
+    { color: magenta, coin: 'BTC', percentage: 30, amount: 20224 },
+    { color: gray100, coin: 'ETH', percentage: 10, amount: 17335 },
+    { color: purple100, coin: 'USDT', percentage: 20, amount: 11557 },
+    { color: primary, coin: 'FIL', percentage: 40, amount: 8668 },
+  ]
+}
+
+const WalletHomeData = {
+  total: 18254,
+  notice: [
+    { title: 'ALEO Metaverse Coming Soon', imagePath: require('../assets/images/Aleo.png') }
+  ]
+}
 
 export {
   links,
@@ -236,4 +246,5 @@ export {
   Artlinks,
   Dappdata,
   PortfolioData,
+  WalletHomeData,
 };

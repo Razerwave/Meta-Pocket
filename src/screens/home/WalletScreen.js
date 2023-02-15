@@ -45,7 +45,10 @@ const WalletScreen = ({ navigation }) => {
   const renderScene = ({ route }) => {
     switch (route.key) {
       case 'Tokens':
-        return <TokenTab data={tokens} onPress={(item) => navigation.navigate(ROUTES.HOME.WALLET)} />;
+        return <TokenTab
+          data={tokens}
+          onPress={(item) => navigation.navigate(ROUTES.WALLET.BTC_INFO, { item })}
+        />;
       case 'NFTs':
         return <NFTTab
           data={nfts}

@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { Image } from 'react-native';
-import { BodyHeading, BodyText, ButtonPrimary, FixedThemeWrapper, LayoutBottom, LayoutHeader, LayoutScreen, LayoutScroll, Stack } from '../../components'
+import { BodyHeading, BodyText, ButtonPrimary, FixedThemeWrapper, LayoutHeader, LayoutScreen, LayoutScroll, Stack } from '../../components'
 import { DarkTheme, ROUTES } from '../../constants';
-import { neutral100, neutral300 } from '../../constants/colors';
+import { neutral300 } from '../../constants/colors';
 
 const NftScreen = ({ route, navigation }) => {
   const { statusBarStyle, fontColor } = DarkTheme;

@@ -15,6 +15,7 @@ import {ROUTES} from '../constants';
 import HomeNavigation from './HomeNavigation';
 import {ActionInfoBorder, LayoutHeader} from '../components';
 import {
+  BTCScreen,
   LoadNftScreen,
   PortfolioScreen,
   SendBTCScreen,
@@ -57,6 +58,11 @@ const MainNavigation = () => {
         options={{headerShown: false}}
         name={ROUTES.WALLET.NFT_INFO}
         component={NftScreen}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name={ROUTES.WALLET.BTC_INFO}
+        component={BTCScreen}
       />
       {/* SETTING */}
       <Stack.Screen

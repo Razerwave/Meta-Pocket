@@ -3,6 +3,8 @@ import PortfolioScreen from './PortfolioScreen';
 import SendBTCScreen from './SendBTCScreen';
 import SendNftAuthScreen from './SendNftAuthScreen';
 import SendNftScreen from './SendNftScreen';
+import BTCScreen from './BTCScreen';
+import NftScreen from './NftScreen';
 
 export {
   PortfolioScreen,
@@ -10,4 +12,6 @@ export {
   LoadNftScreen,
   SendNftScreen,
   SendNftAuthScreen,
+  NftScreen,
+  BTCScreen,
 };

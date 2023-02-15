@@ -35,7 +35,7 @@ const TabViewExample = ({ navigation, route }) => {
         return <ExploreTab
           data={data.website}
           dotColor={yellow200}
-          onPress={(item) => navigation.navigate(ROUTES.EXPLORE.WEB, { title: item.text, uri: item.url })}
+          onPress={(item) => navigation.navigate(ROUTES.EXPLORE.WEB, { title: item.title, uri: item.url })}
           onPressStar={handlePressStar}
         />;
       case 'artTab':
@@ -76,7 +76,7 @@ const ExploreTab = ({
                 </View>
                 <ContentList>
                   <Content>
-                    <BodyText type={5}>{item.text}</BodyText>
+                    <BodyText type={5}>{item.title}</BodyText>
                     <BodyText type={7} style={{ color: gray300 }}>{item.description}</BodyText>
                   </Content>
                   <TouchableOpacity onPress={() => onPressStar(item)}>

@@ -20,22 +20,22 @@ const TAB_ROUTES = [
   { key: 'MiningTab', title: 'Mining' },
 ];
 
-const DappScreen = () => {
+const DappScreen = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     setData(Dappdata);
   }, []);
-  
+
   const renderScene = ({ route }) => {
     switch (route.key) {
       case 'AllTab':
-        return <DappTab data={data} />;
+        return <DappTab data={data} onPress={() => navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)} />;
       case 'PopularTab':
-        return <DappTab data={data.filter(({ type }) => 'Popular' ? type === 'Popular' : true)} />;
+        return <DappTab data={data.filter(({ type }) => 'Popular' ? type === 'Popular' : true)} onPress={() => navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)}  />;
       case 'MiningTab':
-        return <DappTab data={data.filter(({ type }) => 'Mining' ? type === 'Mining' : true)} />;
+        return <DappTab data={data.filter(({ type }) => 'Mining' ? type === 'Mining' : true)} onPress={() => navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)}  />;
     }
   };
 
@@ -49,9 +49,7 @@ const DappScreen = () => {
   );
 };
 
-const DappTab = ({ data = [] }) => {
-  const navigation = useNavigation();
-
+const DappTab = ({ data = [], onPress }) => {
   return (
     <LayoutScreen>
       <LayoutScroll>
@@ -59,14 +57,9 @@ const DappTab = ({ data = [] }) => {
           <Content>
             {data.map((item, index) => (
               <View key={index}>
-                <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)}>
+                <AllTabTouchableOpacity onPress={() => onPress(item)}>
                   <Card>
-                    <ArrowIcon
-                      onPress={() =>
-                        navigation.navigate(
-                          ROUTES.ENTERPASS.ENTRYPASS_SCREEN,
-                        )
-                      }>
+                    <ArrowIcon>
                       <IconDappArrow />
                     </ArrowIcon>
                     <ImageContainer

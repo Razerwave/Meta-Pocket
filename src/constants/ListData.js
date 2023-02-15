@@ -48,25 +48,25 @@ const Dappdata = [
 const ExploreData = {
   website: [
     {
-      text: 'Two gils ...',
+      title: 'Two gils ...',
       url: 'https://www.youtube.com/',
       description: 'https://www.youtube.com/',
       star: true,
     },
     {
-      text: 'Two gils ...',
+      title: 'Two gils ...',
       url: 'https://www.youtube.com/',
       description: 'https://www.youtube.com/',
       star: true,
     },
     {
-      text: 'Two gils ...',
+      title: 'Two gils ...',
       url: 'https://www.youtube.com/',
       description: 'https://www.youtube.com/',
       star: false,
     },
     {
-      text: 'Two gils ...',
+      title: 'Two gils ...',
       url: 'https://www.youtube.com/',
       description: 'https://www.youtube.com/',
       star: false,
@@ -74,22 +74,22 @@ const ExploreData = {
   ],
   art: [
     {
-      text: 'Two gils ...',
+      title: 'Two gils ...',
       description: 'Pierre-Auguste Renoir (1881)',
       star: true,
     },
     {
-      text: 'Flowers ...',
+      title: 'Flowers ...',
       description: 'Edgar Degas (1873)',
       star: true,
     },
     {
-      text: 'Steamboats in the Port ...',
+      title: 'Steamboats in the Port ...',
       description: 'Pierre-Auguste Renoir (1881)',
       star: false,
     },
     {
-      text: 'Two gils ...',
+      title: 'Two gils ...',
       description: 'Pierre-Auguste Renoir (1881)',
       star: true,
     },

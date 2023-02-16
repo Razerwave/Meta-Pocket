@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Poppins',
+    textTransform: 'capitalize',
     fontSize: 16,
     lineHeight: 24,
     fontWeight: 600,

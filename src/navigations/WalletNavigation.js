@@ -12,7 +12,7 @@ import {
 import { ROUTES } from '../constants';
 import { LayoutHeader } from '../components';
 import { SettingScreen, WalletScreen } from '../screens/home';
-import { BTCScreen, NftScreen, PortfolioScreen, ReceiveBTCScreen, SendBTCScreen, StakingBTCScreen, SwapBTCScreen } from '../screens/wallet';
+import { BTCScreen, LoadNftScreen, NftScreen, PortfolioScreen, ReceiveBTCScreen, SendBTCScreen, SendNftAuthScreen, SendNftScreen, StakingBTCScreen, SwapBTCScreen } from '../screens/wallet';
 import BTCHistoryScreen from '../screens/wallet/BTCHistoryScreen';
 
 const Stack = createNativeStackNavigator();
@@ -43,7 +43,12 @@ const WalletNavigation = () => {
         name={ROUTES.WALLET.PORTFOLIO}
         component={PortfolioScreen}
       />
-      
+      <Stack.Screen
+        options={{ headerShown: true, title: 'Notice' }}
+        name={ROUTES.WALLET.NOTICE}
+        component={NoticeScreen}
+      />
+
       <Stack.Screen
         name={ROUTES.WALLET.BTC_INFO}
         component={BTCScreen}
@@ -77,6 +82,21 @@ const WalletNavigation = () => {
       <Stack.Screen
         name={ROUTES.WALLET.NFT_INFO}
         component={NftScreen}
+      />
+      <Stack.Screen
+        options={{ headerShown: true, title: 'Load NFTs' }}
+        name={ROUTES.WALLET.NFT_LOAD}
+        component={LoadNftScreen}
+      />
+      <Stack.Screen
+        options={{ headerShown: true, title: 'Send NFT' }}
+        name={ROUTES.WALLET.NFT_SEND}
+        component={SendNftScreen}
+      />
+      <Stack.Screen
+        options={{ headerShown: true, title: 'Send NFT' }}
+        name={ROUTES.WALLET.NFT_SEND_AUTH}
+        component={SendNftAuthScreen}
       />
 
     </Stack.Navigator>

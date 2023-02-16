@@ -18,8 +18,7 @@ const NftScreen = ({route, navigation}) => {
   const {statusBarStyle, fontColor} = DarkTheme;
   const item = route.params.item;
   return (
-    <LayoutScreen
-      statusBar={{backgroundColor: neutral300, colorStyle: statusBarStyle}}>
+    <LayoutScreen statusBar={{backgroundColor: neutral300, colorStyle: statusBarStyle}}>
       <LayoutScroll>
         <FixedThemeWrapper dark style={{backgroundColor: neutral300}}>
           <LayoutHeader
@@ -56,16 +55,16 @@ const NftScreen = ({route, navigation}) => {
             <ListItem key={index} {...item} />
           ))}
         </View>
-        <View alignItems="center">
+        <LayoutBottom type={2}>
           <ButtonPrimary
             title="Send"
             onPress={() =>
-              navigation.navigate(ROUTES.SENDNFT.SENDNFT_SCREEN, {
+              navigation.navigate(ROUTES.WALLET.NFT_SEND, {
                 Nftdata: item,
               })
             }
           />
-        </View>
+        </LayoutBottom>
       </LayoutScroll>
     </LayoutScreen>
   );

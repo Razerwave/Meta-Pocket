@@ -144,34 +144,34 @@ const MainNavigation = () => {
       />
 
       {/* Load NFT screen */}
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{
           headerShown: true,
           title: 'Load NFTs',
         }}
         name={ROUTES.LOADNFT.LOADNFT_SCREEN}
         component={LoadNftScreen}
-      />
+      /> */}
 
       {/* Send NFT screen */}
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{
           headerShown: true,
           title: 'Send NFT',
         }}
         name={ROUTES.SENDNFT.SENDNFT_SCREEN}
         component={SendNftScreen}
-      />
+      /> */}
 
       {/* Send NFT AUTH screen */}
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{
           headerShown: true,
           title: 'Send NFT',
         }}
         name={ROUTES.SENDNFT_AUTH.SENDNFT_AUTH_SCREEN}
         component={SendNftAuthScreen}
-      />
+      /> */}
     </Stack.Navigator>
   );
 };

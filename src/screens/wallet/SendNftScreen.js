@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import {ButtonPrimary, CustomInput, LayoutScreen} from '../../components';
+import React, { useState } from 'react';
+import { ButtonPrimary, CustomInput, LayoutBottom, LayoutScreen } from '../../components';
 import styled from 'styled-components/native';
-import {ROUTES} from '../../constants';
+import { ROUTES } from '../../constants';
 
-const SendNftScreen = ({navigation, route}) => {
+const SendNftScreen = ({ navigation, route }) => {
   const [uid, setUid] = useState('');
   const [error, setError] = useState(false);
   const data = route.params.Nftdata;
@@ -28,18 +28,18 @@ const SendNftScreen = ({navigation, route}) => {
             />
           </Wrapper>
         </Content>
-        <ButtonContainer>
-          <ButtonPrimary
-            title="Next"
-            onPress={() =>
-              navigation.navigate(ROUTES.SENDNFT_AUTH.SENDNFT_AUTH_SCREEN, {
-                to: uid,
-                nft: data,
-              })
-            }
-          />
-        </ButtonContainer>
       </Container>
+      <LayoutBottom type={2}>
+        <ButtonPrimary
+          title="Next"
+          onPress={() =>
+            navigation.navigate(ROUTES.WALLET.NFT_SEND_AUTH, {
+              to: uid,
+              nft: data,
+            })
+          }
+        />
+      </LayoutBottom>
     </LayoutScreen>
   );
 };

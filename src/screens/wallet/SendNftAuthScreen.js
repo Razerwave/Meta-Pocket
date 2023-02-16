@@ -22,8 +22,8 @@ const SendNftAuthScreen = ({navigation, route}) => {
   const [quantity, setQuantity] = useState(0);
   const [memo, setMemo] = useState('');
   const [error, setError] = useState(false);
-  const data = route.params.to;
-  const nft = route.params.nft;
+  const data = route.params.to || {};
+  const nft = route.params.nft || {};
   let pattern = /[^0-9]/g;
 
   const handleChangeUid = event => {

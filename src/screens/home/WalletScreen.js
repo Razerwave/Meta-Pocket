@@ -53,7 +53,7 @@ const WalletScreen = ({ navigation }) => {
         return <NFTTab
           data={nfts}
           onPress={(item) => navigation.navigate(ROUTES.WALLET.NFT_INFO, { item })}
-          onPressScroll={() => navigation.navigate(ROUTES.LOADNFT.LOADNFT_SCREEN)}
+          onPressScroll={() => navigation.navigate(ROUTES.WALLET.NFT_LOAD)}
         />;
     }
   };
@@ -78,7 +78,7 @@ const WalletScreen = ({ navigation }) => {
             <TouchableOpacity
               key={index}
               onPress={() =>
-                navigation.navigate(ROUTES.SETTING.NOTICE, { title })
+                navigation.navigate(ROUTES.WALLET.NOTICE, { title })
               }>
               <NoticeCard imagePath={imagePath} title={title} />
             </TouchableOpacity>

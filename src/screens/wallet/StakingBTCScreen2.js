@@ -55,11 +55,11 @@ const StakingBTCScreen2 = ({route, navigation}) => {
                 <DividerDotted />
                 <View style={{gap: 10}}>
                   <Content>
-                    <BodyText type={6}>From</BodyText>
+                    <BodyText type={6}>{i18n.from}</BodyText>
                     <BodyText type={4}>0xe34lkjds....7BEsdlkfjls</BodyText>
                   </Content>
                   <Content>
-                    <BodyText type={6}>To</BodyText>
+                    <BodyText type={6}>{i18n.to}</BodyText>
                     <BodyText type={4}>0x333lksdf..sdflEDFWe</BodyText>
                   </Content>
                 </View>
@@ -68,7 +68,7 @@ const StakingBTCScreen2 = ({route, navigation}) => {
 
               <Section>
                 <Content>
-                  <BodyText type={6}>Fee</BodyText>
+                  <BodyText type={6}>{i18n.fee}</BodyText>
                   <BodyText type={4}>0.0001 BTC (≈$0.1)</BodyText>
                 </Content>
               </Section>
@@ -76,7 +76,7 @@ const StakingBTCScreen2 = ({route, navigation}) => {
               <Section>
                 <DividerDotted />
                 <Content>
-                  <BodyText type={6}>Total</BodyText>
+                  <BodyText type={6}>{i18n.total}</BodyText>
                   <BodyText type={4}>$200.1</BodyText>
                 </Content>
               </Section>

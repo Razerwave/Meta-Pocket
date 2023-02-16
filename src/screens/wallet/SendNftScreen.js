@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
-import { ButtonPrimary, CustomInput, LayoutBottom, LayoutScreen } from '../../components';
+import React, {useState} from 'react';
+import {
+  ButtonPrimary,
+  CustomInput,
+  LayoutBottom,
+  LayoutScreen,
+} from '../../components';
 import styled from 'styled-components/native';
-import { ROUTES } from '../../constants';
+import {ROUTES} from '../../constants';
+import {useAuth} from '../../context/AuthContext';
 
-const SendNftScreen = ({ navigation, route }) => {
+const SendNftScreen = ({navigation, route}) => {
   const [uid, setUid] = useState('');
   const [error, setError] = useState(false);
   const data = route.params.Nftdata;
-  console.log(data, ' 0000');
+  const {i18n} = useAuth();
   const handleChangeContact = event => {
     console.log('handleChangeContact', event);
     setUid(event);
@@ -21,9 +27,9 @@ const SendNftScreen = ({ navigation, route }) => {
             <CustomInput
               value={uid}
               onChange={event => handleChangeContact(event)}
-              placeholder="Address or UID"
+              placeholder={i18n.addressOrUID}
               onPress
-              btnText="Paste"
+              btnText={i18n.paste}
               action
             />
           </Wrapper>
@@ -31,7 +37,7 @@ const SendNftScreen = ({ navigation, route }) => {
       </Container>
       <LayoutBottom type={2}>
         <ButtonPrimary
-          title="Next"
+          title={i18n.next}
           onPress={() =>
             navigation.navigate(ROUTES.WALLET.NFT_SEND_AUTH, {
               to: uid,

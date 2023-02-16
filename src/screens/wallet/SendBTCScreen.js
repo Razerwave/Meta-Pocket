@@ -11,6 +11,7 @@ import {
   Precautions,
 } from '../../components';
 import {ROUTES} from '../../constants';
+import {useAuth} from '../../context/AuthContext';
 
 const SendBTCScreen = ({navigation}) => {
   const [uid, setUid] = useState('');
@@ -18,6 +19,8 @@ const SendBTCScreen = ({navigation}) => {
   const [memo, setMemo] = useState('');
   const [error, setError] = useState(false);
   const [errorQuantity, setErrorQuantity] = useState(false);
+  const {i18n} = useAuth();
+
   let pattern = /[^0-9]/g;
   let balance = 1900;
   const handleChangeUid = event => {
@@ -49,30 +52,30 @@ const SendBTCScreen = ({navigation}) => {
             <CustomInput
               value={uid}
               onChange={event => handleChangeUid(event)}
-              placeholder="Address or UID"
+              placeholder={i18n.addressOrUID}
               onPress
-              btnText="Paste"
+              btnText={i18n.paste}
               action
               error={error}
             />
-            {error && <ErrorText>Address or UID valid</ErrorText>}
+            {error && <ErrorText>{i18n.addressOrUID}</ErrorText>}
             <CustomInput
               value={quantity}
               onChange={event => handleChangeQuantity(event)}
-              placeholder="Quantity"
+              placeholder={i18n.quantity}
               keyboardType="numeric"
               onPress
-              btnText="Max"
+              btnText={i18n.max}
               action
               error={errorQuantity}
             />
-            {errorQuantity && <ErrorText>Insufficient funds</ErrorText>}
+            {errorQuantity && <ErrorText>{i18n.insufficientFunds}</ErrorText>}
             <View>
-              <BodyText style={{marginBottom: 10}}>Optional</BodyText>
+              <BodyText style={{marginBottom: 10}}>{i18n.optional}</BodyText>
               <CustomInput
                 value={memo}
                 onChange={event => handleChangeMemo(event)}
-                placeholder="Memo"
+                placeholder={i18n.memo}
                 action
               />
             </View>
@@ -82,7 +85,7 @@ const SendBTCScreen = ({navigation}) => {
         </Content>
         <ButtonContainer>
           <ButtonPrimary
-            title="Next"
+            title={i18n.next}
             onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
           />
         </ButtonContainer>

@@ -13,11 +13,14 @@ import {
   LayoutScroll,
   CustomTabs,
 } from '../../components';
+import {useAuth} from '../../context/AuthContext';
+
+const {i18n} = useAuth();
 
 const TAB_ROUTES = [
-  {key: 'AllTab', title: 'All'},
-  {key: 'PopularTab', title: 'Popular'},
-  {key: 'MiningTab', title: 'Mining'},
+  {key: 'AllTab', title: i18n.all},
+  {key: 'PopularTab', title: i18n.popular},
+  {key: 'MiningTab', title: i18n.mining},
 ];
 
 const DappScreen = ({navigation}) => {

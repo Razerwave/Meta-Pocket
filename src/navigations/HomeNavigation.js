@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, AppState, Text, View } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {StyleSheet, AppState, Text, View} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import IonIcon from 'react-native-vector-icons/Ionicons';
-import { useThemeChange } from '../context/ThemeChangeContext';
-import { LayoutHeader, TabBarBottom } from '../components';
-import { useTheme } from 'styled-components';
-import { ROUTES } from '../constants';
+import {useThemeChange} from '../context/ThemeChangeContext';
+import {LayoutHeader, TabBarBottom} from '../components';
+import {useTheme} from 'styled-components';
+import {ROUTES} from '../constants';
 import {
   DappScreen,
   ExploreScreen,
@@ -13,20 +13,22 @@ import {
   SettingScreen,
   WalletScreen,
 } from '../screens/home';
-import { IconDapp, IconExplore, IconMore, IconWallet } from '../assets/icons';
+import {IconDapp, IconExplore, IconMore, IconWallet} from '../assets/icons';
 import SettingNavigation from './SettingNavigation';
 import WalletNavigation from './WalletNavigation';
 import ExploreNavigation from './ExploreNavigation';
+import {useAuth} from '../context/AuthContext';
 
 const Tab = createBottomTabNavigator();
 
 const HomeNavigation = () => {
-  const { backgroundColor, fontColor } = useTheme();
+  const {backgroundColor, fontColor} = useTheme();
+  const {i18n} = useAuth();
 
   return (
     <Tab.Navigator
       tabBar={props => <TabBarBottom {...props} />}
-      screenOptions={({ route }) => ({
+      screenOptions={({route}) => ({
         headerShown: false,
         headerStyle: {
           backgroundColor: backgroundColor,
@@ -34,8 +36,8 @@ const HomeNavigation = () => {
         headerTitleStyle: {
           color: fontColor,
         },
-        header: ({ options }) => <LayoutHeader {...options} />,
-        tabBarIcon: ({ focused, size, color }) => {
+        header: ({options}) => <LayoutHeader {...options} />,
+        tabBarIcon: ({focused, size, color}) => {
           let iconName;
           const tabName = route.name;
           if (tabName === ROUTES.HOME.WALLET) {
@@ -50,22 +52,22 @@ const HomeNavigation = () => {
         },
       })}>
       <Tab.Screen
-        options={{ title: 'Wallet' }}
+        options={{title: i18n.wallet}}
         name={ROUTES.HOME.WALLET}
         component={WalletNavigation}
       />
       <Tab.Screen
-        options={{ title: 'Explore' }}
+        options={{title: i18n.explore}}
         name={ROUTES.HOME.EXPLORE}
         component={ExploreNavigation}
       />
       <Tab.Screen
-        options={{ title: 'Dapp', headerShown: true }}
+        options={{title: i18n.dapp, headerShown: true}}
         name={ROUTES.HOME.DAPP}
         component={DappScreen}
       />
       <Tab.Screen
-        options={{ title: 'More' }}
+        options={{title: i18n.more}}
         name={ROUTES.HOME.SETTING}
         component={SettingNavigation}
       />

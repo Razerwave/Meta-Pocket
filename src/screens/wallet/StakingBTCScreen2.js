@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
-import React, { useEffect } from 'react';
+import {View, Image} from 'react-native';
+import React from 'react';
 import styled from 'styled-components/native';
 import {
   ActionInfoBorder,
@@ -9,21 +9,21 @@ import {
   LayoutScreen,
   Stack,
 } from '../../components';
-import { neutral100 } from '../../constants/colors';
-import { ROUTES } from '../../constants';
-import { useAuth } from '../../context/AuthContext';
-const StakingBTCScreen2 = ({ route, navigation }) => {
-  const { i18n } = useAuth()
+import {neutral100} from '../../constants/colors';
+import {ROUTES} from '../../constants';
+import {useAuth} from '../../context/AuthContext';
+const StakingBTCScreen2 = ({route, navigation}) => {
+  const {i18n} = useAuth();
   const item = route.params.stacking;
 
   return (
     <LayoutScreen>
       <Container>
-        <ActionInfoBorder style={{ flex: 0.8, justifyContent: 'space-evenly' }}>
+        <ActionInfoBorder style={{flex: 0.8, justifyContent: 'space-evenly'}}>
           <Stack
             direction="row"
             spacing={27}
-            style={{ justifyContent: 'center' }}>
+            style={{justifyContent: 'center'}}>
             <View
               style={{
                 flex: 1,
@@ -36,7 +36,7 @@ const StakingBTCScreen2 = ({ route, navigation }) => {
                   justifyContent: 'center',
                   gap: 10,
                 }}>
-                <Image source={item.image} style={{ width: 30, height: 30 }} />
+                <Image source={item.image} style={{width: 30, height: 30}} />
                 <BodyHeading type={7}>
                   {item.percent} <BodyText type={3}>{item.name}</BodyText>
                 </BodyHeading>
@@ -44,16 +44,16 @@ const StakingBTCScreen2 = ({ route, navigation }) => {
               <BodyText
                 color={neutral100}
                 type={3}
-                style={{ alignSelf: 'center' }}>
+                style={{alignSelf: 'center'}}>
                 ≈ $12,345
               </BodyText>
             </View>
           </Stack>
           <Wrapper>
-            <View style={{ gap: 30, justifyContent: 'space-around' }}>
+            <View style={{gap: 30, justifyContent: 'space-around'}}>
               <Section>
                 <DividerDotted />
-                <View style={{ gap: 10 }}>
+                <View style={{gap: 10}}>
                   <Content>
                     <BodyText type={6}>From</BodyText>
                     <BodyText type={4}>0xe34lkjds....7BEsdlkfjls</BodyText>
@@ -85,7 +85,7 @@ const StakingBTCScreen2 = ({ route, navigation }) => {
         </ActionInfoBorder>
         <ButtonContainer>
           <ButtonPrimary
-            title={i18n.send}
+            title={i18n.stacking}
             onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
           />
         </ButtonContainer>

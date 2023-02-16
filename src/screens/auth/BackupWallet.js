@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import Clipboard from '@react-native-clipboard/clipboard';
-import { ButtonPrimary, CardBox, LayoutBottom, LayoutScreen, Paragraph, Stack, StepsAuth, StyledText } from '../../components';
+import { ButtonPrimary, ButtonText, CardBox, LayoutBottom, LayoutScreen, Paragraph, Stack, StepsAuth, StyledText } from '../../components';
 import { ROUTES } from '../../constants'
 import { IconCopy } from '../../assets/icons';
 
@@ -32,16 +32,16 @@ const BackupWallet = ({ navigation }) => {
         <Stack>
           <CardBox style={{ borderRadius: 10 }}>
             <Stack direction='row' spacing={10} style={{ flexWrap: 'wrap' }}>
-              {words.map((word, index) => <StyledText key={index} style={{ fontSize: 12, lineHeight: 16 }}>{word}</StyledText>)}
+              {words.map((word, index) => <ButtonText key={index} style={{ fontSize: 12, lineHeight: 16 }}>{word}</ButtonText>)}
             </Stack>
           </CardBox>
           <Stack padding={16} spacing={16} style={{ alignItems: 'center' }}>
             <TouchableOpacity onPress={handleCopy}>
               <Stack direction='row' spacing={6}>
                 <IconCopy />
-                <StyledText style={{ fontSize: 12, lineHeight: 16 }}>
+                <ButtonText style={{ fontSize: 12, lineHeight: 16 }}>
                   {copied ? 'Copied' : 'Copy'} to clipboard
-                </StyledText>
+                </ButtonText>
               </Stack>
             </TouchableOpacity>
           </Stack>

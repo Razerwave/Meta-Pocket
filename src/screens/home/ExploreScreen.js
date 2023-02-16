@@ -75,7 +75,7 @@ const ExploreScreen = ({ navigation }) => {
                     ) : title == 'Art' && (
                       <View key={index}>
                         <TouchableOpacity style={{ flex: 1 }}></TouchableOpacity>
-                        <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.BUY.BUY_SCREEN, { uri: WEB_LINK, item: item })}>
+                        <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.BUY_ITEM, { uri: WEB_LINK, item: item })}>
                           <ArtCard>
                             <ImageBackground source={item.image} style={{ flex: 1, justifyContent: 'center' }} resizeMode="cover">
                               <FavoriteSection>

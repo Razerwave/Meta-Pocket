@@ -16,6 +16,7 @@ import {
 import { IconDapp, IconExplore, IconMore, IconWallet } from '../assets/icons';
 import SettingNavigation from './SettingNavigation';
 import WalletNavigation from './WalletNavigation';
+import ExploreNavigation from './ExploreNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -54,9 +55,9 @@ const HomeNavigation = () => {
         component={WalletNavigation}
       />
       <Tab.Screen
-        options={{ headerShown: true, title: 'Explore' }}
+        options={{ title: 'Explore' }}
         name={ROUTES.HOME.EXPLORE}
-        component={ExploreScreen}
+        component={ExploreNavigation}
       />
       <Tab.Screen
         options={{ title: 'Dapp', headerShown: true }}

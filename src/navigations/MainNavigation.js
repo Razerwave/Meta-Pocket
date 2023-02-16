@@ -22,9 +22,9 @@ import {
   SendNftAuthScreen,
   SendNftScreen,
 } from '../screens/wallet';
-import {BuyItem} from '../screens/BuyItem/index';
-import {neutral300} from '../constants/colors';
-import NftScreen from '../screens/wallet/NftScreen';
+// import {BuyItem} from '../screens/BuyItem/index';
+// import {neutral300} from '../constants/colors';
+// import NftScreen from '../screens/wallet/NftScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -96,17 +96,17 @@ const MainNavigation = () => {
         component={NoticeScreen}
       /> */}
       {/* EXPLORE */}
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{headerShown: true, title: 'Explore'}}
         name={ROUTES.EXPLORE.LIST_SCREEN}
         component={ExploreListScreen}
-      />
+      /> */}
       {/* Buy Item */}
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{headerShown: false}}
         name={ROUTES.BUY.BUY_SCREEN}
         component={BuyItem}
-      />
+      /> */}
 
       {/* Enter password */}
       <Stack.Screen

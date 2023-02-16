@@ -1,27 +1,33 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import { neutral100, primary, white } from '../../constants/colors'
-import BodyText from '../texts/BodyText'
-import Stack from '../Stack'
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import {neutral100, primary, white} from '../../constants/colors';
+import BodyText from '../texts/BodyText';
+import Stack from '../Stack';
 
-const ButtonIcon = ({ icon, children, onPress = () => { }, borderColor = primary, size = 50, }) => {
+const ButtonIcon = ({
+  icon,
+  children,
+  onPress = () => {},
+  borderColor = primary,
+  size = 50,
+}) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <Stack spacing={10} alignItems="center">
-        <View style={[styles.outer, { width: size, height: size }]}>
-          <View style={[styles.inner, { borderColor }]}>
-            {icon}
-          </View>
+        <View style={[styles.outer, {width: size, height: size}]}>
+          <View style={[styles.inner, {borderColor}]}>{icon}</View>
         </View>
-        <BodyText type={12} style={{ color: white }}>
-          {children}
-        </BodyText>
+        {children && (
+          <BodyText type={12} style={{color: white}}>
+            {children}
+          </BodyText>
+        )}
       </Stack>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default ButtonIcon
+export default ButtonIcon;
 
 const styles = StyleSheet.create({
   outer: {
@@ -37,4 +43,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: primary,
   },
-})
+});

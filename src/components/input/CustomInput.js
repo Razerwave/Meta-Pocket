@@ -19,6 +19,7 @@ const CustomInput = ({
   action,
   error = false,
   keyboardType,
+  textAlign,
 }) => {
   const [focused, setFocused] = useState(false);
   const {
@@ -53,6 +54,7 @@ const CustomInput = ({
         placeholder={placeholder}
         onChangeText={onChange}
         value={value}
+        textAlign={textAlign}
         keyboardType={keyboardType}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}

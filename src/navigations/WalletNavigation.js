@@ -24,6 +24,7 @@ import {
   SendNftScreen,
   StakingBTCScreen,
   SwapBTCScreen,
+  SwapScreen,
 } from '../screens/wallet';
 import BTCHistoryScreen from '../screens/wallet/BTCHistoryScreen';
 import { useAuth } from '../context/AuthContext';
@@ -111,6 +112,12 @@ const WalletNavigation = () => {
         options={{ headerShown: true, title: i18n.sendNFT }}
         name={ROUTES.WALLET.NFT_SEND_AUTH}
         component={SendNftAuthScreen}
+      />
+
+      <Stack.Screen
+        options={{headerShown: true, title: 'Swap'}}
+        name={ROUTES.WALLET.SWAP}
+        component={SwapScreen}
       />
     </Stack.Navigator>
   );

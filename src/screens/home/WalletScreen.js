@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
 import { ROUTES } from '../../constants/index';
 import { useTheme } from 'styled-components';
 import {
@@ -31,10 +31,10 @@ const TAB_ROUTES = [
 
 const WalletScreen = ({ navigation }) => {
   const { i18n } = useAuth()
-  const {walletTab} = useTheme()
+  const { walletTab } = useTheme()
   const [tab, setTab] = useState(0)
   const [total, setTotal] = useState(0);
-  const [notice, setNoticeList] = useState([]);
+  const [noticeList, setNoticeList] = useState([]);
   const [tokens, setTokens] = useState([]);
   const [nfts, setNFTs] = useState([]);
 
@@ -77,15 +77,9 @@ const WalletScreen = ({ navigation }) => {
             />
           </View>
 
-          {notice.map(({ imagePath, title }, index) => (
-            <TouchableOpacity
-              key={index}
-              onPress={() =>
-                navigation.navigate(ROUTES.WALLET.NOTICE, { title })
-              }>
-              <NoticeCard imagePath={imagePath} title={title} />
-            </TouchableOpacity>
-          ))}
+          <View style={{ height: 60 }}>
+            <Banners noticeList={noticeList} />
+          </View>
         </Stack>
       </FixedThemeWrapper>
       <CustomTabs
@@ -98,6 +92,47 @@ const WalletScreen = ({ navigation }) => {
     </LayoutScreen>
   );
 };
+
+import Carousel from 'react-native-reanimated-carousel';
+import { useNavigation } from '@react-navigation/native';
+
+const Banners = ({ noticeList = [] }) => {
+  const width = Dimensions.get('window').width;
+  const navigation = useNavigation();
+
+  return (
+    <View style={{ flex: 1 }}>
+      <Carousel
+        loop
+        width={width}
+        height={60}
+        autoPlay={true}
+        data={[...new Array(noticeList.length).keys()]}
+        scrollAnimationDuration={1000}
+        // onSnapToItem={(index) => console.log('current index:', index)}
+        renderItem={({ index }) => {
+          const { imagePath, title } = noticeList[index]
+          return (
+            <View
+              style={{
+                flex: 1,
+                padding: 16,
+                justifyContent: 'center',
+              }}
+            >
+              <TouchableOpacity onPress={() => navigation.navigate(ROUTES.WALLET.NOTICE, { 
+                imagePath,
+                title 
+              })}>
+                <NoticeCard imagePath={imagePath} title={title} />
+              </TouchableOpacity>
+            </View>
+          )
+        }}
+      />
+    </View>
+  );
+}
 
 const TokenTab = ({ data = [], onPress = () => { } }) => {
   return (
@@ -127,7 +162,7 @@ const TokenTab = ({ data = [], onPress = () => { } }) => {
 }
 
 const NFTTab = ({ data = [], onPress = () => { }, onPressScroll = () => { } }) => {
-  const {i18n} = useAuth()
+  const { i18n } = useAuth()
   return (
     <LayoutScroll button={i18n.loadNFT} onPress={onPressScroll}>
       <Stack marginTop={10} marginHorizontal={16} spacing={30}>

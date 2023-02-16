@@ -10,7 +10,7 @@ const NoticeCard = ({ imagePath, title }) => {
       <NoticeStroke3 style={{ position: 'absolute', left: 43, top: 0 }} /> 
        <NoticeStorkStar style={{ position: 'absolute', bottom: 16, right: 17 }} /> */}
       <View style={styles.image}>
-        {imagePath && <Image source={imagePath} />}
+        {imagePath && <Image height={30} source={imagePath} />}
       </View>
       <Text style={styles.text} >
         {title}
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 87,
+    heihgt: 30,
+    padding: 12,
     alignItems: 'center',
   },
   text: {

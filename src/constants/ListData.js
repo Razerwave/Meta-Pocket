@@ -286,7 +286,15 @@ const WalletHomeData = {
   notice: [
     {
       title: 'ALEO Metaverse Coming Soon',
-      imagePath: require('../assets/images/Aleo.png'),
+      imagePath: require('../assets/icons/dapp/Metaverse.png'),
+    },
+    {
+      title: 'ALEO Metaverse Coming Soon',
+      imagePath: require('../assets/icons/dapp/ArtStory.png'),
+    },
+    {
+      title: 'ALEO Metaverse Coming Soon',
+      imagePath: require('../assets/icons/dapp/binary.png'),
     },
   ],
   tokens: [

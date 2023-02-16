@@ -8,7 +8,7 @@ const NoticeScreen = ({ route }) => {
   return (
     <LayoutScreen>
       <Stack marginHorizontal={16} marginTop={6} spacing={30} style={{ flex: 1 }}>
-        <NoticeCard title={route.params.title} />
+        <NoticeCard imagePath={route.params.imagePath} title={route.params.title} />
 
         <Stack marginHorizontal={12} spacing={20} style={{ flex: 1 }}>
           <BodyText style={{ fontSize: 16, fontWeight: 600 }}>

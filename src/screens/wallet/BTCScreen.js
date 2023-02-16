@@ -22,7 +22,7 @@ const BTCScreen = ({ route, navigation }) => {
   const { i18n } = useAuth()
   const { backgroundColor, statusBarStyle, fontColor } = DarkTheme;
   const item = route.params.item;
-
+  console.log(item);
   return (
     <LayoutScreen
       statusBar={{

@@ -118,12 +118,6 @@ const SettingScreen = ({navigation}) => {
           <Stack spacing={32}>
             <ButtonPrimary title="Logout" onPress={logoutHandler} />
           </Stack>
-          <ButtonPrimary
-            title="SEND "
-            onPress={() => {
-              navigation.navigate(ROUTES.WALLET.SWAP);
-            }}
-          />
         </Stack>
       </LayoutScroll>
     </LayoutScreen>

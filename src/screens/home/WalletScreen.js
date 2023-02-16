@@ -18,8 +18,9 @@ import NoticeCard from '../../components/NoticeCard';
 
 // TEST DATA
 import { WalletHomeData } from '../../constants/ListData';
-import { green200, neutral100, red, white } from '../../constants/colors';
+import { green200, neutral100, purple100, red, white } from '../../constants/colors';
 import { currency } from '../../utils/formats';
+import { useAuth } from '../../context/AuthContext';
 
 const TAB_ROUTES = [
   { key: 'Tokens', title: 'Tokens' },
@@ -29,6 +30,8 @@ const TAB_ROUTES = [
 
 
 const WalletScreen = ({ navigation }) => {
+  const { i18n } = useAuth()
+  const {walletTab} = useTheme()
   const [tab, setTab] = useState(0)
   const [total, setTotal] = useState(0);
   const [notice, setNoticeList] = useState([]);
@@ -67,7 +70,7 @@ const WalletScreen = ({ navigation }) => {
       <FixedThemeWrapper dark>
         <Stack marginBottom={20}>
           <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <BodyText type={2}>Wallet</BodyText>
+            <BodyText type={2}>{i18n.wallet}</BodyText>
             <WalletTotalBalance
               total={total}
               onPress={() => navigation.navigate(ROUTES.WALLET.PORTFOLIO)}
@@ -90,63 +93,11 @@ const WalletScreen = ({ navigation }) => {
         onTabChange={setTab}
         tabRoutes={TAB_ROUTES}
         renderScene={renderScene}
-      // renderTabBar={(props) => {
-      //   console.log("props", props)
-      //   return (
-      //     <TouchableOpacity key={index} onPress={() => setTab(index)}>
-      //       <BodyText type={3} style={{
-      //         fontWeight: '600',
-      //         minWidth: 66,
-      //         textAlign: 'center',
-      //         paddingBottom: 5,
-      //         color: isActive ? activeColor : inactiveColor,
-      //       }}>
-      //         {text}
-      //       </BodyText>
-      //       <View style={isActive && {
-      //         borderRadius: 9999,
-      //         borderWidth: 1,
-      //         borderColor: activeColor,
-      //       }} />
-      //     </TouchableOpacity>
-      //   )
-      // }}
+        tabColors={walletTab}
       />
     </LayoutScreen>
   );
 };
-
-{/* <View style={{
-  display: 'flex',
-  flexDirection: 'column-reverse',
-  height: 57,
-  borderBottomWidth: 1,
-  borderColor: borderColor,
-}}>
-  <Stack direction="row" marginHorizontal={16}>
-    {['Tokens', 'NFTs'].map((text, index) => {
-      const isActive = tab === index;
-      return (
-        <TouchableOpacity key={index} onPress={() => setTab(index)}>
-          <BodyText type={3} style={{
-            fontWeight: '600',
-            minWidth: 66,
-            textAlign: 'center',
-            paddingBottom: 5,
-            color: isActive ? activeColor : inactiveColor,
-          }}>
-            {text}
-          </BodyText>
-          <View style={isActive && {
-            borderRadius: 9999,
-            borderWidth: 1,
-            borderColor: activeColor,
-          }} />
-        </TouchableOpacity>
-      );
-    })}
-  </Stack>
-</View> */}
 
 const TokenTab = ({ data = [], onPress = () => { } }) => {
   return (

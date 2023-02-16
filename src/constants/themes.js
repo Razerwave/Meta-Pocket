@@ -14,6 +14,7 @@ import {
   gray300,
   blue300,
   purple200,
+  purple100,
 } from './colors';
 
 const DefaultTheme = {
@@ -74,6 +75,10 @@ const DefaultTheme = {
     tabInActiveColor: gray300,
     tabActiveColor: blue300,
   },
+  walletTab: {
+    tabInActiveColor: gray300,
+    tabActiveColor: purple100,
+  },
 };
 
 const DarkTheme = {
@@ -131,6 +136,10 @@ const DarkTheme = {
     stroke: white,
   },
   exploreTab: {
+    tabInActiveColor: gray300,
+    tabActiveColor: white,
+  },
+  walletTab: {
     tabInActiveColor: gray300,
     tabActiveColor: white,
   },

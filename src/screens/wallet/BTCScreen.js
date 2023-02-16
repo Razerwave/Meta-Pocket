@@ -1,4 +1,4 @@
-import {StyleSheet, Image, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import {
   BodyHeading,
@@ -11,14 +11,16 @@ import {
   LayoutScroll,
   Stack,
 } from '../../components';
-import {DarkTheme, ROUTES} from '../../constants';
-import {currency} from '../../utils/formats';
-import {IconReceive, IconSend, IconStaking, IconSwap} from '../../assets/icons';
-import {green200, neutral100, red} from '../../constants/colors';
-import {BTC_INFO_DATA} from '../../constants/ListData';
+import { DarkTheme, ROUTES } from '../../constants';
+import { currency } from '../../utils/formats';
+import { IconReceive, IconSend, IconStaking, IconSwap } from '../../assets/icons';
+import { green200, neutral100, red } from '../../constants/colors';
+import { BTC_INFO_DATA } from '../../constants/ListData';
+import { useAuth } from '../../context/AuthContext';
 
-const BTCScreen = ({route, navigation}) => {
-  const {backgroundColor, statusBarStyle, fontColor} = DarkTheme;
+const BTCScreen = ({ route, navigation }) => {
+  const { i18n } = useAuth()
+  const { backgroundColor, statusBarStyle, fontColor } = DarkTheme;
   const item = route.params.item;
 
   return (
@@ -27,15 +29,15 @@ const BTCScreen = ({route, navigation}) => {
         backgroundColor: backgroundColor,
         colorStyle: statusBarStyle,
       }}>
-      <FixedThemeWrapper dark style={{backgroundColor: backgroundColor}}>
+      <FixedThemeWrapper dark style={{ backgroundColor: backgroundColor }}>
         <LayoutHeader
           title={item.name}
-          headerStyle={{backgroundColor: backgroundColor}}
-          headerTitleStyle={{color: fontColor}}
+          headerStyle={{ backgroundColor: backgroundColor }}
+          headerTitleStyle={{ color: fontColor }}
         />
         <Stack alignItems="center" marginTop={32} marginBottom={33}>
           <Stack direction="row" alignItems="center" spacing={10}>
-            <Image style={{width: 30, height: 30}} source={item.image} />
+            <Image style={{ width: 30, height: 30 }} source={item.image} />
             <BodyHeading type={4} textTransform="uppercase">
               {item.percent} {item.name}
             </BodyHeading>
@@ -46,33 +48,33 @@ const BTCScreen = ({route, navigation}) => {
               borderColor={neutral100}
               icon={<IconSend />}
               onPress={() =>
-                navigation.navigate(ROUTES.WALLET.BTC_SEND, {item})
+                navigation.navigate(ROUTES.WALLET.BTC_SEND, { item })
               }>
-              Send
+              {i18n.send}
             </ButtonIcon>
             <ButtonIcon
               borderColor={neutral100}
               icon={<IconReceive />}
               onPress={() =>
-                navigation.navigate(ROUTES.WALLET.BTC_RECEIVE, {item})
+                navigation.navigate(ROUTES.WALLET.BTC_RECEIVE, { item })
               }>
-              Receive
+              {i18n.receive}
             </ButtonIcon>
             <ButtonIcon
               borderColor={neutral100}
               icon={<IconSwap />}
               onPress={() =>
-                navigation.navigate(ROUTES.WALLET.BTC_SWAP, {item})
+                navigation.navigate(ROUTES.WALLET.BTC_SWAP, { item })
               }>
-              Swap
+              {i18n.swap}
             </ButtonIcon>
             <ButtonIcon
               borderColor={neutral100}
               icon={<IconStaking />}
               onPress={() =>
-                navigation.navigate(ROUTES.WALLET.BTC_STAKING, {item})
+                navigation.navigate(ROUTES.WALLET.BTC_STAKING, { item })
               }>
-              Staking
+              {i18n.staking}
             </ButtonIcon>
           </Stack>
         </Stack>
@@ -83,7 +85,7 @@ const BTCScreen = ({route, navigation}) => {
             <Stack key={index}>
               <BodyText
                 type={7}
-                style={{color: neutral100, marginBottom: 9, marginLeft: 11}}>
+                style={{ color: neutral100, marginBottom: 9, marginLeft: 11 }}>
                 {t.date}
               </BodyText>
               {t.transactions.map((tr, index) => {
@@ -99,11 +101,11 @@ const BTCScreen = ({route, navigation}) => {
                     }>
                     <Stack direction="row" spacing={10} padding={10}>
                       <Image
-                        style={{width: 20, height: 20}}
+                        style={{ width: 20, height: 20 }}
                         source={item.image}
                       />
                       <BodyText textTransform="capitalize">{tr.type}</BodyText>
-                      <Stack style={{flex: 1, alignItems: 'flex-end'}}>
+                      <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
                         <BodyText
                           style={{
                             color: isPlus ? green200 : red,

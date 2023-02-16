@@ -4,14 +4,16 @@ import BodyHeading from './texts/BodyHeading';
 import BodyText from './texts/BodyText';
 import { TouchableOpacity } from 'react-native'
 import { currency } from '../utils/formats';
+import { useAuth } from '../context/AuthContext';
 
-const WalletTotalBalance = ({total, onPress}) => {
+const WalletTotalBalance = ({ total, onPress }) => {
+  const { i18n } = useAuth()
   return (
     <Wrapper>
       <TouchableOpacity onPress={onPress} disabled={!onPress}>
         <Background source={bg}>
           <Outer>
-            <BodyText type={5}>Total value</BodyText>
+            <BodyText type={5}>{i18n.totalValue}</BodyText>
             <BodyHeading type={4}>${currency(total)}</BodyHeading>
           </Outer>
         </Background>

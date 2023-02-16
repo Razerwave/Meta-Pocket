@@ -7,18 +7,19 @@ const CustomTabs = ({
   onTabChange = () => { },
   tabRoutes = [],
   renderScene = () => { },
-  renderTabBar,
+  tabColors,
 }) => {
   const { backgroundColor, exploreTab } = useTheme();
   const layout = useWindowDimensions();
 
+  const tabColorObj = tabColors || exploreTab
   return (
     <TabView
       navigationState={{ index: tabIndex, routes: tabRoutes }}
       renderScene={renderScene}
       onIndexChange={onTabChange}
       initialLayout={{ width: layout.width }}
-      renderTabBar={props => renderTabBar ? renderTabBar(props) : (
+      renderTabBar={props => (
         <TabBar
           {...props}
           style={[{ backgroundColor: backgroundColor }]}
@@ -44,18 +45,18 @@ const CustomTabs = ({
           //     </Text>
           //   );
           // }}
-          inactiveColor={exploreTab.tabInActiveColor}
+          inactiveColor={tabColorObj.tabInActiveColor}
           indicatorContainerStyle={{}}
           labelStyle={{
             fontSize: 16,
             fontWeight: 400,
-            textTransform: 'capitalize',
+            textTransform: 'none',
           }}
           sceneContainerStyle={{ color: 'pink' }}
-          activeColor={exploreTab.tabActiveColor}
+          activeColor={tabColorObj.tabActiveColor}
           indicatorStyle={[
             {
-              backgroundColor: exploreTab.tabActiveColor,
+              backgroundColor: tabColorObj.tabActiveColor,
               height: 2,
             },
           ]}

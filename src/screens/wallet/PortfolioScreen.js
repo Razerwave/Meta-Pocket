@@ -14,9 +14,11 @@ import { neutral100 } from '../../constants/colors';
 import { currency } from '../../utils/formats';
 
 // TEST DATA
-import {PortfolioData} from '../../constants/ListData';
+import { PortfolioData } from '../../constants/ListData';
+import { useAuth } from '../../context/AuthContext';
 
 const PortfolioScreen = () => {
+  const { i18n } = useAuth()
   const { backgroundColor, statusBarStyle, fontColor } = DarkTheme
   const [total, setTotal] = useState(0);
   const [data, setData] = useState([]);
@@ -37,12 +39,12 @@ const PortfolioScreen = () => {
         <Stack marginTop={30} marginBottom={20}>
           <Stack alignItems="center" marginBottom={25}>
             <CircleAnimated data={data}>
-              <BodyText type={5}>Total value</BodyText>
+              <BodyText type={5}>{i18n.totalValue}</BodyText>
               <BodyHeading type={4}>${currency(total)}</BodyHeading>
             </CircleAnimated>
           </Stack>
           <Stack spacing={10}>
-            {data?.map((item, index) => <LisItem key={index} {...item}/>)}
+            {data?.map((item, index) => <LisItem key={index} {...item} />)}
           </Stack>
         </Stack>
       </FixedThemeWrapper>

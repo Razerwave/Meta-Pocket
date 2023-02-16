@@ -23,8 +23,10 @@ import {
 } from '../../components';
 import { ROUTES } from '../../constants';
 import LogoBig from '../../assets/LogoBig';
+import { useAuth } from '../../context/AuthContext';
 
 const WelcomeScreen = ({ navigation }) => {
+  const {i18n} = useAuth()
   return (
     <LayoutScreen>
       <LayoutCenter>
@@ -32,12 +34,12 @@ const WelcomeScreen = ({ navigation }) => {
       </LayoutCenter>
       <LayoutBottom>
         <ButtonPrimary
-          title="Create New Wallet"
+          title={i18n.createNewWallet}
           onPress={() => navigation.navigate(ROUTES.AUTH.BACKUP_WALLET)}
           style={{ marginBottom: 20 }}
         />
         <ButtonText onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
-          I already have a wallet
+          {i18n.iHaveAlreadyWallet}
         </ButtonText>
       </LayoutBottom>
     </LayoutScreen>

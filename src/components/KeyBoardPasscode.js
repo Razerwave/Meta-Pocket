@@ -5,6 +5,7 @@ import StyledText from './texts/StyledText'
 import { white } from '../constants/colors'
 import { SvgXml } from 'react-native-svg'
 import { useTheme } from 'styled-components'
+import { useAuth } from '../context/AuthContext'
 
 const DEFAULT_NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 const BACKKEY_XML = (bgColor = '#DFDFDF', bgOpacity = '1', color = '#F2F2F2') => (`<svg width="41" height="20" viewBox="0 0 41 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,6 +16,7 @@ const BACKKEY_XML = (bgColor = '#DFDFDF', bgOpacity = '1', color = '#F2F2F2') =>
 `)
 
 const KeyBoardPasscode = ({ value = '', onChange = () => { } }) => {
+  const {i18n} = useAuth()
   const [numbers, setNumbers] = useState([])
   const { keyboardDeleteKey: { bgColor, opacity, stroke }, fontColor } = useTheme()
 
@@ -56,7 +58,7 @@ const KeyBoardPasscode = ({ value = '', onChange = () => { } }) => {
       </View>
       <View style={styles.keyContainer}>
         <TouchableOpacity style={styles.key} onPress={() => handleReset()}>
-          <StyledText>Reset</StyledText>
+          <StyledText>{i18n.reset}</StyledText>
         </TouchableOpacity>
         <TouchableOpacity style={styles.key} onPress={() => handleNumber(numbers[9])}>
           <StyledText>{numbers[9]}</StyledText>

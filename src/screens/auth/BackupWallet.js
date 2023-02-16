@@ -4,8 +4,10 @@ import Clipboard from '@react-native-clipboard/clipboard';
 import { ButtonPrimary, ButtonText, CardBox, LayoutBottom, LayoutScreen, Paragraph, Stack, StepsAuth, StyledText } from '../../components';
 import { ROUTES } from '../../constants'
 import { IconCopy } from '../../assets/icons';
+import { useAuth } from '../../context/AuthContext';
 
 const BackupWallet = ({ navigation }) => {
+  const { i18n } = useAuth()
   const [copied, setCopied] = useState(false);
   const [words, setWords] = useState([]);
 
@@ -23,11 +25,8 @@ const BackupWallet = ({ navigation }) => {
       <StepsAuth current={1} />
       <Stack marginTop={80} marginHorizontal={28} marginBottom={30} spacing={50}>
         <Paragraph
-          title="Back Up Your Wallet"
-          body={[
-            'The recovery phrase is the only way to recover your cryptocurrency if you lose your phone or switch to another wallet.',
-            'Keep the 12-word recovery phrase in a safe place and don’t share it with anyone.',
-          ]}
+          title={i18n.backupYourWallet}
+          body={[i18n.recoveryPhaseInfo, i18n.recoveryPhaseWarning]}
         />
         <Stack>
           <CardBox style={{ borderRadius: 10 }}>
@@ -40,7 +39,7 @@ const BackupWallet = ({ navigation }) => {
               <Stack direction='row' spacing={6}>
                 <IconCopy />
                 <ButtonText style={{ fontSize: 12, lineHeight: 16 }}>
-                  {copied ? 'Copied' : 'Copy'} to clipboard
+                  {copied ? i18n.copiedToClipBoard : i18n.copyToClipBoard}
                 </ButtonText>
               </Stack>
             </TouchableOpacity>
@@ -48,7 +47,7 @@ const BackupWallet = ({ navigation }) => {
         </Stack>
       </Stack>
       <LayoutBottom>
-        <ButtonPrimary title='Continue' onPress={() => navigation.navigate(ROUTES.AUTH.CHECK_BACKUP_WALLET, {
+        <ButtonPrimary title={i18n.continue} onPress={() => navigation.navigate(ROUTES.AUTH.CHECK_BACKUP_WALLET, {
           firstWord: words[0],
           lastWord: words[words.length - 1],
           words: [...words].sort((a, b) => 0.5 - Math.random()),

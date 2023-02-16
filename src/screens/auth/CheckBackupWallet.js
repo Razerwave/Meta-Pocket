@@ -4,8 +4,10 @@ import { useTheme } from 'styled-components'
 import { LayoutScreen, ButtonPrimary, LayoutBottom, Stack, StyledText, StepsAuth, LayoutCenter, Paragraph } from '../../components'
 import { ROUTES } from '../../constants'
 import { blue300, purple100, white } from '../../constants/colors'
+import { useAuth } from '../../context/AuthContext'
 
 const CheckBackupWallet = ({ route, navigation }) => {
+  const { i18n } = useAuth()
   const { words = [], firstWord = '', lastWord = '' } = route?.params
   const { fontColor, backgroundCardColor } = useTheme()
   const [chosenWords, setChosenWords] = useState(['', ''])
@@ -32,8 +34,8 @@ const CheckBackupWallet = ({ route, navigation }) => {
       <StepsAuth current={2} />
       <Stack marginTop={80} marginHorizontal={28} marginBottom={70} spacing={20}>
         <Paragraph
-          title="Have you backed up?"
-          body="Please click the first(1st) word first, then the last word(12th)"
+          title={i18n.haveYouBackedUp}
+          body={i18n.wordPickInfo}
         />
       </Stack>
       <Stack marginHorizontal={58}>
@@ -75,7 +77,7 @@ const CheckBackupWallet = ({ route, navigation }) => {
 
       </Stack>
       <LayoutBottom>
-        <ButtonPrimary title='Continue' disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.PROTECT_WALLET)} />
+        <ButtonPrimary title={i18n.continue} disabled={!passed} onPress={() => navigation.navigate(ROUTES.AUTH.PROTECT_WALLET)} />
       </LayoutBottom>
     </LayoutScreen>
   )

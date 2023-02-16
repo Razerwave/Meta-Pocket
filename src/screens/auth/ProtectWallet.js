@@ -4,10 +4,13 @@ import { LayoutScreen, BottomModal, ButtonPrimary, LayoutBottom, Stack, StyledTe
 import { ROUTES } from '../../constants'
 import { useTheme } from 'styled-components'
 import { IconCheck } from '../../assets/icons'
+import { useAuth } from '../../context/AuthContext'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const ImageURI = require('../../assets/ProtectWallet.png')
 
 const ProtectWallet = ({ navigation }) => {
+  const {i18n} = useAuth()
   const { fontColor, activeTintColor } = useTheme('')
   const [agreed, setAgreed] = useState(false);
   const [modalVisible, setModalVisible] = useState(null);
@@ -29,8 +32,8 @@ const ProtectWallet = ({ navigation }) => {
       <StepsAuth current={3} />
       <Stack marginTop={80} marginHorizontal={28} spacing={76}>
         <Paragraph
-          title="Protect your wallet."
-          body="This extra layer of security prevents​ anyone with your phone from accessing​ your funds."
+          title={i18n.protectYourWallet}
+          body={i18n.accessingWarning}
         />
         <Stack alignItems="center">
           <Image source={ImageURI} />
@@ -45,23 +48,23 @@ const ProtectWallet = ({ navigation }) => {
               </View>
             </TouchableOpacity>
             <Stack direction='row' spacing={4}>
-              <BodyText type={5}>I agree to the</BodyText>
-              <TouchableOpacity onPress={() => setModalVisible('Terms')}>
-                <BodyText type={5} style={{ borderBottomWidth: 1, borderColor: fontColor }}>Terms</BodyText>
+              <BodyText type={5}>{i18n.iAgree}</BodyText>
+              <TouchableOpacity onPress={() => setModalVisible('terms')}>
+                <BodyText type={5} style={{ borderBottomWidth: 1, borderColor: fontColor }}>{i18n.terms}</BodyText>
               </TouchableOpacity>
-              <BodyText type={5}>and</BodyText>
-              <TouchableOpacity onPress={() => setModalVisible('Privacy Policy')}>
-                <BodyText type={5} style={{ borderBottomWidth: 1, borderColor: fontColor }}>Privacy Policy</BodyText>
+              <BodyText type={5}>{i18n.and}</BodyText>
+              <TouchableOpacity onPress={() => setModalVisible('privacyPolicy')}>
+                <BodyText type={5} style={{ borderBottomWidth: 1, borderColor: fontColor }}>{i18n.privacyPolicy}</BodyText>
               </TouchableOpacity>
             </Stack>
           </Stack>
         </View>
-        <ButtonPrimary title='Create Passcode' disabled={!agreed} onPress={() => navigation.navigate(ROUTES.AUTH.CREATE_PASSCODE)} />
+        <ButtonPrimary title={i18n.createPassCode} disabled={!agreed} onPress={() => navigation.navigate(ROUTES.AUTH.CREATE_PASSCODE)} />
       </LayoutBottom>
 
       <BottomModal
-        title={'Terms'}
-        visible={modalVisible === 'Terms'}
+        title={i18n.terms}
+        visible={modalVisible === 'terms'}
         onClose={() => {
           setModalVisible('');
         }}
@@ -75,8 +78,8 @@ const ProtectWallet = ({ navigation }) => {
       </BottomModal>
 
       <BottomModal
-        title={'Privacy Policy'}
-        visible={modalVisible === 'Privacy Policy'}
+        title={i18n.privacyPolicy}
+        visible={modalVisible === 'privacyPolicy'}
         onClose={() => {
           setModalVisible('');
         }}

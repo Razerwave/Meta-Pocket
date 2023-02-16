@@ -5,13 +5,13 @@ import { Layout } from 'react-native-reanimated'
 import { useAuth } from '../../context/AuthContext'
 
 const Result = ({ route }) => {
-  const { login } = useAuth()
+  const { i18n, login } = useAuth()
 
   return (
     <LayoutScreen>
       <LayoutBottom>
         <ButtonPrimary
-          title="Get Started"
+          title={i18n.getStarted}
           onPress={() => login(route.params.passcode)}
         />
       </LayoutBottom>

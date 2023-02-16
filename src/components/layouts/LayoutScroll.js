@@ -56,7 +56,7 @@ const LayoutScroll = ({ children, bottomGap = 0, button, onPress }) => {
 
   // console.log('fadeAnim', fadeAnim, fadeAnim !== 0, fadeAnim === 0)
   return (
-    <View style={{ flex: 1 }}>
+    <>
       <ScrollView
         ref={scrollRef}
         onScroll={event => {
@@ -81,7 +81,7 @@ const LayoutScroll = ({ children, bottomGap = 0, button, onPress }) => {
           </TouchableOpacity>
         )}
       </Animated.View>
-    </View>
+    </>
   );
 };
 

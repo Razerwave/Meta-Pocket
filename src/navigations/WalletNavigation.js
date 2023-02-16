@@ -27,6 +27,7 @@ import {
 } from '../screens/wallet';
 import BTCHistoryScreen from '../screens/wallet/BTCHistoryScreen';
 import { useAuth } from '../context/AuthContext';
+import StakingBTCScreen2 from '../screens/wallet/StakingBTCScreen2';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,7 +48,6 @@ const WalletNavigation = () => {
         headerShown: false,
       }}
       initialRouteName={ROUTES.WALLET.HOME}>
-      {/* SETTING */}
       <Stack.Screen name={ROUTES.WALLET.HOME} component={WalletScreen} />
       <Stack.Screen
         name={ROUTES.WALLET.PORTFOLIO}
@@ -89,6 +89,11 @@ const WalletNavigation = () => {
         options={{ headerShown: true, title: i18n.stackingBtc }}
         name={ROUTES.WALLET.BTC_STAKING}
         component={StakingBTCScreen}
+      />
+      <Stack.Screen
+        options={{ headerShown: true, title: i18n.stackingBtc }}
+        name={ROUTES.WALLET.BTC_STAKING_2}
+        component={StakingBTCScreen2}
       />
 
       <Stack.Screen name={ROUTES.WALLET.NFT_INFO} component={NftScreen} />

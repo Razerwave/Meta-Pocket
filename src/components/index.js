@@ -43,6 +43,7 @@ import NoticeCard from './NoticeCard';
 import CustomTouchableOpacity from './CustomTouchableOpacity';
 import ActionInfoBorder from './ActionInfoBorder';
 import Precautions from './Precautions';
+import ButtonGray from './buttons/ButtonGray';
 
 export {
   Title,
@@ -86,4 +87,5 @@ export {
   CustomTabs,
   ButtonScroll,
   ButtonIcon,
+  ButtonGray,
 };

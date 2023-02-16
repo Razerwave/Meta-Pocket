@@ -24,7 +24,7 @@ const ReceiveBTCScreen = () => {
               <DarkCard />
           </FixedThemeWrapper>
           <Stack alignItems="center" marginTop={20}>
-            {textToSentences(i18n.sendOnlyBtcWarning).map((text) => <BodyText type={5}>{text}</BodyText>)}
+            {textToSentences(i18n.sendOnlyBtcWarning).map((text, index) => <BodyText key={index} type={5}>{text}</BodyText>)}
           </Stack>
         </Stack>
 
@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
   card: {
     color: white,
     width: 150,
-    centerItems: 'center',
   },
   btn: {
     flexGrow: 1,

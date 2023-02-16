@@ -2,8 +2,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { BodyText, ButtonPrimary, CustomInput, Divider, LayoutBottom, LayoutScreen, LayoutScroll, Stack } from '../../components'
 import { useAuth } from '../../context/AuthContext';
+import { ROUTES } from '../../constants';
 
-const StakingBTCScreen = () => {
+const StakingBTCScreen = ({ navigation }) => {
   const [balance, setBalance] = useState();
   const [amount, setAmount] = useState();
   const { i18n } = useAuth()
@@ -11,7 +12,7 @@ const StakingBTCScreen = () => {
   const type = "BTC"
 
   const handleMax = () => {
-
+    navigation.navogate(ROUTES.WALLET.BTC_STAKING_2, { amount })
   }
 
   return (

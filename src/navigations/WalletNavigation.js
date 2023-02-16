@@ -18,6 +18,7 @@ import {
   NftScreen,
   PortfolioScreen,
   ReceiveBTCScreen,
+  ReceiveUSDTScreen,
   SendBTCScreen,
   SendNftAuthScreen,
   SendNftScreen,
@@ -25,10 +26,12 @@ import {
   SwapBTCScreen,
 } from '../screens/wallet';
 import BTCHistoryScreen from '../screens/wallet/BTCHistoryScreen';
+import { useAuth } from '../context/AuthContext';
 
 const Stack = createNativeStackNavigator();
 
 const WalletNavigation = () => {
+  const { i18n } = useAuth()
   const { backgroundColor, fontColor } = useTheme();
   return (
     <Stack.Navigator
@@ -51,51 +54,56 @@ const WalletNavigation = () => {
         component={PortfolioScreen}
       />
       <Stack.Screen
-        options={{ headerShown: true, title: 'Notice' }}
+        options={{ headerShown: true, title: i18n.notice }}
         name={ROUTES.WALLET.NOTICE}
         component={NoticeScreen}
       />
 
       <Stack.Screen name={ROUTES.WALLET.BTC_INFO} component={BTCScreen} />
       <Stack.Screen
-        options={{ headerShown: true, title: 'Send Money' }}
+        options={{ headerShown: true, title: i18n.sendMoney }}
         name={ROUTES.WALLET.BTC_HISTORY}
         component={BTCHistoryScreen}
       />
       <Stack.Screen
-        options={{ headerShown: true, title: 'Send BTC' }}
+        options={{ headerShown: true, title: i18n.sendBtc }}
         name={ROUTES.WALLET.BTC_SEND}
         component={SendBTCScreen}
       />
       <Stack.Screen
-        options={{ headerShown: true, title: 'Receive BTC' }}
+        options={{ headerShown: true, title: i18n.receiveBtc }}
         name={ROUTES.WALLET.BTC_RECEIVE}
         component={ReceiveBTCScreen}
       />
       <Stack.Screen
-        options={{ headerShown: true, title: 'Swap BTC' }}
+        options={{ headerShown: true, title: i18n.receiveUSDT }}
+        name={ROUTES.WALLET.BTC_RECEIVE_USDT}
+        component={ReceiveUSDTScreen}
+      />
+      <Stack.Screen
+        options={{ headerShown: true, title: i18n.swapBtc }}
         name={ROUTES.WALLET.BTC_SWAP}
         component={SwapBTCScreen}
       />
       <Stack.Screen
-        options={{ headerShown: true, title: 'Staking BTC' }}
+        options={{ headerShown: true, title: i18n.stackingBtc }}
         name={ROUTES.WALLET.BTC_STAKING}
         component={StakingBTCScreen}
       />
 
       <Stack.Screen name={ROUTES.WALLET.NFT_INFO} component={NftScreen} />
       <Stack.Screen
-        options={{ headerShown: true, title: 'Load NFTs' }}
+        options={{ headerShown: true, title: i18n.loadNFT }}
         name={ROUTES.WALLET.NFT_LOAD}
         component={LoadNftScreen}
       />
       <Stack.Screen
-        options={{ headerShown: true, title: 'Send NFT' }}
+        options={{ headerShown: true, title: i18n.sendNFT }}
         name={ROUTES.WALLET.NFT_SEND}
         component={SendNftScreen}
       />
       <Stack.Screen
-        options={{ headerShown: true, title: 'Send NFT' }}
+        options={{ headerShown: true, title: i18n.sendNFT }}
         name={ROUTES.WALLET.NFT_SEND_AUTH}
         component={SendNftAuthScreen}
       />

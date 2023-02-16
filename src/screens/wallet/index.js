@@ -7,6 +7,7 @@ import NftScreen from './NftScreen';
 import BTCScreen from './BTCScreen';
 import SendBTCScreen from './SendBTCScreen';
 import ReceiveBTCScreen from './ReceiveBTCScreen';
+import ReceiveUSDTScreen from './ReceiveUSDTScreen';
 import SwapBTCScreen from './SwapBTCScreen';
 import StakingBTCScreen from './StakingBTCScreen';
 
@@ -21,4 +22,5 @@ export {
   ReceiveBTCScreen,
   SwapBTCScreen,
   StakingBTCScreen,
+  ReceiveUSDTScreen,
 };

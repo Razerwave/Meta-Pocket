@@ -9,6 +9,8 @@ import { useAuth } from '../../context/AuthContext'
 import { fontButton } from '../../constants/fonts'
 import { textToSentences } from '../../utils/formats'
 import Clipboard from '@react-native-clipboard/clipboard'
+import { useNavigation } from '@react-navigation/native'
+import { ROUTES } from '../../constants'
 
 const ReceiveBTCScreen = () => {
   const { i18n } = useAuth()
@@ -40,9 +42,11 @@ const DarkCard = ({ }) => {
   const { i18n } = useAuth()
   const { input: { btnColor } } = useTheme()
   const [address] = useState('0xe34lkjd7BEsdlkfjlsasdfsdfkjsdlkf')
+  const navigation = useNavigation()
 
   const handleCopy = () => {
     Clipboard.setString(address)
+    navigation.navigate(ROUTES.WALLET.BTC_RECEIVE_USDT)
   }
 
   return (

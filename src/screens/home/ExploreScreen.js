@@ -35,7 +35,7 @@ const ExploreScreen = ({ navigation }) => {
               <View key={index}>
                 {index !== 0 && <Divider marginBottom={30} />}
                 <Stack direction='row' alignItems="center" spacing={8} marginBottom={20}>
-                  <IconColorDot color={item.dotColor} />
+                  <IconColorDot size={6} color={item.dotColor} />
                   <BodyText fontWeight="600">{title}</BodyText>
                   <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
                     <TouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, { tabIndex: index, })}>

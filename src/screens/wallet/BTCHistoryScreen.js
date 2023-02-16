@@ -1,8 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const BTCHistoryScreen = ({ route }) => {
+const BTCHistoryScreen = ({ route, navigation }) => {
   const item = route.params.item;
+
+  useEffect(() => {
+    navigation.setOptions({ title: `${item.type} Money`})
+  }, [item.type])
 
   return (
     <View>

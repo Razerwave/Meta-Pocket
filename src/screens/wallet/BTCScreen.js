@@ -33,28 +33,28 @@ const BTCScreen = ({ route, navigation }) => {
             <ButtonIcon
               borderColor={neutral100}
               icon={<IconSend />}
-              onPress={() => navigation.navigate(ROUTES.SENDBTC.SENDBTC_SCREEN, { item })}
+              onPress={() => navigation.navigate(ROUTES.WALLET.BTC_SEND, { item })}
             >
               Send
             </ButtonIcon>
             <ButtonIcon
               borderColor={neutral100}
               icon={<IconReceive />}
-              onPress={() => navigation.navigate(ROUTES.SENDBTC.SENDBTC_SCREEN, { item })}
+              onPress={() => navigation.navigate(ROUTES.WALLET.BTC_RECEIVE, { item })}
             >
               Receive
             </ButtonIcon>
             <ButtonIcon
               borderColor={neutral100}
               icon={<IconSwap />}
-              onPress={() => navigation.navigate(ROUTES.SENDBTC.SENDBTC_SCREEN, { item })}
+              onPress={() => navigation.navigate(ROUTES.WALLET.BTC_SWAP, { item })}
             >
               Swap
             </ButtonIcon>
             <ButtonIcon
               borderColor={neutral100}
               icon={<IconStaking />}
-              onPress={() => navigation.navigate(ROUTES.SENDBTC.SENDBTC_SCREEN, { item })}
+              onPress={() => navigation.navigate(ROUTES.WALLET.BTC_STAKING, { item })}
             >
               Staking
             </ButtonIcon>

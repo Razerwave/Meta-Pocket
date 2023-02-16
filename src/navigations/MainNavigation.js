@@ -49,7 +49,7 @@ const MainNavigation = () => {
         component={HomeNavigation}
       />
       {/* WALLET */}
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{headerShown: false}}
         name={ROUTES.WALLET.PORTFOLIO}
         component={PortfolioScreen}
@@ -63,7 +63,7 @@ const MainNavigation = () => {
         options={{headerShown: false}}
         name={ROUTES.WALLET.BTC_INFO}
         component={BTCScreen}
-      />
+      /> */}
       {/* SETTING */}
       {/* <Stack.Screen
         options={{title: ''}}

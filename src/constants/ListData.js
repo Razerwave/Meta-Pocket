@@ -370,6 +370,10 @@ const WalletHomeData = {
   ],
 };
 
+const langSelectData = [
+  {label: 'ENGLISH', value: 'ENG', selectedLabel: 'ENG'},
+  {label: 'KOREAN', value: 'KOR', selectedLabel: 'KOR'},
+];
 const BTC_INFO_DATA = [
   {
     date: 'Jan 2, 2023 PM 12:00',
@@ -386,7 +390,7 @@ const BTC_INFO_DATA = [
         type: 'received',
         amount: 0.1,
       },
-    ]
+    ],
   },
   {
     date: 'Jan 2, 2023 PM 12:00',
@@ -399,9 +403,9 @@ const BTC_INFO_DATA = [
         type: 'send',
         amount: 0.1,
       },
-    ]
-  }
-]
+    ],
+  },
+];
 
 export {
   testData,
@@ -411,5 +415,6 @@ export {
   PortfolioData,
   WalletHomeData,
   ExploreData,
+  langSelectData,
   BTC_INFO_DATA,
 };

@@ -1,28 +1,25 @@
-import {useEffect, useRef, useState} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import {useEffect, useState} from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {useAuth} from '../../context/AuthContext';
+import Animated, {FadeInUp, CurvedTransition} from 'react-native-reanimated';
 
-const CustomSelect = () => {
-  const [selectedValue, setSelectedValue] = useState(null);
+const CustomSelect = ({value, data, onChange}) => {
+  const [selectedItem, setSelectedItem] = useState({});
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const dropDownRef = useRef(null);
   const {setMainPressEvent} = useAuth();
 
-  const data = [
-    {label: 'Option 1', value: 'option1'},
-    {label: 'Option 2', value: 'option2'},
-    {label: 'Option 3', value: 'option3'},
-  ];
+  // const animation = useSharedValue({opacity: 0});
+
+  // const animationStyle = useAnimatedStyle(() => {
+  //   return {
+  //     opacity: withTiming(animation.value.opacity, {duration: 300}),
+  //   };
+  // });
 
   const renderItem = ({item, index}) => (
     <TouchableOpacity
       onPress={() => {
-        setSelectedValue(item.value);
+        handleOnChange(item);
         setDropdownVisible(false);
       }}
       key={index}>
@@ -32,38 +29,80 @@ const CustomSelect = () => {
     </TouchableOpacity>
   );
 
+  const findSelectedItem = selected => {
+    try {
+      const selectedItem = data.find(item => item.value === selected);
+      if (selectedItem) {
+        return selectedItem;
+      }
+
+      return {};
+    } catch (ex) {
+      console.log(ex);
+      return {};
+    }
+  };
+
+  const handleOnChange = item => {
+    if (onChange) {
+      onChange(item);
+    }
+    setSelectedItem(item);
+  };
+
+  useEffect(() => {
+    if (value) {
+      setSelectedItem(findSelectedItem(value));
+    } else {
+      setSelectedItem({});
+    }
+  }, [value]);
+
   useEffect(() => {
     if (dropdownVisible) {
       setMainPressEvent({event: () => setDropdownVisible(false)});
+    } else {
     }
   }, [dropdownVisible]);
 
   return (
     <View
-      ref={dropDownRef}
       style={{
-        borderWidth: 1,
-        borderColor: 'gray',
+        flex: 1,
+        height: '100%',
       }}>
-      <TouchableOpacity onPress={() => setDropdownVisible(!dropdownVisible)}>
-        <View style={{padding: 10}}>
-          <Text>{selectedValue || 'Select an option'}</Text>
-        </View>
-      </TouchableOpacity>
-      {dropdownVisible && (
-        <View
-          style={{
-            backgroundColor: 'white',
-            position: 'absolute',
-            top: '100%',
-            right: 0,
-            zIndex: 2,
-          }}>
-          {data.map((item, index) => {
-            return renderItem({item, index});
-          })}
-        </View>
-      )}
+      <Animated.View
+        style={{
+          position: 'absolute',
+          right: 0,
+          top: '-50%',
+          backgroundColor: dropdownVisible ? 'white' : 'transparent',
+          borderWidth: 1,
+          borderColor: 'grey',
+        }}
+        layout={CurvedTransition.duration(100)}>
+        <TouchableOpacity onPress={() => setDropdownVisible(!dropdownVisible)}>
+          <View style={{padding: 10}}>
+            <Text>
+              {dropdownVisible
+                ? selectedItem.label
+                : selectedItem.selectedLabel
+                ? selectedItem.selectedLabel
+                : selectedItem.label}
+            </Text>
+          </View>
+        </TouchableOpacity>
+        {dropdownVisible && (
+          <Animated.View entering={FadeInUp}>
+            {data.map((item, index) => {
+              if (item.value === selectedItem.value) {
+                return null;
+              }
+              return renderItem({item, index});
+            })}
+          </Animated.View>
+        )}
+      </Animated.View>
     </View>
   );
 };

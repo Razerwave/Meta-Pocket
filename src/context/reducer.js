@@ -9,6 +9,7 @@ import {
   FAVORITE,
   SET_STATUS_BAR,
   SET_MAIN_PRESS_EVENT,
+  CHANGE_LANGUAGE,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -49,6 +50,10 @@ const reducer = (state, action) => {
       ...state,
       mainOnPressEvent: action.payload.onPress,
     };
+  }
+
+  if (action.type === CHANGE_LANGUAGE) {
+    return {...state, lang: action.payload.lang, i18n: action.payload.i18n};
   }
 
   if (action.type === LOCK) {

@@ -8,6 +8,7 @@ import React, {
 import {ThemeProvider} from 'styled-components';
 import reducer from './reducer';
 import {
+  CHANGE_LANGUAGE,
   INITIALIZE,
   LOCK,
   LOGIN_USER,
@@ -20,6 +21,7 @@ import {
 } from './actions';
 import {DarkTheme, DefaultTheme} from '../constants';
 import store from '../utils/store';
+import {KOR, ENG} from '../utils/language';
 
 const theme = 'dark';
 
@@ -38,6 +40,8 @@ const initialState = {
       theme === 'dark' ? DarkTheme.statusBarStyle : DefaultTheme.statusBarStyle,
   },
   mainOnPressEvent: null,
+  lang: 'ENG',
+  i18n: ENG,
 };
 
 const AuthContext = createContext();
@@ -78,6 +82,7 @@ const AuthProvier = ({children}) => {
   useEffect(() => {
     if (!isInitialized) {
       toggleTheme({init: true});
+      changeLanguage({init: true});
       setTimeout(() => {
         dispatch({
           type: INITIALIZE,
@@ -159,6 +164,28 @@ const AuthProvier = ({children}) => {
     });
   };
 
+  const changeLanguage = async ({lang, init}) => {
+    const payload = {};
+
+    let lagParam = lang;
+
+    if (init) {
+      lagParam = await store.getItem('lang');
+    } else {
+      store.setItem('lang', lagParam);
+    }
+
+    if (lagParam === 'KOR') {
+      payload.lang = 'KOR';
+      payload.i18n = KOR;
+    } else {
+      payload.lang = 'ENG';
+      payload.i18n = ENG;
+    }
+
+    dispatch({type: CHANGE_LANGUAGE, payload});
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -176,6 +203,7 @@ const AuthProvier = ({children}) => {
         setFavorite,
         setStatusBar,
         setMainPressEvent,
+        changeLanguage,
       }}>
       <ThemeProvider theme={state.isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}

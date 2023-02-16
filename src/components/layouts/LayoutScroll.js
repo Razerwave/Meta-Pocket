@@ -62,7 +62,7 @@ const LayoutScroll = ({ children, bottomGap = 0, button, onPress }) => {
         onScroll={event => {
           setContentVerticalOffset(event.nativeEvent.contentOffset.y);
         }}
-        contentContainerStyle={{ flexGrow: 1 }}
+        contentContainerStyle={{ flexGrow: 1, borderColor: 'green', borderWidth: 3 }}
       >
         <TouchableOpacity style={{ flex: 1 }} activeOpacity={1} onPressOut={handleOnPress}>
           {children}

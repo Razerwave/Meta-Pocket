@@ -33,15 +33,15 @@ const ExploreScreen = ({ navigation }) => {
           {data.map(({ title, items, key, ...item }, index) => {
             return (
               <View key={index}>
-                <Container>
-                  <Title>
-                    <IconColorDot color={item.dotColor} />
-                    <TitleSection>{title}</TitleSection>
-                  </Title>
-                  <TouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, { tabIndex: index, })}>
-                    <IconExploreArrow />
-                  </TouchableOpacity>
-                </Container>
+                <Stack direction='row' alignItems="center" spacing={8} marginBottom={20}>
+                  <IconColorDot color={item.dotColor} />
+                  <BodyText fontWeight="600">{title}</BodyText>
+                  <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+                    <TouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, { tabIndex: index, })}>
+                      <IconExploreArrow />
+                    </TouchableOpacity>
+                  </Stack>
+                </Stack>
 
                 <View>
                   <ContainerWeb>
@@ -159,9 +159,8 @@ const Container = styled.View`
 `;
 
 const ContainerWeb = styled.View`
-  gap: 10px;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 `;
 

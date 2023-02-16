@@ -22,6 +22,7 @@ import {
   SendNftAuthScreen,
   SendNftScreen,
 } from '../screens/wallet';
+import {useAuth} from '../context/AuthContext';
 // import {BuyItem} from '../screens/BuyItem/index';
 // import {neutral300} from '../constants/colors';
 // import NftScreen from '../screens/wallet/NftScreen';
@@ -30,6 +31,7 @@ const Stack = createNativeStackNavigator();
 
 const MainNavigation = () => {
   const {backgroundColor, fontColor} = useTheme();
+  const {i18n} = useAuth();
   return (
     <Stack.Navigator
       initialRouteName="Home"
@@ -48,65 +50,6 @@ const MainNavigation = () => {
         name="Home"
         component={HomeNavigation}
       />
-      {/* WALLET */}
-      {/* <Stack.Screen
-        options={{headerShown: false}}
-        name={ROUTES.WALLET.PORTFOLIO}
-        component={PortfolioScreen}
-      />
-      <Stack.Screen
-        options={{headerShown: false}}
-        name={ROUTES.WALLET.NFT_INFO}
-        component={NftScreen}
-      />
-      <Stack.Screen
-        options={{headerShown: false}}
-        name={ROUTES.WALLET.BTC_INFO}
-        component={BTCScreen}
-      /> */}
-      {/* SETTING */}
-      {/* <Stack.Screen
-        options={{title: ''}}
-        name={ROUTES.SETTING.RESET_PASSCODE}
-        component={ResetPasscode}
-      />
-      <Stack.Screen
-        options={{title: ''}}
-        name={ROUTES.SETTING.CONFIRM_RESET_PASSCODE}
-        component={ConfirmResetPasscode}
-      />
-      <Stack.Screen
-        options={{title: 'KYC'}}
-        name={ROUTES.SETTING.EMAIL_VERIFICATION}
-        component={EmailVerification}
-      />
-      <Stack.Screen
-        options={{title: 'Referral UID'}}
-        name={ROUTES.SETTING.REFERRAL}
-        component={Referral}
-      />
-      <Stack.Screen
-        options={{title: 'Notice'}}
-        name={ROUTES.SETTING.NOTICE_LIST}
-        component={NoticeList}
-      />
-      <Stack.Screen
-        options={{title: 'Notice'}}
-        name={ROUTES.SETTING.NOTICE}
-        component={NoticeScreen}
-      /> */}
-      {/* EXPLORE */}
-      {/* <Stack.Screen
-        options={{headerShown: true, title: 'Explore'}}
-        name={ROUTES.EXPLORE.LIST_SCREEN}
-        component={ExploreListScreen}
-      /> */}
-      {/* Buy Item */}
-      {/* <Stack.Screen
-        options={{headerShown: false}}
-        name={ROUTES.BUY.BUY_SCREEN}
-        component={BuyItem}
-      /> */}
 
       {/* Enter password */}
       <Stack.Screen
@@ -123,55 +66,14 @@ const MainNavigation = () => {
         component={WebScreen}
       />
 
-      {/* Send BTC Screen */}
-      {/* <Stack.Screen
-        options={{
-          headerShown: true,
-          title: 'Send BTC',
-        }}
-        name={ROUTES.SENDBTC.SENDBTC_SCREEN}
-        component={SendBTCScreen}
-      /> */}
-
-      {/* Send NFT screen */}
       <Stack.Screen
         options={{
           headerShown: true,
-          title: 'Send NFT',
+          title: i18n.sendNFT,
         }}
         name={ROUTES.ACTION.ACTION_SCREEN}
         component={ActionInfoBorder}
       />
-
-      {/* Load NFT screen */}
-      {/* <Stack.Screen
-        options={{
-          headerShown: true,
-          title: 'Load NFTs',
-        }}
-        name={ROUTES.LOADNFT.LOADNFT_SCREEN}
-        component={LoadNftScreen}
-      /> */}
-
-      {/* Send NFT screen */}
-      {/* <Stack.Screen
-        options={{
-          headerShown: true,
-          title: 'Send NFT',
-        }}
-        name={ROUTES.SENDNFT.SENDNFT_SCREEN}
-        component={SendNftScreen}
-      /> */}
-
-      {/* Send NFT AUTH screen */}
-      {/* <Stack.Screen
-        options={{
-          headerShown: true,
-          title: 'Send NFT',
-        }}
-        name={ROUTES.SENDNFT_AUTH.SENDNFT_AUTH_SCREEN}
-        component={SendNftAuthScreen}
-      /> */}
     </Stack.Navigator>
   );
 };

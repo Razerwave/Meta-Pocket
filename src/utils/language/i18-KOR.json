@@ -119,5 +119,7 @@
   "stacking": "Stacking",
   "dapp": "Dapp",
   "from": "From",
-  "to": "To"
+  "to": "To",
+  "enterThePasscode": "Enter The Passcode",
+  "enterYour6-digitPasscode.": "Enter your 6-digit passcode."
 }

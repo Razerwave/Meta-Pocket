@@ -2,19 +2,25 @@ import {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useAuth} from '../../context/AuthContext';
 import Animated, {FadeInUp, CurvedTransition} from 'react-native-reanimated';
+import styled from 'styled-components/native';
+import {useTheme} from 'styled-components';
+import BodyText from '../texts/BodyText';
+import {IconArrowDown} from '../../assets/icons';
+import {neutral100, black} from '../../constants/colors';
 
-const CustomSelect = ({value, data, onChange}) => {
+const CustomSelect = ({
+  value,
+  data,
+  onChange,
+  bordered,
+  textStyle,
+  selectStyle,
+  selectedWrapperStyle,
+}) => {
   const [selectedItem, setSelectedItem] = useState({});
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const {setMainPressEvent} = useAuth();
-
-  // const animation = useSharedValue({opacity: 0});
-
-  // const animationStyle = useAnimatedStyle(() => {
-  //   return {
-  //     opacity: withTiming(animation.value.opacity, {duration: 300}),
-  //   };
-  // });
+  const {setMainPressEvent, isDarkTheme} = useAuth();
+  const {input, activeTintColor} = useTheme();
 
   const renderItem = ({item, index}) => (
     <TouchableOpacity
@@ -23,8 +29,10 @@ const CustomSelect = ({value, data, onChange}) => {
         setDropdownVisible(false);
       }}
       key={index}>
-      <View style={{padding: 10}}>
-        <Text>{item.label}</Text>
+      <View style={{paddingTop: 15}}>
+        <BodyText type={5} style={textStyle}>
+          {item.label}
+        </BodyText>
       </View>
     </TouchableOpacity>
   );
@@ -66,45 +74,74 @@ const CustomSelect = ({value, data, onChange}) => {
   }, [dropdownVisible]);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        height: '100%',
-      }}>
-      <Animated.View
-        style={{
-          position: 'absolute',
-          right: 0,
-          top: '-50%',
-          backgroundColor: dropdownVisible ? 'white' : 'transparent',
-          borderWidth: 1,
-          borderColor: 'grey',
-        }}
-        layout={CurvedTransition.duration(100)}>
-        <TouchableOpacity onPress={() => setDropdownVisible(!dropdownVisible)}>
-          <View style={{padding: 10}}>
-            <Text>
+    <Wrapper style={selectStyle}>
+      <TouchableOpacity onPress={() => setDropdownVisible(!dropdownVisible)}>
+        <SelectWrapper
+          layout={CurvedTransition.duration(100)}
+          dropdownVisible={dropdownVisible}
+          bordered={bordered}
+          bgColor={input.backgroundColor}
+          borderColor={input.borderColor}
+          textColor={activeTintColor}
+          style={selectStyle}>
+          <View
+            style={[
+              {
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              },
+              selectedWrapperStyle,
+            ]}>
+            <BodyText type={5} style={{justifyContent: 'center', ...textStyle}}>
               {dropdownVisible
                 ? selectedItem.label
                 : selectedItem.selectedLabel
                 ? selectedItem.selectedLabel
                 : selectedItem.label}
-            </Text>
+            </BodyText>
+            <View style={{paddingTop: 4, marginLeft: 6}}>
+              <IconArrowDown color={isDarkTheme ? neutral100 : black} />
+            </View>
           </View>
-        </TouchableOpacity>
-        {dropdownVisible && (
-          <Animated.View entering={FadeInUp}>
-            {data.map((item, index) => {
-              if (item.value === selectedItem.value) {
-                return null;
-              }
-              return renderItem({item, index});
-            })}
-          </Animated.View>
-        )}
-      </Animated.View>
-    </View>
+          {dropdownVisible && (
+            <Animated.View entering={FadeInUp}>
+              {data.map((item, index) => {
+                if (item.value === selectedItem.value) {
+                  return null;
+                }
+                return renderItem({item, index});
+              })}
+            </Animated.View>
+          )}
+        </SelectWrapper>
+      </TouchableOpacity>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.View`
+  position: relative;
+  background-color: 'red';
+  flex: 1;
+`;
+
+const SelectWrapper = styled(Animated.View)`
+  position: absolute;
+  right: 0;
+  top: -15px;
+  background-color: ${props =>
+    props.dropdownVisible
+      ? props.bgColor
+      : props.bordered
+      ? props.bgColor
+      : 'transparent'};
+  border: ${props =>
+    props.bordered ? `solid 1px ${props.borderColor}` : 'none'};
+  border-radius: 4px;
+  z-index: 999;
+  padding: 15px;
+`;
 
 export default CustomSelect;

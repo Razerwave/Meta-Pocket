@@ -1,73 +1,49 @@
-import React, { useState } from 'react';
-import { View, Image } from 'react-native';
+import React from 'react';
+import {View, Image} from 'react-native';
 import styled from 'styled-components/native';
 
 import {
-  CustomInput,
   LayoutScreen,
   BodyText,
   ButtonPrimary,
-  ErrorText,
-  Precautions,
   ActionInfoBorder,
   Stack,
   BodyHeading,
-  FixedThemeWrapper,
 } from '../../components';
-import { ROUTES } from '../../constants';
-import { neutral100 } from '../../constants/colors';
-import { useAuth } from '../../context/AuthContext';
+import {ROUTES} from '../../constants';
+import {neutral100} from '../../constants/colors';
+import {useAuth} from '../../context/AuthContext';
 
-const SendNftAuthScreen = ({ navigation, route }) => {
-  const { i18n } = useAuth()
-  const [uid, setUid] = useState('');
-  const [quantity, setQuantity] = useState(0);
-  const [memo, setMemo] = useState('');
-  const [error, setError] = useState(false);
-  const data = route.params.to || {};
+const SendNftAuthScreen = ({navigation, route}) => {
+  const {i18n} = useAuth();
+  const data = route.params.to || '';
   const nft = route.params.nft || {};
-  let pattern = /[^0-9]/g;
 
-  const handleChangeUid = event => {
-    if (!pattern.test(event)) {
-      setError(true);
-      return;
-    }
-    setUid(event);
-  };
-
-  const handleChangeQuantity = event => {
-    setQuantity(event);
-  };
-
-  const handleChangeMemo = event => {
-    setMemo(event);
-  };
   return (
     <LayoutScreen>
       <Container>
-        <ActionInfoBorder style={{ flex: 0.8, justifyContent: 'space-evenly' }}>
+        <ActionInfoBorder style={{flex: 0.8, justifyContent: 'space-evenly'}}>
           <Stack
             direction="row"
             spacing={27}
-            style={{ justifyContent: 'space-evenly' }}>
-            <Image source={nft.image} style={{ width: 110, height: 110 }} />
-            <View style={{ alignItems: 'center' }}>
+            style={{justifyContent: 'space-evenly'}}>
+            <Image source={nft.image} style={{width: 110, height: 110}} />
+            <View style={{alignItems: 'center'}}>
               <BodyHeading type={4}>{nft.type}</BodyHeading>
               <BodyText type={3}>#{nft.code}</BodyText>
             </View>
           </Stack>
           <Wrapper>
-            <View style={{ gap: 30, justifyContent: 'space-around' }}>
+            <View style={{gap: 30, justifyContent: 'space-around'}}>
               <Section>
                 <DividerDotted />
-                <View style={{ gap: 10 }}>
+                <View style={{gap: 10}}>
                   <Content>
-                    <BodyText type={6}>From</BodyText>
+                    <BodyText type={6}>{i18n.from}</BodyText>
                     <BodyText type={4}>0xe34lkjds....7BEsdlkfjls</BodyText>
                   </Content>
                   <Content>
-                    <BodyText type={6}>To</BodyText>
+                    <BodyText type={6}>{i18n.to}</BodyText>
                     <BodyText type={4}>{data}</BodyText>
                   </Content>
                 </View>
@@ -76,7 +52,7 @@ const SendNftAuthScreen = ({ navigation, route }) => {
 
               <Section>
                 <Content>
-                  <BodyText type={6}>Fee</BodyText>
+                  <BodyText type={6}>{i18n.fee}</BodyText>
                   <BodyText type={4}>0.0001 BTC (≈$0.1)</BodyText>
                 </Content>
               </Section>
@@ -84,7 +60,7 @@ const SendNftAuthScreen = ({ navigation, route }) => {
               <Section>
                 <DividerDotted />
                 <Content>
-                  <BodyText type={6}>Total</BodyText>
+                  <BodyText type={6}>{i18n.total}</BodyText>
                   <BodyText type={4}>$200.1</BodyText>
                 </Content>
               </Section>

@@ -1,26 +1,45 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
-import { BodyText, ButtonPrimary, CustomInput, Divider, LayoutBottom, LayoutScreen, LayoutScroll, Stack } from '../../components'
-import { useAuth } from '../../context/AuthContext';
-import { ROUTES } from '../../constants';
+import {StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {
+  BodyText,
+  ButtonPrimary,
+  CustomInput,
+  Divider,
+  LayoutBottom,
+  LayoutScreen,
+  LayoutScroll,
+  Stack,
+} from '../../components';
+import {useAuth} from '../../context/AuthContext';
+import {ROUTES} from '../../constants';
 
-const StakingBTCScreen = ({ navigation }) => {
+const StakingBTCScreen = ({navigation, route}) => {
   const [balance, setBalance] = useState();
   const [amount, setAmount] = useState();
-  const { i18n } = useAuth()
-
-  const type = "BTC"
-
+  const {i18n} = useAuth();
+  const type = 'BTC';
+  const stacking = route.params.item;
   const handleMax = () => {
-    navigation.navogate(ROUTES.WALLET.BTC_STAKING_2, { amount })
-  }
+    // navigation.navogate(ROUTES.WALLET.BTC_STAKING_2, {amount});
+  };
+
+  const handleNext = () => {
+    navigation.navigate(ROUTES.WALLET.BTC_STAKING_2, {
+      amount,
+      stacking: stacking,
+    });
+  };
 
   return (
     <LayoutScreen>
       <LayoutScroll>
         <Stack marginHorizontal={32}>
           <Divider />
-          <Stack spacing={12} marginBottom={21} marginTop={21} paddingHorizontal={9}>
+          <Stack
+            spacing={12}
+            marginBottom={21}
+            marginTop={21}
+            paddingHorizontal={9}>
             <ListItem label={i18n.available} value={`0.1 ${type}`} />
             <ListItem label={i18n.myStacking} value={`0.1 ${type}`} />
             <ListItem label={i18n.minimum} value={`0.1 ${type}`} />
@@ -30,14 +49,14 @@ const StakingBTCScreen = ({ navigation }) => {
           <Divider />
         </Stack>
         <Stack marginTop={20} marginHorizontal={16} spacing={10}>
-          <Stack style={{ alignItems: 'flex-end', marginRight: 6 }}>
+          <Stack style={{alignItems: 'flex-end', marginRight: 6}}>
             <BodyText>
               {i18n.balance} {balance}
             </BodyText>
           </Stack>
           <CustomInput
             value={amount}
-            onChange={(v) => setAmount(v)}
+            onChange={v => setAmount(v)}
             placeholder={i18n.quantity}
             btnText={i18n.max}
             onPress={handleMax}
@@ -49,20 +68,20 @@ const StakingBTCScreen = ({ navigation }) => {
         </LayoutBottom>
       </LayoutScroll>
     </LayoutScreen>
-  )
-}
+  );
+};
 
-const ListItem = ({ label, value }) => {
+const ListItem = ({label, value}) => {
   return (
-    <Stack direction='row'>
+    <Stack direction="row">
       <BodyText>{label}</BodyText>
-      <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+      <Stack style={{flex: 1, alignItems: 'flex-end'}}>
         <BodyText>{value}</BodyText>
       </Stack>
     </Stack>
-  )
-}
+  );
+};
 
-export default StakingBTCScreen
+export default StakingBTCScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

@@ -20,7 +20,7 @@ import {BTC_INFO_DATA} from '../../constants/ListData';
 const BTCScreen = ({route, navigation}) => {
   const {backgroundColor, statusBarStyle, fontColor} = DarkTheme;
   const item = route.params.item;
-
+  console.log(item);
   return (
     <LayoutScreen
       statusBar={{

@@ -1,4 +1,4 @@
-import { StyleSheet, Image, View } from 'react-native'
+import { StyleSheet, Image, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { BodyHeading, BodyText, ButtonIcon, ButtonScroll, FixedThemeWrapper, LayoutHeader, LayoutScreen, LayoutScroll, Stack } from '../../components'
 import { DarkTheme, ROUTES } from '../../constants';
@@ -71,13 +71,15 @@ const BTCScreen = ({ route, navigation }) => {
               {t.transactions.map((tr, index) => {
                 const isPlus = tr.type === 'received'
                 return (
-                  <Stack key={index} direction='row' spacing={10} padding={10}>
-                    <Image style={{ width: 20, height: 20 }} source={item.image} />
-                    <BodyText textTransform='capitalize'>{tr.type}</BodyText>
-                    <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
-                      <BodyText style={{ color: isPlus ? green200 : red, textTransform: 'uppercase' }}>{isPlus ? '+' : '-'} {tr.amount} {item.name}</BodyText>
+                  <TouchableOpacity onPress={() => navigation.navigate(ROUTES.WALLET.BTC_HISTORY, { item: tr })}>
+                    <Stack key={index} direction='row' spacing={10} padding={10}>
+                      <Image style={{ width: 20, height: 20 }} source={item.image} />
+                      <BodyText textTransform='capitalize'>{tr.type}</BodyText>
+                      <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+                        <BodyText style={{ color: isPlus ? green200 : red, textTransform: 'uppercase' }}>{isPlus ? '+' : '-'} {tr.amount} {item.name}</BodyText>
+                      </Stack>
                     </Stack>
-                  </Stack>
+                  </TouchableOpacity>
                 )
               })}
             </Stack>

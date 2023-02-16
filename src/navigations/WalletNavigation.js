@@ -13,6 +13,7 @@ import { ROUTES } from '../constants';
 import { LayoutHeader } from '../components';
 import { SettingScreen, WalletScreen } from '../screens/home';
 import { BTCScreen, NftScreen, PortfolioScreen, ReceiveBTCScreen, SendBTCScreen, StakingBTCScreen, SwapBTCScreen } from '../screens/wallet';
+import BTCHistoryScreen from '../screens/wallet/BTCHistoryScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,11 @@ const WalletNavigation = () => {
       <Stack.Screen
         name={ROUTES.WALLET.BTC_INFO}
         component={BTCScreen}
+      />
+      <Stack.Screen
+        options={{ headerShown: true, title: 'Send Money' }}
+        name={ROUTES.WALLET.BTC_HISTORY}
+        component={BTCHistoryScreen}
       />
       <Stack.Screen
         options={{ headerShown: true, title: 'Send BTC' }}

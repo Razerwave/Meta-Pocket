@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { KeyBoardPasscode, LayoutScreen, Paragraph, Stack } from '../../components'
 import { ROUTES } from '../../constants'
+import { useAuth } from '../../context/AuthContext'
 
 const ResetPasscode = ({ navigation }) => {
+  const {i18n } = useAuth();
   const [passcode, setPasscode] = useState('')
 
   useEffect(() => {
@@ -15,8 +17,8 @@ const ResetPasscode = ({ navigation }) => {
     <LayoutScreen>
       <Stack marginTop={80} marginHorizontal={28} spacing={62}>
         <Paragraph
-          title="Reset Passcode"
-          body="Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet."
+          title={i18n.resetPassCode}
+          body={i18n.unlockInfo}
         />
 
         <Stack alignItems="center">

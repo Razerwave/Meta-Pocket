@@ -5,6 +5,7 @@ import { ROUTES } from '../../constants'
 import { useAuth } from '../../context/AuthContext'
 
 const ConfirmResetPasscode = ({ navigation, route }) => {
+  const {i18n} = useAuth()
   const [pass, setPass] = useState('')
   const { login } = useAuth()
   const passcode = route.params.passcode
@@ -26,8 +27,8 @@ const ConfirmResetPasscode = ({ navigation, route }) => {
     <LayoutScreen>
       <Stack marginTop={80} marginHorizontal={28} spacing={62}>
         <Paragraph
-          title="Re-enter the Passcode"
-          body="Set a 6-digit passcode to unlock your wallet. This passcode can’t be used to recover your wallet."
+          title={i18n.reEnterPassCode}
+          body={i18n.unlockInfo}
         />
 
         <Stack alignItems="center">

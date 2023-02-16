@@ -3,8 +3,11 @@ import { BodyText, CustomSearch, InvoiceSheet, LayoutScreen, LayoutScroll, Stack
 import NoticeCard from '../../components/NoticeCard'
 import { ROUTES } from '../../constants'
 import { gray300 } from '../../constants/colors'
+import { useAuth } from '../../context/AuthContext'
 
 const NoticeList = ({ navigation }) => {
+  const { i18n } = useAuth();
+
   const handleSearch = (e) => {
     console.log("search", e.nativeEvent.text)
   }
@@ -22,13 +25,13 @@ const NoticeList = ({ navigation }) => {
           <Stack spacing={30}>
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((_, index) => (
               <TouchableOpacity key={index} onPress={() => navigation.navigate(ROUTES.SETTING.NOTICE, {
-                title: 'ALEO Metaverse Coming Soon',
+                title: i18n.metaVerseComingSoon,
               })}>
                 <Stack spacing={10}>
-                  <NoticeCard title={'ALEO Metaverse Coming Soon'} />
+                  <NoticeCard title={i18n.metaVerseComingSoon} />
                   <Stack spacing={6} marginHorizontal={10}>
                     <BodyText>
-                      ALEO Metaverse Coming Soon
+                      {i18n.metaVerseComingSoon}
                     </BodyText>
                     <BodyText type={5} style={{ color: gray300 }}>
                       Feb 7, 2023   |  조회수 2,300

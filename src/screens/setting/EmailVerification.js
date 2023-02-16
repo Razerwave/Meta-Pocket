@@ -2,11 +2,13 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { ButtonPrimary, CustomInput, ErrorText, LayoutBottom, LayoutScreen, LayoutScroll, Paragraph, Stack } from '../../components'
 import { REGEX_EMAIL, ROUTES } from '../../constants'
+import { useAuth } from '../../context/AuthContext'
 
 const TIMER_SEC = 10
 
 
 const EmailVerification = ({ navigation }) => {
+  const { i18n } = useAuth()
   const [email, setEmail] = useState('')
   const [isSent, setSent] = useState(false)
   const [error, setError] = useState(false)
@@ -50,14 +52,14 @@ const EmailVerification = ({ navigation }) => {
       <LayoutScroll>
         <Stack marginTop={80} marginHorizontal={28} marginBottom={30} spacing={72}>
           <Paragraph
-            title="Email Verification"
-            body="Your wallet has not yet been verified. Please complete KYC verification."
+            title={i18n.emailVerification}
+            body={i18n.kycNotVerifiedMsg}
           />
           <Stack spacing={16}>
             <CustomInput
               value={email}
               onChange={(v) => handleChangeEmail(v)}
-              placeholder="Enter your Email Address"
+              placeholder={i18n.enterYourEmailAddress}
               btnText='Send'
               onPress={!isSent && handleSend}
               error={error}
@@ -72,7 +74,7 @@ const EmailVerification = ({ navigation }) => {
               <CustomInput
                 value={code}
                 onChange={(v) => setCode(v)}
-                placeholder="Verification Code"
+                placeholder={i18n.enterVerificationCode}
               />
             )}
           </Stack>

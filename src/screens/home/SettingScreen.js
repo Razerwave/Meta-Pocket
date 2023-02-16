@@ -68,7 +68,7 @@ const SettingScreen = ({navigation}) => {
             <StyledText>test@gmail.com</StyledText>
           </ListItem>
           <ListItem
-            label="Referral UID"
+            label={i18n.referralUID}
             icon={<IconPerson />}
             onPress={() => navigation.navigate(ROUTES.SETTING.REFERRAL)}>
             <IconArrowForward />
@@ -81,7 +81,7 @@ const SettingScreen = ({navigation}) => {
               onChange={item => changeLanguage({lang: item.value})}
             />
           </ListItem>
-          <ListItem label="Dark Mode" icon={<IconPerson />}>
+          <ListItem label={i18n.darkMode} icon={<IconPerson />}>
             <Switch
               style={{flex: 1}}
               trackColor={{false: 'lightgray', true: activeTintColor}}
@@ -94,17 +94,17 @@ const SettingScreen = ({navigation}) => {
           <Divider />
           <SubTitle>Information</SubTitle>
           <ListItem
-            label="Notice"
+            label={i18n.notice}
             icon={<IconPerson />}
             onPress={() => navigation.navigate(ROUTES.SETTING.NOTICE_LIST)}>
             <IconArrowForward />
           </ListItem>
-          <ListItem label="Version" icon={<IconPerson />}>
+          <ListItem label={i18n.version} icon={<IconPerson />}>
             <StyledText>1.0.0</StyledText>
           </ListItem>
           <Divider />
-          <SubTitle>Community</SubTitle>
-          <ListItem label="Help Center" icon={<IconPerson />}>
+          <SubTitle>{i18n.community}</SubTitle>
+          <ListItem label={i18n.helpCenter} icon={<IconPerson />}>
             <StyledText>support@metapocket.com</StyledText>
           </ListItem>
           <ListItem label="SNS" icon={<IconPerson />}>

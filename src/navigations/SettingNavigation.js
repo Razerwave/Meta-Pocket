@@ -12,6 +12,7 @@ import {
 import { ROUTES } from '../constants';
 import { LayoutHeader } from '../components';
 import { SettingScreen } from '../screens/home';
+import { useAuth } from '../context/AuthContext';
 
 const Stack = createNativeStackNavigator();
 

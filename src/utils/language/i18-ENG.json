@@ -51,7 +51,7 @@
   "sendOnlyBtcWarning": "Send only Bitcoin(BTC) to this address. Sending other coins may result in permanent loss.",
   "receiveUSDT": "Receive USDT",
   "use": "Use",
-  "balance3001": "Balance 30.01",
+  "balance": "Balance",
   "convertTo": "Convert To",
   "exchangeRate": "Exchange Rate",
   "feeRate": "Fee Rate",

@@ -51,7 +51,7 @@
   "sendOnlyBtcWarning": "이 주소로는 비트코인(BTC)만 전송하세요. 다른 코인을 보내면 영구적으로 손실될 수 있습니다.",
   "receiveUSDT": "USDT 입금",
   "use": "사용할 코인",
-  "balance3001": "보유금 30.01",
+  "balance": "보유금",
   "convertTo": "전환될 코인",
   "exchangeRate": "환율 ",
   "feeRate": "환전 수수료",

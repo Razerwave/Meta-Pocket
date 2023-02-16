@@ -9,8 +9,10 @@ import BodyText from './texts/BodyText';
 import {View, Image} from 'react-native';
 import FixedThemeWrapper from './theme/FixedThemeWrapper';
 import Stack from './Stack';
+import {useTheme} from 'styled-components';
 
 const ActionInfoBorder = ({children, style}) => {
+  const {backgroundColor} = useTheme();
   return (
     <FixedThemeWrapper
       style={{
@@ -18,6 +20,8 @@ const ActionInfoBorder = ({children, style}) => {
         borderTopWidth: 5,
         borderBottomWidth: 5,
         borderStyle: 'dotted',
+        borderColor: backgroundColor,
+        backgroundColor: white,
         ...style,
       }}>
       {children}

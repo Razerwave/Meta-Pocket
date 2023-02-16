@@ -117,5 +117,7 @@
   "reEnterPassCode": "Re-enter Passcode",
   "kyc": "KYC",
   "stacking": "Stacking",
-  "dapp": "Dapp"
+  "dapp": "Dapp",
+  "from": "From",
+  "to": "To"
 }

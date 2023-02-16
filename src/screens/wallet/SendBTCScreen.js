@@ -11,6 +11,7 @@ import {
   Precautions,
 } from '../../components';
 import {ROUTES} from '../../constants';
+import {useAuth} from '../../context/AuthContext';
 
 const SendBTCScreen = ({navigation}) => {
   const [uid, setUid] = useState('');

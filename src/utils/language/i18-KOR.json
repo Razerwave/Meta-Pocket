@@ -117,5 +117,7 @@
   "reEnterPassCode": "간편 비밀번호 재입력",
   "kyc": "KYC",
   "stacking": "Stacking",
-  "dapp": "Dapp"
+  "dapp": "Dapp",
+  "from": "From",
+  "to": "To"
 }

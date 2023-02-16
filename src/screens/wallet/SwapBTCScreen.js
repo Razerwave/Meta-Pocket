@@ -15,12 +15,13 @@ import {
 import styled from 'styled-components/native';
 import {IconSwap} from '../../assets/icons';
 import {neutral100, primary} from '../../constants/colors';
+import {useAuth} from '../../context/AuthContext';
 const SwapBTCScreen = () => {
   const [quantity, setQuantity] = useState(0);
   const [errorQuantity, setErrorQuantity] = useState(false);
   const [selectValue, setSelectValue] = useState('BTC');
   const [selectConvert, setSelectConvert] = useState('USDT');
-
+  const {i18n} = useAuth();
   const selectData = [
     {label: 'BTC', value: 'BTC'},
     {label: 'USDT', value: 'USDT'},
@@ -33,7 +34,7 @@ const SwapBTCScreen = () => {
           <Container>
             <View>
               <View style={{marginBottom: 10}}>
-                <BodyText type={5}>Use</BodyText>
+                <BodyText type={5}>{i18n.use}</BodyText>
               </View>
               <CustomSelect
                 bordered
@@ -45,15 +46,15 @@ const SwapBTCScreen = () => {
             </View>
             <InputSection>
               <View style={{alignSelf: 'flex-end', marginBottom: 10}}>
-                <BodyText type={5}>Balance 30.01</BodyText>
+                <BodyText type={5}>{i18n.balance} 30.01</BodyText>
               </View>
               <CustomInput
                 value={quantity}
                 onChange={event => handleChangeQuantity(event)}
-                placeholder="Quantity"
+                placeholder={i18n.quantity}
                 keyboardType="numeric"
                 onPress
-                btnText="Max"
+                btnText={i18n.max}
                 action
                 textAlign="right"
                 error={errorQuantity}
@@ -75,7 +76,7 @@ const SwapBTCScreen = () => {
           <Container>
             <View>
               <View style={{marginBottom: 10}}>
-                <BodyText type={5}>Convert to</BodyText>
+                <BodyText type={5}>{i18n.convertTo}</BodyText>
               </View>
               <View>
                 <CustomSelect
@@ -110,8 +111,8 @@ const SwapBTCScreen = () => {
 
           <RateContent>
             <View>
-              <BodyText type={5}>Exchange Rate </BodyText>
-              <BodyText type={5}>Fee Rate</BodyText>
+              <BodyText type={5}>{i18n.exchangeRate} </BodyText>
+              <BodyText type={5}>{i18n.feeRate}</BodyText>
             </View>
             <View>
               <BodyText type={5}>1 BTC ≈ 19,302 USDT</BodyText>
@@ -123,7 +124,7 @@ const SwapBTCScreen = () => {
 
           <ButtonContainer>
             <ButtonPrimary
-              title="Exchange"
+              title={i18n.exchange}
               onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
             />
           </ButtonContainer>

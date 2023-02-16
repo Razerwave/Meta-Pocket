@@ -3,14 +3,15 @@ import { BodyHeadingSize, BodyHeadingWeight, fontBody } from '../../constants/fo
 import { useTheme } from 'styled-components'
 import { Text, StyleSheet } from 'react-native'
 
-const BodyHeading = ({ type = 6, style, children }) => {
+const BodyHeading = ({ type = 6, style, children, ...props }) => {
   const { fontColor } = useTheme()
   return (
     <Text style={[styles.text, {
       color: fontColor,
       fontWeight: BodyHeadingWeight[type],
       fontSize: BodyHeadingSize[type],
-      ...style
+      ...style,
+      ...props,
     }]}>{children}</Text>
   )
 }

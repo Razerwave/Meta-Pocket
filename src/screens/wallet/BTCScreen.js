@@ -22,7 +22,7 @@ const BTCScreen = ({ route, navigation }) => {
         <Stack alignItems="center" marginTop={32} marginBottom={33}>
           <Stack direction="row" alignItems="center" spacing={10}>
             <Image style={{ width: 30, height: 30 }} source={item.image} />
-            <BodyHeading type={4} style={{ textTransform: 'capitalize' }}>
+            <BodyHeading type={4} textTransform='uppercase'>
               {item.percent} {item.name}
             </BodyHeading>
           </Stack>
@@ -69,13 +69,13 @@ const BTCScreen = ({ route, navigation }) => {
                 {t.date}
               </BodyText>
               {t.transactions.map((tr, index) => {
-                const isPlus = tr.amount > 0
+                const isPlus = tr.type === 'received'
                 return (
                   <Stack key={index} direction='row' spacing={10} padding={10}>
                     <Image style={{ width: 20, height: 20 }} source={item.image} />
-                    <BodyText>{tr.type}</BodyText>
+                    <BodyText textTransform='capitalize'>{tr.type}</BodyText>
                     <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
-                      <BodyText style={{ color: isPlus ? green200 : red }}>{isPlus ? '+' : '-'} {isPlus ? tr.amount : tr.amount * (-1)} {item.name}</BodyText>
+                      <BodyText style={{ color: isPlus ? green200 : red, textTransform: 'uppercase' }}>{isPlus ? '+' : '-'} {tr.amount} {item.name}</BodyText>
                     </Stack>
                   </Stack>
                 )

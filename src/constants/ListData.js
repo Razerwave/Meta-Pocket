@@ -375,15 +375,15 @@ const BTC_INFO_DATA = [
     date: 'Jan 2, 2023 PM 12:00',
     transactions: [
       {
-        type: 'Received',
+        type: 'received',
         amount: 0.1,
       },
       {
-        type: 'Send',
-        amount: -0.1,
+        type: 'send',
+        amount: 0.1,
       },
       {
-        type: 'Received',
+        type: 'received',
         amount: 0.1,
       },
     ]
@@ -392,12 +392,12 @@ const BTC_INFO_DATA = [
     date: 'Jan 2, 2023 PM 12:00',
     transactions: [
       {
-        type: 'Send',
-        amount: -0.1,
+        type: 'send',
+        amount: 0.1,
       },
       {
-        type: 'Send',
-        amount: -0.1,
+        type: 'send',
+        amount: 0.1,
       },
     ]
   }

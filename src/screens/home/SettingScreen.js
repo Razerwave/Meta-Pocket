@@ -25,9 +25,7 @@ import {
 } from '../../components';
 import {useTheme} from 'styled-components';
 import {ROUTES} from '../../constants';
-import IonIcon from 'react-native-vector-icons/Ionicons';
 import {useAuth} from '../../context/AuthContext';
-import {Path, Svg, SvgXml} from 'react-native-svg';
 import {
   IconArrowForward,
   IconFacebook,
@@ -36,11 +34,12 @@ import {
   IconTwitter,
   IconYoutube,
 } from '../../assets/icons';
+import {langSelectData} from '../../constants/ListData';
 
 const SettingScreen = ({navigation}) => {
-  const {logout, isDarkTheme, toggleTheme} = useAuth();
+  const {logout, isDarkTheme, toggleTheme, i18n, changeLanguage, lang} =
+    useAuth();
   const {fontColor, activeTintColor} = useTheme();
-  const [language, setLanguage] = useState('KOR');
 
   const logoutHandler = () => {
     logout();
@@ -50,12 +49,12 @@ const SettingScreen = ({navigation}) => {
     <LayoutScreen>
       <LayoutScroll>
         <Stack marginHorizontal={24} marginTop={20} spacing={32}>
-          <SubTitle>General</SubTitle>
-          <ListItem label="My UID" icon={<IconPerson />}>
+          <SubTitle>{i18n.general}</SubTitle>
+          <ListItem label={i18n.myUID} icon={<IconPerson />}>
             <StyledText>123451234512345</StyledText>
           </ListItem>
           <ListItem
-            label="Reset Passcode"
+            label={i18n.resetPassCode}
             icon={<IconPerson />}
             onPress={() => navigation.navigate(ROUTES.SETTING.RESET_PASSCODE)}>
             <IconArrowForward />
@@ -76,7 +75,11 @@ const SettingScreen = ({navigation}) => {
           </ListItem>
           <Divider />
           <ListItem label="Language" icon={<IconPerson />} style={{zIndex: 1}}>
-            <CustomSelect value={language} onChange={v => setLanguage(v)} />
+            <CustomSelect
+              value={lang}
+              data={langSelectData}
+              onChange={item => changeLanguage({lang: item.value})}
+            />
           </ListItem>
           <ListItem label="Dark Mode" icon={<IconPerson />}>
             <Switch

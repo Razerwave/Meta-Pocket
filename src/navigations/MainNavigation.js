@@ -124,14 +124,14 @@ const MainNavigation = () => {
       />
 
       {/* Send BTC Screen */}
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{
           headerShown: true,
           title: 'Send BTC',
         }}
         name={ROUTES.SENDBTC.SENDBTC_SCREEN}
         component={SendBTCScreen}
-      />
+      /> */}
 
       {/* Send NFT screen */}
       <Stack.Screen

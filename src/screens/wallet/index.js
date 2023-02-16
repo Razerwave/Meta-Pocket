@@ -11,7 +11,6 @@ import ReceiveUSDTScreen from './ReceiveUSDTScreen';
 import SwapBTCScreen from './SwapBTCScreen';
 import StakingBTCScreen from './StakingBTCScreen';
 import StakingBTCScreen2 from './StakingBTCScreen2';
-import SwapScreen from './SwapScreen';
 
 export {
   PortfolioScreen,
@@ -26,5 +25,4 @@ export {
   StakingBTCScreen,
   ReceiveUSDTScreen,
   StakingBTCScreen2,
-  SwapScreen,
 };

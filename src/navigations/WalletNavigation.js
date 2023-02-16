@@ -47,7 +47,6 @@ const WalletNavigation = () => {
         headerShown: false,
       }}
       initialRouteName={ROUTES.WALLET.HOME}>
-      {/* SETTING */}
       <Stack.Screen name={ROUTES.WALLET.HOME} component={WalletScreen} />
       <Stack.Screen
         name={ROUTES.WALLET.PORTFOLIO}

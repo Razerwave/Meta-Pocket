@@ -150,7 +150,7 @@ const WalletScreen = ({ navigation }) => {
 
 const TokenTab = ({ data = [], onPress = () => { } }) => {
   return (
-    <LayoutScroll>
+    <LayoutScroll bottomGap={30}>
       <Stack marginTop={10} marginHorizontal={16}>
         {data.map((item, index) => (
           <TouchableOpacity key={index} onPress={() => onPress(item)}>
@@ -177,7 +177,7 @@ const TokenTab = ({ data = [], onPress = () => { } }) => {
 
 const NFTTab = ({ data = [], onPress = () => { }, onPressScroll = () => { } }) => {
   return (
-    <LayoutScroll>
+    <LayoutScroll button="Load NFTs" onPress={onPressScroll}>
       <Stack marginTop={10} marginHorizontal={16} spacing={30}>
         <Stack>
           {data.map((item, index) => (
@@ -203,11 +203,6 @@ const NFTTab = ({ data = [], onPress = () => { }, onPressScroll = () => { } }) =
               </Stack>
             </TouchableOpacity>
           ))}
-        </Stack>
-        <Stack alignItems="center">
-          <ButtonScroll onPress={onPressScroll}>
-            Load NFTs
-          </ButtonScroll>
         </Stack>
       </Stack>
     </LayoutScroll >

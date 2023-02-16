@@ -14,7 +14,7 @@ const ConfirmResetPasscode = ({ navigation, route }) => {
       if (pass === passcode) {
         login(passcode);
 
-        navigation.navigate(ROUTES.HOME.SETTING);
+        navigation.navigate('ROUTES.SETTING.RESET_PASSCODE');
       }
       else {
         Alert.alert('Passcode does not match')

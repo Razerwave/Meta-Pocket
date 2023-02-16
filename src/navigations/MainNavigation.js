@@ -65,7 +65,7 @@ const MainNavigation = () => {
         component={BTCScreen}
       />
       {/* SETTING */}
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{title: ''}}
         name={ROUTES.SETTING.RESET_PASSCODE}
         component={ResetPasscode}
@@ -94,7 +94,7 @@ const MainNavigation = () => {
         options={{title: 'Notice'}}
         name={ROUTES.SETTING.NOTICE}
         component={NoticeScreen}
-      />
+      /> */}
       {/* EXPLORE */}
       <Stack.Screen
         options={{headerShown: true, title: 'Explore'}}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ButtonPrimary, CustomInput, LayoutBottom, LayoutScreen, Paragraph, Stack } from '../../components'
+import { ButtonPrimary, CustomInput, LayoutBottom, LayoutScreen, LayoutScroll, Paragraph, Stack } from '../../components'
 import { ROUTES } from '../../constants'
 
 const Referral = ({ navigation }) => {
@@ -24,11 +24,8 @@ const Referral = ({ navigation }) => {
           />
         </Stack>
       </Stack>
-      <LayoutBottom>
-        <ButtonPrimary
-          title="OK"
-          onPress={() => handleOK()}
-        />
+      <LayoutBottom paddingBottom={47} height={null}>
+        <ButtonPrimary title="OK" onPress={() => handleOK()} />
       </LayoutBottom>
     </LayoutScreen>
   )

@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet, AppState, Text, View} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { StyleSheet, AppState, Text, View } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import IonIcon from 'react-native-vector-icons/Ionicons';
-import {useThemeChange} from '../context/ThemeChangeContext';
-import {LayoutHeader, TabBarBottom} from '../components';
-import {useTheme} from 'styled-components';
-import {ROUTES} from '../constants';
+import { useThemeChange } from '../context/ThemeChangeContext';
+import { LayoutHeader, TabBarBottom } from '../components';
+import { useTheme } from 'styled-components';
+import { ROUTES } from '../constants';
 import {
   DappScreen,
   ExploreScreen,
@@ -13,17 +13,18 @@ import {
   SettingScreen,
   WalletScreen,
 } from '../screens/home';
-import {IconDapp, IconExplore, IconMore, IconWallet} from '../assets/icons';
+import { IconDapp, IconExplore, IconMore, IconWallet } from '../assets/icons';
+import SettingNavigation from './SettingNavigation';
 
 const Tab = createBottomTabNavigator();
 
 const HomeNavigation = () => {
-  const {backgroundColor, fontColor} = useTheme();
+  const { backgroundColor, fontColor } = useTheme();
 
   return (
     <Tab.Navigator
       tabBar={props => <TabBarBottom {...props} />}
-      screenOptions={({route}) => ({
+      screenOptions={({ route }) => ({
         headerShown: false,
         headerStyle: {
           backgroundColor: backgroundColor,
@@ -31,8 +32,8 @@ const HomeNavigation = () => {
         headerTitleStyle: {
           color: fontColor,
         },
-        header: ({options}) => <LayoutHeader {...options} />,
-        tabBarIcon: ({focused, size, color}) => {
+        header: ({ options }) => <LayoutHeader {...options} />,
+        tabBarIcon: ({ focused, size, color }) => {
           let iconName;
           const tabName = route.name;
           if (tabName === ROUTES.HOME.WALLET) {
@@ -47,24 +48,24 @@ const HomeNavigation = () => {
         },
       })}>
       <Tab.Screen
-        options={{title: 'Wallet'}}
+        options={{ title: 'Wallet' }}
         name={ROUTES.HOME.WALLET}
         component={WalletScreen}
       />
       <Tab.Screen
-        options={{headerShown: true, title: 'Explore'}}
+        options={{ headerShown: true, title: 'Explore' }}
         name={ROUTES.HOME.EXPLORE}
         component={ExploreScreen}
       />
       <Tab.Screen
-        options={{title: 'Dapp', headerShown: true}}
+        options={{ title: 'Dapp', headerShown: true }}
         name={ROUTES.HOME.DAPP}
         component={DappScreen}
       />
       <Tab.Screen
-        options={{headerShown: true, title: 'More'}}
+        options={{ title: 'More' }}
         name={ROUTES.HOME.SETTING}
-        component={SettingScreen}
+        component={SettingNavigation}
       />
     </Tab.Navigator>
   );

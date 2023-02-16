@@ -74,7 +74,7 @@ const CustomSelect = ({
   }, [dropdownVisible]);
 
   return (
-    <Wrapper>
+    <Wrapper style={selectStyle}>
       <TouchableOpacity onPress={() => setDropdownVisible(!dropdownVisible)}>
         <SelectWrapper
           layout={CurvedTransition.duration(100)}

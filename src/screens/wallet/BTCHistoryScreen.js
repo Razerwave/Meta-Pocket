@@ -95,7 +95,7 @@ const BTCHistoryScreen = ({ route, navigation }) => {
         </ActionInfoBorder>
         <ButtonContainer>
           <ButtonPrimary
-            title="Send"
+            title={i18n.send}
             onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
           />
         </ButtonContainer>

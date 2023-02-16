@@ -13,8 +13,10 @@ import {
 } from '../../components';
 import {DarkTheme, ROUTES} from '../../constants';
 import {neutral100, neutral300} from '../../constants/colors';
+import { useAuth } from '../../context/AuthContext';
 
 const NftScreen = ({route, navigation}) => {
+  const {i18n} = useAuth()
   const {statusBarStyle, fontColor} = DarkTheme;
   const item = route.params.item;
   return (
@@ -57,7 +59,7 @@ const NftScreen = ({route, navigation}) => {
         </View>
         <LayoutBottom type={2}>
           <ButtonPrimary
-            title="Send"
+            title={i18n.send}
             onPress={() =>
               navigation.navigate(ROUTES.WALLET.NFT_SEND, {
                 Nftdata: item,

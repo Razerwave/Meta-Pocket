@@ -1,14 +1,17 @@
 import React from 'react';
-import {View} from 'react-native';
-import {IconSendBTCScreen} from '../assets/icons';
-import {neutral100} from '../constants/colors';
+import { View } from 'react-native';
+import { IconSendBTCScreen } from '../assets/icons';
+import { neutral100 } from '../constants/colors';
 import styled from 'styled-components/native';
 
 import Stack from './Stack';
 import BodyText from './texts/BodyText';
 import Divider from './Divider';
+import { useAuth } from '../context/AuthContext';
 
 const Precautions = () => {
+  const { i18n } = useAuth();
+
   return (
     <View>
       <Stack padding={11}>
@@ -16,15 +19,13 @@ const Precautions = () => {
           <View>
             <IconSendBTCScreen />
           </View>
-          <BodyText>Precautions</BodyText>
+          <BodyText type={7}>{i18n.precautions}</BodyText>
           <DividerContainer>
             <Divider></Divider>
           </DividerContainer>
         </Section>
-        <BodyText style={{color: neutral100}}>
-          When the withdrawal request is submitted, the assets to be transferred
-          will be frozen during processing. Deduction of the assets from your
-          balance will occur after the transaction have been completed.
+        <BodyText type={7} style={{ color: neutral100 }}>
+          {i18n.withdrawalRequestWarning}
         </BodyText>
       </Stack>
     </View>

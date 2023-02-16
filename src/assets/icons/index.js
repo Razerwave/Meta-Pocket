@@ -24,6 +24,7 @@ import IconSend from './IconSend';
 import IconReceive from './IconReceive';
 import IconSwap from './IconSwap';
 import IconStaking from './IconStaking';
+import IconCopy2 from './IconCopy2';
 
 export {
   IconArrowBack,
@@ -52,4 +53,5 @@ export {
   IconReceive,
   IconSwap,
   IconStaking,
+  IconCopy2,
 };

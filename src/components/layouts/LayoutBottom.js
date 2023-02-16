@@ -6,8 +6,8 @@ const bottomStyles = {
   2: { paddingBottom: 57 },
 }
 
-const LayoutBottom = ({ children, type = 1, paddingBottom, height = 180 }) => {
-  const typeStyles = bottomStyles[type] || { paddingBottom, height };
+const LayoutBottom = ({ children, type = 1, paddingBottom, height }) => {
+  const typeStyles = paddingBottom || height ? { paddingBottom, height } : bottomStyles[type];
 
   return (
     <View style={styles.outer}>

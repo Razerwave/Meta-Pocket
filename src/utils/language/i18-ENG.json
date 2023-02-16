@@ -113,5 +113,6 @@
   "enterReferralUID": "Enter referral UID",
   "enterReferrerUIDMsg": "Enter the referrer's UID (M000000). The referral code cannot be changed once you have completed the process.",
   "referrerUIDSaved": "The referrer UID was saved!",
-  "reEnterPassCode": "Re-enter Passcode"
+  "reEnterPassCode": "Re-enter Passcode",
+  "kyc": "KYC"
 }

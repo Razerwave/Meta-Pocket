@@ -113,5 +113,6 @@
   "enterReferralUID": "추천인의 UID를 입력하세요. ",
   "enterReferrerUIDMsg": "추천인의 UID(M000000)를 입력하세요. 한번 입력한 추천인 코드는 변경할 수 없습니다.",
   "referrerUIDSaved": "추천인의 UID가 저장되었습니다!",
-  "reEnterPassCode": "간편 비밀번호 재입력"
+  "reEnterPassCode": "간편 비밀번호 재입력",
+  "kyc": "KYC"
 }

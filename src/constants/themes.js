@@ -35,7 +35,7 @@ const DefaultTheme = {
   },
   logoColor: LogoColorLight,
   dividerColor: gray100,
-  subTitleColor: gray100,
+  subTitleColor: gray300,
   input: {
     backgroundColor: white,
     borderColor: gray100,

@@ -92,7 +92,7 @@ const SettingScreen = ({navigation}) => {
             />
           </ListItem>
           <Divider />
-          <SubTitle>Information</SubTitle>
+          <SubTitle>{i18n.information}</SubTitle>
           <ListItem
             label={i18n.notice}
             icon={<IconPerson />}

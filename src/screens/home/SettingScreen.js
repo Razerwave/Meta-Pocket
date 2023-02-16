@@ -121,7 +121,7 @@ const SettingScreen = ({navigation}) => {
           <ButtonPrimary
             title="SEND "
             onPress={() => {
-              navigation.navigate(ROUTES.SENDBTC.SENDBTC_SCREEN);
+              navigation.navigate(ROUTES.WALLET.SWAP);
             }}
           />
         </Stack>

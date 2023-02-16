@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Image} from 'react-native';
-import {View} from 'react-native-animatable';
+import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import {ROUTES} from '../../constants';

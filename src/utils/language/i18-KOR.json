@@ -80,6 +80,7 @@
   "loadNFT": "NFT 불러오기",
   "sendNFT": "Send NFT",
   "sendMoney": "Send Money",
+  "receivedMoney": "Received Money",
   "contactAddress": "컨트랙트 주소",
   "tokenID": "토큰아이디",
   "buyItem": "상품 구매",

@@ -22,7 +22,7 @@ const BTCScreen = ({ route, navigation }) => {
   const { i18n } = useAuth()
   const { backgroundColor, statusBarStyle, fontColor } = DarkTheme;
   const item = route.params.item;
-  console.log(item);
+
   return (
     <LayoutScreen
       statusBar={{
@@ -79,7 +79,7 @@ const BTCScreen = ({ route, navigation }) => {
           </Stack>
         </Stack>
       </FixedThemeWrapper>
-      <LayoutScroll>
+      <LayoutScroll button={i18n.more} onPress={() => { }}>
         <Stack spacing={20} marginHorizontal={16} marginTop={30}>
           {BTC_INFO_DATA.map((t, index) => (
             <Stack key={index}>
@@ -120,7 +120,6 @@ const BTCScreen = ({ route, navigation }) => {
               })}
             </Stack>
           ))}
-          <ButtonScroll>More</ButtonScroll>
         </Stack>
       </LayoutScroll>
     </LayoutScreen>

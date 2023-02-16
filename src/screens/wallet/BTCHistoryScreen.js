@@ -1,5 +1,5 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
-import React, {useEffect} from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import React, { useEffect } from 'react';
 import styled from 'styled-components/native';
 import {
   ActionInfoBorder,
@@ -9,31 +9,31 @@ import {
   LayoutScreen,
   Stack,
 } from '../../components';
-import {neutral100} from '../../constants/colors';
-import {ROUTES} from '../../constants';
-const BTCHistoryScreen = ({route, navigation}) => {
+import { neutral100 } from '../../constants/colors';
+import { ROUTES } from '../../constants';
+import { useAuth } from '../../context/AuthContext';
+const BTCHistoryScreen = ({ route, navigation }) => {
+  const { i18n } = useAuth()
   const item = route.params.item;
   const btc = route.params.data;
-  console.log(btc);
 
   const Capitalize = str => {
-    console.log(str);
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
   useEffect(() => {
-    navigation.setOptions({title: `${item.type} Money`});
+    navigation.setOptions({ title: item.type === 'send' ? i18n.sendMoney : i18n.receivedMoney });
     Capitalize(item.type);
   }, [item.type]);
 
   return (
     <LayoutScreen>
       <Container>
-        <ActionInfoBorder style={{flex: 0.8, justifyContent: 'space-evenly'}}>
+        <ActionInfoBorder style={{ flex: 0.8, justifyContent: 'space-evenly' }}>
           <Stack
             direction="row"
             spacing={27}
-            style={{justifyContent: 'center'}}>
+            style={{ justifyContent: 'center' }}>
             <View
               style={{
                 flex: 1,
@@ -46,7 +46,7 @@ const BTCHistoryScreen = ({route, navigation}) => {
                   justifyContent: 'center',
                   gap: 10,
                 }}>
-                <Image source={btc.image} style={{width: 30, height: 30}} />
+                <Image source={btc.image} style={{ width: 30, height: 30 }} />
                 <BodyHeading type={7}>
                   {item.amount} <BodyText type={3}>BTC</BodyText>
                 </BodyHeading>
@@ -54,16 +54,16 @@ const BTCHistoryScreen = ({route, navigation}) => {
               <BodyText
                 color={neutral100}
                 type={3}
-                style={{alignSelf: 'center'}}>
+                style={{ alignSelf: 'center' }}>
                 ≈ $12,345
               </BodyText>
             </View>
           </Stack>
           <Wrapper>
-            <View style={{gap: 30, justifyContent: 'space-around'}}>
+            <View style={{ gap: 30, justifyContent: 'space-around' }}>
               <Section>
                 <DividerDotted />
-                <View style={{gap: 10}}>
+                <View style={{ gap: 10 }}>
                   <Content>
                     <BodyText type={6}>From</BodyText>
                     <BodyText type={4}>0xe34lkjds....7BEsdlkfjls</BodyText>

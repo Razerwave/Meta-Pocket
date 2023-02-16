@@ -80,6 +80,7 @@
   "loadNFT": "Load NFT",
   "sendNFT": "Send NFT",
   "sendMoney": "Send Money",
+  "receivedMoney": "Received Money",
   "contactAddress": "Contract Address",
   "tokenID": "Token ID",
   "buyItem": "Buy Item",

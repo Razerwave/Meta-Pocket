@@ -127,8 +127,9 @@ const TokenTab = ({ data = [], onPress = () => { } }) => {
 }
 
 const NFTTab = ({ data = [], onPress = () => { }, onPressScroll = () => { } }) => {
+  const {i18n} = useAuth()
   return (
-    <LayoutScroll button="Load NFTs" onPress={onPressScroll}>
+    <LayoutScroll button={i18n.loadNFT} onPress={onPressScroll}>
       <Stack marginTop={10} marginHorizontal={16} spacing={30}>
         <Stack>
           {data.map((item, index) => (

@@ -45,12 +45,15 @@ const WalletScreen = ({ navigation }) => {
   const renderScene = ({ route }) => {
     switch (route.key) {
       case 'Tokens':
-        return <TokenTab data={tokens} onPress={(item) => navigation.navigate(ROUTES.HOME.WALLET)} />;
+        return <TokenTab
+          data={tokens}
+          onPress={(item) => navigation.navigate(ROUTES.WALLET.BTC_INFO, { item })}
+        />;
       case 'NFTs':
         return <NFTTab
           data={nfts}
           onPress={(item) => navigation.navigate(ROUTES.WALLET.NFT_INFO, { item })}
-          onPressScroll={() => navigation.navigate(ROUTES.LOADNFT.LOADNFT_SCREEN)}
+          onPressScroll={() => navigation.navigate(ROUTES.WALLET.NFT_LOAD)}
         />;
     }
   };
@@ -75,7 +78,7 @@ const WalletScreen = ({ navigation }) => {
             <TouchableOpacity
               key={index}
               onPress={() =>
-                navigation.navigate(ROUTES.SETTING.NOTICE, { title })
+                navigation.navigate(ROUTES.WALLET.NOTICE, { title })
               }>
               <NoticeCard imagePath={imagePath} title={title} />
             </TouchableOpacity>
@@ -147,7 +150,7 @@ const WalletScreen = ({ navigation }) => {
 
 const TokenTab = ({ data = [], onPress = () => { } }) => {
   return (
-    <LayoutScroll>
+    <LayoutScroll bottomGap={30}>
       <Stack marginTop={10} marginHorizontal={16}>
         {data.map((item, index) => (
           <TouchableOpacity key={index} onPress={() => onPress(item)}>
@@ -174,7 +177,7 @@ const TokenTab = ({ data = [], onPress = () => { } }) => {
 
 const NFTTab = ({ data = [], onPress = () => { }, onPressScroll = () => { } }) => {
   return (
-    <LayoutScroll>
+    <LayoutScroll button="Load NFTs" onPress={onPressScroll}>
       <Stack marginTop={10} marginHorizontal={16} spacing={30}>
         <Stack>
           {data.map((item, index) => (
@@ -200,11 +203,6 @@ const NFTTab = ({ data = [], onPress = () => { }, onPressScroll = () => { } }) =
               </Stack>
             </TouchableOpacity>
           ))}
-        </Stack>
-        <Stack alignItems="center">
-          <ButtonScroll onPress={onPressScroll}>
-            Load NFTs
-          </ButtonScroll>
         </Stack>
       </Stack>
     </LayoutScroll >

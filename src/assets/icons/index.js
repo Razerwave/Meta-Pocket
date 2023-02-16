@@ -20,6 +20,10 @@ import IconSearch from "./IconSearch";
 import IconDottRec from "./IconDottRec";
 import IconSendBTCScreen from './IconSendBTCScreen';
 import IconArrowScroll from './IconArrowScroll';
+import IconSend from './IconSend';
+import IconReceive from './IconReceive';
+import IconSwap from './IconSwap';
+import IconStaking from './IconStaking';
 
 export {
   IconArrowBack,
@@ -44,4 +48,8 @@ export {
   IconDottRec,
   IconSendBTCScreen,
   IconArrowScroll,
+  IconSend,
+  IconReceive,
+  IconSwap,
+  IconStaking,
 };

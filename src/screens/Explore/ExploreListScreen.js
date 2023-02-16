@@ -43,7 +43,7 @@ const TabViewExample = ({ navigation, route }) => {
         return <ExploreTab
           data={data.art}
           dotColor={red}
-          onPress={(item) => navigation.navigate(ROUTES.BUY.BUY_SCREEN, { item: item })}
+          onPress={(item) => navigation.navigate(ROUTES.EXPLORE.BUY_ITEM, { item: item })}
           onPressStar={handlePressStar}
         />;
     }

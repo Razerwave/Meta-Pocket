@@ -1,46 +1,31 @@
-import React, {useState} from 'react';
-import {View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
+import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
-
 import {
-  CustomInput,
-  LayoutScreen,
+  ActionInfoBorder,
+  BodyHeading,
   BodyText,
   ButtonPrimary,
-  ErrorText,
-  Precautions,
-  ActionInfoBorder,
+  LayoutScreen,
   Stack,
-  BodyHeading,
-  FixedThemeWrapper,
 } from '../../components';
-import {ROUTES} from '../../constants';
 import {neutral100} from '../../constants/colors';
+import {ROUTES} from '../../constants';
+const BTCHistoryScreen = ({route, navigation}) => {
+  const item = route.params.item;
+  const btc = route.params.data;
+  console.log(btc);
 
-const SendNftAuthScreen = ({navigation, route}) => {
-  const [uid, setUid] = useState('');
-  const [quantity, setQuantity] = useState(0);
-  const [memo, setMemo] = useState('');
-  const [error, setError] = useState(false);
-  const data = route.params.to || {};
-  const nft = route.params.nft || {};
-  let pattern = /[^0-9]/g;
-
-  const handleChangeUid = event => {
-    if (!pattern.test(event)) {
-      setError(true);
-      return;
-    }
-    setUid(event);
+  const Capitalize = str => {
+    console.log(str);
+    return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
-  const handleChangeQuantity = event => {
-    setQuantity(event);
-  };
+  useEffect(() => {
+    navigation.setOptions({title: `${item.type} Money`});
+    Capitalize(item.type);
+  }, [item.type]);
 
-  const handleChangeMemo = event => {
-    setMemo(event);
-  };
   return (
     <LayoutScreen>
       <Container>
@@ -48,11 +33,30 @@ const SendNftAuthScreen = ({navigation, route}) => {
           <Stack
             direction="row"
             spacing={27}
-            style={{justifyContent: 'space-evenly'}}>
-            <Image source={nft.image} style={{width: 110, height: 110}} />
-            <View style={{alignItems: 'center'}}>
-              <BodyHeading type={4}>{nft.type}</BodyHeading>
-              <BodyText type={3}>#{nft.code}</BodyText>
+            style={{justifyContent: 'center'}}>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+              }}>
+              <View
+                style={{
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  gap: 10,
+                }}>
+                <Image source={btc.image} style={{width: 30, height: 30}} />
+                <BodyHeading type={7}>
+                  {item.amount} <BodyText type={3}>BTC</BodyText>
+                </BodyHeading>
+              </View>
+              <BodyText
+                color={neutral100}
+                type={3}
+                style={{alignSelf: 'center'}}>
+                ≈ $12,345
+              </BodyText>
             </View>
           </Stack>
           <Wrapper>
@@ -66,7 +70,7 @@ const SendNftAuthScreen = ({navigation, route}) => {
                   </Content>
                   <Content>
                     <BodyText type={6}>To</BodyText>
-                    <BodyText type={4}>{data}</BodyText>
+                    <BodyText type={4}>0x333lksdf..sdflEDFWe</BodyText>
                   </Content>
                 </View>
                 <DividerDotted />
@@ -138,4 +142,4 @@ const DividerDotted = styled.View`
   flex: 1;
 `;
 
-export default SendNftAuthScreen;
+export default BTCHistoryScreen;

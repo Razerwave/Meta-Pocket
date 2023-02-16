@@ -17,18 +17,25 @@ const SendBTCScreen = ({navigation}) => {
   const [quantity, setQuantity] = useState(0);
   const [memo, setMemo] = useState('');
   const [error, setError] = useState(false);
+  const [errorQuantity, setErrorQuantity] = useState(false);
   let pattern = /[^0-9]/g;
-
+  let balance = 1900;
   const handleChangeUid = event => {
-    if (!pattern.test(event)) {
-      setError(true);
-      return;
-    }
     setUid(event);
+    if (!pattern.test(event) && event.length == 10) {
+      setError(false);
+    } else {
+      setError(true);
+    }
   };
 
   const handleChangeQuantity = event => {
     setQuantity(event);
+    if (!pattern.test(event) && balance > event) {
+      setErrorQuantity(false);
+    } else {
+      setErrorQuantity(true);
+    }
   };
 
   const handleChangeMemo = event => {
@@ -46,7 +53,9 @@ const SendBTCScreen = ({navigation}) => {
               onPress
               btnText="Paste"
               action
+              error={error}
             />
+            {error && <ErrorText>Address or UID valid</ErrorText>}
             <CustomInput
               value={quantity}
               onChange={event => handleChangeQuantity(event)}
@@ -55,9 +64,9 @@ const SendBTCScreen = ({navigation}) => {
               onPress
               btnText="Max"
               action
-              error={false}
+              error={errorQuantity}
             />
-
+            {errorQuantity && <ErrorText>Insufficient funds</ErrorText>}
             <View>
               <BodyText style={{marginBottom: 10}}>Optional</BodyText>
               <CustomInput
@@ -65,7 +74,6 @@ const SendBTCScreen = ({navigation}) => {
                 onChange={event => handleChangeMemo(event)}
                 placeholder="Memo"
                 action
-                error={true}
               />
             </View>
           </Wrapper>

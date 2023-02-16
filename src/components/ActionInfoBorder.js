@@ -9,15 +9,19 @@ import BodyText from './texts/BodyText';
 import {View, Image} from 'react-native';
 import FixedThemeWrapper from './theme/FixedThemeWrapper';
 import Stack from './Stack';
+import {useTheme} from 'styled-components';
 
 const ActionInfoBorder = ({children, style}) => {
+  const {backgroundColor} = useTheme();
   return (
     <FixedThemeWrapper
       style={{
         marginHorizontal: 17,
         borderTopWidth: 5,
         borderBottomWidth: 5,
-        bordeStyle: 'dashed',
+        borderStyle: 'dotted',
+        borderColor: backgroundColor,
+        backgroundColor: white,
         ...style,
       }}>
       {children}

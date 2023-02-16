@@ -117,13 +117,13 @@ const SettingScreen = ({navigation}) => {
           </ListItem>
           <Stack spacing={32}>
             <ButtonPrimary title="Logout" onPress={logoutHandler} />
-            <ButtonPrimary
-              title="send NFT"
-              onPress={() => {
-                navigation.navigate(ROUTES.SENDNFT.SENDNFT_SCREEN);
-              }}
-            />
           </Stack>
+          <ButtonPrimary
+            title="SEND "
+            onPress={() => {
+              navigation.navigate(ROUTES.SENDBTC.SENDBTC_SCREEN);
+            }}
+          />
         </Stack>
       </LayoutScroll>
     </LayoutScreen>

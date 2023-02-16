@@ -1,16 +1,17 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React, {useEffect, useRef, useState} from 'react';
-import {ScrollView, TouchableOpacity, Animated} from 'react-native';
-import {IconScrollTop} from '../../assets/icons';
-import {useAuth} from '../../context/AuthContext';
+import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { ScrollView, TouchableOpacity, Animated } from 'react-native';
+import { IconScrollTop } from '../../assets/icons';
+import { useAuth } from '../../context/AuthContext';
+import ButtonScroll from '../buttons/ButtonScroll';
 
 const CONTENT_OFFSET_THRESHOLD = 10;
 
-const LayoutScroll = ({children, bottomGap = 30}) => {
+const LayoutScroll = ({ children, bottomGap = 0, button, onPress }) => {
   const scrollRef = useRef();
   const [contentVerticalOffset, setContentVerticalOffset] = useState(0);
   const [visible, setVisible] = useState(false);
-  const {mainOnPressEvent} = useAuth();
+  const { mainOnPressEvent } = useAuth();
 
   const onPressTouch = () => {
     setVisible(false);
@@ -27,7 +28,7 @@ const LayoutScroll = ({children, bottomGap = 30}) => {
         toValue: 1,
         duration: 500,
         useNativeDriver: true,
-      }).start(({finished}) => {
+      }).start(({ finished }) => {
         if (finished) return;
         setVisible(true);
       });
@@ -36,7 +37,7 @@ const LayoutScroll = ({children, bottomGap = 30}) => {
         toValue: 0,
         duration: 500,
         useNativeDriver: true,
-      }).start(({finished}) => {
+      }).start(({ finished }) => {
         if (!finished) return;
         setVisible(false);
       });
@@ -55,15 +56,18 @@ const LayoutScroll = ({children, bottomGap = 30}) => {
 
   // console.log('fadeAnim', fadeAnim, fadeAnim !== 0, fadeAnim === 0)
   return (
-    <>
+    <View style={{ flex: 1 }}>
       <ScrollView
         ref={scrollRef}
         onScroll={event => {
           setContentVerticalOffset(event.nativeEvent.contentOffset.y);
-        }}>
-        <TouchableOpacity activeOpacity={1} onPressOut={handleOnPress}>
+        }}
+        contentContainerStyle={{ flexGrow: 1, borderColor: 'green', borderWidth: 3 }}
+      >
+        <TouchableOpacity style={{ flex: 1 }} activeOpacity={1} onPressOut={handleOnPress}>
           {children}
-          <View style={{height: bottomGap}} />
+          {onPress && <ButtonScroll onPress={onPress}>{button}</ButtonScroll>}
+          <View style={{ height: bottomGap }} />
         </TouchableOpacity>
       </ScrollView>
 
@@ -77,7 +81,7 @@ const LayoutScroll = ({children, bottomGap = 30}) => {
           </TouchableOpacity>
         )}
       </Animated.View>
-    </>
+    </View>
   );
 };
 

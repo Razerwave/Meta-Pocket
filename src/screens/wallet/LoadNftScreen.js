@@ -44,7 +44,9 @@ const LoadNftScreen = ({navigation}) => {
         <ButtonContainer>
           <ButtonPrimary
             title="Load"
-            onPress={() => navigation.navigate(ROUTES.SENDBTC.SENDBTC_SCREEN)}
+            onPress={() => navigation.navigate(ROUTES.WALLET.NFT_SEND, {
+              data: {}
+            })}
           />
         </ButtonContainer>
       </Container>

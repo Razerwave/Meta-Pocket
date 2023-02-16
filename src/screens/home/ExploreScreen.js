@@ -29,24 +29,26 @@ const ExploreScreen = ({ navigation }) => {
   return (
     <LayoutScreen>
       <LayoutScroll>
-        <Container1>
+        <Stack marginTop={22} paddingHorizontal={20}>
           {data.map(({ title, items, key, ...item }, index) => {
             return (
               <View key={index}>
-                <Container>
-                  <Title>
-                    <IconColorDot color={item.dotColor} />
-                    <TitleSection>{title}</TitleSection>
-                  </Title>
-                  <TouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, { tabIndex: index, })}>
-                    <IconExploreArrow />
-                  </TouchableOpacity>
-                </Container>
+                {index !== 0 && <Divider marginBottom={30} />}
+                <Stack direction='row' alignItems="center" spacing={8} marginBottom={20}>
+                  <IconColorDot size={6} color={item.dotColor} />
+                  <BodyText fontWeight="600">{title}</BodyText>
+                  <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+                    <TouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, { tabIndex: index, })}>
+                      <IconExploreArrow />
+                    </TouchableOpacity>
+                  </Stack>
+                </Stack>
 
-                <View>
-                  <ContainerWeb>
+                <View paddingLeft={15}>
+                  <Stack direction='row' style={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
                     {items.slice(0, 4).map((item, index) => title == 'Website' ? (
-                      <View key={index}>
+                      <View key={index} marginBottom={30}>
+                        <TouchableOpacity style={{ flex: 1 }}></TouchableOpacity>
                         <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.WEB, { uri: WEB_LINK, title: title })}>
                           <Card>
                             <FavoritePress>
@@ -61,18 +63,19 @@ const ExploreScreen = ({ navigation }) => {
                           </Card>
                         </AllTabTouchableOpacity>
 
-                        <DescriptionContainer>
+                        <View>
                           <BodyText type={8} style={{ marginTop: 10, marginBottom: 6, }}>
                             {item.title}
                           </BodyText>
                           <BodyText type={7} style={{ color: neutral100 }}>
                             {item.description}
                           </BodyText>
-                        </DescriptionContainer>
+                        </View>
                       </View>
                     ) : title == 'Art' && (
                       <View key={index}>
-                        <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.BUY.BUY_SCREEN, { uri: WEB_LINK, item: item })}>
+                        <TouchableOpacity style={{ flex: 1 }}></TouchableOpacity>
+                        <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.BUY_ITEM, { uri: WEB_LINK, item: item })}>
                           <ArtCard>
                             <ImageBackground source={item.image} style={{ flex: 1, justifyContent: 'center' }} resizeMode="cover">
                               <FavoriteSection>
@@ -88,44 +91,25 @@ const ExploreScreen = ({ navigation }) => {
                         </AllTabTouchableOpacity>
 
                         <View>
-                          <BodyText
-                            type={8}
-                            style={{
-                              marginTop: 10,
-                              marginBottom: 6,
-                            }}>
+                          <BodyText type={8} style={{ marginTop: 10, marginBottom: 6 }}>
                             {item.title}
                           </BodyText>
-                          <ArtSubtitle>
-                            <BodyText
-                              type={7}
-                              style={{ color: neutral100 }}>
-                              {item.total}
-                            </BodyText>
-                            <BodyText
-                              type={7}
-                              style={{ color: neutral100 }}>
-                              {item.coin}
-                            </BodyText>
-                          </ArtSubtitle>
+                          <BodyText type={7} style={{ color: neutral100 }}>
+                            {item.total} {item.coin}
+                          </BodyText>
                         </View>
                       </View>
                     ))}
-                  </ContainerWeb>
-                </View>
-                {title !== 'Art' && (
-                  <Stack style={{ marginVertical: 20 }}>
-                    <Divider></Divider>
                   </Stack>
-                )}
+                </View>
               </View>
             );
           })}
-          <View
+          {/* <View
             style={{
               alignItems: 'flex-end',
-            }}></View>
-        </Container1>
+            }}></View> */}
+        </Stack>
       </LayoutScroll>
     </LayoutScreen>
   );
@@ -144,10 +128,6 @@ const AllTabTouchableOpacity = styled.TouchableOpacity`
   background-color: ${neutral300};
 `;
 
-const Container1 = styled.View`
-  padding: 16px;
-`;
-
 const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
@@ -159,9 +139,8 @@ const Container = styled.View`
 `;
 
 const ContainerWeb = styled.View`
-  gap: 10px;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 `;
 

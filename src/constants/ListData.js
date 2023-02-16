@@ -347,6 +347,7 @@ const WalletHomeData = {
       memberType: 'Membership',
       code: 748,
       image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+      myAddres: '0xe34lkjds....7BEsdlkfjls',
     },
     {
       name: 'Daily Art Story',
@@ -355,6 +356,7 @@ const WalletHomeData = {
       memberType: 'Membership',
       code: 748,
       image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+      myAddres: '0xe34lkjds....7BEsdlkfjls',
     },
     {
       name: 'Daily Art Story',
@@ -363,6 +365,7 @@ const WalletHomeData = {
       memberType: 'Membership',
       code: 748,
       image: require('../assets/icons/ExploreIcons/ItemImage.png'),
+      myAddres: '0xe34lkjds....7BEsdlkfjls',
     },
   ],
 };
@@ -370,6 +373,38 @@ const WalletHomeData = {
 const langSelectData = [
   {label: 'ENGLISH', value: 'ENG', selectedLabel: 'ENG'},
   {label: 'KOREAN', value: 'KOR', selectedLabel: 'KOR'},
+];
+const BTC_INFO_DATA = [
+  {
+    date: 'Jan 2, 2023 PM 12:00',
+    transactions: [
+      {
+        type: 'received',
+        amount: 0.1,
+      },
+      {
+        type: 'send',
+        amount: 0.1,
+      },
+      {
+        type: 'received',
+        amount: 0.1,
+      },
+    ],
+  },
+  {
+    date: 'Jan 2, 2023 PM 12:00',
+    transactions: [
+      {
+        type: 'send',
+        amount: 0.1,
+      },
+      {
+        type: 'send',
+        amount: 0.1,
+      },
+    ],
+  },
 ];
 
 export {
@@ -381,4 +416,5 @@ export {
   WalletHomeData,
   ExploreData,
   langSelectData,
+  BTC_INFO_DATA,
 };

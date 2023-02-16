@@ -39,15 +39,16 @@ const ReceiveBTCScreen = () => {
 const DarkCard = ({ }) => {
   const { i18n } = useAuth()
   const { input: { btnColor } } = useTheme()
+  const [address] = useState('0xe34lkjd7BEsdlkfjlsasdfsdfkjsdlkf')
 
   const handleCopy = () => {
-    Clipboard.setString(words.join(' '))
+    Clipboard.setString(address)
   }
 
   return (
     <View style={styles.cardContainer}>
       <BodyText type={5} style={styles.card}>
-        0xe34lkjd7BEsdlkfjlsasdfsdfkjsdlkf
+        {address}
       </BodyText>
       <TouchableOpacity onPress={handleCopy} style={{ flexDirection: 'row' }}>
         <View style={[styles.btn, { color: btnColor, backgroundColor: btnColor }]}>

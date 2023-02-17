@@ -32,6 +32,7 @@ const NoticeList = ({ navigation }) => {
           <Stack spacing={30}>
             {noticeList.map(({title, imagePath}, index) => (
               <TouchableOpacity key={index} onPress={() => navigation.navigate(ROUTES.SETTING.NOTICE, {
+                imagePath: imagePath,
                 title: title,
               })}>
                 <Stack spacing={10}>

@@ -49,12 +49,12 @@ const ProtectWallet = ({ navigation }) => {
             </TouchableOpacity>
             <Stack direction='row' spacing={4}>
               <BodyText type={5}>{i18n.iAgree}</BodyText>
-              <TouchableOpacity onPress={() => setModalVisible('terms')}>
-                <BodyText type={5} style={{ borderBottomWidth: 1, borderColor: fontColor }}>{i18n.terms}</BodyText>
+              <TouchableOpacity onPress={() => setModalVisible('terms')} style={{ borderBottomWidth: 1, borderColor: fontColor }}>
+                <BodyText type={5}>{i18n.terms}</BodyText>
               </TouchableOpacity>
               <BodyText type={5}>{i18n.and}</BodyText>
-              <TouchableOpacity onPress={() => setModalVisible('privacyPolicy')}>
-                <BodyText type={5} style={{ borderBottomWidth: 1, borderColor: fontColor }}>{i18n.privacyPolicy}</BodyText>
+              <TouchableOpacity onPress={() => setModalVisible('privacyPolicy')} style={{ borderBottomWidth: 1, borderColor: fontColor }}>
+                <BodyText type={5}>{i18n.privacyPolicy}</BodyText>
               </TouchableOpacity>
             </Stack>
           </Stack>

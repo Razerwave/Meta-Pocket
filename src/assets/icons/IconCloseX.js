@@ -1,8 +1,8 @@
 import React from 'react';
-import {Path, Svg, Rect} from 'react-native-svg';
-import {white} from '../../constants/colors';
+import { Path, Svg, Rect } from 'react-native-svg';
+import { white } from '../../constants/colors';
 
-const IconCloseX = () => {
+const IconCloseX = ({ color = "#1F2129" }) => {
   return (
     <Svg
       width="14"
@@ -16,7 +16,7 @@ const IconCloseX = () => {
         height="1.7999"
         rx="0.899952"
         transform="rotate(-45 0 12.7275)"
-        fill="#1F2129"
+        fill={color}
       />
       <Rect
         x="12.7275"
@@ -25,7 +25,7 @@ const IconCloseX = () => {
         height="1.7999"
         rx="0.899952"
         transform="rotate(-135 12.7275 14)"
-        fill="#1F2129"
+        fill={color}
       />
     </Svg>
   );

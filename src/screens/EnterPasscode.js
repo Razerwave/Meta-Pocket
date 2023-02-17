@@ -22,7 +22,6 @@ const PasscodeLoginScreen = () => {
   useEffect(() => {
     if (passcode?.length === 6) {
       if (checkPasscode(passcode)) {
-        Alert.alert('success');
         unlock();
       } else {
         Alert.alert("doesn't match passcode");

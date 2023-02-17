@@ -44,6 +44,7 @@ import CustomTouchableOpacity from './CustomTouchableOpacity';
 import ActionInfoBorder from './ActionInfoBorder';
 import Precautions from './Precautions';
 import ButtonGray from './buttons/ButtonGray';
+import Card from './Card';
 
 export {
   Title,
@@ -88,4 +89,5 @@ export {
   ButtonScroll,
   ButtonIcon,
   ButtonGray,
+  Card,
 };

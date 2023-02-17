@@ -5,9 +5,8 @@ import { ROUTES } from '../../constants'
 import { useAuth } from '../../context/AuthContext'
 
 const ConfirmResetPasscode = ({ navigation, route }) => {
-  const {i18n} = useAuth()
   const [pass, setPass] = useState('')
-  const { login } = useAuth()
+  const { login, i18n } = useAuth()
   const passcode = route.params.passcode
 
   useEffect(() => {

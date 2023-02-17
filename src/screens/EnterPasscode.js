@@ -1,6 +1,6 @@
 // import { useNavigation } from '@react-navigation/native';
-import React, {useState, useEffect} from 'react';
-import {Text, TextInput, View, Alert} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, TextInput, View, Alert } from 'react-native';
 import {
   CardBox,
   KeyBoardPasscode,
@@ -10,15 +10,14 @@ import {
   StyledText,
   Title,
 } from '../components';
-import {useAuth} from '../context/AuthContext';
-import {useTheme} from 'styled-components';
+import { useAuth } from '../context/AuthContext';
+import { useTheme } from 'styled-components';
 // import { ROUTES } from '../constants';
 // import ReactNativeBiometrics, {BiometryTypes} from 'react-native-biometrics';
 
 const PasscodeLoginScreen = () => {
-  const {unlock, checkPasscode} = useAuth();
+  const { unlock, checkPasscode, i18n } = useAuth();
   const [passcode, setPasscode] = useState('');
-  const {i18n} = useAuth();
   useEffect(() => {
     if (passcode?.length === 6) {
       if (checkPasscode(passcode)) {

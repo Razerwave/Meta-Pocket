@@ -171,12 +171,11 @@ const testData = [
 ];
 
 const PortfolioData = {
-  total: 57784,
   list: [
-    { color: magenta, coin: 'BTC', percentage: 30, amount: 20224 },
-    { color: gray100, coin: 'ETH', percentage: 10, amount: 17335 },
-    { color: purple100, coin: 'USDT', percentage: 20, amount: 11557 },
-    { color: primary, coin: 'FIL', percentage: 40, amount: 8668 },
+    { color: magenta, coin: 'BTC', amount: 20224 },
+    { color: gray100, coin: 'ETH', amount: 17335 },
+    { color: purple100, coin: 'USDT', amount: 11557 },
+    { color: primary, coin: 'FIL', amount: 8668 },
   ],
 };
 

@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { NoticeStroke1, NoticeStroke2, NoticeStroke3, NoticeStorkStar } from '../assets/background';
 import { neutral300, white } from '../constants/colors';
 import { BodyTextSize, BodyTextWeight, fontBody } from '../constants/fonts';
 
 const NoticeCard = ({ imagePath, title }) => {
   return (
     <View style={styles.card}>
-      {/* <NoticeStroke1 style={{ position: 'absolute', left: 0, bottom: 0 }} />
+      <NoticeStroke1 style={{ position: 'absolute', left: 0, bottom: 0 }} />
       <NoticeStroke2 style={{ position: 'absolute', left: 0, top: 0 }} />
       <NoticeStroke3 style={{ position: 'absolute', left: 43, top: 0 }} /> 
-       <NoticeStorkStar style={{ position: 'absolute', bottom: 16, right: 17 }} /> */}
+      <NoticeStorkStar style={{ position: 'absolute', bottom: 16, right: 17 }} />
       <View style={styles.image}>
         {imagePath && <Image height={30} source={imagePath} />}
       </View>

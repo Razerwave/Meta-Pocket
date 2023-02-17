@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 import { useTheme } from 'styled-components'
+import { fontBody } from '../constants/fonts';
 
 const TabBarBottom = ({ state, descriptors, navigation }) => {
   const { bottomTab: { bgColor } } = useTheme()
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   label: {
-    fontFamily: 'Lato',
+    fontFamily: fontBody,
     fontSize: 12,
     lineHeight: 14,
     textAlign: 'center',

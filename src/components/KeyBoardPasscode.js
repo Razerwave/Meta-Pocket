@@ -6,6 +6,7 @@ import { white } from '../constants/colors'
 import { SvgXml } from 'react-native-svg'
 import { useTheme } from 'styled-components'
 import { useAuth } from '../context/AuthContext'
+import { fontBody } from '../constants/fonts'
 
 const DEFAULT_NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 const BACKKEY_XML = (bgColor = '#DFDFDF', bgOpacity = '1', color = '#F2F2F2') => (`<svg width="41" height="20" viewBox="0 0 41 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     alignItems: 'center',
 
-    fontFamily: 'Lato',
+    fontFamily: fontBody,
     fontSize: 14,
     lineHeight: 17,
   }

@@ -176,27 +176,4 @@ const ImageContainer = styled.View`
   margin-left: 20px;
 `;
 
-const DescriptionContainer = styled.View`
-  align-self: flex-start;
-`;
-
-const Title = styled.View`
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  gap: 7px;
-`;
-
-const TitleSection = styled.Text`
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-  color: ${props => props.theme.fontColor};
-`;
-
-const ArtSubtitle = styled.View`
-  flex-direction: row;
-`;
 export default ExploreScreen;

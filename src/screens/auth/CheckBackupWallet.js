@@ -4,6 +4,7 @@ import { useTheme } from 'styled-components'
 import { LayoutScreen, ButtonPrimary, LayoutBottom, Stack, StyledText, StepsAuth, LayoutCenter, Paragraph } from '../../components'
 import { ROUTES } from '../../constants'
 import { blue300, purple100, white } from '../../constants/colors'
+import { fontBody } from '../../constants/fonts'
 import { useAuth } from '../../context/AuthContext'
 
 const CheckBackupWallet = ({ route, navigation }) => {
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
     backgroundColor: purple100,
   },
   activeText1: {
-    fontFamily: 'Lato',
+    fontFamily: fontBody,
     fontStyle: 'normal',
     fontWeight: '700',
     fontSize: 14,
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
     color: white,
   },
   activeText2: {
-    fontFamily: 'Lato',
+    fontFamily: fontBody,
     fontStyle: 'normal',
     fontWeight: '700',
     fontSize: 8,

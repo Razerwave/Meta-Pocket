@@ -18,16 +18,15 @@ import NoticeCard from '../../components/NoticeCard';
 
 // TEST DATA
 import { WalletHomeData } from '../../constants/ListData';
-import { green200, neutral100, purple100, red, white } from '../../constants/colors';
+import { black, green200, neutral100, purple100, red, white } from '../../constants/colors';
 import { currency } from '../../utils/formats';
 import { useAuth } from '../../context/AuthContext';
+import Carousel from 'react-native-reanimated-carousel';
 
 const TAB_ROUTES = [
   { key: 'Tokens', title: 'Tokens' },
   { key: 'NFTs', title: 'NFTs' },
 ]
-
-
 
 const WalletScreen = ({ navigation }) => {
   const { i18n } = useAuth()
@@ -40,9 +39,13 @@ const WalletScreen = ({ navigation }) => {
 
   useEffect(() => {
     setTotal(WalletHomeData.total)
-    setNoticeList(WalletHomeData.notice)
+    // setNoticeList(WalletHomeData.notice)
     setTokens(WalletHomeData.tokens)
     setNFTs(WalletHomeData.nfts)
+
+    setTimeout(() => {
+      setNoticeList(WalletHomeData.notice)
+    }, 3000)
   }, [])
 
   const renderScene = ({ route }) => {
@@ -78,7 +81,7 @@ const WalletScreen = ({ navigation }) => {
           </View>
 
           <View style={{ height: 60 }}>
-            <Banners noticeList={noticeList} />
+            <Banners noticeList={noticeList} navigation={navigation} />
           </View>
         </Stack>
       </FixedThemeWrapper>
@@ -93,12 +96,8 @@ const WalletScreen = ({ navigation }) => {
   );
 };
 
-import Carousel from 'react-native-reanimated-carousel';
-import { useNavigation } from '@react-navigation/native';
-
-const Banners = ({ noticeList = [] }) => {
+const Banners = ({ noticeList = [], navigation }) => {
   const width = Dimensions.get('window').width;
-  const navigation = useNavigation();
 
   return (
     <View style={{ flex: 1 }}>
@@ -113,19 +112,26 @@ const Banners = ({ noticeList = [] }) => {
         renderItem={({ index }) => {
           const { imagePath, title } = noticeList[index]
           return (
-            <View
-              style={{
-                flex: 1,
-                padding: 16,
-                justifyContent: 'center',
-              }}
-            >
-              <TouchableOpacity onPress={() => navigation.navigate(ROUTES.WALLET.NOTICE, { 
+            <View style={{ flex: 1, marginHorizontal: 16, justifyContent: 'center' }}>
+              <TouchableOpacity onPress={() => navigation.navigate(ROUTES.WALLET.NOTICE, {
                 imagePath,
-                title 
+                title
               })}>
                 <NoticeCard imagePath={imagePath} title={title} />
               </TouchableOpacity>
+              <View style={{
+                position: 'absolute',
+                right: 10,
+                top: 10,
+                paddingVertical: 3,
+                paddingHorizontal: 5,
+                backgroundColor: black,
+                borderRadius: 9999,
+              }}>
+                <BodyText type={7}>
+                  {index + 1}/{noticeList.length}
+                </BodyText>
+              </View>
             </View>
           )
         }}

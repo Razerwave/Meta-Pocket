@@ -1,18 +1,9 @@
 import React from 'react';
-import {StyleSheet, AppState, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import IonIcon from 'react-native-vector-icons/Ionicons';
-import {useThemeChange} from '../context/ThemeChangeContext';
 import {LayoutHeader, TabBarBottom} from '../components';
 import {useTheme} from 'styled-components';
 import {ROUTES} from '../constants';
-import {
-  DappScreen,
-  ExploreScreen,
-  InvestScreen,
-  SettingScreen,
-  WalletScreen,
-} from '../screens/home';
+import {DappScreen} from '../screens/home';
 import {IconDapp, IconExplore, IconMore, IconWallet} from '../assets/icons';
 import SettingNavigation from './SettingNavigation';
 import WalletNavigation from './WalletNavigation';

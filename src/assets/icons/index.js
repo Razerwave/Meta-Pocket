@@ -28,6 +28,7 @@ import IconCopy2 from './IconCopy2';
 import IconReceiveUSDT from './IconReceiveUSDT';
 import IconFilledChecked from './IconFilledChecked';
 import IconClose from './IconClose';
+import IconCloseX from './IconCloseX';
 
 export {
   IconArrowBack,
@@ -60,4 +61,5 @@ export {
   IconReceiveUSDT,
   IconFilledChecked,
   IconClose,
+  IconCloseX,
 };

@@ -1,11 +1,19 @@
-import React from 'react'
-import { useTheme } from 'styled-components'
-import { Modal, StyleSheet, TouchableOpacity, View } from 'react-native'
-import IonIcon from 'react-native-vector-icons/Ionicons';
+import React from 'react';
+import {useTheme} from 'styled-components';
+import {Modal, StyleSheet, TouchableOpacity, View} from 'react-native';
 import BodyHeading from './texts/BodyHeading';
+import {IconCloseX} from '../assets/icons';
 
-const BottomModal = ({ children, title, visible = false, onClose = () => { } }) => {
-  const { card: { bgColor }, fontColor } = useTheme('')
+const BottomModal = ({
+  children,
+  title,
+  visible = false,
+  onClose = () => {},
+}) => {
+  const {
+    card: {bgColor},
+    fontColor,
+  } = useTheme('');
   return (
     <Modal
       animationType="slide"
@@ -13,11 +21,10 @@ const BottomModal = ({ children, title, visible = false, onClose = () => { } }) 
       visible={visible}
       onRequestClose={() => {
         onClose();
-      }}
-    >
-      <View style={[styles.centeredView, { backgroundColor: bgColor }]}>
+      }}>
+      <View style={[styles.centeredView, {backgroundColor: bgColor}]}>
         <TouchableOpacity style={styles.btnClose} onPress={() => onClose()}>
-          <IonIcon name="close-outline" size={30} color={fontColor} />
+          <IconCloseX size={30} color={fontColor} />
         </TouchableOpacity>
         <View style={styles.body}>
           {title && <BodyHeading style={styles.heading}>{title}</BodyHeading>}
@@ -25,10 +32,10 @@ const BottomModal = ({ children, title, visible = false, onClose = () => { } }) 
         </View>
       </View>
     </Modal>
-  )
-}
+  );
+};
 
-export default BottomModal
+export default BottomModal;
 
 const styles = StyleSheet.create({
   centeredView: {
@@ -45,8 +52,8 @@ const styles = StyleSheet.create({
   heading: {
     marginBottom: 20,
   },
-  body: { 
-    paddingHorizontal: 28, 
+  body: {
+    paddingHorizontal: 28,
     paddingVertical: 42,
   },
-})
+});

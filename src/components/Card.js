@@ -1,33 +1,70 @@
 import React from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
-import { IconDappArrow } from '../assets/icons';
-import { neutral100, neutral300 } from '../constants/colors';
+import {IconDappArrow} from '../assets/icons';
+import {neutral100, neutral300} from '../constants/colors';
 import BodyText from './texts/BodyText';
 
-const Card = ({ item, onPress }) => {
+const Card = ({item, onPress, index, tab}) => {
+  console.log(item);
   return (
-    <View>
-      <TouchableOpacity style={{ flex: 1 }}></TouchableOpacity>
-      <AllTabTouchableOpacity onPress={() => onPress(item)}>
-        <DCard>
-          <ArrowIcon>
-            <IconDappArrow />
-          </ArrowIcon>
-          <ImageContainer style={{ marginBottom: 20, marginLeft: 20 }}>
-            <Image source={item.image} />
-          </ImageContainer>
-        </DCard>
-      </AllTabTouchableOpacity>
+    <View key={index}>
+      {tab === 'Art' ? (
+        <View style={{flex: 1, flexWrap: 'wrap'}}>
+          <TouchableOpacity style={{flex: 1}}></TouchableOpacity>
+          <AllTabTouchableOpacity onPress={() => onPress(item)}>
+            <View>
+              <ArtDCard>
+                <Image source={item.image} />
+              </ArtDCard>
+              <FavoriteSection>
+                <SetArtFavorite>
+                  <Image
+                    source={
+                      item.star
+                        ? require('../assets/icons/Vector.png')
+                        : require('../assets/icons/favorite.png')
+                    }
+                    style={{width: 14, height: 14}}
+                  />
+                </SetArtFavorite>
+              </FavoriteSection>
+            </View>
+          </AllTabTouchableOpacity>
 
-      <DescriptionContainer>
-        <BodyText type={8} style={{ marginTop: 10, marginBottom: 6 }}>
-          {item.title}
-        </BodyText>
-        <BodyText type={7} style={{ color: neutral100 }}>
-          {item.description}
-        </BodyText>
-      </DescriptionContainer>
+          <DescriptionContainer>
+            <BodyText type={8} style={{marginTop: 10, marginBottom: 6}}>
+              {item.title}
+            </BodyText>
+            <BodyText type={7} style={{color: neutral100}}>
+              {item.description}
+            </BodyText>
+          </DescriptionContainer>
+        </View>
+      ) : (
+        <View>
+          <TouchableOpacity style={{flex: 1}}></TouchableOpacity>
+          <AllTabTouchableOpacity onPress={() => onPress(item)}>
+            <DCard>
+              <ArrowIcon>
+                <IconDappArrow />
+              </ArrowIcon>
+              <ImageContainer>
+                <Image source={item.image} />
+              </ImageContainer>
+            </DCard>
+          </AllTabTouchableOpacity>
+
+          <DescriptionContainer>
+            <BodyText type={8} style={{marginTop: 10, marginBottom: 6}}>
+              {item.title}
+            </BodyText>
+            <BodyText type={7} style={{color: neutral100}}>
+              {item.description}
+            </BodyText>
+          </DescriptionContainer>
+        </View>
+      )}
     </View>
   );
 };
@@ -52,6 +89,13 @@ const DCard = styled.View`
   align-self: flex-end;
 `;
 
+const ArtDCard = styled.View`
+  flex: 1;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-self: flex-end;
+`;
+
 const ArrowIcon = styled.TouchableOpacity`
   align-self: flex-end;
   margin-bottom: 10px;
@@ -65,6 +109,17 @@ const ImageContainer = styled.View`
 
 const DescriptionContainer = styled.View`
   align-self: flex-start;
+`;
+
+const FavoriteSection = styled.View`
+  justify-content: flex-end;
+  flex-direction: row;
+`;
+
+const SetArtFavorite = styled.TouchableOpacity`
+  /* align-self: flex-end; */
+  margin-bottom: 10px;
+  margin-right: 10px;
 `;
 
 export default Card;

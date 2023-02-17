@@ -109,7 +109,7 @@ const ExploreData = {
     {
       title: 'Steamboats in the Port ...',
       description: 'Pierre-Auguste Renoir (1881)',
-      star: false,
+      star: true,
       image: require('../assets/icons/SteamBoats.png'),
       coin: 'ETH',
       total: '0.2',
@@ -118,7 +118,7 @@ const ExploreData = {
       title: 'Two gils ...',
       description: 'Pierre-Auguste Renoir (1881)',
       star: true,
-      image: require('../assets/icons/flowers.png'),
+      image: require('../assets/icons/MaskGroup.png'),
       coin: 'ETH',
       total: '0.2',
     },
@@ -172,10 +172,10 @@ const testData = [
 
 const PortfolioData = {
   list: [
-    { color: magenta, coin: 'BTC', amount: 20224 },
-    { color: gray100, coin: 'ETH', amount: 17335 },
-    { color: purple100, coin: 'USDT', amount: 15000 },
-    { color: primary, coin: 'FIL', amount: 8668 },
+    {color: magenta, coin: 'BTC', amount: 20224},
+    {color: gray100, coin: 'ETH', amount: 17335},
+    {color: purple100, coin: 'USDT', amount: 15000},
+    {color: primary, coin: 'FIL', amount: 8668},
   ],
 };
 
@@ -277,8 +277,8 @@ const WalletHomeData = {
 };
 
 const langSelectData = [
-  { label: 'ENGLISH', value: 'ENG', selectedLabel: 'ENG' },
-  { label: 'KOREAN', value: 'KOR', selectedLabel: 'KOR' },
+  {label: 'ENGLISH', value: 'ENG', selectedLabel: 'ENG'},
+  {label: 'KOREAN', value: 'KOR', selectedLabel: 'KOR'},
 ];
 const BTC_INFO_DATA = [
   {

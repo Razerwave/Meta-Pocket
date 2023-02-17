@@ -1,17 +1,15 @@
 import React from 'react';
-import {View, Image, TouchableOpacity} from 'react-native';
+import {View, Image} from 'react-native';
 import styled from 'styled-components/native';
 import {IconDappArrow} from '../assets/icons';
 import {neutral100, neutral300} from '../constants/colors';
 import BodyText from './texts/BodyText';
 
-const Card = ({item, onPress, index, tab}) => {
-  console.log(item);
+const Card = ({item, onPress}) => {
   return (
-    <View key={index}>
-      {tab === 'Art' ? (
-        <View style={{flex: 1, flexWrap: 'wrap'}}>
-          <TouchableOpacity style={{flex: 1}}></TouchableOpacity>
+    <View>
+      {item.image ? (
+        <View>
           <AllTabTouchableOpacity onPress={() => onPress(item)}>
             <View>
               <ArtDCard>
@@ -42,24 +40,21 @@ const Card = ({item, onPress, index, tab}) => {
           </DescriptionContainer>
         </View>
       ) : (
-        <View>
-          <TouchableOpacity style={{flex: 1}}></TouchableOpacity>
+        <View gap={10}>
           <AllTabTouchableOpacity onPress={() => onPress(item)}>
             <DCard>
               <ArrowIcon>
                 <IconDappArrow />
               </ArrowIcon>
               <ImageContainer>
-                <Image source={item.image} />
+                <Image source={item.logo} />
               </ImageContainer>
             </DCard>
           </AllTabTouchableOpacity>
 
           <DescriptionContainer>
-            <BodyText type={8} style={{marginTop: 10, marginBottom: 6}}>
-              {item.title}
-            </BodyText>
-            <BodyText type={7} style={{color: neutral100}}>
+            <BodyText type={8}>{item.title}</BodyText>
+            <BodyText type={7} style={{color: neutral100, marginTop: 6}}>
               {item.description}
             </BodyText>
           </DescriptionContainer>
@@ -70,7 +65,6 @@ const Card = ({item, onPress, index, tab}) => {
 };
 
 const AllTabTouchableOpacity = styled.TouchableOpacity`
-  flex: 1;
   height: 102px;
   width: 150px;
   background-color: ${neutral300};

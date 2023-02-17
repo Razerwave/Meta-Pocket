@@ -49,7 +49,7 @@ const PasscodeLoginScreen = () => {
   //   })
   return (
     <LayoutScreen>
-      <Stack padding={28} spacing={29} marginTop={50}>
+      <Stack padding={28} spacing={29} marginTop={50} marginBottom={50}>
         <Title>{i18n.enterThePasscode}</Title>
         <StyledText>{i18n.digitPasscode}</StyledText>
       </Stack>

@@ -79,7 +79,7 @@ const BTCScreen = ({ route, navigation }) => {
           </Stack>
         </Stack>
       </FixedThemeWrapper>
-      <LayoutScroll button={i18n.more} onPress={() => { }}>
+      <LayoutScroll>
         <Stack spacing={20} marginHorizontal={16} marginTop={30}>
           {BTC_INFO_DATA.map((t, index) => (
             <Stack key={index}>

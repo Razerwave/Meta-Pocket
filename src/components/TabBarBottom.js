@@ -16,7 +16,7 @@ const TabBarBottom = ({ state, descriptors, navigation }) => {
 const animate1 = { 0: { scale: .5, translateY: 0 }, 1: { scale: 1.2, translateY: -10 } }
 const animate2 = { 0: { scale: 1.2, translateY: -10 }, 1: { scale: 1, translateY: 0 } }
 
-const circle1 = { 0: { scale: 0, translateY: 0 }, 0.6: { scale: 1, translateY: -10 }, 1: { scale: 1, translateY: 0 } }
+const circle1 = { 0: { scale: 0, translateY: 0 }, 1: { scale: 1, translateY: 0 } }
 const circle2 = { 0: { scale: 1 }, 1: { scale: 0 } }
 
 

@@ -59,8 +59,8 @@ const ExploreScreen = ({navigation, onPress}) => {
                     direction="row"
                     style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
                     {items.slice(0, 4).map((item, index) => (
-                      <View style={{marginBottom: 30}}>
-                        <Card key={index} item={item} onPress={onPress} />
+                      <View key={index} style={{marginBottom: 30}}>
+                        <Card item={item} onPress={onPress} />
                       </View>
                     ))}
                   </Stack>

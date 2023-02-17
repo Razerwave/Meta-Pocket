@@ -56,7 +56,7 @@ const StakingBTCScreen = ({navigation, route}) => {
           </Stack>
           <Divider />
         </Stack>
-        <Stack marginTop={20} marginHorizontal={16} spacing={10}>
+        <Stack marginTop={20} marginHorizontal={16} spacing={10} marginBottom={20}>
           <Stack style={{alignItems: 'flex-end', marginRight: 6}}>
             <BodyText>
               {i18n.balance} {balance}

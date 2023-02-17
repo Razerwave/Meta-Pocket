@@ -34,15 +34,15 @@ const ExploreScreen = ({ navigation }) => {
             return (
               <View key={index}>
                 {index !== 0 && <Divider marginBottom={30} />}
-                <Stack direction='row' alignItems="center" spacing={8} marginBottom={20}>
-                  <IconColorDot size={6} color={item.dotColor} />
-                  <BodyText fontWeight="600">{title}</BodyText>
-                  <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
-                    <TouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, { tabIndex: index, })}>
+                <TouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, { tabIndex: index, })}>
+                  <Stack direction='row' alignItems="center" spacing={8} marginBottom={20}>
+                    <IconColorDot size={6} color={item.dotColor} />
+                    <BodyText fontWeight="600">{title}</BodyText>
+                    <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
                       <IconExploreArrow />
-                    </TouchableOpacity>
+                    </Stack>
                   </Stack>
-                </Stack>
+                </TouchableOpacity>
 
                 <View paddingLeft={15}>
                   <Stack direction='row' spacing={20} style={{ flexWrap: 'wrap' }}>

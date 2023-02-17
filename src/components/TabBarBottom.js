@@ -54,19 +54,16 @@ const TabButton = ({ route, index, descriptors, navigation, state }) => {
   const icon = options.tabBarIcon({ focused: focused, size: 25, color: focused ? activeIconColor : inactiveColor });
   const label = options.tabBarLabel !== undefined ? options.tabBarLabel : options.title !== undefined ? options.title : route.name;
 
-  const viewRef = useRef(null)
-  const circleRef = useRef(null)
-  const textRef = useRef(null)
+  const homeButtonRef = useRef(null)
+  const homeButtonCircleRef = useRef(null)
 
   useEffect(() => {
     if (focused) {
-      viewRef.current.animate(animate1)
-      circleRef.current.animate(circle1)
-      // textRef.current.transitionTo({ scale: 1 })
+      homeButtonRef.current.animate(animate1)
+      homeButtonCircleRef.current.animate(circle1)
     } else {
-      viewRef.current.animate(animate2)
-      circleRef.current.animate(circle2)
-      // textRef.current.transitionTo({ scale: 0 })
+      homeButtonRef.current.animate(animate2)
+      homeButtonCircleRef.current.animate(circle2)
     }
   }, [focused])
 
@@ -82,24 +79,21 @@ const TabButton = ({ route, index, descriptors, navigation, state }) => {
       style={styles.container}
     >
       <Animatable.View
-        ref={viewRef}
-        duration={1000}
+        ref={homeButtonRef}
+        duration={1000} easing="ease-out"
         style={styles.containerY}
       >
         <View style={[styles.btn, { backgroundColor: bgColor, borderColor: bgColor }]}>
-          <Animatable.View
-            ref={circleRef}
+          <Animatable.View easing="ease-out"
+            ref={homeButtonCircleRef} duration={1000}
             style={{ ...StyleSheet.absoluteFillObject, backgroundColor: activeColor, borderRadius: 25 }}
           />
           {icon}
         </View>
       </Animatable.View>
-      <Animatable.Text
-        ref={textRef}
-        style={[styles.label, { color: focused ? activeTextColor : inactiveColor, fontWeight: focused ? 'bold' : 'normal' }]}
-      >
+      <Text style={[styles.label, { color: focused ? activeTextColor : inactiveColor, fontWeight: focused ? 'bold' : 'normal' }]}>
         {label}
-      </Animatable.Text>
+      </Text>
       {/* <Text style={{ color: focused ? activeTintColor : fontColor }}>
           {label}
         </Text> */}

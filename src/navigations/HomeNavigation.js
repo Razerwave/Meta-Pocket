@@ -37,8 +37,7 @@ const HomeNavigation = () => {
           color: fontColor,
         },
         header: ({options}) => <LayoutHeader {...options} />,
-        tabBarIcon: ({focused, size, color}) => {
-          let iconName;
+        tabBarIcon: ({color}) => {
           const tabName = route.name;
           if (tabName === ROUTES.HOME.WALLET) {
             return <IconWallet color={color} />;

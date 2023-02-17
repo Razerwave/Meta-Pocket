@@ -54,7 +54,7 @@ const PasscodeLoginScreen = () => {
         <StyledText>{i18n.digitPasscode}</StyledText>
       </Stack>
 
-      <Stack padding={50}>
+      <Stack alignItems="center">
         <KeyBoardPasscode value={passcode} onChange={v => setPasscode(v)} />
       </Stack>
     </LayoutScreen>

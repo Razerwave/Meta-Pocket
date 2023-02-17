@@ -73,7 +73,7 @@ const ExploreScreen = ({ navigation }) => {
                         </View>
                       </View>
                     ) : title == 'Art' && (
-                      <View key={index}>
+                      <View key={index} marginBottom={30}>
                         <TouchableOpacity style={{ flex: 1 }}></TouchableOpacity>
                         <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.BUY_ITEM, { uri: WEB_LINK, item: item })}>
                           <ArtCard>

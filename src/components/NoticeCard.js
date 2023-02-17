@@ -8,10 +8,10 @@ const NoticeCard = ({ imagePath, title }) => {
     <View style={styles.card}>
       <NoticeStroke1 style={{ position: 'absolute', left: 0, bottom: 0 }} />
       <NoticeStroke2 style={{ position: 'absolute', left: 0, top: 0 }} />
-      <NoticeStroke3 style={{ position: 'absolute', left: 43, top: 0 }} /> 
-      <NoticeStorkStar style={{ position: 'absolute', bottom: 16, right: 17 }} />
+      <NoticeStroke3 style={{ position: 'absolute', left: 43, top: 0 }} />
+      <NoticeStorkStar style={{ position: 'absolute', bottom: 10.97, right: 10.21 }} />
       <View style={styles.image}>
-        {imagePath && <Image height={30} source={imagePath} />}
+        {imagePath && <Image source={imagePath} defaultSource={require(`../assets/Logo.png`)} />}
       </View>
       <Text style={styles.text} >
         {title}

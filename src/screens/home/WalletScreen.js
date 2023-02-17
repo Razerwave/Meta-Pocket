@@ -38,14 +38,12 @@ const WalletScreen = ({ navigation }) => {
   const [nfts, setNFTs] = useState([]);
 
   useEffect(() => {
-    setTotal(WalletHomeData.total)
-    // setNoticeList(WalletHomeData.notice)
-    setTokens(WalletHomeData.tokens)
-    setNFTs(WalletHomeData.nfts)
+    const {total, tokens, nfts, notice} = WalletHomeData
+    setTotal(total)
+    setNoticeList(notice)
+    setTokens(tokens)
+    setNFTs(nfts)
 
-    setTimeout(() => {
-      setNoticeList(WalletHomeData.notice)
-    }, 3000)
   }, [])
 
   const renderScene = ({ route }) => {

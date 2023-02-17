@@ -274,10 +274,10 @@ const testData = [
 const PortfolioData = {
   total: 57784,
   list: [
-    {color: magenta, coin: 'BTC', percentage: 30, amount: 20224},
-    {color: gray100, coin: 'ETH', percentage: 10, amount: 17335},
-    {color: purple100, coin: 'USDT', percentage: 20, amount: 11557},
-    {color: primary, coin: 'FIL', percentage: 40, amount: 8668},
+    { color: magenta, coin: 'BTC', percentage: 30, amount: 20224 },
+    { color: gray100, coin: 'ETH', percentage: 10, amount: 17335 },
+    { color: purple100, coin: 'USDT', percentage: 20, amount: 11557 },
+    { color: primary, coin: 'FIL', percentage: 40, amount: 8668 },
   ],
 };
 
@@ -379,8 +379,8 @@ const WalletHomeData = {
 };
 
 const langSelectData = [
-  {label: 'ENGLISH', value: 'ENG', selectedLabel: 'ENG'},
-  {label: 'KOREAN', value: 'KOR', selectedLabel: 'KOR'},
+  { label: 'ENGLISH', value: 'ENG', selectedLabel: 'ENG' },
+  { label: 'KOREAN', value: 'KOR', selectedLabel: 'KOR' },
 ];
 const BTC_INFO_DATA = [
   {

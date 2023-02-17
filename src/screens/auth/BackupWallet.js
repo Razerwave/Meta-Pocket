@@ -3,6 +3,7 @@ import {TouchableOpacity} from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 
 import {
+  BodyText,
   ButtonPrimary,
   ButtonText,
   CardBox,

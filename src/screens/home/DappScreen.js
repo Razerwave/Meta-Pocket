@@ -67,7 +67,7 @@ const DappTab = ({ data = [], onPress }) => {
   return (
     <LayoutScreen>
       <LayoutScroll>
-        <Stack marginTop={30} marginHorizontal={26} spacing={20} direction='row' style={{ flexWrap: 'wrap' }}>
+        <Stack marginTop={30} marginHorizontal={26} direction='row' style={{ flexWrap: 'wrap', justifyContent: 'space-between' }}>
           {data.map((item, index) => (
             <Card key={index} item={item} onPress={onPress} />
           ))}

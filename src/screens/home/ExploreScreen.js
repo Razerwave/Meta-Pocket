@@ -45,7 +45,7 @@ const ExploreScreen = ({ navigation }) => {
                 </TouchableOpacity>
 
                 <View paddingLeft={15}>
-                  <Stack direction='row' spacing={20} style={{ flexWrap: 'wrap' }}>
+                  <Stack direction='row' style={{ flexWrap: 'wrap', justifyContent: 'space-between' }}>
                     {items.slice(0, 4).map((item, index) => title == 'Website' ? (
                       <View key={index} marginBottom={30}>
                         <TouchableOpacity style={{ flex: 1 }}></TouchableOpacity>

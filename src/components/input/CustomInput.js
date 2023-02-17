@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {useTheme} from 'styled-components';
 import {white} from '../../constants/colors';
+import { fontBody } from '../../constants/fonts';
 import BodyText from '../texts/BodyText';
 
 const CustomInput = ({
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 0,
     paddingHorizontal: 9,
-    fontFamily: 'Lato',
+    fontFamily: fontBody,
     fontSize: 12,
     lineHeight: 14,
     fontWeight: '400',

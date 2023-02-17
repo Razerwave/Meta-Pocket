@@ -68,60 +68,34 @@ const ExploreTab = ({
   return (
     <LayoutScreen>
       <LayoutScroll>
-        <Container>
+        <Stack marginHorizontal={26} marginTop={20} spacing={20}>
           {data.map((item, index) => (
-            <Section key={index}>
-              <ListTouchableOpacity onPress={() => onPress(item)}>
-                <View style={{}}>
-                  <IconColorDot color={dotColor} />
-                </View>
-                <ContentList>
-                  <Content>
+            <TouchableOpacity key={index} onPress={() => onPress(item)}>
+              <Stack direction='row' alignItems="center">
+                <Stack marginBottom={6}>
+                  <Stack direction='row' alignItems="center" spacing={10}>
+                    <IconColorDot color={dotColor} size={8} />
                     <BodyText type={5}>{item.title}</BodyText>
+                  </Stack>
+                  <Stack style={{ marginLeft: 18 }}>
                     <BodyText type={7} style={{ color: gray300 }}>{item.description}</BodyText>
-                  </Content>
+                  </Stack>
+                </Stack>
+                <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
                   <TouchableOpacity onPress={() => onPressStar(item)}>
                     <Image
                       source={item.star ? require('../../assets/icons/Vector.png') : require('../../assets/icons/favorite.png')}
                       style={{ width: 14, height: 14 }}
                     />
                   </TouchableOpacity>
-                </ContentList>
-              </ListTouchableOpacity>
-            </Section>
+                </Stack>
+              </Stack>
+            </TouchableOpacity>
           ))}
-        </Container>
+        </Stack>
       </LayoutScroll>
     </LayoutScreen>
   );
 };
 
-const Container = styled.View`
-  gap: 20px;
-  padding: 16px;
-  border-top-width: 1px;
-  border-color: ${props => props.theme.tabIndicatorColor};
-`;
-
-const Section = styled.View`
-  gap: 20px;
-`;
-
-const ListTouchableOpacity = styled.TouchableOpacity`
-  flex-direction: row;
-  gap: 16px;
-  justify-content: center;
-  align-self: flex-start;
-  align-items: center
-`;
-
-const ContentList = styled.View`
-  gap: 20px;
-  flex-direction: row;
-  flex: 1;
-`;
-
-const Content = styled.View`
-  flex: 1;
-`;
 export default TabViewExample;

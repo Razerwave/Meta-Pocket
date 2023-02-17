@@ -47,6 +47,7 @@ import ButtonGray from './buttons/ButtonGray';
 import CustomToast from './CustomToast';
 import CustomLineChart from './CustomLineChart';
 import CustomLineChartKit from './CustomLineChartKit';
+import Card from './Card';
 
 export {
   Title,
@@ -94,4 +95,5 @@ export {
   CustomToast,
   CustomLineChart,
   CustomLineChartKit,
+  Card,
 };

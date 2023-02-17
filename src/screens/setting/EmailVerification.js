@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { ButtonPrimary, CustomInput, ErrorText, LayoutBottom, LayoutScreen, LayoutScroll, Paragraph, Stack } from '../../components'
 import { REGEX_EMAIL, ROUTES } from '../../constants'
 import { useAuth } from '../../context/AuthContext'
+import { fontBody } from '../../constants/fonts'
 
 const TIMER_SEC = 10
 
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
   timer: {
     paddingVertical: 5,
     paddingHorizontal: 9,
-    fontFamily: 'Lato',
+    fontFamily: fontBody,
     fontSize: 10,
     fontWeight: '600',
     color: '#04CB8D',

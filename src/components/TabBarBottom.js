@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { View, Text, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 import { useTheme } from 'styled-components'
+import { fontBody } from '../constants/fonts';
 
 const TabBarBottom = ({ state, descriptors, navigation }) => {
   const { bottomTab: { bgColor } } = useTheme()
@@ -12,10 +13,10 @@ const TabBarBottom = ({ state, descriptors, navigation }) => {
   );
 }
 
-const animate1 = { 0: { scale: .5, translateY: 0 }, .92: { translateY: -14 }, 1: { scale: 1.2, translateY: -10 } }
+const animate1 = { 0: { scale: .5, translateY: 0 }, 1: { scale: 1.2, translateY: -10 } }
 const animate2 = { 0: { scale: 1.2, translateY: -10 }, 1: { scale: 1, translateY: 0 } }
 
-const circle1 = { 0: { scale: 0 }, 0.3: { scale: .9 }, 0.5: { scale: .2 }, 0.8: { scale: .7 }, 1: { scale: 1 }, }
+const circle1 = { 0: { scale: 0, translateY: 0 }, 0.6: { scale: 1, translateY: -10 }, 1: { scale: 1, translateY: 0 } }
 const circle2 = { 0: { scale: 1 }, 1: { scale: 0 } }
 
 
@@ -53,19 +54,16 @@ const TabButton = ({ route, index, descriptors, navigation, state }) => {
   const icon = options.tabBarIcon({ focused: focused, size: 25, color: focused ? activeIconColor : inactiveColor });
   const label = options.tabBarLabel !== undefined ? options.tabBarLabel : options.title !== undefined ? options.title : route.name;
 
-  const viewRef = useRef(null)
-  const circleRef = useRef(null)
-  const textRef = useRef(null)
+  const homeButtonRef = useRef(null)
+  const homeButtonCircleRef = useRef(null)
 
   useEffect(() => {
     if (focused) {
-      viewRef.current.animate(animate1)
-      circleRef.current.animate(circle1)
-      // textRef.current.transitionTo({ scale: 1 })
+      homeButtonRef.current.animate(animate1)
+      homeButtonCircleRef.current.animate(circle1)
     } else {
-      viewRef.current.animate(animate2)
-      circleRef.current.animate(circle2)
-      // textRef.current.transitionTo({ scale: 0 })
+      homeButtonRef.current.animate(animate2)
+      homeButtonCircleRef.current.animate(circle2)
     }
   }, [focused])
 
@@ -81,24 +79,21 @@ const TabButton = ({ route, index, descriptors, navigation, state }) => {
       style={styles.container}
     >
       <Animatable.View
-        ref={viewRef}
-        duration={500}
+        ref={homeButtonRef}
+        duration={1000} easing="ease-out"
         style={styles.containerY}
       >
         <View style={[styles.btn, { backgroundColor: bgColor, borderColor: bgColor }]}>
-          <Animatable.View
-            ref={circleRef}
+          <Animatable.View easing="ease-out"
+            ref={homeButtonCircleRef} duration={1000}
             style={{ ...StyleSheet.absoluteFillObject, backgroundColor: activeColor, borderRadius: 25 }}
           />
           {icon}
         </View>
       </Animatable.View>
-      <Animatable.Text
-        ref={textRef}
-        style={[styles.label, { color: focused ? activeTextColor : inactiveColor, fontWeight: focused ? 'bold' : 'normal' }]}
-      >
+      <Text style={[styles.label, { color: focused ? activeTextColor : inactiveColor, fontWeight: focused ? 'bold' : 'normal' }]}>
         {label}
-      </Animatable.Text>
+      </Text>
       {/* <Text style={{ color: focused ? activeTintColor : fontColor }}>
           {label}
         </Text> */}
@@ -139,7 +134,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   label: {
-    fontFamily: 'Lato',
+    fontFamily: fontBody,
     fontSize: 12,
     lineHeight: 14,
     textAlign: 'center',

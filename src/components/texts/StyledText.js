@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
+import { fontBody } from '../../constants/fonts';
 
 const StyledText = styled.Text`
-  font-family: 'Lato';
+  font-family: ${fontBody};
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

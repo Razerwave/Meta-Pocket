@@ -12,3 +12,4 @@ export const INITIALIZE = 'INITIALIZE';
 export const SET_STATUS_BAR = 'SET_STATUS_BAR';
 export const SET_MAIN_PRESS_EVENT = 'SET_MAIN_PRESS_EVENT';
 export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
+export const SET_TOAST = 'SET_TOAST';

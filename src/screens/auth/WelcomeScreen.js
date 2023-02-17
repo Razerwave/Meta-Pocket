@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, {useRef, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -9,7 +9,7 @@ import {
   Animated,
   TouchableOpacity,
 } from 'react-native';
-import { SvgXml } from 'react-native-svg';
+import {SvgXml} from 'react-native-svg';
 import {
   LayoutScreen,
   ButtonPrimary,
@@ -21,12 +21,12 @@ import {
   LayoutCenter,
   ButtonText,
 } from '../../components';
-import { ROUTES } from '../../constants';
+import {ROUTES} from '../../constants';
 import LogoBig from '../../assets/LogoBig';
-import { useAuth } from '../../context/AuthContext';
+import {useAuth} from '../../context/AuthContext';
 
-const WelcomeScreen = ({ navigation }) => {
-  const {i18n} = useAuth()
+const WelcomeScreen = ({navigation}) => {
+  const {i18n} = useAuth();
   return (
     <LayoutScreen>
       <LayoutCenter>
@@ -36,9 +36,10 @@ const WelcomeScreen = ({ navigation }) => {
         <ButtonPrimary
           title={i18n.createNewWallet}
           onPress={() => navigation.navigate(ROUTES.AUTH.BACKUP_WALLET)}
-          style={{ marginBottom: 20 }}
+          style={{marginBottom: 20}}
         />
-        <ButtonText onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
+        <ButtonText
+          onPress={() => navigation.navigate(ROUTES.AUTH.RECOVER_WALLET)}>
           {i18n.iHaveAlreadyWallet}
         </ButtonText>
       </LayoutBottom>

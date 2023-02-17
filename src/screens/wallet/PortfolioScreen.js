@@ -3,9 +3,11 @@ import {
   BodyHeading,
   BodyText,
   CircleAnimated,
+  CustomLineChartKit,
   FixedThemeWrapper,
   LayoutHeader,
   LayoutScreen,
+  LayoutScroll,
   Stack,
 } from '../../components';
 import { DarkTheme } from '../../constants';
@@ -18,43 +20,40 @@ import { PortfolioData } from '../../constants/ListData';
 import { useAuth } from '../../context/AuthContext';
 
 const PortfolioScreen = () => {
-  const { i18n } = useAuth()
-  const { backgroundColor, statusBarStyle, fontColor } = DarkTheme
+  const { i18n } = useAuth();
+  const { backgroundColor, statusBarStyle, fontColor } = DarkTheme;
   const [data, setData] = useState([]);
 
+  const chartData = {
+    labels: ['', '', '', '', '', '', 'ALL (day)'],
+    data: [0, 20, 15, 40, 10, 30, 50],
+    legend: ['($)'], // optional
+  };
+
   useEffect(() => {
-    setData(PortfolioData.list)
-  }, [])
+    setData(PortfolioData.list);
+  }, []);
 
   return (
-    <LayoutScreen statusBar={{ backgroundColor: backgroundColor, colorStyle: statusBarStyle }}>
-      <FixedThemeWrapper dark>
-        <LayoutHeader
-          title="Portfolio"
-          headerStyle={{ backgroundColor: backgroundColor }}
-          headerTitleStyle={{ color: fontColor }}
-        />
-        <Stack marginTop={30} marginBottom={20}>
-          <CircleAnimated data={data} />
-        </Stack>
-      </FixedThemeWrapper>
+    <LayoutScreen
+      statusBar={{
+        backgroundColor: backgroundColor,
+        colorStyle: statusBarStyle,
+      }}>
+      <LayoutScroll>
+        <FixedThemeWrapper dark>
+          <LayoutHeader
+            title="Portfolio"
+            headerStyle={{ backgroundColor: backgroundColor }}
+            headerTitleStyle={{ color: fontColor }}
+          />
+          <Stack marginTop={30} marginBottom={20}>
+            <CircleAnimated data={data} />
+          </Stack>
+        </FixedThemeWrapper>
+        <CustomLineChartKit data={chartData} showHorizontalLabel={true} />
+      </LayoutScroll>
     </LayoutScreen>
-  );
-};
-
-const LisItem = ({ color, coin, percentage, amount }) => {
-  return (
-    <Stack direction="row" alignItems="center" spacing={10} marginHorizontal={33}>
-      <IconDottRec color={color} />
-      <BodyText type={3}>{coin}</BodyText>
-      <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
-        <BodyText type={3} style={{ color: neutral100 }}>
-          {percentage}
-          <BodyText type={5} style={{ color: neutral100 }}> %</BodyText>
-        </BodyText>
-      </Stack>
-      <BodyText type={3} style={{ marginLeft: 10 }}>${currency(amount)}</BodyText>
-    </Stack>
   );
 };
 

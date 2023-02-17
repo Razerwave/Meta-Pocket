@@ -10,6 +10,7 @@ import {
   SET_STATUS_BAR,
   SET_MAIN_PRESS_EVENT,
   CHANGE_LANGUAGE,
+  SET_TOAST,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -62,6 +63,10 @@ const reducer = (state, action) => {
 
   if (action.type === UNLOCK) {
     return {...state, isLocked: false};
+  }
+
+  if (action.type === SET_TOAST) {
+    return {...state, toast: action.payload.toast};
   }
 
   /*** LOADING ACTIONS ***/

@@ -174,7 +174,7 @@ const PortfolioData = {
   list: [
     { color: magenta, coin: 'BTC', amount: 20224 },
     { color: gray100, coin: 'ETH', amount: 17335 },
-    { color: purple100, coin: 'USDT', amount: 11557 },
+    { color: purple100, coin: 'USDT', amount: 15000 },
     { color: primary, coin: 'FIL', amount: 8668 },
   ],
 };

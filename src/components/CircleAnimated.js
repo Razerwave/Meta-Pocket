@@ -61,7 +61,9 @@ const LisItem = ({ color, coin, percentage = 0, amount }) => {
           <BodyText type={5} style={{ color: neutral100 }}> %</BodyText>
         </BodyText>
       </Stack>
-      <BodyText type={3} style={{ marginLeft: 10 }}>${currency(amount)}</BodyText>
+      <BodyText type={3} style={{ marginLeft: 10, alignItems: 'flex-end' }}>
+        ${currency(amount)}
+      </BodyText>
     </Stack>
   );
 };

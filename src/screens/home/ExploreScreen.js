@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { View, Image, TouchableOpacity, ImageBackground } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Image, TouchableOpacity, ImageBackground} from 'react-native';
 import styled from 'styled-components/native';
 import {
   BodyText,
@@ -7,14 +7,15 @@ import {
   LayoutScreen,
   LayoutScroll,
   Stack,
+  Card,
 } from '../../components';
-import { ROUTES } from '../../constants';
+import {ROUTES} from '../../constants';
 
-import { testData } from '../../constants/ListData';
-import { IconColorDot, IconExploreArrow } from '../../assets/icons';
-import { yellow200, red, neutral300, neutral100 } from '../../constants/colors';
+import {testData} from '../../constants/ListData';
+import {IconColorDot, IconExploreArrow} from '../../assets/icons';
+import {yellow200, red, neutral300, neutral100} from '../../constants/colors';
 
-const ExploreScreen = ({ navigation }) => {
+const ExploreScreen = ({navigation, onPress}) => {
   const WEB_LINK = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
   const [data, setData] = useState([]);
 
@@ -30,74 +31,36 @@ const ExploreScreen = ({ navigation }) => {
     <LayoutScreen>
       <LayoutScroll>
         <Stack marginTop={22} paddingHorizontal={20}>
-          {data.map(({ title, items, key, ...item }, index) => {
+          {data.map(({title, items, key, ...item}, index) => {
             return (
               <View key={index}>
                 {index !== 0 && <Divider marginBottom={30} />}
-                <TouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, { tabIndex: index, })}>
-                  <Stack direction='row' alignItems="center" spacing={8} marginBottom={20}>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
+                      tabIndex: index,
+                    })
+                  }>
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    spacing={8}
+                    marginBottom={20}>
                     <IconColorDot size={6} color={item.dotColor} />
                     <BodyText fontWeight="600">{title}</BodyText>
-                    <Stack style={{ flex: 1, alignItems: 'flex-end' }}>
+                    <Stack style={{flex: 1, alignItems: 'flex-end'}}>
                       <IconExploreArrow />
                     </Stack>
                   </Stack>
                 </TouchableOpacity>
 
                 <View paddingLeft={15}>
-                  <Stack direction='row' style={{ flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                    {items.slice(0, 4).map((item, index) => title == 'Website' ? (
-                      <View key={index} marginBottom={30}>
-                        <TouchableOpacity style={{ flex: 1 }}></TouchableOpacity>
-                        <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.WEB, { uri: WEB_LINK, title: title })}>
-                          <Card>
-                            <FavoritePress>
-                              <Image
-                                source={item.star ? require('../../assets/icons/Vector.png') : require('../../assets/icons/favorite.png')}
-                                style={{ width: 14, height: 14 }}
-                              />
-                            </FavoritePress>
-                            <ImageContainer>
-                              <Image source={item.logo} />
-                            </ImageContainer>
-                          </Card>
-                        </AllTabTouchableOpacity>
-
-                        <View>
-                          <BodyText type={8} style={{ marginTop: 10, marginBottom: 6, }}>
-                            {item.title}
-                          </BodyText>
-                          <BodyText type={7} style={{ color: neutral100 }}>
-                            {item.description}
-                          </BodyText>
-                        </View>
-                      </View>
-                    ) : title == 'Art' && (
-                      <View key={index} marginBottom={30}>
-                        <TouchableOpacity style={{ flex: 1 }}></TouchableOpacity>
-                        <AllTabTouchableOpacity onPress={() => navigation.navigate(ROUTES.EXPLORE.BUY_ITEM, { uri: WEB_LINK, item: item })}>
-                          <ArtCard>
-                            <ImageBackground source={item.image} style={{ flex: 1, justifyContent: 'center' }} resizeMode="cover">
-                              <FavoriteSection>
-                                <SetArtFavorite>
-                                  <Image
-                                    source={item.star ? require('../../assets/icons/Vector.png') : require('../../assets/icons/favorite.png')}
-                                    style={{ width: 14, height: 14 }}
-                                  />
-                                </SetArtFavorite>
-                              </FavoriteSection>
-                            </ImageBackground>
-                          </ArtCard>
-                        </AllTabTouchableOpacity>
-
-                        <View>
-                          <BodyText type={8} style={{ marginTop: 10, marginBottom: 6 }}>
-                            {item.title}
-                          </BodyText>
-                          <BodyText type={7} style={{ color: neutral100 }}>
-                            {item.total} {item.coin}
-                          </BodyText>
-                        </View>
+                  <Stack
+                    direction="row"
+                    style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
+                    {items.slice(0, 4).map((item, index) => (
+                      <View style={{marginBottom: 30}}>
+                        <Card key={index} item={item} onPress={onPress} />
                       </View>
                     ))}
                   </Stack>
@@ -105,10 +68,6 @@ const ExploreScreen = ({ navigation }) => {
               </View>
             );
           })}
-          {/* <View
-            style={{
-              alignItems: 'flex-end',
-            }}></View> */}
         </Stack>
       </LayoutScroll>
     </LayoutScreen>
@@ -160,7 +119,7 @@ const SetArtFavorite = styled.TouchableOpacity`
   margin-right: 10px;
 `;
 
-const Card = styled.View`
+const CardContainer = styled.View`
   flex: 1;
   flex-direction: row-reverse;
   justify-content: space-between;

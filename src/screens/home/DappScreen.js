@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ROUTES } from '../../constants';
 import { Dappdata } from '../../constants/ListData';
-import { CustomTabs, Card, LayoutScreen, LayoutScroll } from '../../components';
+import { CustomTabs, Card, LayoutScreen, LayoutScroll, Stack } from '../../components';
 import { useAuth } from '../../context/AuthContext';
 import styled from 'styled-components/native';
+import { View } from 'react-native';
 
 const DappScreen = ({ navigation }) => {
   const { i18n } = useAuth();
@@ -66,30 +67,14 @@ const DappTab = ({ data = [], onPress }) => {
   return (
     <LayoutScreen>
       <LayoutScroll>
-        <Container>
-          <Content>
-            {data.map((item, index) => (
-              <Card key={index} item={item} onPress={onPress} />
-            ))}
-          </Content>
-        </Container>
+        <Stack marginTop={30} marginHorizontal={26} spacing={20} direction='row' style={{ flexWrap: 'wrap' }}>
+          {data.map((item, index) => (
+            <Card key={index} item={item} onPress={onPress} />
+          ))}
+        </Stack>
       </LayoutScroll>
     </LayoutScreen>
   )
 };
 
 export default DappScreen;
-
-const Container = styled.View`
-  padding: 30px;
-  gap: 20px;
-  border-top-width: 1px;
-  border-color: ${props => props.theme.tabIndicatorColor};
-`;
-
-const Content = styled.View`
-  gap: 20px;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-`;

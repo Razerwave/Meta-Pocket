@@ -70,7 +70,7 @@ const WalletScreen = ({ navigation }) => {
       }}>
       <FixedThemeWrapper dark>
         <Stack marginBottom={20}>
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
             <BodyText type={2}>{i18n.wallet}</BodyText>
             <WalletTotalBalance
               total={total}

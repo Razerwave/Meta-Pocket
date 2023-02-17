@@ -80,12 +80,12 @@ const TabButton = ({ route, index, descriptors, navigation, state }) => {
     >
       <Animatable.View
         ref={homeButtonRef}
-        duration={1000} easing="ease-out"
+        duration={400}
         style={styles.containerY}
       >
         <View style={[styles.btn, { backgroundColor: bgColor, borderColor: bgColor }]}>
-          <Animatable.View easing="ease-out"
-            ref={homeButtonCircleRef} duration={1000}
+          <Animatable.View
+            ref={homeButtonCircleRef}
             style={{ ...StyleSheet.absoluteFillObject, backgroundColor: activeColor, borderRadius: 25 }}
           />
           {icon}

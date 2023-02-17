@@ -61,9 +61,9 @@ const BackupWallet = ({navigation}) => {
             <TouchableOpacity onPress={handleCopy}>
               <Stack direction="row" spacing={6}>
                 <IconCopy />
-                <ButtonText style={{fontSize: 12, lineHeight: 16}}>
+                <BodyText style={{fontSize: 12, lineHeight: 16}}>
                   {copied ? i18n.copiedToClipBoard : i18n.copyToClipBoard}
-                </ButtonText>
+                </BodyText>
               </Stack>
             </TouchableOpacity>
           </Stack>

@@ -15,9 +15,9 @@ import IconCopy from './IconCopy';
 import IconExploreArrow from './IconExploreArrow';
 import IconColorDot from './IconColorDot';
 import IconDappArrow from './IconDappArrow';
-import IconCheck from "./IconCheck";
-import IconSearch from "./IconSearch";
-import IconDottRec from "./IconDottRec";
+import IconCheck from './IconCheck';
+import IconSearch from './IconSearch';
+import IconDottRec from './IconDottRec';
 import IconSendBTCScreen from './IconSendBTCScreen';
 import IconArrowScroll from './IconArrowScroll';
 import IconSend from './IconSend';
@@ -26,6 +26,8 @@ import IconSwap from './IconSwap';
 import IconStaking from './IconStaking';
 import IconCopy2 from './IconCopy2';
 import IconReceiveUSDT from './IconReceiveUSDT';
+import IconFilledChecked from './IconFilledChecked';
+import IconClose from './IconClose';
 
 export {
   IconArrowBack,
@@ -56,4 +58,6 @@ export {
   IconStaking,
   IconCopy2,
   IconReceiveUSDT,
+  IconFilledChecked,
+  IconClose,
 };

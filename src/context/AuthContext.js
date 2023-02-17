@@ -16,6 +16,7 @@ import {
   RESTORE_STATE,
   SET_MAIN_PRESS_EVENT,
   SET_STATUS_BAR,
+  SET_TOAST,
   TOGGLE_THEME,
   UNLOCK,
 } from './actions';
@@ -42,6 +43,12 @@ const initialState = {
   mainOnPressEvent: null,
   lang: 'ENG',
   i18n: ENG,
+  toast: {
+    show: false,
+    type: 'success',
+    text: '',
+    fromTop: 0,
+  },
 };
 
 const AuthContext = createContext();
@@ -186,6 +193,39 @@ const AuthProvier = ({children}) => {
     dispatch({type: CHANGE_LANGUAGE, payload});
   };
 
+  const showToast = ({text, type, fromTop}) => {
+    console.log(text, type);
+    dispatch({
+      type: SET_TOAST,
+      payload: {
+        toast: {
+          show: true,
+          text,
+          type,
+          fromTop: fromTop ? fromTop : 0,
+        },
+      },
+    });
+
+    setTimeout(() => {
+      hideToast();
+    }, 3000);
+  };
+
+  const hideToast = () => {
+    dispatch({
+      type: SET_TOAST,
+      payload: {
+        toast: {
+          show: false,
+          text: '',
+          type: 'success',
+          fromTop: 0,
+        },
+      },
+    });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -204,6 +244,8 @@ const AuthProvier = ({children}) => {
         setStatusBar,
         setMainPressEvent,
         changeLanguage,
+        showToast,
+        hideToast,
       }}>
       <ThemeProvider theme={state.isDarkTheme ? DarkTheme : DefaultTheme}>
         {children}

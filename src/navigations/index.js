@@ -1,5 +1,5 @@
 import React, {useRef, useState, useEffect} from 'react';
-import {AppState} from 'react-native';
+import {AppState, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {EnterPasscode, LoadingScreen} from '../screens';
 import AuthNavigation from './AuthNavigation';

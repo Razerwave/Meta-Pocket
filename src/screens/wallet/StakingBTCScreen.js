@@ -4,6 +4,7 @@ import {
   BodyText,
   ButtonPrimary,
   CustomInput,
+  CustomLineChartKit,
   Divider,
   LayoutBottom,
   LayoutScreen,
@@ -30,9 +31,16 @@ const StakingBTCScreen = ({navigation, route}) => {
     });
   };
 
+  const chartData = {
+    labels: ['Deposit', '', '', '', '', '', 'Expire'],
+    data: [0, 20, 15, 40, 10, 30, 50],
+    legend: [''], // optional
+  };
+
   return (
     <LayoutScreen>
       <LayoutScroll>
+        <CustomLineChartKit data={chartData} />
         <Stack marginHorizontal={32}>
           <Divider />
           <Stack

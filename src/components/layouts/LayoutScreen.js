@@ -1,9 +1,5 @@
 import styled from 'styled-components/native';
-import {
-  SafeAreaView,
-  TouchableWithoutFeedback,
-  TouchableOpacity,
-} from 'react-native';
+import {SafeAreaView, TouchableWithoutFeedback} from 'react-native';
 import {useIsFocused} from '@react-navigation/native';
 import {useAuth} from '../../context/AuthContext';
 import {useEffect} from 'react';

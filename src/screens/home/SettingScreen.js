@@ -79,6 +79,7 @@ const SettingScreen = ({navigation}) => {
               value={lang}
               data={langSelectData}
               onChange={item => changeLanguage({lang: item.value})}
+              selectedWrapperStyle={{minWidth: 35}}
             />
           </ListItem>
           <ListItem label={i18n.darkMode} icon={<IconPerson />}>

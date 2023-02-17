@@ -79,6 +79,11 @@ const DefaultTheme = {
     tabInActiveColor: gray300,
     tabActiveColor: purple100,
   },
+  chart: {
+    backgroundColor: white,
+    rulesColor: gray100,
+    textColor: black,
+  },
 };
 
 const DarkTheme = {
@@ -142,6 +147,11 @@ const DarkTheme = {
   walletTab: {
     tabInActiveColor: gray300,
     tabActiveColor: white,
+  },
+  chart: {
+    backgroundColor: neutral300,
+    rulesColor: neutral100,
+    textColor: white,
   },
 };
 

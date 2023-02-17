@@ -44,6 +44,9 @@ import CustomTouchableOpacity from './CustomTouchableOpacity';
 import ActionInfoBorder from './ActionInfoBorder';
 import Precautions from './Precautions';
 import ButtonGray from './buttons/ButtonGray';
+import CustomToast from './CustomToast';
+import CustomLineChart from './CustomLineChart';
+import CustomLineChartKit from './CustomLineChartKit';
 
 export {
   Title,
@@ -88,4 +91,7 @@ export {
   ButtonScroll,
   ButtonIcon,
   ButtonGray,
+  CustomToast,
+  CustomLineChart,
+  CustomLineChartKit,
 };

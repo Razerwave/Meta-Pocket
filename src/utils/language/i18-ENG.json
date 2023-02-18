@@ -104,11 +104,13 @@
   "version": "Version",
   "community": "Community",
   "helpCenter": "Help center",
-  "emailVerification": "Email Verification",
-  "kycNotVerifiedMsg": "Your wallet has not yet been verified . Please complete KYC verification.",
+  "smsVerification": "SMS Verification",
+  "kycNotVerifiedMsg": "Your wallet has not yet been verified.",
+  "kycPleaseVerify": "Please complete KYC verification.",
   "enterYourEmailAddress": "Enter your Email Address",
   "enterVerificationCode": "Enter Verification Code",
   "kycVerificationCompleted": "KYC verification completed!",
+  "verify": "Verify",
   "resetPassCodeCompleted": "Reset Passcode completed!",
   "referralUID": "Referral UID",
   "enterReferralUID": "Enter referral UID",
@@ -121,5 +123,10 @@
   "from": "From",
   "to": "To",
   "enterThePasscode": "Enter The Passcode",
-  "enterYour6-digitPasscode.": "Enter your 6-digit passcode."
+  "enterYour6-digitPasscode.": "Enter your 6-digit passcode.",
+  "inputYourName": "Input your name",
+  "selectYouCountry": "Select you country",
+  "inputYourPhoneNumber": "Input your phone number",
+  "register": "Register",
+  "kycLong": "Know Your Customer"
 }

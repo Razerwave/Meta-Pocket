@@ -29,6 +29,7 @@ import IconReceiveUSDT from './IconReceiveUSDT';
 import IconFilledChecked from './IconFilledChecked';
 import IconClose from './IconClose';
 import IconCloseX from './IconCloseX';
+import IconCheckCircle from './IconCheckCircle';
 
 export {
   IconArrowBack,
@@ -62,4 +63,5 @@ export {
   IconFilledChecked,
   IconClose,
   IconCloseX,
+  IconCheckCircle,
 };

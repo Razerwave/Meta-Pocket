@@ -104,11 +104,13 @@
   "version": "버전",
   "community": "커뮤니티",
   "helpCenter": "고객센터",
-  "emailVerification": "이메일인증",
+  "smsVerification": "SMS Verification",
   "kycNotVerifiedMsg": "당신의 지갑은 KYC 인증이 되어있지 않습니다. ",
+  "kycPleaseVerify": "Please complete KYC verification.",
   "enterYourEmailAddress": "이메일 주소를 입력해주세요.",
   "enterVerificationCode": "인증코드를 입력해주세요.",
   "kycVerificationCompleted": "KYC 인증이 완료되었습니다!",
+  "verify": "Verify",
   "resetPassCodeCompleted": "비밀번호 변경이 완료되었습니다!",
   "referralUID": "추천인 UID ",
   "enterReferralUID": "추천인의 UID를 입력하세요. ",
@@ -121,5 +123,10 @@
   "from": "From",
   "to": "To",
   "enterThePasscode": "Enter The Passcode",
-  "enterYour6-digitPasscode.": "Enter your 6-digit passcode."
+  "enterYour6-digitPasscode.": "Enter your 6-digit passcode.",
+  "inputYourName": "Input your name",
+  "selectYouCountry": "Select you country",
+  "inputYourPhoneNumber": "Input your phone number",
+  "register": "Register",
+  "kycLong": "Know Your Customer"
 }

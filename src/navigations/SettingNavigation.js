@@ -49,7 +49,7 @@ const SettingNavigation = () => {
         component={ConfirmResetPasscode}
       />
       <Stack.Screen
-        options={{ title: i18n.kyc }}
+        options={{ title: i18n.kycLong }}
         name={ROUTES.SETTING.EMAIL_VERIFICATION}
         component={EmailVerification}
       />

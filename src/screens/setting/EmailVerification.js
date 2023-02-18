@@ -1,32 +1,47 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { ButtonPrimary, CustomInput, ErrorText, LayoutBottom, LayoutScreen, LayoutScroll, Paragraph, Stack } from '../../components'
+import { BodyHeading, BodyText, ButtonPrimary, CustomInput, ErrorText, LayoutBottom, LayoutScreen, LayoutScroll, Paragraph, Stack } from '../../components'
 import { REGEX_EMAIL, ROUTES } from '../../constants'
 import { useAuth } from '../../context/AuthContext'
 import { fontBody } from '../../constants/fonts'
+import { IconCheckCircle } from '../../assets/icons'
 
 const TIMER_SEC = 10
 
 
 const EmailVerification = ({ navigation }) => {
   const { i18n } = useAuth()
-  const [email, setEmail] = useState('')
+  const [form, setForm] = useState({
+    name: '',
+    country: null,
+    phoneNumber: '',
+  })
   const [isSent, setSent] = useState(false)
-  const [error, setError] = useState(false)
+  const [isVerified, setVerified] = useState(false)
+  const [error, setError] = useState({
+    name: false,
+    country: false,
+    phoneNumber: false,
+  })
   const [code, setCode] = useState('')
   const [timer, setTimer] = useState(TIMER_SEC)
   const [intervalID, setIntervalID] = useState()
 
-  const handleChangeEmail = v => {
-    setEmail(v)
-    if (REGEX_EMAIL.test(email)) {
-      setError(false)
+  const handleChange = (key = '', v) => {
+    setForm(o => ({ ...o, [key]: v }))
+    if (!form.name || !form.country || !form.phoneNumber) {
+      setError(o => ({ ...o, [key]: !v }))
+      return
     }
   }
 
   const handleSend = () => {
-    if (!REGEX_EMAIL.test(email)) {
-      setError(true)
+    if (!form.name || !form.country || !form.phoneNumber) {
+      setError({
+        name: !form.name,
+        country: !form.country,
+        phoneNumber: !form.phoneNumber,
+      })
       return
     }
     setSent(true)
@@ -34,6 +49,10 @@ const EmailVerification = ({ navigation }) => {
       setTimer(v => v - 1)
     }, 1000);
     setIntervalID(timer)
+  }
+
+  const handleVerify = () => {
+    setVerified(true)
   }
 
   useEffect(() => {
@@ -48,34 +67,55 @@ const EmailVerification = ({ navigation }) => {
     navigation.navigate(ROUTES.HOME.SETTING)
   }
 
+  const hasError = error.name || error.country || error.phoneNumber
   return (
     <LayoutScreen>
       <LayoutScroll>
         <Stack marginTop={80} marginHorizontal={28} marginBottom={30} spacing={72}>
-          <Paragraph
-            title={i18n.emailVerification}
-            body={i18n.kycNotVerifiedMsg}
-          />
+          <Stack>
+            <Stack marginBottom={20}>
+              <BodyHeading>{i18n.smsVerification}</BodyHeading>
+            </Stack>
+            <BodyText>{i18n.kycNotVerifiedMsg}</BodyText>
+            <BodyText>{i18n.kycPleaseVerify}</BodyText>
+          </Stack>
           <Stack spacing={16}>
             <CustomInput
-              value={email}
-              onChange={(v) => handleChangeEmail(v)}
-              placeholder={i18n.enterYourEmailAddress}
-              btnText='Send'
+              value={form.name}
+              onChange={(v) => handleChange('name', v)}
+              placeholder={i18n.inputYourName}
+              error={error.name}
+            />
+            {error.name && <ErrorText>{i18n.inputYourName}</ErrorText>}
+            <CustomInput
+              value={form.country}
+              onChange={(v) => handleChange('country', v)}
+              placeholder={i18n.selectYouCountry}
+              error={error.country}
+            />
+            {error.country && <ErrorText>{i18n.selectYouCountry}</ErrorText>}
+            <CustomInput
+              value={form.phoneNumber}
+              onChange={(v) => handleChange('phoneNumber', v)}
+              placeholder={i18n.inputYourPhoneNumber}
+              btnText={i18n.send}
               onPress={!isSent && handleSend}
-              error={error}
+              error={error.phoneNumber}
               action={isSent && (
                 <Text style={styles.timer}>00:{timer < 10 ? `0${timer}` : timer}</Text>
               )}
             />
-            {error && <ErrorText>
-              Enter valid email
-            </ErrorText>}
+            {error.phoneNumber && <ErrorText>{i18n.inputYourPhoneNumber}</ErrorText>}
             {isSent && (
               <CustomInput
                 value={code}
                 onChange={(v) => setCode(v)}
                 placeholder={i18n.enterVerificationCode}
+                btnText={i18n.verify}
+                onPress={!isVerified && handleVerify}
+                action={isVerified && (
+                  <IconCheckCircle />
+                )}
               />
             )}
           </Stack>
@@ -83,7 +123,7 @@ const EmailVerification = ({ navigation }) => {
 
         <LayoutBottom paddingBottom={47} height={null}>
           <ButtonPrimary
-            title="OK"
+            title={i18n.register}
             onPress={() => handleOK()}
           />
         </LayoutBottom>

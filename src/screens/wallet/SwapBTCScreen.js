@@ -41,7 +41,7 @@ const SwapBTCScreen = () => {
                 value={selectValue}
                 data={selectData}
                 onChange={item => setSelectValue(item.value)}
-                selectStyle={{top: 0, paddingBottom: 13, width: 80}}
+                wrapperStyle={{height: 37, width: 60}}
               />
             </View>
             <InputSection>

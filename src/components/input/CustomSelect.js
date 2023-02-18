@@ -14,8 +14,8 @@ const CustomSelect = ({
   onChange,
   bordered,
   textStyle,
-  selectStyle,
-  selectedWrapperStyle,
+  wrapperStyle,
+  dropDownStyle,
 }) => {
   const [selectedItem, setSelectedItem] = useState({});
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -29,7 +29,7 @@ const CustomSelect = ({
         setDropdownVisible(false);
       }}
       key={index}>
-      <View style={{paddingTop: 15}}>
+      <View style={{paddingTop: 10}}>
         <BodyText type={5} style={textStyle}>
           {item.label}
         </BodyText>
@@ -74,8 +74,36 @@ const CustomSelect = ({
   }, [dropdownVisible]);
 
   return (
-    <Wrapper style={selectStyle}>
-      <TouchableOpacity onPress={() => setDropdownVisible(!dropdownVisible)}>
+    <TouchableOpacity onPress={() => setDropdownVisible(!dropdownVisible)}>
+      <Wrapper
+        bordered={bordered}
+        borderColor={input.borderColor}
+        dropdownVisible={dropdownVisible}
+        bgColor={input.backgroundColor}>
+        <View
+          style={[
+            {
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: 10,
+            },
+            wrapperStyle,
+          ]}>
+          <BodyText type={5} style={{justifyContent: 'center', ...textStyle}}>
+            {dropdownVisible
+              ? selectedItem.label
+              : selectedItem.selectedLabel
+              ? selectedItem.selectedLabel
+              : selectedItem.label}
+          </BodyText>
+          <View style={{paddingTop: 4, marginLeft: 6}}>
+            <IconArrowDown color={isDarkTheme ? neutral100 : black} />
+          </View>
+        </View>
+      </Wrapper>
+      {dropdownVisible && (
         <SelectWrapper
           layout={CurvedTransition.duration(100)}
           dropdownVisible={dropdownVisible}
@@ -83,30 +111,10 @@ const CustomSelect = ({
           bgColor={input.backgroundColor}
           borderColor={input.borderColor}
           textColor={activeTintColor}
-          style={selectStyle}>
-          <View
-            style={[
-              {
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              },
-              selectedWrapperStyle,
-            ]}>
-            <BodyText type={5} style={{justifyContent: 'center', ...textStyle}}>
-              {dropdownVisible
-                ? selectedItem.label
-                : selectedItem.selectedLabel
-                ? selectedItem.selectedLabel
-                : selectedItem.label}
-            </BodyText>
-            <View style={{paddingTop: 4, marginLeft: 6}}>
-              <IconArrowDown color={isDarkTheme ? neutral100 : black} />
-            </View>
-          </View>
+          style={dropDownStyle}>
           {dropdownVisible && (
             <Animated.View entering={FadeInUp}>
+              {renderItem({item: selectedItem, index: 1})}
               {data.map((item, index) => {
                 if (item.value === selectedItem.value) {
                   return null;
@@ -116,21 +124,31 @@ const CustomSelect = ({
             </Animated.View>
           )}
         </SelectWrapper>
-      </TouchableOpacity>
-    </Wrapper>
+      )}
+    </TouchableOpacity>
   );
 };
 
 const Wrapper = styled.View`
   position: relative;
-  background-color: 'red';
-  flex: 1;
+  background-color: ${props =>
+    props.bordered
+      ? props.dropdownVisible
+        ? 'transparent'
+        : props.bgColor
+      : 'transparent'};
+  border: ${props =>
+    props.bordered
+      ? props.dropdownVisible
+        ? 'solid 1px rgba(28, 28, 40, 0)'
+        : `solid 1px ${props.borderColor}`
+      : 'none'};
+  border-radius: 4px;
 `;
 
 const SelectWrapper = styled(Animated.View)`
   position: absolute;
-  right: 0;
-  top: -15px;
+  top: 0;
   background-color: ${props =>
     props.dropdownVisible
       ? props.bgColor
@@ -140,8 +158,10 @@ const SelectWrapper = styled(Animated.View)`
   border: ${props =>
     props.bordered ? `solid 1px ${props.borderColor}` : 'none'};
   border-radius: 4px;
-  z-index: 999;
-  padding: 15px;
+  padding-top: 0;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 24px;
 `;
 
 export default CustomSelect;

@@ -41,7 +41,7 @@ const ProtectWallet = ({ navigation }) => {
       </Stack>
       <LayoutBottom height={224}>
         <View style={{ height: 44 }}>
-          <Stack direction='row' spacing={9}>
+          <Stack direction='row' spacing={9} alignItems="center">
             <TouchableOpacity onPress={() => handleToggle()}>
               <View style={[styles.checkBox, checkStyle]}>
                 {agreed && <IconCheck />}

@@ -65,7 +65,7 @@ const SettingScreen = ({navigation}) => {
             onPress={() =>
               navigation.navigate(ROUTES.SETTING.EMAIL_VERIFICATION)
             }>
-            <StyledText>test@gmail.com</StyledText>
+            <IconArrowForward />
           </ListItem>
           <ListItem
             label={i18n.referralUID}

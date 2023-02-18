@@ -1,17 +1,17 @@
 import React from 'react';
-import {useTheme} from 'styled-components';
-import {Modal, StyleSheet, TouchableOpacity, View} from 'react-native';
+import { useTheme } from 'styled-components';
+import { Modal, StyleSheet, TouchableOpacity, View, Pressable } from 'react-native';
 import BodyHeading from './texts/BodyHeading';
-import {IconCloseX} from '../assets/icons';
+import { IconCloseX } from '../assets/icons';
 
 const BottomModal = ({
   children,
   title,
   visible = false,
-  onClose = () => {},
+  onClose = () => { },
 }) => {
   const {
-    card: {bgColor},
+    card: { bgColor },
     fontColor,
   } = useTheme('');
   return (
@@ -21,13 +21,17 @@ const BottomModal = ({
       visible={visible}
       onRequestClose={() => {
         onClose();
-      }}>
-      <View style={[styles.centeredView, {backgroundColor: bgColor}]}>
+      }}
+    >
+      <Pressable style={{ height: 94 }} onPress={() => onClose(false)} />
+      <View style={[styles.container, { backgroundColor: bgColor }]}>
         <TouchableOpacity style={styles.btnClose} onPress={() => onClose()}>
           <IconCloseX size={30} color={fontColor} />
         </TouchableOpacity>
+        {title && <View style={styles.heading}>
+          <BodyHeading>{title}</BodyHeading>
+        </View>}
         <View style={styles.body}>
-          {title && <BodyHeading style={styles.heading}>{title}</BodyHeading>}
           {children}
         </View>
       </View>
@@ -38,22 +42,22 @@ const BottomModal = ({
 export default BottomModal;
 
 const styles = StyleSheet.create({
-  centeredView: {
+  container: {
     flex: 1,
-    marginTop: 94,
     borderRadius: 30,
+    paddingHorizontal: 28,
+    paddingVertical: 42,
   },
   btnClose: {
     position: 'absolute',
     top: 30,
     right: 30,
-    zIndex: 1,
+    zIndex: 9999
   },
   heading: {
     marginBottom: 20,
   },
   body: {
-    paddingHorizontal: 28,
-    paddingVertical: 42,
+    flex: 1,
   },
 });

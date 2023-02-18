@@ -17,8 +17,8 @@ import {IconSwap} from '../../assets/icons';
 import {neutral100, primary} from '../../constants/colors';
 import {useAuth} from '../../context/AuthContext';
 const SwapBTCScreen = () => {
-  const [quantity, setQuantity] = useState(0);
-  const [to, setTo] = useState(0);
+  const [quantity, setQuantity] = useState('');
+  const [to, setTo] = useState('');
   const [errorQuantity, setErrorQuantity] = useState(false);
   const [selectValue, setSelectValue] = useState('BTC');
   const [selectConvert, setSelectConvert] = useState('USDT');

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,11 +7,12 @@ import {
   TouchableOpacity,
   Switch,
   ScrollView,
+  Image
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-import {useTheme} from 'styled-components';
-import {ROUTES} from '../../constants';
-import {useAuth} from '../../context/AuthContext';
+import { useTheme } from 'styled-components';
+import { ROUTES } from '../../constants';
+import { useAuth } from '../../context/AuthContext';
 import {
   ButtonPrimary,
   CardBox,
@@ -31,15 +32,26 @@ import {
   IconArrowForward,
   IconCopy2,
   IconFacebook,
+  IconHelpCenter,
   IconInstagram,
+  IconKYC,
+  IconLanguage,
+  IconNotice,
+  IconPassword,
   IconPerson,
+  IconPersonPlus,
+  IconSNS,
+  IconTheme,
   IconTwitter,
+  IconVersion,
   IconYoutube,
 } from '../../assets/icons';
-import {MoreData} from '../../constants/ListData';
-const {langSelectData, MyUID} = MoreData;
+import { MoreData } from '../../constants/ListData';
+import IconVector from '../../assets/icons/IconPassword';
 
-const SettingScreen = ({navigation}) => {
+const { langSelectData, MyUID } = MoreData;
+
+const SettingScreen = ({ navigation }) => {
   const {
     logout,
     isDarkTheme,
@@ -49,14 +61,14 @@ const SettingScreen = ({navigation}) => {
     lang,
     showToast,
   } = useAuth();
-  const {fontColor, activeTintColor} = useTheme();
+  const { fontColor, activeTintColor } = useTheme();
 
   const logoutHandler = () => {
     logout();
   };
 
   const handleCopyUID = text => {
-    showToast({text: i18n.copiedToClipBoard, type: 'success', fromTop: 50});
+    showToast({ text: i18n.copiedToClipBoard, type: 'success', fromTop: 50 });
     Clipboard.setString(text);
   };
 
@@ -76,13 +88,13 @@ const SettingScreen = ({navigation}) => {
           </ListItem>
           <ListItem
             label={i18n.resetPassCode}
-            icon={<IconPerson />}
+            icon={<IconPassword />}
             onPress={() => navigation.navigate(ROUTES.SETTING.RESET_PASSCODE)}>
             <IconArrowForward />
           </ListItem>
           <ListItem
             label="KYC"
-            icon={<IconPerson />}
+            icon={<IconKYC />}
             onPress={() =>
               navigation.navigate(ROUTES.SETTING.EMAIL_VERIFICATION)
             }>
@@ -90,23 +102,23 @@ const SettingScreen = ({navigation}) => {
           </ListItem>
           <ListItem
             label={i18n.referralUID}
-            icon={<IconPerson />}
+            icon={<IconPersonPlus />}
             onPress={() => navigation.navigate(ROUTES.SETTING.REFERRAL)}>
             <IconArrowForward />
           </ListItem>
           <Divider />
-          <ListItem label="Language" icon={<IconPerson />} style={{zIndex: 1}}>
+          <ListItem label="Language" icon={<IconLanguage />} style={{ zIndex: 1 }}>
             <CustomSelect
               value={lang}
               data={langSelectData}
-              onChange={item => changeLanguage({lang: item.value})}
-              dropDownStyle={{right: 0}}
+              onChange={item => changeLanguage({ lang: item.value })}
+              dropDownStyle={{ right: 0 }}
             />
           </ListItem>
-          <ListItem label={i18n.darkMode} icon={<IconPerson />}>
+          <ListItem label={i18n.darkMode} icon={<IconTheme />}>
             <Switch
-              style={{flex: 1}}
-              trackColor={{false: 'lightgray', true: activeTintColor}}
+              style={{ flex: 1 }}
+              trackColor={{ false: 'lightgray', true: activeTintColor }}
               thumbColor={'gray'}
               ios_backgroundColor="#3e3e3e"
               onValueChange={toggleTheme}
@@ -117,19 +129,19 @@ const SettingScreen = ({navigation}) => {
           <SubTitle>{i18n.information}</SubTitle>
           <ListItem
             label={i18n.notice}
-            icon={<IconPerson />}
+            icon={<IconNotice />}
             onPress={() => navigation.navigate(ROUTES.SETTING.NOTICE_LIST)}>
             <IconArrowForward />
           </ListItem>
-          <ListItem label={i18n.version} icon={<IconPerson />}>
+          <ListItem label={i18n.version} icon={<IconVersion />}>
             <StyledText>1.0.0</StyledText>
           </ListItem>
           <Divider />
           <SubTitle>{i18n.community}</SubTitle>
-          <ListItem label={i18n.helpCenter} icon={<IconPerson />}>
+          <ListItem label={i18n.helpCenter} icon={<IconHelpCenter />}>
             <StyledText>support@metapocket.com</StyledText>
           </ListItem>
-          <ListItem label="SNS" icon={<IconPerson />}>
+          <ListItem label="SNS" icon={<IconSNS />}>
             <Stack direction="row" spacing={8}>
               <IconFacebook />
               <IconInstagram />

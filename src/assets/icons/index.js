@@ -30,8 +30,26 @@ import IconFilledChecked from './IconFilledChecked';
 import IconClose from './IconClose';
 import IconCloseX from './IconCloseX';
 import IconCheckCircle from './IconCheckCircle';
+import IconPassword from './IconPassword';
+import IconLanguage from './IconLanguage';
+import IconTheme from './IconTheme';
+import IconNotice from './IconNotice';
+import IconVersion from './IconVersion';
+import IconSNS from './IconSNS';
+import IconKYC from './IconKYC';
+import IconPersonPlus from './IconPersonPlus';
+import IconHelpCenter from './IconHelpCenter';
 
 export {
+  IconHelpCenter,
+  IconPersonPlus,
+  IconKYC,
+  IconSNS,
+  IconVersion,
+  IconNotice,
+  IconTheme,
+  IconLanguage,
+  IconPassword,
   IconArrowBack,
   IconArrowForward,
   IconArrowDown,

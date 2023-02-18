@@ -13,14 +13,15 @@ import {
 import {ROUTES} from '../../constants';
 import {useAuth} from '../../context/AuthContext';
 
-const SendBTCScreen = ({navigation}) => {
+const SendBTCScreen = ({navigation, route}) => {
   const [uid, setUid] = useState('');
   const [quantity, setQuantity] = useState('');
   const [memo, setMemo] = useState('');
   const [error, setError] = useState(false);
   const [errorQuantity, setErrorQuantity] = useState(false);
   const {i18n} = useAuth();
-
+  const item = route.params.item;
+  console.log(item);
   let pattern = /[^0-9]/g;
   let balance = 1900;
   const handleChangeUid = event => {
@@ -46,9 +47,19 @@ const SendBTCScreen = ({navigation}) => {
   };
 
   const handleNavigate = () => {
+    if (!uid || !quantity) {
+      setError(true);
+      setErrorQuantity(true);
+      return;
+    }
     !error &&
       !errorQuantity &&
-      navigation.navigate(ROUTES.ACTION.ACTION_SCREEN);
+      navigation.navigate(ROUTES.WALLET.BTC_SEND_AUTH, {
+        uid,
+        quantity,
+        memo,
+        item,
+      });
   };
   return (
     <LayoutScreen>

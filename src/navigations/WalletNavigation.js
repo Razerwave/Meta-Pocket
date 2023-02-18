@@ -19,6 +19,7 @@ import {
   PortfolioScreen,
   ReceiveBTCScreen,
   ReceiveUSDTScreen,
+  SendBTCAuthScreen,
   SendBTCScreen,
   SendNftAuthScreen,
   SendNftScreen,
@@ -69,6 +70,11 @@ const WalletNavigation = () => {
         options={{headerShown: true, title: i18n.sendBtc}}
         name={ROUTES.WALLET.BTC_SEND}
         component={SendBTCScreen}
+      />
+      <Stack.Screen
+        options={{headerShown: true, title: i18n.sendBtc}}
+        name={ROUTES.WALLET.BTC_SEND_AUTH}
+        component={SendBTCAuthScreen}
       />
       <Stack.Screen
         options={{headerShown: true, title: i18n.receiveBtc}}

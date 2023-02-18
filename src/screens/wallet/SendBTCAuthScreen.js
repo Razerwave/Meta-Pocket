@@ -1,23 +1,20 @@
-import React from 'react';
 import {View, Image} from 'react-native';
+import React from 'react';
 import styled from 'styled-components/native';
-
 import {
-  LayoutScreen,
+  ActionInfoBorder,
+  BodyHeading,
   BodyText,
   ButtonPrimary,
-  ActionInfoBorder,
+  LayoutScreen,
   Stack,
-  BodyHeading,
 } from '../../components';
-import {ROUTES} from '../../constants';
 import {neutral100} from '../../constants/colors';
+import {ROUTES} from '../../constants';
 import {useAuth} from '../../context/AuthContext';
-
-const SendNftAuthScreen = ({navigation, route}) => {
+const SendBTCAuthScreen = ({route, navigation}) => {
   const {i18n} = useAuth();
-  const data = route.params.to || '';
-  const nft = route.params.nft || {};
+  const {item, memo, quantity, uid} = route.params;
 
   return (
     <LayoutScreen>
@@ -26,11 +23,30 @@ const SendNftAuthScreen = ({navigation, route}) => {
           <Stack
             direction="row"
             spacing={27}
-            style={{justifyContent: 'space-evenly'}}>
-            <Image source={nft.image} style={{width: 110, height: 110}} />
-            <View style={{alignItems: 'center'}}>
-              <BodyHeading type={4}>{nft.type}</BodyHeading>
-              <BodyText type={3}>#{nft.code}</BodyText>
+            style={{justifyContent: 'center'}}>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+              }}>
+              <View
+                style={{
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  gap: 10,
+                }}>
+                <Image source={item.image} style={{width: 30, height: 30}} />
+                <BodyHeading type={7}>
+                  {item.percent} <BodyText type={3}>{item.name}</BodyText>
+                </BodyHeading>
+              </View>
+              <BodyText
+                color={neutral100}
+                type={3}
+                style={{alignSelf: 'center'}}>
+                ≈ $12,345
+              </BodyText>
             </View>
           </Stack>
           <Wrapper>
@@ -44,7 +60,7 @@ const SendNftAuthScreen = ({navigation, route}) => {
                   </Content>
                   <Content>
                     <BodyText type={6}>{i18n.to}</BodyText>
-                    <BodyText type={4}>{data}</BodyText>
+                    <BodyText type={4}>0x333lksdf..sdflEDFWe</BodyText>
                   </Content>
                 </View>
                 <DividerDotted />
@@ -116,4 +132,4 @@ const DividerDotted = styled.View`
   flex: 1;
 `;
 
-export default SendNftAuthScreen;
+export default SendBTCAuthScreen;

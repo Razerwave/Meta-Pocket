@@ -17,7 +17,9 @@ import styled from 'styled-components/native';
 import {IconSwap} from '../../assets/icons';
 import {neutral100, primary} from '../../constants/colors';
 import {useAuth} from '../../context/AuthContext';
-const SwapBTCScreen = () => {
+import {ROUTES} from '../../constants';
+
+const SwapBTCScreen = ({navigation}) => {
   const [quantity, setQuantity] = useState('');
   const [to, setTo] = useState('');
   const [errorQuantity, setErrorQuantity] = useState(false);
@@ -25,6 +27,7 @@ const SwapBTCScreen = () => {
   const [selectValue, setSelectValue] = useState('BTC');
   const [selectConvert, setSelectConvert] = useState('USDT');
   const {i18n} = useAuth();
+
   const selectData = [
     {label: 'BTC', value: 'BTC'},
     {label: 'USDT', value: 'USDT'},
@@ -34,10 +37,9 @@ const SwapBTCScreen = () => {
   const balance = 1900;
 
   const btnMax = v => {
-    console.log(balance, ' B');
-    setQuantity(balance);
-    console.log(quantity);
+    console.log('quantity');
   };
+
   const handleChangeTo = event => {
     setTo(event);
     if (!pattern.test(event)) {
@@ -54,6 +56,15 @@ const SwapBTCScreen = () => {
     } else {
       setErrorQuantity(true);
     }
+  };
+
+  const handleNavigation = () => {
+    if (!to || !quantity) {
+      setError(true);
+      setErrorQuantity(true);
+      return;
+    }
+    !error && !errorQuantity && navigation.navigate(ROUTES.WALLET.HOME);
   };
 
   return (
@@ -88,6 +99,7 @@ const SwapBTCScreen = () => {
                 action
                 style={{
                   height: 42,
+                  gap: 11,
                 }}
                 textAlign="right"
                 error={errorQuantity}
@@ -168,7 +180,7 @@ const SwapBTCScreen = () => {
           <ButtonContainer>
             <ButtonPrimary
               title={i18n.exchange}
-              onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
+              onPress={() => handleNavigation()}
             />
           </ButtonContainer>
         </Wrapper>

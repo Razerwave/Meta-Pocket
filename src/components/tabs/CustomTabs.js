@@ -1,35 +1,35 @@
-import { TabView, TabBar } from 'react-native-tab-view';
-import { useWindowDimensions } from 'react-native';
-import { useTheme } from 'styled-components';
+import {TabView, TabBar} from 'react-native-tab-view';
+import {useWindowDimensions} from 'react-native';
+import {useTheme} from 'styled-components';
 
 const CustomTabs = ({
   tabIndex = 0,
-  onTabChange = () => { },
+  onTabChange = () => {},
   tabRoutes = [],
-  renderScene = () => { },
+  renderScene = () => {},
   tabColors,
 }) => {
-  const { backgroundColor, exploreTab } = useTheme();
+  const {backgroundColor, exploreTab} = useTheme();
   const layout = useWindowDimensions();
 
-  const tabColorObj = tabColors || exploreTab
+  const tabColorObj = tabColors || exploreTab;
   return (
     <TabView
-      navigationState={{ index: tabIndex, routes: tabRoutes }}
+      navigationState={{index: tabIndex, routes: tabRoutes}}
       renderScene={renderScene}
       onIndexChange={onTabChange}
-      initialLayout={{ width: layout.width }}
+      initialLayout={{width: layout.width}}
       renderTabBar={props => (
         <TabBar
           {...props}
-          style={[{ backgroundColor: backgroundColor, paddingHorizontal: 16 }]}
+          style={[{backgroundColor: backgroundColor, paddingHorizontal: 16}]}
           contentContainerStyle={{
             color: 'pink',
             fontSize: 10,
           }}
           pressColor={'inherit'}
           tabStyle={{
-            width: 70,
+            // width: 70,
             padding: 0,
           }}
           pagerStyle={{
@@ -52,13 +52,13 @@ const CustomTabs = ({
             fontWeight: 400,
             textTransform: 'none',
           }}
-          sceneContainerStyle={{ color: 'pink' }}
+          sceneContainerStyle={{color: 'pink'}}
           activeColor={tabColorObj.tabActiveColor}
           indicatorStyle={[
             {
               backgroundColor: tabColorObj.tabActiveColor,
               height: 2,
-              marginHorizontal: 16
+              marginHorizontal: 16,
             },
           ]}
         />
@@ -67,4 +67,4 @@ const CustomTabs = ({
   );
 };
 
-export default CustomTabs
+export default CustomTabs;

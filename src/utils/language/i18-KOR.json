@@ -104,7 +104,7 @@
   "version": "버전",
   "community": "커뮤니티",
   "helpCenter": "고객센터",
-  "smsVerification": "SMS Verification",
+  "smsVerification": "SMS 인증",
   "kycNotVerifiedMsg": "당신의 지갑은 KYC 인증이 되어있지 않습니다. ",
   "kycPleaseVerify": "Please complete KYC verification.",
   "enterYourEmailAddress": "이메일 주소를 입력해주세요.",
@@ -124,9 +124,9 @@
   "to": "To",
   "enterThePasscode": "Enter The Passcode",
   "enterYour6-digitPasscode.": "Enter your 6-digit passcode.",
-  "inputYourName": "Input your name",
-  "selectYouCountry": "Select you country",
-  "inputYourPhoneNumber": "Input your phone number",
-  "register": "Register",
+  "inputYourName": "이름을 입력해주세요.",
+  "selectYouCountry": "국가를 선택해주세요.",
+  "inputYourPhoneNumber": "전화번호를 입력해주세요",
+  "register": "등록",
   "kycLong": "Know Your Customer"
 }

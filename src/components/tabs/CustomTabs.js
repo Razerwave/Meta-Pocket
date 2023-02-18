@@ -22,7 +22,12 @@ const CustomTabs = ({
       renderTabBar={props => (
         <TabBar
           {...props}
-          style={[{backgroundColor: backgroundColor, paddingHorizontal: 16}]}
+          style={[
+            {
+              backgroundColor: backgroundColor,
+              //  paddingHorizontal: 16
+            },
+          ]}
           contentContainerStyle={{
             color: 'pink',
             fontSize: 10,
@@ -58,7 +63,7 @@ const CustomTabs = ({
             {
               backgroundColor: tabColorObj.tabActiveColor,
               height: 2,
-              marginHorizontal: 16,
+              // marginHorizontal: 16,
             },
           ]}
         />

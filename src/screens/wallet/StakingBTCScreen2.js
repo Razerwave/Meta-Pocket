@@ -86,7 +86,7 @@ const StakingBTCScreen2 = ({route, navigation}) => {
         <ButtonContainer>
           <ButtonPrimary
             title={i18n.stacking}
-            onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
+            onPress={() => navigation.navigate(ROUTES.WALLET.HOME)}
           />
         </ButtonContainer>
       </Container>

@@ -6,6 +6,7 @@ import {
   CustomInput,
   CustomLineChartKit,
   Divider,
+  ErrorText,
   LayoutBottom,
   LayoutScreen,
   LayoutScroll,
@@ -17,6 +18,10 @@ import {ROUTES} from '../../constants';
 const StakingBTCScreen = ({navigation, route}) => {
   const [balance, setBalance] = useState();
   const [amount, setAmount] = useState();
+  const [error, setError] = useState(false);
+
+  let pattern = /[^0-9]/g;
+
   const {i18n} = useAuth();
   const type = 'BTC';
   const stacking = route.params.item;
@@ -24,11 +29,26 @@ const StakingBTCScreen = ({navigation, route}) => {
     // navigation.navogate(ROUTES.WALLET.BTC_STAKING_2, {amount});
   };
 
+  const handleOnchange = event => {
+    setAmount(event);
+    if (!pattern.test(event)) {
+      setError(false);
+    } else {
+      setError(true);
+    }
+  };
+
   const handleNext = () => {
-    navigation.navigate(ROUTES.WALLET.BTC_STAKING_2, {
-      amount,
-      stacking: stacking,
-    });
+    if (!amount) {
+      setError(true);
+      return;
+    }
+
+    !error &&
+      navigation.navigate(ROUTES.WALLET.BTC_STAKING_2, {
+        amount,
+        stacking: stacking,
+      });
   };
 
   const chartData = {
@@ -56,7 +76,11 @@ const StakingBTCScreen = ({navigation, route}) => {
           </Stack>
           <Divider />
         </Stack>
-        <Stack marginTop={20} marginHorizontal={16} spacing={10} marginBottom={20}>
+        <Stack
+          marginTop={20}
+          marginHorizontal={16}
+          spacing={10}
+          marginBottom={20}>
           <Stack style={{alignItems: 'flex-end', marginRight: 6}}>
             <BodyText>
               {i18n.balance} {balance}
@@ -64,11 +88,17 @@ const StakingBTCScreen = ({navigation, route}) => {
           </Stack>
           <CustomInput
             value={amount}
-            onChange={v => setAmount(v)}
+            onChange={event => handleOnchange(event)}
             placeholder={i18n.quantity}
             btnText={i18n.max}
             onPress={handleMax}
+            error={error}
           />
+          {error && (
+            <View>
+              <ErrorText>{i18n.insufficientFunds}</ErrorText>
+            </View>
+          )}
         </Stack>
 
         <LayoutBottom type={2}>

@@ -5,6 +5,7 @@ import {
   ButtonPrimary,
   LayoutBottom,
   LayoutScreen,
+  LayoutScroll,
   Paragraph,
   Stack,
   StepsAuth,
@@ -24,35 +25,37 @@ const RecoverWallet = ({navigation}) => {
 
   return (
     <LayoutScreen>
-      <StepsAuth current={1} />
-      <Stack marginTop={80} marginHorizontal={28} spacing={40}>
-        <Paragraph
-          title={i18n.recoverYourWallet}
-          body={i18n.recoverWordsWarning}
-        />
-        <TextInput
-          style={[
-            styles.input,
-            {
-              color: fontColor,
-              backgroundColor: recovery.inputColor,
-              borderColor: recovery.borderColor,
-              borderWidth: 1,
-            },
-          ]}
-          editable
-          multiline
-          numberOfLines={2}
-          textAlignVertical="top"
-          placeholderTextColor="#838AA5"
-          placeholder={i18n.pasteRecoveryPhrase}
-          onChangeText={v => setWords(v)}
-          value={words}
-        />
-      </Stack>
-      <LayoutBottom>
-        <ButtonPrimary title={i18n.continue} onPress={handleSubmit} />
-      </LayoutBottom>
+      <LayoutScroll>
+        <StepsAuth current={1} />
+        <Stack marginTop={80} marginHorizontal={28} spacing={40}>
+          <Paragraph
+            title={i18n.recoverYourWallet}
+            body={i18n.recoverWordsWarning}
+          />
+          <TextInput
+            style={[
+              styles.input,
+              {
+                color: fontColor,
+                backgroundColor: recovery.inputColor,
+                borderColor: recovery.borderColor,
+                borderWidth: 1,
+              },
+            ]}
+            editable
+            multiline
+            numberOfLines={2}
+            textAlignVertical="top"
+            placeholderTextColor="#838AA5"
+            placeholder={i18n.pasteRecoveryPhrase}
+            onChangeText={v => setWords(v)}
+            value={words}
+          />
+        </Stack>
+        <LayoutBottom>
+          <ButtonPrimary title={i18n.continue} onPress={handleSubmit} />
+        </LayoutBottom>
+      </LayoutScroll>
     </LayoutScreen>
   );
 };

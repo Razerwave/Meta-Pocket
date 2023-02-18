@@ -58,6 +58,15 @@ const SwapBTCScreen = ({navigation}) => {
     }
   };
 
+  const handleNavigation = () => {
+    if (!to || !quantity) {
+      setError(true);
+      setErrorQuantity(true);
+      return;
+    }
+    !error && !errorQuantity && navigation.navigate(ROUTES.WALLET.HOME);
+  };
+
   return (
     <LayoutScreen>
       <LayoutScroll>
@@ -171,7 +180,7 @@ const SwapBTCScreen = ({navigation}) => {
           <ButtonContainer>
             <ButtonPrimary
               title={i18n.exchange}
-              onPress={() => navigation.navigate(ROUTES.WALLET.HOME)}
+              onPress={() => handleNavigation()}
             />
           </ButtonContainer>
         </Wrapper>

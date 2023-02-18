@@ -70,7 +70,7 @@ const SendNftAuthScreen = ({navigation, route}) => {
         <ButtonContainer>
           <ButtonPrimary
             title={i18n.send}
-            onPress={() => console.log('clicked')}
+            onPress={() => navigation.navigate(ROUTES.HOME.WALLET)}
           />
         </ButtonContainer>
       </Container>

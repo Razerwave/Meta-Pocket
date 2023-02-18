@@ -86,7 +86,7 @@ const SendBTCAuthScreen = ({route, navigation}) => {
         <ButtonContainer>
           <ButtonPrimary
             title={i18n.send}
-            onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
+            onPress={() => navigation.navigate(ROUTES.HOME.WALLET)}
           />
         </ButtonContainer>
       </Container>

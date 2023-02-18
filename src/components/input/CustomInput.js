@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {useTheme} from 'styled-components';
 import {white} from '../../constants/colors';
-import { fontBody } from '../../constants/fonts';
+import {fontBody} from '../../constants/fonts';
 import BodyText from '../texts/BodyText';
 
 const CustomInput = ({
@@ -21,6 +21,7 @@ const CustomInput = ({
   error = false,
   keyboardType,
   textAlign,
+  style,
 }) => {
   const [focused, setFocused] = useState(false);
   const {
@@ -46,6 +47,7 @@ const CustomInput = ({
             : focused
             ? borderColorFocus
             : borderColor,
+          ...style,
         },
       ]}>
       <TextInput

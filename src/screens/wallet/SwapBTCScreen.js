@@ -70,7 +70,8 @@ const SwapBTCScreen = () => {
                 value={selectValue}
                 data={selectData}
                 onChange={item => setSelectValue(item.value)}
-                wrapperStyle={{height: 37, width: 60}}
+                wrapperStyle={{height: 40, width: 80}}
+                dropDownStyle={{width: 80}}
               />
             </View>
             <InputSection>
@@ -85,6 +86,9 @@ const SwapBTCScreen = () => {
                 onPress={v => btnMax(v)}
                 btnText={i18n.max}
                 action
+                style={{
+                  height: 42,
+                }}
                 textAlign="right"
                 error={errorQuantity}
               />
@@ -118,7 +122,8 @@ const SwapBTCScreen = () => {
                   value={selectConvert}
                   data={selectData}
                   onChange={item => setSelectConvert(item.value)}
-                  selectStyle={{top: 0, paddingBottom: 13, width: 80}}
+                  wrapperStyle={{height: 40, width: 80}}
+                  dropDownStyle={{width: 80}}
                 />
               </View>
             </View>
@@ -134,6 +139,9 @@ const SwapBTCScreen = () => {
                 btnText="Max"
                 action
                 textAlign="right"
+                style={{
+                  height: 42,
+                }}
                 error={error}
               />
               {error && <ErrorText>{i18n.insufficientFunds}</ErrorText>}

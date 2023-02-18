@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { BodyHeading, BodyText, ButtonPrimary, CustomInput, ErrorText, LayoutBottom, LayoutScreen, LayoutScroll, Paragraph, Stack } from '../../components'
+import { BodyHeading, BodyText, ButtonPrimary, CustomInput, CustomSelect, ErrorText, LayoutBottom, LayoutScreen, LayoutScroll, Paragraph, Stack } from '../../components'
 import { REGEX_EMAIL, ROUTES } from '../../constants'
 import { useAuth } from '../../context/AuthContext'
 import { fontBody } from '../../constants/fonts'
 import { IconCheckCircle } from '../../assets/icons'
+import { MoreData } from '../../constants/ListData'
 
 const TIMER_SEC = 10
 
@@ -13,7 +14,7 @@ const EmailVerification = ({ navigation }) => {
   const { i18n } = useAuth()
   const [form, setForm] = useState({
     name: '',
-    country: null,
+    country: '',
     phoneNumber: '',
   })
   const [isSent, setSent] = useState(false)
@@ -87,6 +88,16 @@ const EmailVerification = ({ navigation }) => {
               error={error.name}
             />
             {error.name && <ErrorText>{i18n.inputYourName}</ErrorText>}
+            <View style={{ zIndex: 2 }}>
+              <CustomSelect
+                value={form.country}
+                data={MoreData.countries}
+                onChange={item => handleChange('country', item.value)}
+                bordered
+                dropDownStyle={{ width: '100%' }}
+                wrapperStyle={{ height: 46 }}
+              />
+            </View>
             <CustomInput
               value={form.country}
               onChange={(v) => handleChange('country', v)}

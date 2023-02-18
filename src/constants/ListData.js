@@ -314,6 +314,11 @@ const MoreData = {
   langSelectData: [
     {label: 'ENGLISH', value: 'ENG', selectedLabel: 'ENG'},
     {label: 'KOREAN', value: 'KOR', selectedLabel: 'KOR'},
+  ],
+  countries: [
+    {label: 'Select Your country', value: ''},
+    {label: 'England (+999)', value: 'ENG'},
+    {label: 'South Korea (+82)', value: 'KOR'},
   ]
 }
 

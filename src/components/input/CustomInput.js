@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -6,9 +6,9 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import {useTheme} from 'styled-components';
-import {white} from '../../constants/colors';
-import {fontBody} from '../../constants/fonts';
+import { useTheme } from 'styled-components';
+import { white } from '../../constants/colors';
+import { fontBody } from '../../constants/fonts';
 import BodyText from '../texts/BodyText';
 
 const CustomInput = ({
@@ -45,14 +45,14 @@ const CustomInput = ({
           borderColor: error
             ? borderColorError
             : focused
-            ? borderColorFocus
-            : borderColor,
+              ? borderColorFocus
+              : borderColor,
           ...style,
         },
       ]}>
       <TextInput
         editable
-        style={[styles.input, {color: inputColor}]}
+        style={[styles.input, { color: inputColor }]}
         placeholderTextColor={placeholerColor}
         placeholder={placeholder}
         onChangeText={onChange}
@@ -63,12 +63,12 @@ const CustomInput = ({
         onBlur={() => setFocused(false)}
       />
       {onPress && (
-        <View style={{alignItems: 'flex-end'}}>
-          <TouchableOpacity onPress={onPress}>
+        <View style={{ alignItems: 'flex-end' }}>
+          <TouchableOpacity onPress={onPress instanceof Function ? onPress : () => { }}>
             <View
               style={[
                 styles.btn,
-                {color: btnColor, backgroundColor: btnColor},
+                { color: btnColor, backgroundColor: btnColor },
               ]}>
               <BodyText type={9} style={styles.btnText}>
                 {btnText}
@@ -87,13 +87,15 @@ export default CustomInput;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 9,
-    paddingVertical: 8,
+    // paddingVertical: 8,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 4,
     borderWidth: 1,
     borderStyle: 'solid',
+    alignContent: 'center',
+    height: 40,
   },
   input: {
     flex: 1,

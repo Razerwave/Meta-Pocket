@@ -101,7 +101,6 @@ const EmailVerification = ({navigation}) => {
               onChange={v => handleChange('name', v)}
               placeholder={i18n.inputYourName}
               error={error.name}
-              style={{height: 50}}
             />
             {error.name && <ErrorText>{i18n.inputYourName}</ErrorText>}
             <View style={{zIndex: 2}}>
@@ -111,7 +110,7 @@ const EmailVerification = ({navigation}) => {
                 onChange={item => handleChange('country', item.value)}
                 bordered
                 dropDownStyle={{width: '100%'}}
-                wrapperStyle={{height: 46}}
+                style={{height: 40}}
               />
             </View>
             {error.country && <ErrorText>{i18n.selectYouCountry}</ErrorText>}
@@ -130,7 +129,6 @@ const EmailVerification = ({navigation}) => {
                   </Text>
                 )
               }
-              style={{height: 50}}
             />
             {error.phoneNumber && (
               <ErrorText>{i18n.inputYourPhoneNumber}</ErrorText>

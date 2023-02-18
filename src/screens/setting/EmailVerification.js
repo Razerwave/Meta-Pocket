@@ -112,6 +112,7 @@ const EmailVerification = ({ navigation }) => {
               btnText={i18n.send}
               onPress={!isSent && handleSend}
               error={error.phoneNumber}
+              keyboardType="numeric"
               action={isSent && (
                 <Text style={styles.timer}>00:{timer < 10 ? `0${timer}` : timer}</Text>
               )}

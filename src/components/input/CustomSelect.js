@@ -161,7 +161,7 @@ const SelectWrapper = styled(Animated.View)`
   padding-top: 0;
   padding-bottom: 10px;
   padding-left: 10px;
-  padding-right: 24px;
+  padding-right: 22px;
 `;
 
 export default CustomSelect;

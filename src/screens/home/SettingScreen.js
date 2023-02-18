@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -9,9 +9,9 @@ import {
   ScrollView,
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-import { useTheme } from 'styled-components';
-import { ROUTES } from '../../constants';
-import { useAuth } from '../../context/AuthContext';
+import {useTheme} from 'styled-components';
+import {ROUTES} from '../../constants';
+import {useAuth} from '../../context/AuthContext';
 import {
   ButtonPrimary,
   CardBox,
@@ -36,22 +36,29 @@ import {
   IconTwitter,
   IconYoutube,
 } from '../../assets/icons';
-import { MoreData } from '../../constants/ListData';
-const { langSelectData, MyUID } = MoreData
+import {MoreData} from '../../constants/ListData';
+const {langSelectData, MyUID} = MoreData;
 
-const SettingScreen = ({ navigation }) => {
-  const { logout, isDarkTheme, toggleTheme, i18n, changeLanguage, lang, showToast } =
-    useAuth();
-  const { fontColor, activeTintColor } = useTheme();
+const SettingScreen = ({navigation}) => {
+  const {
+    logout,
+    isDarkTheme,
+    toggleTheme,
+    i18n,
+    changeLanguage,
+    lang,
+    showToast,
+  } = useAuth();
+  const {fontColor, activeTintColor} = useTheme();
 
   const logoutHandler = () => {
     logout();
   };
 
-  const handleCopyUID = (text) => {
-    showToast({ text: i18n.copiedToClipBoard, type: 'success', fromTop: 50 });
+  const handleCopyUID = text => {
+    showToast({text: i18n.copiedToClipBoard, type: 'success', fromTop: 50});
     Clipboard.setString(text);
-  }
+  };
 
   return (
     <LayoutScreen>
@@ -62,7 +69,7 @@ const SettingScreen = ({ navigation }) => {
             label={i18n.myUID}
             icon={<IconPerson />}
             onPress={() => handleCopyUID(MyUID)}>
-            <Stack direction='row' spacing={8} alignItems="center">
+            <Stack direction="row" spacing={8} alignItems="center">
               <StyledText>{MyUID}</StyledText>
               <IconCopy2 />
             </Stack>
@@ -88,7 +95,7 @@ const SettingScreen = ({ navigation }) => {
             <IconArrowForward />
           </ListItem>
           <Divider />
-          <ListItem label="Language" icon={<IconPerson />} style={{ zIndex: 1 }}>
+          <ListItem label="Language" icon={<IconPerson />} style={{zIndex: 1}}>
             <CustomSelect
               value={lang}
               data={langSelectData}
@@ -98,8 +105,8 @@ const SettingScreen = ({ navigation }) => {
           </ListItem>
           <ListItem label={i18n.darkMode} icon={<IconPerson />}>
             <Switch
-              style={{ flex: 1 }}
-              trackColor={{ false: 'lightgray', true: activeTintColor }}
+              style={{flex: 1}}
+              trackColor={{false: 'lightgray', true: activeTintColor}}
               thumbColor={'gray'}
               ios_backgroundColor="#3e3e3e"
               onValueChange={toggleTheme}

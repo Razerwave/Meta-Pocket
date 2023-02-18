@@ -1,8 +1,8 @@
 import React from 'react';
-import { Path, Svg, Rect } from 'react-native-svg';
-import { white } from '../../constants/colors';
+import {Path, Svg, Rect} from 'react-native-svg';
+import {white} from '../../constants/colors';
 
-const IconCloseX = ({ color = "#1F2129" }) => {
+const IconCloseX = ({color = '#1F2129'}) => {
   return (
     <Svg
       width="14"

@@ -9,8 +9,6 @@ import {
   Stack,
 } from '../../components';
 import {useAuth} from '../../context/AuthContext';
-import styled from 'styled-components/native';
-import {View} from 'react-native';
 
 const DappScreen = ({navigation}) => {
   const {i18n} = useAuth();
@@ -25,6 +23,7 @@ const DappScreen = ({navigation}) => {
 
   useEffect(() => {
     setData(Dappdata);
+    console.log(data);
   }, []);
 
   const renderScene = ({route}) => {
@@ -33,8 +32,11 @@ const DappScreen = ({navigation}) => {
         return (
           <DappTab
             data={data}
-            onPress={() =>
-              navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+            onPress={item =>
+              navigation.navigate(ROUTES.EXPLORE.WEB, {
+                title: item.title,
+                uri: 'https://reactnavigation.org/docs/stack-navigator/',
+              })
             }
           />
         );
@@ -43,7 +45,10 @@ const DappScreen = ({navigation}) => {
           <DappTab
             data={data.filter(({type}) => type === 'Popular')}
             onPress={() =>
-              navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+              navigation.navigate(ROUTES.EXPLORE.WEB, {
+                title: item.title,
+                uri: 'https://reactnavigation.org/docs/stack-navigator/',
+              })
             }
           />
         );
@@ -52,7 +57,10 @@ const DappScreen = ({navigation}) => {
           <DappTab
             data={data.filter(({type}) => type === 'Mining')}
             onPress={() =>
-              navigation.navigate(ROUTES.ENTERPASS.ENTRYPASS_SCREEN)
+              navigation.navigate(ROUTES.EXPLORE.WEB, {
+                title: item.title,
+                uri: 'https://reactnavigation.org/docs/stack-navigator/',
+              })
             }
           />
         );

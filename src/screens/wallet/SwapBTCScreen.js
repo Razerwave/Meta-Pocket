@@ -18,6 +18,7 @@ import {neutral100, primary} from '../../constants/colors';
 import {useAuth} from '../../context/AuthContext';
 const SwapBTCScreen = () => {
   const [quantity, setQuantity] = useState(0);
+  const [to, setTo] = useState(0);
   const [errorQuantity, setErrorQuantity] = useState(false);
   const [selectValue, setSelectValue] = useState('BTC');
   const [selectConvert, setSelectConvert] = useState('USDT');
@@ -26,6 +27,31 @@ const SwapBTCScreen = () => {
     {label: 'BTC', value: 'BTC'},
     {label: 'USDT', value: 'USDT'},
   ];
+
+  let pattern = /[^0-9]/g;
+  let balance = 1900;
+
+  const btnMax = balance => {
+    console.log(balance);
+    setQuantity(balance);
+  };
+  const handleChangeTo = event => {
+    setTo(event);
+    if (!pattern.test(event)) {
+      setError(false);
+    } else {
+      setError(true);
+    }
+  };
+
+  const handleChangeQuantity = event => {
+    setQuantity(event);
+    if (!pattern.test(event) && balance > event) {
+      setErrorQuantity(false);
+    } else {
+      setErrorQuantity(true);
+    }
+  };
 
   return (
     <LayoutScreen>
@@ -53,7 +79,7 @@ const SwapBTCScreen = () => {
                 onChange={event => handleChangeQuantity(event)}
                 placeholder={i18n.quantity}
                 keyboardType="numeric"
-                onPress
+                onPress={balance => btnMax(balance)}
                 btnText={i18n.max}
                 action
                 textAlign="right"
@@ -93,8 +119,8 @@ const SwapBTCScreen = () => {
                 <BodyText type={5}></BodyText>
               </View>
               <CustomInput
-                value={quantity}
-                onChange={event => handleChangeQuantity(event)}
+                value={to}
+                onChange={event => handleChangeTo(event)}
                 placeholder="10,000"
                 keyboardType="numeric"
                 btnText="Max"
@@ -137,6 +163,7 @@ const Container = styled.View`
   flex-direction: row;
   width: 100%;
   gap: 10px;
+  z-index: 1;
 `;
 
 const Line = styled.View`
@@ -149,13 +176,6 @@ const ButtonContainer = styled.View`
   align-items: center;
   margin-bottom: 37px;
   margin-top: 50px;
-`;
-
-const TopSection = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 16px;
-  padding-right: 16px;
 `;
 
 const InputSection = styled.View`

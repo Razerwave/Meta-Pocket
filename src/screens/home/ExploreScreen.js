@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Image, TouchableOpacity, ImageBackground} from 'react-native';
-import styled from 'styled-components/native';
+import {View, TouchableOpacity} from 'react-native';
 import {
   BodyText,
   Divider,
@@ -13,10 +12,8 @@ import {ROUTES} from '../../constants';
 
 import {testData} from '../../constants/ListData';
 import {IconColorDot, IconExploreArrow} from '../../assets/icons';
-import {yellow200, red, neutral300, neutral100} from '../../constants/colors';
 
 const ExploreScreen = ({navigation, onPress}) => {
-  const WEB_LINK = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -58,11 +55,21 @@ const ExploreScreen = ({navigation, onPress}) => {
                   <Stack
                     direction="row"
                     style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
-                    {items.slice(0, 4).map((item, index) => (
-                      <View key={index} style={{marginBottom: 30}}>
-                        <Card item={item} onPress={onPress} />
-                      </View>
-                    ))}
+                    {items.slice(0, 4).map((item, Cardindex) => {
+                      return (
+                        <View key={Cardindex} style={{marginBottom: 30}}>
+                          <Card
+                            key={Cardindex}
+                            item={item}
+                            onPress={() =>
+                              navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
+                                tabIndex: index,
+                              })
+                            }
+                          />
+                        </View>
+                      );
+                    })}
                   </Stack>
                 </View>
               </View>

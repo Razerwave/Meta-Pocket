@@ -1,4 +1,4 @@
-import { StyleSheet, Modal, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Modal, TouchableOpacity, View, Pressable } from 'react-native'
 import { BodyHeading, BodyText, ButtonGray, ButtonPrimary, Divider, LayoutScreen, LayoutScroll, Stack } from '../../components'
 import { textToSentences } from '../../utils/formats'
 import { useAuth } from '../../context/AuthContext'
@@ -39,6 +39,7 @@ const ReceiveUSDTScreen = () => {
           setModalVisible(false);
         }}
       >
+        <Pressable style={{ flex: 1 }} onPress={() => setModalVisible(false)} />
         <View style={[styles.centeredView, { backgroundColor: bgColor }]}>
           <View style={styles.body}>
             <BodyHeading style={styles.heading}>{i18n.chooseNetwork}</BodyHeading>
@@ -96,10 +97,10 @@ const radioStyles = StyleSheet.create({
 
 const styles = StyleSheet.create({
   centeredView: {
-    position: 'absolute',
-    right: 0,
-    left: 0,
-    bottom: 0,
+    // position: 'absolute',
+    // right: 0,
+    // left: 0,
+    // bottom: 0,
     borderRadius: 30,
   },
   btnClose: {

@@ -10,7 +10,7 @@ const Card = ({item, onPress}) => {
     <View>
       {item.image ? (
         <View>
-          <AllTabTouchableOpacity onPress={() => onPress(item)}>
+          <AllTabTouchableOpacity onPress={item => onPress(item)}>
             <View>
               <ArtDCard>
                 <Image source={item.image} />
@@ -41,7 +41,7 @@ const Card = ({item, onPress}) => {
         </View>
       ) : (
         <View gap={10}>
-          <AllTabTouchableOpacity onPress={() => onPress(item)}>
+          <AllTabTouchableOpacity onPress={item => onPress(item)}>
             <DCard>
               <ArrowIcon>
                 <IconDappArrow />

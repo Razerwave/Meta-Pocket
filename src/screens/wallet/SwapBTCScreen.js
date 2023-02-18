@@ -8,6 +8,7 @@ import {
   CustomInput,
   CustomSelect,
   Divider,
+  ErrorText,
   LayoutScreen,
   LayoutScroll,
   Precautions,
@@ -17,8 +18,10 @@ import {IconSwap} from '../../assets/icons';
 import {neutral100, primary} from '../../constants/colors';
 import {useAuth} from '../../context/AuthContext';
 const SwapBTCScreen = () => {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState('');
+  const [to, setTo] = useState('');
   const [errorQuantity, setErrorQuantity] = useState(false);
+  const [error, setError] = useState(false);
   const [selectValue, setSelectValue] = useState('BTC');
   const [selectConvert, setSelectConvert] = useState('USDT');
   const {i18n} = useAuth();
@@ -27,15 +30,41 @@ const SwapBTCScreen = () => {
     {label: 'USDT', value: 'USDT'},
   ];
 
+  let pattern = /[^0-9]/g;
+  const balance = 1900;
+
+  const btnMax = v => {
+    console.log(balance, ' B');
+    setQuantity(balance);
+    console.log(quantity);
+  };
+  const handleChangeTo = event => {
+    setTo(event);
+    if (!pattern.test(event)) {
+      setError(false);
+    } else {
+      setError(true);
+    }
+  };
+
+  const handleChangeQuantity = event => {
+    setQuantity(event);
+    if (!pattern.test(event) && balance > event) {
+      setErrorQuantity(false);
+    } else {
+      setErrorQuantity(true);
+    }
+  };
+
   return (
     <LayoutScreen>
       <LayoutScroll>
         <Wrapper>
           <Container>
             <View>
-              <View style={{marginBottom: 10}}>
+              <ConvertToContainer>
                 <BodyText type={5}>{i18n.use}</BodyText>
-              </View>
+              </ConvertToContainer>
               <CustomSelect
                 bordered
                 value={selectValue}
@@ -53,12 +82,17 @@ const SwapBTCScreen = () => {
                 onChange={event => handleChangeQuantity(event)}
                 placeholder={i18n.quantity}
                 keyboardType="numeric"
-                onPress
+                onPress={v => btnMax(v)}
                 btnText={i18n.max}
                 action
                 textAlign="right"
                 error={errorQuantity}
               />
+              {errorQuantity && (
+                <View>
+                  <ErrorText>{i18n.insufficientFunds}</ErrorText>
+                </View>
+              )}
               <SwapButtonWithLine>
                 <Line />
                 <ButtonIcon
@@ -75,9 +109,9 @@ const SwapBTCScreen = () => {
 
           <Container>
             <View>
-              <View style={{marginBottom: 10}}>
+              <ConvertToContainer>
                 <BodyText type={5}>{i18n.convertTo}</BodyText>
-              </View>
+              </ConvertToContainer>
               <View>
                 <CustomSelect
                   bordered
@@ -89,25 +123,26 @@ const SwapBTCScreen = () => {
               </View>
             </View>
             <InputSection>
-              <View style={{marginBottom: 10}}>
+              <EmptyContent>
                 <BodyText type={5}></BodyText>
-              </View>
+              </EmptyContent>
               <CustomInput
-                value={quantity}
-                onChange={event => handleChangeQuantity(event)}
+                value={to}
+                onChange={event => handleChangeTo(event)}
                 placeholder="10,000"
                 keyboardType="numeric"
                 btnText="Max"
                 action
                 textAlign="right"
-                error={errorQuantity}
+                error={error}
               />
+              {error && <ErrorText>{i18n.insufficientFunds}</ErrorText>}
             </InputSection>
           </Container>
 
-          <View style={{marginTop: 30, marginBottom: 20}}>
+          <DividerContainer>
             <Divider></Divider>
-          </View>
+          </DividerContainer>
 
           <RateContent>
             <View>
@@ -137,6 +172,7 @@ const Container = styled.View`
   flex-direction: row;
   width: 100%;
   gap: 10px;
+  z-index: 1;
 `;
 
 const Line = styled.View`
@@ -151,13 +187,6 @@ const ButtonContainer = styled.View`
   margin-top: 50px;
 `;
 
-const TopSection = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 16px;
-  padding-right: 16px;
-`;
-
 const InputSection = styled.View`
   flex: 4;
 `;
@@ -166,6 +195,11 @@ const SwapButtonWithLine = styled.View`
   flex-direction: row;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 20px;
+`;
+
+const DividerContainer = styled.View`
+  margin-top: 30px;
   margin-bottom: 20px;
 `;
 
@@ -182,6 +216,16 @@ const Wrapper = styled.View`
   flex: 1;
   padding: 16px;
   position: relative;
+`;
+
+const EmptyContent = styled.View`
+  margin-bottom: 10px;
+  flex: 1;
+  height: 100%;
+`;
+
+const ConvertToContainer = styled.View`
+  margin-bottom: 10px;
 `;
 
 export default SwapBTCScreen;

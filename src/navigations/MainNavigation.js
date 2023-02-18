@@ -61,7 +61,7 @@ const MainNavigation = () => {
           route: {
             params: {title, uri},
           },
-        }) => ({title: title || uri})}
+        }) => ({title: title})}
         name={ROUTES.EXPLORE.WEB}
         component={WebScreen}
       />

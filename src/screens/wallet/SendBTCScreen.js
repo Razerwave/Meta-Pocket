@@ -15,7 +15,7 @@ import {useAuth} from '../../context/AuthContext';
 
 const SendBTCScreen = ({navigation}) => {
   const [uid, setUid] = useState('');
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState('');
   const [memo, setMemo] = useState('');
   const [error, setError] = useState(false);
   const [errorQuantity, setErrorQuantity] = useState(false);
@@ -43,6 +43,12 @@ const SendBTCScreen = ({navigation}) => {
 
   const handleChangeMemo = event => {
     setMemo(event);
+  };
+
+  const handleNavigate = () => {
+    !error &&
+      !errorQuantity &&
+      navigation.navigate(ROUTES.ACTION.ACTION_SCREEN);
   };
   return (
     <LayoutScreen>
@@ -84,10 +90,7 @@ const SendBTCScreen = ({navigation}) => {
           <Precautions />
         </Content>
         <ButtonContainer>
-          <ButtonPrimary
-            title={i18n.next}
-            onPress={() => navigation.navigate(ROUTES.ACTION.ACTION_SCREEN)}
-          />
+          <ButtonPrimary title={i18n.next} onPress={() => handleNavigate()} />
         </ButtonContainer>
       </Container>
     </LayoutScreen>

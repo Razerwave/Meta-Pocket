@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import {Image} from 'react-native';
 import styled from 'styled-components/native';
 import {
   BodyHeading,
@@ -11,28 +11,36 @@ import {
   LayoutScroll,
   Stack,
 } from '../../components';
-import { neutral100, neutral300 } from '../../constants/colors';
-import { DarkTheme } from '../../constants';
+import {neutral100, neutral300} from '../../constants/colors';
+import {DarkTheme} from '../../constants';
 
-const BuyItem = ({ route }) => {
-  const { statusBarStyle, fontColor } = DarkTheme;
+const BuyItem = ({route}) => {
+  const {statusBarStyle, fontColor} = DarkTheme;
   const item = route.params.item;
 
   return (
-    <LayoutScreen statusBar={{ backgroundColor: neutral300, colorStyle: statusBarStyle }}>
+    <LayoutScreen
+      statusBar={{backgroundColor: neutral300, colorStyle: statusBarStyle}}>
       <LayoutScroll>
-        <FixedThemeWrapper dark style={{ backgroundColor: neutral300 }}>
+        <FixedThemeWrapper dark style={{backgroundColor: neutral300}}>
           <LayoutHeader
             title="Buy Item"
-            headerStyle={{ backgroundColor: neutral300 }}
-            headerTitleStyle={{ color: fontColor }}
+            headerStyle={{backgroundColor: neutral300}}
+            headerTitleStyle={{color: fontColor}}
           />
-          <Stack alignItems="center" marginTop={20} marginBottom={33} style={{ backgroundColor: neutral300 }}>
-            <Image style={{ width: 160, height: 160 }} source={item.image} />
-            <BodyHeading type={5} style={{ marginTop: 20, color: fontColor }}>
+          <Stack
+            alignItems="center"
+            marginTop={20}
+            marginBottom={33}
+            style={{backgroundColor: neutral300}}>
+            <Image
+              style={{width: 160, height: 160, borderRadius: 5}}
+              source={item.image}
+            />
+            <BodyHeading type={5} style={{marginTop: 20, color: fontColor}}>
               {item.title}
             </BodyHeading>
-            <BodyText type={3} style={{ marginTop: 10, color: neutral100 }}>
+            <BodyText type={3} style={{marginTop: 10, color: neutral100}}>
               {item.description}
             </BodyText>
           </Stack>

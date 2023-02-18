@@ -55,11 +55,21 @@ const ExploreScreen = ({navigation, onPress}) => {
                   <Stack
                     direction="row"
                     style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
-                    {items.slice(0, 4).map((item, index) => (
-                      <View key={index} style={{marginBottom: 30}}>
-                        <Card key={index} item={item} onPress={onPress} />
-                      </View>
-                    ))}
+                    {items.slice(0, 4).map((item, Cardindex) => {
+                      return (
+                        <View key={Cardindex} style={{marginBottom: 30}}>
+                          <Card
+                            key={Cardindex}
+                            item={item}
+                            onPress={() =>
+                              navigation.navigate(ROUTES.EXPLORE.LIST_SCREEN, {
+                                tabIndex: index,
+                              })
+                            }
+                          />
+                        </View>
+                      );
+                    })}
                   </Stack>
                 </View>
               </View>

@@ -23,7 +23,6 @@ const DappScreen = ({navigation}) => {
 
   useEffect(() => {
     setData(Dappdata);
-    console.log(data);
   }, []);
 
   const renderScene = ({route}) => {
@@ -44,7 +43,7 @@ const DappScreen = ({navigation}) => {
         return (
           <DappTab
             data={data.filter(({type}) => type === 'Popular')}
-            onPress={() =>
+            onPress={item =>
               navigation.navigate(ROUTES.EXPLORE.WEB, {
                 title: item.title,
                 uri: 'https://reactnavigation.org/docs/stack-navigator/',
@@ -56,7 +55,7 @@ const DappScreen = ({navigation}) => {
         return (
           <DappTab
             data={data.filter(({type}) => type === 'Mining')}
-            onPress={() =>
+            onPress={item =>
               navigation.navigate(ROUTES.EXPLORE.WEB, {
                 title: item.title,
                 uri: 'https://reactnavigation.org/docs/stack-navigator/',

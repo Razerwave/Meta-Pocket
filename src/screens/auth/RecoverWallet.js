@@ -1,18 +1,26 @@
-import React, { useState } from 'react'
-import { StyleSheet, TextInput } from 'react-native'
-import { useTheme } from 'styled-components'
-import { ButtonPrimary, LayoutBottom, LayoutScreen, Paragraph, Stack, StepsAuth } from '../../components'
-import { ROUTES } from '../../constants'
-import { useAuth } from '../../context/AuthContext'
+import React, {useState} from 'react';
+import {StyleSheet, TextInput} from 'react-native';
+import {useTheme} from 'styled-components';
+import {
+  ButtonPrimary,
+  LayoutBottom,
+  LayoutScreen,
+  Paragraph,
+  Stack,
+  StepsAuth,
+} from '../../components';
+import {ROUTES} from '../../constants';
+import {gray100} from '../../constants/colors';
+import {useAuth} from '../../context/AuthContext';
 
-const RecoverWallet = ({ navigation }) => {
-  const {i18n} = useAuth()
-  const [words, setWords] = useState('')
-  const { fontColor, backgroundCardColor } = useTheme()
+const RecoverWallet = ({navigation}) => {
+  const {i18n} = useAuth();
+  const [words, setWords] = useState('');
+  const {fontColor, backgroundCardColor, recovery} = useTheme();
 
   const handleSubmit = () => {
-    navigation.navigate(ROUTES.AUTH.PROTECT_WALLET)
-  }
+    navigation.navigate(ROUTES.AUTH.PROTECT_WALLET);
+  };
 
   return (
     <LayoutScreen>
@@ -23,7 +31,15 @@ const RecoverWallet = ({ navigation }) => {
           body={i18n.recoverWordsWarning}
         />
         <TextInput
-          style={[styles.input, { color: fontColor, backgroundColor: backgroundCardColor }]}
+          style={[
+            styles.input,
+            {
+              color: fontColor,
+              backgroundColor: recovery.inputColor,
+              borderColor: recovery.borderColor,
+              borderWidth: 1,
+            },
+          ]}
           editable
           multiline
           numberOfLines={2}
@@ -38,12 +54,11 @@ const RecoverWallet = ({ navigation }) => {
         <ButtonPrimary title={i18n.continue} onPress={handleSubmit} />
       </LayoutBottom>
     </LayoutScreen>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  inputBox: {
-  },
+  inputBox: {},
   input: {
     padding: 16,
     borderRadius: 10,
@@ -51,7 +66,7 @@ const styles = StyleSheet.create({
     // lineHeight: 24,
 
     fontWeight: '600',
-  }
-})
+  },
+});
 
-export default RecoverWallet
+export default RecoverWallet;

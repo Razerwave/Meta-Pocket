@@ -316,11 +316,11 @@ const MoreData = {
     {label: 'KOREAN', value: 'KOR', selectedLabel: 'KOR'},
   ],
   countries: [
-    {label: 'Select Your country', value: ''},
+    {label: 'Select Your country', value: 'placeholder'},
     {label: 'England (+999)', value: 'ENG'},
     {label: 'South Korea (+82)', value: 'KOR'},
-  ]
-}
+  ],
+};
 
 export {
   testData,

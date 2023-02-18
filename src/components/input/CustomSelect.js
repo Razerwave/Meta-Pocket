@@ -53,6 +53,9 @@ const CustomSelect = ({
 
   const handleOnChange = item => {
     if (onChange) {
+      if (item.value === 'placeholder') {
+        onChange({});
+      }
       onChange(item);
     }
     setSelectedItem(item);
@@ -91,10 +94,18 @@ const CustomSelect = ({
             },
             wrapperStyle,
           ]}>
-          <BodyText type={5} style={{justifyContent: 'center', ...textStyle}}>
-            {dropdownVisible
-              ? selectedItem.label
-              : selectedItem.selectedLabel
+          <BodyText
+            type={5}
+            style={
+              selectedItem.value === 'placeholder'
+                ? {
+                    color: input.placeholerColor,
+                    justifyContent: 'center',
+                    ...textStyle,
+                  }
+                : {justifyContent: 'center', ...textStyle}
+            }>
+            {selectedItem.selectedLabel
               ? selectedItem.selectedLabel
               : selectedItem.label}
           </BodyText>
@@ -116,7 +127,10 @@ const CustomSelect = ({
             <Animated.View entering={FadeInUp}>
               {renderItem({item: selectedItem, index: 1})}
               {data.map((item, index) => {
-                if (item.value === selectedItem.value) {
+                if (
+                  item.value === selectedItem.value ||
+                  item.value === 'placeholder'
+                ) {
                   return null;
                 }
                 return renderItem({item, index});

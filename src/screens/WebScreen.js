@@ -16,7 +16,6 @@ const WebScreen = ({route}) => {
 
 const StyledViewContainer = styled.View`
   height: 100%;
-  border-width: 5px;
   background-color: ${props => props.theme.backgroundColor};
 `;
 

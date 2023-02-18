@@ -33,6 +33,20 @@ const LoadNftScreen = ({navigation}) => {
       setErrorTokenId(true);
     }
   };
+
+  const handleNavigate = () => {
+    if (!contact || !tokenId) {
+      setErrorTokenId(true);
+      setErrorContact(true);
+      return;
+    }
+    !errorTokenId && !errorContact && console.log('clicked');
+    // navigation.navigate(ROUTES.WALLET.NFT_SEND, {
+    //   tokenId,
+    //   contact,
+    // });
+  };
+
   return (
     <LayoutScreen>
       <Container>
@@ -42,7 +56,7 @@ const LoadNftScreen = ({navigation}) => {
               value={contact}
               onChange={event => handleChangeContact(event)}
               placeholder="Contract Address"
-              onPress
+              onPress={() => console.log('clicked')}
               btnText="Paste"
               action
               error={errorContact}
@@ -54,7 +68,7 @@ const LoadNftScreen = ({navigation}) => {
               onChange={event => handleChangeTokenId(event)}
               placeholder="Token ID"
               keyboardType="numeric"
-              onPress
+              onPress={() => console.log('clicked')}
               btnText="Max"
               action
               error={errorTokenId}
@@ -63,14 +77,7 @@ const LoadNftScreen = ({navigation}) => {
           </Wrapper>
         </Content>
         <ButtonContainer>
-          <ButtonPrimary
-            title="Load"
-            onPress={() =>
-              navigation.navigate(ROUTES.WALLET.NFT_SEND, {
-                data: {},
-              })
-            }
-          />
+          <ButtonPrimary title="Load" onPress={() => handleNavigate()} />
         </ButtonContainer>
       </Container>
     </LayoutScreen>

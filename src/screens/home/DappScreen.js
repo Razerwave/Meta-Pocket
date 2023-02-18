@@ -23,6 +23,7 @@ const DappScreen = ({navigation}) => {
 
   useEffect(() => {
     setData(Dappdata);
+    console.log(data);
   }, []);
 
   const renderScene = ({route}) => {
@@ -87,7 +88,7 @@ const DappTab = ({data = [], onPress}) => {
           style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
           {data.map((item, index) => (
             <Stack key={index} marginBottom={30}>
-              <Card item={item} onPress={onPress} />
+              <Card item={item} onPress={() => onPress(item)} />
             </Stack>
           ))}
         </Stack>

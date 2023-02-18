@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 12,
     // lineHeight: 24,
+    height: 80,
 
     fontWeight: '600',
   },

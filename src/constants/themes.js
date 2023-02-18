@@ -63,8 +63,8 @@ const DefaultTheme = {
   // not done
   activeTintColor: primary,
   steps: {
-    activeColor: white,
-    inactiveColor: white,
+    activeColor: blue300,
+    inactiveColor: gray200,
   },
   keyboardDeleteKey: {
     bgColor: gray100,

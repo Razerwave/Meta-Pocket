@@ -1,5 +1,5 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ROUTES } from '../constants';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {ROUTES} from '../constants';
 import {
   BackupWallet,
   CreatePasscode,
@@ -10,8 +10,8 @@ import {
   CheckBackupWallet,
   Result,
 } from '../screens/auth';
-import { View, StyleSheet } from 'react-native';
-import { useTheme } from 'styled-components';
+import {View, StyleSheet} from 'react-native';
+import {useTheme} from 'styled-components';
 
 const stepsName = {
   [ROUTES.AUTH.RECOVER_WALLET]: 1,
@@ -25,7 +25,7 @@ const stepsName = {
 const Stack = createNativeStackNavigator();
 
 const AuthNavigation = () => {
-  const { backgroundColor, activeTintColor, fontColor } = useTheme();
+  const {backgroundColor, activeTintColor, fontColor} = useTheme();
 
   return (
     <Stack.Navigator
@@ -41,18 +41,36 @@ const AuthNavigation = () => {
       }}
       initialRouteName={ROUTES.AUTH.WELCOME}>
       <Stack.Screen
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
         name={ROUTES.AUTH.WELCOME}
         component={WelcomeScreen}
       />
-      <Stack.Screen name={ROUTES.AUTH.RECOVER_WALLET} component={RecoverWallet} />
+      <Stack.Screen
+        name={ROUTES.AUTH.RECOVER_WALLET}
+        component={RecoverWallet}
+      />
       <Stack.Screen name={ROUTES.AUTH.BACKUP_WALLET} component={BackupWallet} />
-      <Stack.Screen name={ROUTES.AUTH.CHECK_BACKUP_WALLET} component={CheckBackupWallet} />
-      <Stack.Screen name={ROUTES.AUTH.PROTECT_WALLET} component={ProtectWallet} />
-      <Stack.Screen name={ROUTES.AUTH.CREATE_PASSCODE} component={CreatePasscode} />
-      <Stack.Screen name={ROUTES.AUTH.CONFIRM_PASSCODE} component={ConfirmPasscode} />
-      <Stack.Screen options={{ headerShown: false }} name={ROUTES.AUTH.RESULT} component={Result} />
-
+      <Stack.Screen
+        name={ROUTES.AUTH.CHECK_BACKUP_WALLET}
+        component={CheckBackupWallet}
+      />
+      <Stack.Screen
+        name={ROUTES.AUTH.PROTECT_WALLET}
+        component={ProtectWallet}
+      />
+      <Stack.Screen
+        name={ROUTES.AUTH.CREATE_PASSCODE}
+        component={CreatePasscode}
+      />
+      <Stack.Screen
+        name={ROUTES.AUTH.CONFIRM_PASSCODE}
+        component={ConfirmPasscode}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name={ROUTES.AUTH.RESULT}
+        component={Result}
+      />
     </Stack.Navigator>
   );
 };

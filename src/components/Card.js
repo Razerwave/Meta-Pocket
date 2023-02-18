@@ -6,7 +6,6 @@ import {neutral100, neutral300} from '../constants/colors';
 import BodyText from './texts/BodyText';
 
 const Card = ({item, onPress}) => {
-  console.log(item);
   return (
     <View>
       {item.image ? (

@@ -8,6 +8,7 @@ import {
   CustomInput,
   CustomSelect,
   Divider,
+  ErrorText,
   LayoutScreen,
   LayoutScroll,
   Precautions,
@@ -20,6 +21,7 @@ const SwapBTCScreen = () => {
   const [quantity, setQuantity] = useState('');
   const [to, setTo] = useState('');
   const [errorQuantity, setErrorQuantity] = useState(false);
+  const [error, setError] = useState(false);
   const [selectValue, setSelectValue] = useState('BTC');
   const [selectConvert, setSelectConvert] = useState('USDT');
   const {i18n} = useAuth();
@@ -29,11 +31,12 @@ const SwapBTCScreen = () => {
   ];
 
   let pattern = /[^0-9]/g;
-  let balance = 1900;
+  const balance = 1900;
 
-  const btnMax = balance => {
-    console.log(balance);
+  const btnMax = v => {
+    console.log(balance, ' B');
     setQuantity(balance);
+    console.log(quantity);
   };
   const handleChangeTo = event => {
     setTo(event);
@@ -59,15 +62,16 @@ const SwapBTCScreen = () => {
         <Wrapper>
           <Container>
             <View>
-              <View style={{marginBottom: 10}}>
+              <ConvertToContainer>
                 <BodyText type={5}>{i18n.use}</BodyText>
-              </View>
+              </ConvertToContainer>
               <CustomSelect
                 bordered
                 value={selectValue}
                 data={selectData}
                 onChange={item => setSelectValue(item.value)}
-                selectStyle={{top: 0, paddingBottom: 13, width: 80}}
+                wrapperStyle={{height: 40, width: 80}}
+                dropDownStyle={{width: 80}}
               />
             </View>
             <InputSection>
@@ -79,12 +83,20 @@ const SwapBTCScreen = () => {
                 onChange={event => handleChangeQuantity(event)}
                 placeholder={i18n.quantity}
                 keyboardType="numeric"
-                onPress={balance => btnMax(balance)}
+                onPress={v => btnMax(v)}
                 btnText={i18n.max}
                 action
+                style={{
+                  height: 42,
+                }}
                 textAlign="right"
                 error={errorQuantity}
               />
+              {errorQuantity && (
+                <View>
+                  <ErrorText>{i18n.insufficientFunds}</ErrorText>
+                </View>
+              )}
               <SwapButtonWithLine>
                 <Line />
                 <ButtonIcon
@@ -101,23 +113,24 @@ const SwapBTCScreen = () => {
 
           <Container>
             <View>
-              <View style={{marginBottom: 10}}>
+              <ConvertToContainer>
                 <BodyText type={5}>{i18n.convertTo}</BodyText>
-              </View>
+              </ConvertToContainer>
               <View>
                 <CustomSelect
                   bordered
                   value={selectConvert}
                   data={selectData}
                   onChange={item => setSelectConvert(item.value)}
-                  selectStyle={{top: 0, paddingBottom: 13, width: 80}}
+                  wrapperStyle={{height: 40, width: 80}}
+                  dropDownStyle={{width: 80}}
                 />
               </View>
             </View>
             <InputSection>
-              <View style={{marginBottom: 10}}>
+              <EmptyContent>
                 <BodyText type={5}></BodyText>
-              </View>
+              </EmptyContent>
               <CustomInput
                 value={to}
                 onChange={event => handleChangeTo(event)}
@@ -126,14 +139,18 @@ const SwapBTCScreen = () => {
                 btnText="Max"
                 action
                 textAlign="right"
-                error={errorQuantity}
+                style={{
+                  height: 42,
+                }}
+                error={error}
               />
+              {error && <ErrorText>{i18n.insufficientFunds}</ErrorText>}
             </InputSection>
           </Container>
 
-          <View style={{marginTop: 30, marginBottom: 20}}>
+          <DividerContainer>
             <Divider></Divider>
-          </View>
+          </DividerContainer>
 
           <RateContent>
             <View>
@@ -189,6 +206,11 @@ const SwapButtonWithLine = styled.View`
   margin-bottom: 20px;
 `;
 
+const DividerContainer = styled.View`
+  margin-top: 30px;
+  margin-bottom: 20px;
+`;
+
 const RateContent = styled.View`
   flex-direction: row;
   gap: 10px;
@@ -202,6 +224,16 @@ const Wrapper = styled.View`
   flex: 1;
   padding: 16px;
   position: relative;
+`;
+
+const EmptyContent = styled.View`
+  margin-bottom: 10px;
+  flex: 1;
+  height: 100%;
+`;
+
+const ConvertToContainer = styled.View`
+  margin-bottom: 10px;
 `;
 
 export default SwapBTCScreen;

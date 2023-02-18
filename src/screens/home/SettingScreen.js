@@ -92,8 +92,8 @@ const SettingScreen = ({ navigation }) => {
             <CustomSelect
               value={lang}
               data={langSelectData}
-              onChange={item => changeLanguage({ lang: item.value })}
-              selectedWrapperStyle={{ minWidth: 35 }}
+              onChange={item => changeLanguage({lang: item.value})}
+              dropDownStyle={{right: 0}}
             />
           </ListItem>
           <ListItem label={i18n.darkMode} icon={<IconPerson />}>

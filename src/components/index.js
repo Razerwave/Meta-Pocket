@@ -48,6 +48,7 @@ import CustomToast from './CustomToast';
 import CustomLineChart from './CustomLineChart';
 import CustomLineChartKit from './CustomLineChartKit';
 import Card from './Card';
+import CustomDropDown from './input/CustomDropDown';
 
 export {
   Title,
@@ -96,4 +97,5 @@ export {
   CustomLineChart,
   CustomLineChartKit,
   Card,
+  CustomDropDown,
 };

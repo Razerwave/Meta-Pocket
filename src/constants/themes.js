@@ -84,6 +84,10 @@ const DefaultTheme = {
     rulesColor: gray100,
     textColor: black,
   },
+  recovery: {
+    inputColor: white,
+    borderColor: gray100,
+  },
 };
 
 const DarkTheme = {
@@ -152,6 +156,10 @@ const DarkTheme = {
     backgroundColor: neutral300,
     rulesColor: neutral100,
     textColor: white,
+  },
+  recovery: {
+    inputColor: neutral300,
+    borderColor: neutral300,
   },
 };
 

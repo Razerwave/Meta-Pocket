@@ -30,7 +30,7 @@ const CustomToast = () => {
             </BodyText>
           </TextWrapper>
           <TouchableOpacity onPress={() => hideToast()}>
-            <IconClose />
+            <IconClose color={white} />
           </TouchableOpacity>
         </Toast>
       </Wrapper>
